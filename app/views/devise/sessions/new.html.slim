@@ -1,0 +1,25 @@
+- title t('app.user.sign_in.title')
+
+.row
+  .columns
+    h2= yield :title
+
+.row
+  .medium-6.columns
+    = simple_form_for resource,
+        as: resource_name,
+        url: session_path(resource_name) do |f|
+
+      legend= t('app.user.sign_in.legend_html', app_name: app_config.app_name)
+
+      .form-inputs
+        = f.input :email, required: false, autofocus: true
+        = f.input :password, required: false
+        = f.input :remember_me, as: :boolean
+
+      .form-actions
+        = f.button :submit, t('app.user.sign_in.title')
+
+  .medium-6.columns.end
+    = render "devise/shared/links"
+
