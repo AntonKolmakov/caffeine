@@ -304,6 +304,8 @@ GEM
     sexp_processor (4.4.2)
     shoulda-matchers (2.5.0)
       activesupport (>= 3.0.0)
+    simple-navigation (3.13.0)
+      activesupport (>= 2.3.2)
     simple_form (3.0.2)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
@@ -387,6 +389,7 @@ DEPENDENCIES
   launchy
   letter_opener
   mail_safe
+  minitest
   nested_form
   pg
   phony_rails
@@ -403,6 +406,7 @@ DEPENDENCIES
   sass-rails
   seedbank
   shoulda-matchers
+  simple-navigation
   simple_form
   simplecov
   slim

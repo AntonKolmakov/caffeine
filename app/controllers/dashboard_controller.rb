@@ -1,9 +1,5 @@
-require 'github/markdown'
-
 class DashboardController < ApplicationController
-  expose(:content) do
-    GitHub::Markdown.render(File.read("#{Rails.root}/README.md"))
-  end
+  expose(:content) { 'Dashboard content here' }
 
   def index
   end
