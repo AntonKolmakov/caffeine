@@ -31,6 +31,7 @@ gem 'simple_form' # For easy view forms
 gem 'decent_exposure' # For DRYing controllers
 gem 'kaminari' # Object paginations
 gem 'slim' # View template engine
+gem 'simple-navigation'
 
 group :development do
   gem 'styleguides'
@@ -64,6 +65,7 @@ group :test do
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
+  gem 'minitest'
   gem 'shoulda-matchers'
   gem 'turnip'
 end

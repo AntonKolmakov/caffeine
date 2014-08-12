@@ -8,11 +8,11 @@ defaults_development: &defaults_development
   host: localhost
 
 development:
-  database: application_dev
+  database: promtechnosert_dev
   <<: *defaults_development
 
 test:
-  database: application_test
+  database: promtechnosert_test
   <<: *defaults_development
 
 
