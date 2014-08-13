@@ -4,20 +4,21 @@
 
 #category
   ul
-    - Category.roots.each do |category|
-      li= link_to category.name, category
-      = render 'category', category: category.children.includes(:posts)
+    - Category.roots.find_each do |category|
+      li
+        = link_to category.name, category
+        ul
+          = render category.children.includes(:posts)
 
 h1 = category.name
 
-- if category.root?
-  = link_to "Add category", new_category_path
-- else
-  = link_to "Add post", '#'
+= link_to "Add category", new_category_path(parent_id: category.id)
+|  | 
+= link_to "Add post", new_post_path(category_id: category.id)
 
-  .form-actions
-    = link_to(edit_category_path(category), class: 'btn btn-primary') do
-      i.icon-pencil.icon-white
-      | Edit
-    '  or
-    = link_to 'Back', :back
+.form-actions
+  = link_to(edit_category_path(category), class: 'btn btn-primary') do
+    i.icon-pencil.icon-white
+    | Edit
+  '  or
+  = link_to 'Back', :back
