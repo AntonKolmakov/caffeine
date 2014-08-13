@@ -1,0 +1,35 @@
+- title 'Listing categories'
+
+table.table.table-striped
+  thead
+    tr
+        th Name
+        th Content
+        th Parent
+        th Actions
+
+  - categories.each do |category|
+    tr
+      td= category.name
+      td= category.content
+      td= category.parent_id
+      td.actions
+        = link_to(category, class: 'btn') do
+          i.icon-eye-open
+          |  Show
+        = link_to(edit_category_path(category), class: 'btn') do
+          i.icon-edit
+          |  Edit
+        = link_to(category, confirm: 'Are you sure?', method: :delete, class: 'btn btn-danger') do
+          i.icon-trash.icon-white
+          |  Delete
+
+.paginator
+  = paginate(categories)
+
+br
+= link_to new_category_path, class: 'btn btn-primary' do
+  i.icon-plus.icon-white
+  |  New Category
+
+

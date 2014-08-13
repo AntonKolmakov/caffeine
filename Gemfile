@@ -32,6 +32,7 @@ gem 'decent_exposure' # For DRYing controllers
 gem 'kaminari' # Object paginations
 gem 'slim' # View template engine
 gem 'simple-navigation'
+gem 'closure_tree'
 
 group :development do
   gem 'styleguides'

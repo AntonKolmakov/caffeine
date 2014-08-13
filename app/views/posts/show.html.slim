@@ -1,0 +1,16 @@
+- title 'View post'
+.show-item
+  .well.post.form-horizontal
+
+    .control-group
+      label.control-label
+        | Name
+      .controls
+        .input-xlarge.uneditable-input.text.span7
+          = post.name
+  .form-actions
+    = link_to(edit_post_path(post), class: 'btn btn-primary') do
+      i.icon-pencil.icon-white
+      | Edit
+    '  or
+    = link_to 'Back', :back

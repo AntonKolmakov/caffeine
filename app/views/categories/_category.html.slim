@@ -1,0 +1,7 @@
+ul
+  - category.each do |category|
+    li 
+      = link_to_unless_current category.name, category
+      ul
+        - category.posts.each do |post|
+          li= link_to_unless_current post.name, post

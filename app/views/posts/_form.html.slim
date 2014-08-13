@@ -1,0 +1,11 @@
+.scaffold-form
+  = simple_form_for(post) do |f|
+    .form-inputs
+      = f.input :name
+      = f.association :category, include_blank: true, prompt: 'Choose category'
+
+    .form-actions
+      = f.button :submit
+      '  or
+      = link_to 'Back', :back
+
