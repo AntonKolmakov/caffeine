@@ -1,0 +1,25 @@
+/* CASEIN CUSTOM */
+/* Use this file for your project-specific Casein CSS */
+
+#category > ul {
+  float: left;
+  list-style: none;
+  border-right: dashed #777 1px;
+  padding: 6px 14px;
+  padding-bottom: 30px;
+  margin-top: -10px;
+  margin-bottom: 100px;
+  margin-right: 20px;
+  margin-left: 0;
+  li {
+    margin: 8px 0;
+  }
+  ul {
+    font-size: 11px;
+    margin: 0;
+    padding-left: 16px;
+    li {
+      margin: 5px 0;
+    }
+  }
+}

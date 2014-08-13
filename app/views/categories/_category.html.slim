@@ -1,9 +1,0 @@
-li
-  = link_to_unless_current category.name, category
-  - if category.posts
-    ul
-      - category.posts.each do |post|
-        li= link_to_unless_current post.name, post
-  ul
-    - category.children.find_each do |child|
-      li= link_to_unless_current child.name, child

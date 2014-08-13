@@ -1,0 +1,9 @@
+li
+  = link_to_unless_current category.name, casein_category_path(category)
+  - if category.posts
+    ul
+      - category.posts.each do |post|
+        li= link_to_unless_current post.name, casein_post_path(post)
+  ul
+    - category.children.find_each do |child|
+      li= link_to_unless_current child.name, casein_category_path(child)

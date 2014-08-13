@@ -1,0 +1,3 @@
+= f.input :name
+= f.input :content
+= f.collection_select :parent_id, Category.order(:name), :id, :name, include_blank: true, selected: params['parent_id']

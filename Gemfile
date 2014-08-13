@@ -32,7 +32,8 @@ gem 'decent_exposure' # For DRYing controllers
 gem 'kaminari' # Object paginations
 gem 'slim' # View template engine
 gem 'simple-navigation'
-gem 'closure_tree'
+gem 'closure_tree' #tree data structure
+gem 'casein' #CMS toolkit
 
 group :development do
   gem 'styleguides'
