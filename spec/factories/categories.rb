@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :category do
-    name "root"
+    name 'catefory'
   end
 end

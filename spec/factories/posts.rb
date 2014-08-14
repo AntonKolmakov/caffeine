@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :post do
-    name "MyText"
+    name 'post'
   end
 end

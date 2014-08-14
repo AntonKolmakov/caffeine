@@ -7,7 +7,7 @@ feature 'admin create child category' do
 
     click_on 'Add a new category'
     fill_in 'Name', with: 'category child'
-    select 'category parent', :from => 'Parent'
+    select 'category parent', from: 'Parent'
     click_on 'Add new category'
 
     expect(page).to have_content('category parent')
