@@ -2,8 +2,6 @@
 
 FactoryGirl.define do
   factory :category do
-    name "MyString"
-    content "MyText"
-    parent_id 1
+    name "root"
   end
 end

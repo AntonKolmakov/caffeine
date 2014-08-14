@@ -11,6 +11,8 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'turnip/capybara'
 
+ActiveRecord::Migration.maintain_test_schema!
+
 paths = Dir[Rails.root.join('spec/**/{support,step_definitions}/**/*.rb')]
 paths.each { |file| require file }
 
