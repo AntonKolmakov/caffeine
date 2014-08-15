@@ -1,0 +1,29 @@
+defaults: &defaults
+  adapter: postgresql
+  pool: <%= ENV['DB_POOL'] || 5 %>
+  reaping_frequency: <%= ENV['DB_REAP_FREQ'] || 10 %>
+  encoding: unicode
+
+# Local development section
+
+development_defaults: &development_defaults
+  <<: *defaults
+  user: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: localhost
+
+development:
+  <<: *development_defaults
+  database: application_dev
+
+test:
+  <<: *development_defaults
+  database: application_test
+
+# Production section
+
+staging:
+  <<: *defaults
+
+production:
+  <<: *defaults
