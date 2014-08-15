@@ -1,4 +1,5 @@
-RailsBase::Application.routes.draw do
+Rails.application.routes.draw do
+  root 'dashboard#index'
+
   devise_for :users
-  root to: 'dashboard#index'
 end
