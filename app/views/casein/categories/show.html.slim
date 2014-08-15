@@ -7,14 +7,14 @@
         ul
           = render category.children.includes(:posts)
 
-h1 = @category.name
+h1 = category.name
 
 = link_to "Add category", new_casein_category_path(parent_id: @category.id)
 |  | 
 = link_to "Add post", new_casein_post_path(category_id: @category.id)
 
 .form-actions
-  = link_to(casein_category_path(@category), class: 'btn btn-primary') do
+  = link_to(casein_category_path(category), class: 'btn btn-primary') do
     i.icon-pencil.icon-white
     | Edit
   '  or
