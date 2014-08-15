@@ -1,6 +1,7 @@
 # THIS IS OLD README
 # WE ARE GOING TO UPDATE THIS ONE
 
+[ ![Codeship Status for fishtag/PromTechnoSert](https://codeship.io/projects/7e8e5080-067c-0132-56d5-42c582b0b74b/status)](https://codeship.io/projects/31099)
 # Skeleton for new Rails 4 based application
 
 Application currently based on Rails 4 stable branch and Ruby 2.1.0

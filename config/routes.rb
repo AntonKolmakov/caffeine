@@ -1,11 +1,11 @@
-RailsBase::Application.routes.draw do
-
-	#Casein routes
-	namespace :casein do
-		resources :posts
-		resources :categories
-	end
+Rails.application.routes.draw do
+  root 'dashboard#index'
 
   devise_for :users
-  root to: 'dashboard#index'
+
+  # Admin routes
+  namespace :casein do
+    resources :posts
+    resources :categories
+  end
 end

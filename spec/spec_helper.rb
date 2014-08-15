@@ -1,9 +1,3 @@
-# Run codeclimate-test-reporter only in CI
-if ENV['CI']
-  require 'codeclimate-test-reporter'
-  CodeClimate::TestReporter.start
-end
-
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../../config/environment', __FILE__)
