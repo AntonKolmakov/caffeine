@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-feature 'admin create post' do
-  scenario 'successfully add post' do
+feature 'admin creates post' do
+  scenario do
     admin_session_sign_in
 
     click_link 'Post'

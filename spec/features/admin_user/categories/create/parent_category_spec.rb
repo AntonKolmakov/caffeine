@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-feature 'admin create category' do
-  scenario 'successfully add parent category' do
+feature 'admin creates parent category' do
+  scenario do
     admin_session_sign_in
 
     click_on 'Add a new category'

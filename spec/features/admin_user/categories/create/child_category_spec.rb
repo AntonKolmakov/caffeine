@@ -1,7 +1,7 @@
 require 'spec_helper'
 
-feature 'admin create child category' do
-  scenario 'successfully add child category to parent category' do
+feature 'admin creates child category' do
+  scenario do
     create(:category, name: 'category parent')
     admin_session_sign_in
 
