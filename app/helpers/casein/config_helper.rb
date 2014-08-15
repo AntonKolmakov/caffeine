@@ -30,11 +30,11 @@ module Casein
     end
 
     def casein_config_stylesheet_includes
-      %w([wcasein/casein casein/custom])
+      %w(casein/casein casein/custom)
     end
 
     def casein_config_javascript_includes
-      %w([wcasein/casein casein/custom])
+      %w(casein/casein casein/custom)
     end
   end
 end
