@@ -1,6 +1,6 @@
 module Casein
   class CategoriesController < Casein::CaseinController
-    responders :location, :flash
+    responders :collection, :flash
     expose(:categories) { Category.order(sort_order(:name)).paginate page: params[:page] }
     expose(:category, attributes: :category_params)
 
@@ -22,17 +22,17 @@ module Casein
 
     def create
       category.save
-      respond_with category, location: -> { casein_categories_path }
+      respond_with(:casein, category)
     end
 
     def update
       category.update_attributes category_params
-      respond_with category, location: -> { casein_categories_path }
+      respond_with(:casein, category)
     end
 
     def destroy
       category.destroy
-      respond_with category, location: -> { casein_categories_path }
+      respond_with(:casein, category)
     end
 
     private

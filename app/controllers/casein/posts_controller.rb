@@ -1,6 +1,6 @@
 module Casein
   class PostsController < Casein::CaseinController
-    responders :location, :flash
+    responders :collection, :flash
     expose(:posts) { Post.order(sort_order(:name)).paginate page: params[:page] }
     expose(:post, attributes: :post_params)
 
@@ -22,17 +22,17 @@ module Casein
 
     def create
       post.save
-      respond_with post, location: -> { casein_posts_path }
+      respond_with(:casein, post)
     end
 
     def update
       post.update_attributes post_params
-      respond_with post, location: -> { casein_posts_path }
+      respond_with(:casein, post)
     end
 
     def destroy
       post.destroy
-      respond_with post, location: -> { casein_posts_path }
+      respond_with(:casein, post)
     end
 
     private
