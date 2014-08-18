@@ -16,6 +16,7 @@ module Casein
 
     def new
       @casein_page_title = 'Add a new user form'
+      user_form.fields.build
     end
 
     def create
@@ -36,7 +37,9 @@ module Casein
     private
 
     def user_form_params
-      params.require(:user_form).permit(:name, :email)
+      params.require(:user_form).permit(:name,
+        :email,
+        fields_attributes: %i(id _destroy name field_type))
     end
   end
 end

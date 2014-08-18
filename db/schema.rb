@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818070823) do
+ActiveRecord::Schema.define(version: 20140818120911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,17 @@ ActiveRecord::Schema.define(version: 20140818070823) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "user_form_fields", force: true do |t|
+    t.string   "name"
+    t.string   "field_type"
+    t.boolean  "required"
+    t.integer  "user_form_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_form_fields", ["user_form_id"], name: "index_user_form_fields_on_user_form_id", using: :btree
 
   create_table "user_forms", force: true do |t|
     t.string   "name"

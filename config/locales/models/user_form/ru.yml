@@ -1,0 +1,10 @@
+ru:
+  activerecord:
+    attributes:
+      user_form:
+        name:
+          one: Название
+          few: Названий
+          many: Названий
+          other: Названий
+        email: Электронная почта

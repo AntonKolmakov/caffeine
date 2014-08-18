@@ -1,0 +1,7 @@
+ru:
+  activerecord:
+    attributes:
+      user_form/field:
+        name: Название поля
+        field_type: Тип поля
+        required: Обязательное
