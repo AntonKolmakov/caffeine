@@ -1,0 +1,9 @@
+= form_for([:casein, user_form]) do |f|
+  .row
+    .col-lg-6
+      = casein_text_field f, f.object, :name
+    .col-lg-6
+      = casein_text_field f, f.object, :email
+  p.submits
+    = link_to 'Cancel', casein_user_forms_path, class: 'btn btn-mini btn-danger'
+    = f.submit class: 'btn btn-mini btn-primary'

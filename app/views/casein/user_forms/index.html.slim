@@ -1,0 +1,8 @@
+h2
+  | User forms#{casein_pagination_details user_forms}
+  = render partial: 'casein/user_forms/table', locals: { user_forms: user_forms }
+  .text-center
+    = will_paginate user_forms
+  = content_for :sidebar do
+    li
+      = link_to "#{casein_show_icon "plus-sign"}Add a new user form".html_safe, new_casein_user_form_path

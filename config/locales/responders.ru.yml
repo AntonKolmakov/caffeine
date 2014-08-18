@@ -1,0 +1,23 @@
+ru:
+  flash:
+    actions:
+      create:
+        notice: 'Успешно создано'
+        warning: 'Не получилось создать %{resource_name}'
+      update:
+        notice: 'Успешно обновлено'
+        warning: 'Не получилось обновить %{resource_name}'
+      destroy:
+        notice: 'Успешно удалено'
+        warning: 'Не получилось удалить %{resource_name}'
+    casein:
+      user_forms:
+        create:
+          notice: 'Новая форма успешно добавлена'
+          warning: 'Не удалось создать форму'
+        update:
+          notice: 'Форма успешно обновлена'
+          warning: 'Не получилось обновить форму'
+        destroy:
+          notice: 'Форма удалена'
+          warning: 'Не получилось удалить форму'
