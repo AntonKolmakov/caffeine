@@ -9,6 +9,6 @@ feature 'admin destroys category' do
     click_link category.name
     click_link 'Delete'
 
-    expect(page).not_to have_content('category parent')
+    expect(page).not_to have_content(category.name)
   end
 end

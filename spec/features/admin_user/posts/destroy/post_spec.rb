@@ -1,15 +1,15 @@
 require 'spec_helper'
 
 feature 'admin destroys post' do
-  let!(:newpost) { create(:post, name: 'newpost') }
+  let!(:new_post) { create(:post, name: 'newpost') }
 
   scenario do
     admin_session_sign_in
 
     click_link 'Post'
-    click_link newpost.name
+    click_link new_post.name
     click_link 'Delete'
 
-    expect(page).not_to have_content('newpost')
+    expect(page).not_to have_content(new_post.name)
   end
 end
