@@ -26,7 +26,7 @@ module Casein
     end
 
     def update
-      category.update_attributes category_params
+      category.save category_params
       respond_with(:casein, category)
     end
 

@@ -12,7 +12,7 @@ module Casein
     # The server hostname where Casein will run
     def casein_config_hostname
       if Rails.env.production?
-        'http://www.caseincms.com'
+        Rails.application.config.host
       else
         Rails.application.config.host
       end
