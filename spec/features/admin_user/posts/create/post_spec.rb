@@ -7,7 +7,7 @@ feature 'admin creates post' do
     click_link 'Post'
     click_on 'Add a new post'
     fill_in 'Name', with: 'new post1'
-    click_on 'Add new post'
+    click_on 'Submit'
 
     expect(page).to have_content('new post1')
   end

@@ -1,8 +1,13 @@
 h2 View post
-= simple_form_for post, :url => casein_post_path(post) do |f|
-  = render :partial => 'casein/posts/form', :locals => { :f => f }
-  p.submits
-    = link_to 'Cancel', casein_posts_path, :class => 'btn btn-mini btn-danger'
-    = f.submit "Save changes", :class => "btn btn-mini btn-primary"
+p
+  strong Name:
+  = post.name
+p
+  strong Category name:
+  = post.category.name if post.category.present?
+= link_to 'Cancel', casein_posts_path, class: 'btn btn-mini btn-danger'
+= link_to 'Edit', edit_casein_post_path(post), class: 'btn btn-mini btn-primary'
+'  or
+= link_to 'Delete', casein_post_path(post), method: :delete, class: 'btn btn-mini btn-danger'
 = content_for :sidebar do
   li= link_to "#{casein_show_icon "th-list"} Back to list".html_safe, casein_posts_path

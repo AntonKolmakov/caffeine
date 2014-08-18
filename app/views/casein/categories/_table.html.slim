@@ -11,4 +11,4 @@ table.table.table-striped.table-hover.table-condensed
       td= casein_table_cell_link category.content, casein_category_path(category)
       td= casein_table_cell_link category.parent_id, casein_category_path(category)
       td.delete
-        = link_to(casein_show_row_icon("trash"), casein_category_path(category), :method => :delete, :data => { :confirm => "Are you sure you want to delete this category?" })
+        = link_to(casein_show_row_icon("trash"), casein_category_path(category), method: :delete, data: { confirm: "Are you sure you want to delete this category?" })

@@ -1,7 +1,8 @@
 module Casein
   class CategoriesController < Casein::CaseinController
-    expose(:category, attributes: :category_params)
+    responders :location, :flash
     expose(:categories) { Category.order(sort_order(:name)).paginate page: params[:page] }
+    expose(:category, attributes: :category_params)
 
     def index
       @casein_page_title = 'Categories'
@@ -11,35 +12,27 @@ module Casein
       @casein_page_title = 'View category'
     end
 
+    def edit
+      @casein_page_title = 'Edit category'
+    end
+
     def new
       @casein_page_title = 'Add a new category'
     end
 
     def create
-      if category.save
-        flash[:notice] = 'Category created'
-        redirect_to casein_categories_path
-      else
-        flash.now[:warning] = 'There were problems when trying to create a new category'
-        render action: :new
-      end
+      category.save
+      respond_with category, location: -> { casein_categories_path }
     end
 
     def update
-      @casein_page_title = 'Update category'
-      if category.update_attributes category_params
-        flash[:notice] = 'Category has been updated'
-        redirect_to casein_categories_path
-      else
-        flash.now[:warning] = 'There were problems when trying to update this category'
-        render action: :show
-      end
+      category.update_attributes category_params
+      respond_with category, location: -> { casein_categories_path }
     end
 
     def destroy
       category.destroy
-      flash[:notice] = 'Category has been deleted'
-      redirect_to casein_categories_path
+      respond_with category, location: -> { casein_categories_path }
     end
 
     private

@@ -14,7 +14,7 @@ module Casein
       if Rails.env.production?
         'http://www.caseincms.com'
       else
-        'http://prom-techno-sert.dev'
+        Rails.application.config.host
       end
     end
 

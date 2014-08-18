@@ -17,7 +17,7 @@ en:
     #   user:
     #     new:
     #       email: 'E-mail to sign in.'
-    #     edit:
+    #     show:
     #       email: 'E-mail.'
     # hints:
     #   defaults:

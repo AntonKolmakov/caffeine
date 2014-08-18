@@ -1,8 +1,6 @@
 h2 Add a new category
-= simple_form_for category, :url => casein_categories_path do |f|
-  = render :partial => 'casein/categories/form', :locals => { :f => f }
-  p.submits
-    = link_to 'Cancel', casein_categories_path, :class => 'btn btn-mini btn-danger'
-    = f.submit "Add new category", :class => "btn btn-mini btn-primary"
+
+= render 'form'
+
 = content_for :sidebar do
   li= link_to "#{casein_show_icon "th-list"}Back to list".html_safe, casein_categories_path
