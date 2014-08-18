@@ -1,0 +1,6 @@
+= simple_form_for [:casein, post] do |f|
+  = f.input :name
+  = f.association :category, include_blank: true, prompt: 'Choose category', selected: params['category_id']
+  p.submits
+    = link_to 'Cancel', casein_posts_path, class: 'btn btn-mini btn-danger'
+    = f.submit "Submit", class: "btn btn-mini btn-primary"

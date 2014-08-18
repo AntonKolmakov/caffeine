@@ -1,0 +1,21 @@
+#category
+  ul
+    - Category.roots.find_each do |category|
+      li
+        = link_to category.name, casein_category_path(category)
+        ul
+          = render category.children.includes(:posts)
+
+h1 = category.name
+
+= link_to "Add category", new_casein_category_path(parent_id: category.id)
+|  | 
+= link_to "Add post", new_casein_post_path(category_id: category.id)
+
+.form-actions
+  = link_to(edit_casein_category_path(category), class: 'btn btn-mini btn-primary')
+    | Edit
+  '  or
+  = link_to 'Back', :back
+  '  or
+  = link_to 'Delete', casein_category_path(category), method: :delete, class: 'btn btn-mini btn-danger'

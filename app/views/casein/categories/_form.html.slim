@@ -1,0 +1,7 @@
+= simple_form_for [:casein, category] do |f|
+  = f.input :name
+  = f.input :content
+  = f.input :parent_id, collection: Category.order(:name), as: :select, selected: params[:parent_id] || category.parent_id
+  p.submits
+    = link_to 'Cancel', casein_categories_path, class: 'btn btn-mini btn-danger'
+    = f.submit "Submit", class: "btn btn-mini btn-primary"

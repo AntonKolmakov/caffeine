@@ -1,0 +1,7 @@
+h2
+  | Posts#{casein_pagination_details posts}
+= render partial: 'casein/posts/table', locals: { posts: posts }
+.text-center
+  = will_paginate posts
+= content_for :sidebar do
+  li= link_to "#{casein_show_icon "plus-sign"} Add a new post".html_safe, new_casein_post_path

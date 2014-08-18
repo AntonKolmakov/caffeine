@@ -32,7 +32,9 @@ gem 'decent_exposure' # For DRYing controllers
 gem 'kaminari' # Object paginations
 gem 'slim' # View template engine
 gem 'simple-navigation'
-gem 'spring' # preload instances
+gem 'closure_tree' #tree data structure
+gem 'casein' #CMS toolkit
+gem 'responders'
 
 group :development do
   gem 'styleguides'
@@ -44,6 +46,9 @@ group :development do
   gem 'mail_safe'
   gem 'rails-erd', github: 'paulwittmann/rails-erd', branch: 'mavericks'
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
+  gem 'spring' # preload instances
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :development, :test do

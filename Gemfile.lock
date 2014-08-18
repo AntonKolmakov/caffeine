@@ -58,8 +58,15 @@ GEM
     addressable (2.3.5)
     arel (5.0.1.20140414130214)
     ast (2.0.0)
+    authlogic (3.4.2)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
+      request_store (~> 1.0)
     awesome_print (1.2.0)
     bcrypt-ruby (3.1.2)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     brakeman (2.4.1)
@@ -83,9 +90,18 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    casein (5.0.0.0)
+      authlogic (= 3.4.2)
+      casein
+      jquery-rails
+      scrypt (= 1.2.1)
+      will_paginate (= 3.0.5)
     choice (0.1.6)
     chunky_png (1.3.0)
     cliver (0.3.2)
+    closure_tree (5.0.0)
+      activerecord (>= 3.2.0)
+      with_advisory_lock (>= 3.0.0)
     code_analyzer (0.4.4)
       sexp_processor
     coderay (1.1.0)
@@ -136,6 +152,10 @@ GEM
     faker (1.3.0)
       i18n (~> 0.5)
     fastercsv (1.5.5)
+    ffi (1.9.3)
+    ffi-compiler (0.1.3)
+      ffi (>= 1.0.0)
+      rake
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
@@ -263,7 +283,10 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rainbow (2.0.0)
     rake (10.3.2)
+    request_store (1.0.8)
     require_all (1.3.2)
+    responders (1.1.0)
+      railties (>= 3.2, < 5)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -300,6 +323,9 @@ GEM
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0.0)
+    scrypt (1.2.1)
+      ffi-compiler (>= 0.0.2)
+      rake
     seedbank (0.3.0)
     sexp_processor (4.4.2)
     shoulda-matchers (2.5.0)
@@ -358,6 +384,10 @@ GEM
       addressable (>= 2.2.7)
       crack (>= 0.3.2)
     websocket-driver (0.3.3)
+    will_paginate (3.0.5)
+    with_advisory_lock (3.0.0)
+      activerecord (>= 3.2)
+      thread_safe
     xpath (2.0.0)
       nokogiri (~> 1.3)
     yard (0.8.7.4)
@@ -366,9 +396,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  better_errors
+  binding_of_caller
   brakeman
   bullet
   capybara
+  casein
+  closure_tree
   coffee-rails
   compass-rails
   database_cleaner
@@ -401,6 +435,7 @@ DEPENDENCIES
   rails-i18n
   rails_12factor
   rails_best_practices
+  responders
   rspec-rails
   rubocop
   sass-rails
