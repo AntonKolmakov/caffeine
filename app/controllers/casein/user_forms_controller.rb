@@ -9,11 +9,11 @@ module Casein
     def index
       @casein_page_title = 'User forms'
     end
-  
+
     def edit
       @casein_page_title = 'View user form'
     end
-  
+
     def new
       @casein_page_title = 'Add a new user form'
     end
@@ -22,17 +22,17 @@ module Casein
       user_form.save
       respond_with(:casein, user_form)
     end
-  
+
     def update
       user_form.save
       respond_with(:casein, user_form)
     end
- 
+
     def destroy
       user_form.destroy
       respond_with(:casein, user_form)
     end
-  
+
     private
 
     def user_form_params
