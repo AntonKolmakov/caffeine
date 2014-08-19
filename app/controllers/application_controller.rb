@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
-  respond_to :html
+  respond_to :js, :html
 
   protect_from_forgery
 

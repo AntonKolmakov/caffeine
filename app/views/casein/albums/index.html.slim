@@ -1,0 +1,7 @@
+h2
+  | Albums#{casein_pagination_details albums}
+= render partial: 'casein/albums/table', locals: { albums: albums }
+.text-center
+  = will_paginate albums
+= content_for :sidebar do
+  li= link_to "#{casein_show_icon "plus-sign"} Add a new album".html_safe, new_casein_album_path

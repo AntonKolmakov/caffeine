@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813120910) do
+ActiveRecord::Schema.define(version: 20140818174248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "album_hierarchies", id: false, force: true do |t|
+    t.integer "ancestor_id",   null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations",   null: false
+  end
+
+  add_index "album_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "album_anc_desc_udx", unique: true, using: :btree
+  add_index "album_hierarchies", ["descendant_id"], name: "album_desc_idx", using: :btree
+
+  create_table "albums", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "parent_id"
+  end
 
   create_table "casein_admin_users", force: true do |t|
     t.string   "login",                           null: false
@@ -54,6 +70,14 @@ ActiveRecord::Schema.define(version: 20140813120910) do
 
   add_index "category_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "tag_anc_desc_udx", unique: true, using: :btree
   add_index "category_hierarchies", ["descendant_id"], name: "tag_desc_idx", using: :btree
+
+  create_table "images", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "picture"
+    t.integer  "album_id"
+  end
 
   create_table "posts", force: true do |t|
     t.text     "name"

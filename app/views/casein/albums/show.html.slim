@@ -1,0 +1,28 @@
+#category
+  ul
+    li
+      = album.name
+      ul
+        - album.children.find_each do |child|
+          li
+            p= link_to child.name, casein_album_path(child)
+
+h1 = album.name
+
+ul.imageItems
+  - album.images.find_each do |image|
+    li.imageItem
+      div
+        = image_tag image.picture.url(:thumb) if image.present?
+
+      .btn-group
+        = link_to "edit", edit_casein_album_image_path(album, image), class: "btn btn-default btn-mini"
+        = link_to "X", casein_album_image_path(album, image), confirm: 'Are you sure?', method: :delete, class: "btn btn-danger btn-default btn-mini"
+p
+  = link_to "Add a Image", new_casein_album_image_path(album_id: album.id)
+  |  |
+  = link_to "Remove Album", casein_album_path(album), confirm: 'Are you sure?', method: :delete
+  |  |
+  = link_to "View Albums", casein_albums_path
+  |  |
+  = link_to 'Add new album', new_casein_album_path(parent_id: album.id)

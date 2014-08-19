@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   # Admin routes
   namespace :casein do
+		resources :albums do
+      resources :images
+    end
     resources :posts
     resources :categories
   end

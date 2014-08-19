@@ -18,6 +18,7 @@ gem 'foundation-icons-sass-rails'
 gem 'jquery-rails'
 gem 'coffee-rails'
 gem 'uglifier'
+gem "jquery-fileupload-rails"
 
 # Validation gems
 gem 'validates_email_format_of' # validate email format for field
@@ -35,6 +36,8 @@ gem 'simple-navigation'
 gem 'closure_tree' #tree data structure
 gem 'casein' #CMS toolkit
 gem 'responders'
+gem 'carrierwave' #flexible way to upload files
+gem "mini_magick"
 
 group :development do
   gem 'styleguides'

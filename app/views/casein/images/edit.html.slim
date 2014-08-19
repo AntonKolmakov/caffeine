@@ -1,0 +1,6 @@
+h2 Edit image
+
+= render 'form'
+
+= content_for :sidebar do
+  li= link_to "#{casein_show_icon "th-list"} Back to list".html_safe, casein_albums_path
