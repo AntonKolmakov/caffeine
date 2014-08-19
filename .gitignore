@@ -10,3 +10,4 @@ doc/**/*
 .env
 .pryrc
 .idea
+public/uploads/*

@@ -3,7 +3,7 @@ class Image < ActiveRecord::Base
 
   validates :name, presence: true
 
-  before_create :default_name
+  before_validation :default_name
 
   mount_uploader :picture, PictureUploader
 
