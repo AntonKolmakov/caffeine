@@ -1,0 +1,12 @@
+= nested_form_for([:casein, user_form]) do |f|
+  .row
+    .col-lg-6
+      = casein_text_field f, f.object, :name, casein_label: f.object.class.human_attribute_name(:name)
+    .col-lg-6
+      = casein_text_field f, f.object, :email, casein_label: f.object.class.human_attribute_name(:email)
+  = f.fields_for :user_form_fields
+  = f.link_to_add t('views.casein.user_forms.form.add_field_link'), :user_form_fields
+  p.submits
+    = link_to t('views.casein.user_forms.form.cancel'),
+      casein_user_forms_path, class: 'btn btn-mini btn-danger'
+    = f.submit class: 'btn btn-mini btn-primary'

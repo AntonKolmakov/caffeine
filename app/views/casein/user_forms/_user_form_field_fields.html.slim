@@ -1,0 +1,12 @@
+.row
+  .col-lg-6
+    = casein_text_field f, f.object, :name,
+      casein_label: UserFormField.human_attribute_name(:name)
+  .col-lg-3
+    = casein_select f, f.object, :field_type, UserFormField::KINDS.invert,
+      casein_label: UserFormField.human_attribute_name(:field_type)
+  .col-lg-1
+    = casein_check_box f, f.object, :required,
+      casein_label: UserFormField.human_attribute_name(:required)
+  .col-lg-2
+    = f.link_to_remove t('views.casein.user_forms.form.remove_field_link'), class: 'btn btn-danger'
