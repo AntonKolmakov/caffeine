@@ -23,7 +23,7 @@ module Casein
     end
 
     def update
-      album.save album_params
+      album.save
       respond_with(:casein, album)
     end
 

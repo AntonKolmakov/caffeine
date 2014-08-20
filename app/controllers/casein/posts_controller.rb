@@ -26,7 +26,7 @@ module Casein
     end
 
     def update
-      post.save post_params
+      post.save
       respond_with(:casein, post)
     end
 
