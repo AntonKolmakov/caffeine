@@ -5,7 +5,13 @@ Rails.application.routes.draw do
 
   # Admin routes
   namespace :casein do
+    resources :user_forms
     resources :posts
     resources :categories
+  end
+
+  # User routes
+  resources :user_forms do
+    resources :user_form_submissions, module: 'user_forms', only: %i(create new)
   end
 end
