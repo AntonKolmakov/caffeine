@@ -1,6 +1,6 @@
 module Casein
   class ImagesController < Casein::CaseinController
-    responders :collection, :flash
+    responders :location, :collection, :flash
 
     expose(:album)
     expose(:images) { album.images.order(sort_order(:name)).paginate(page: params[:page]) }
@@ -23,7 +23,7 @@ module Casein
 
     def destroy
       image.destroy
-      respond_with(:casein, album, image)
+      respond_with(album, location: -> {casein_album_path(album)})
     end
 
     private

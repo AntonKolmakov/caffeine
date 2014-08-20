@@ -2,5 +2,5 @@
   = f.input :parent_id, collection: Album.order(:name), as: :select, selected: params[:parent_id] || album.parent_id, include_blank: true
   = f.input :name
   p.submits
-    = link_to 'Cancel', casein_albums_path, class: 'btn btn-mini btn-danger'
+    = link_to t('views.casein.albums.form.cancel'), casein_albums_path, class: 'btn btn-mini btn-danger'
     = f.submit t('app.form.save'), class: "btn btn-mini btn-primary"

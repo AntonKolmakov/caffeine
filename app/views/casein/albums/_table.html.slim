@@ -7,4 +7,4 @@ table.table.table-striped.table-hover.table-condensed
     tr
       td= casein_table_cell_link album.name, casein_album_path(album)
       td.delete
-        = link_to(casein_show_row_icon("trash"), casein_album_path(album), method: :delete, data: { confirm: "Are you sure you want to delete this album?" })
+        = link_to(casein_show_row_icon("trash"), casein_album_path(album), method: :delete, data: { confirm: t('views.casein.albums.form.delete') })

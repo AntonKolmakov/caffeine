@@ -1,5 +1,5 @@
 <% if image.new_record? %>
 alert("Failed to upload painting: <%= j image.errors.full_messages.join(', ').html_safe %>");
 <% else %>
-$("#album_uploder").html("<%= j render 'images' %>");
+$("#album_uploder").html("<%= j render 'casein/images/images' %>");
 <% end %>
