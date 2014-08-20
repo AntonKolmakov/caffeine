@@ -46,8 +46,7 @@ module Casein
           :field_type,
           :required,
           available_values_attributes: %i(id value _destroy)
-        ]
-      )
+        ])
     end
   end
 end
