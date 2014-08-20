@@ -18,7 +18,9 @@ module UserForms
     private
 
     def submission_params
-      params.require('user_form_submission').permit(:field_values)
+      params.require(:user_form_submission).permit.tap do |whitelisted|
+        whitelisted[:field_values] = params[:user_form_submission][:field_values]
+      end
     end
   end
 end
