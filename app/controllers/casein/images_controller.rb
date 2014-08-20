@@ -13,11 +13,11 @@ module Casein
     end
 
     def create
-      image.save image_params
+      image.save
     end
 
     def update
-      image.save image_params
+      image.save
       respond_with(:casein, image)
     end
 
