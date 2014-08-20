@@ -10,3 +10,7 @@
       casein_label: UserFormField.human_attribute_name(:required)
   .col-lg-2
     = f.link_to_remove t('views.casein.user_forms.form.remove_field_link'), class: 'btn btn-danger'
+
+  - if f.object.needs_values?
+    = f.fields_for :available_values
+    = f.link_to_add t('views.casein.user_forms.form.add_field_value_link'), :available_values
