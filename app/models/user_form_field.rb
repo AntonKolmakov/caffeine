@@ -16,11 +16,4 @@ class UserFormField < ActiveRecord::Base
   def needs_values?
     persisted? && KINDS_WHICH_NEEDS_VALUES.include?(field_type.to_sym)
   end
-
-  def decorate_value(value)
-    case field_type.to_sym
-    when :check_boxes then value.join(', ')
-    else value
-    end
-  end
 end
