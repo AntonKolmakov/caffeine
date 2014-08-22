@@ -11,6 +11,8 @@ class UserFormField < ActiveRecord::Base
   validates :name, :field_type, presence: true
   validates :field_type, inclusion: { in: KINDS.keys.map(&:to_s) }
 
+  scope :admin_table_showable, -> { where show_in_admin_table: true }
+
   accepts_nested_attributes_for :available_values, allow_destroy: true
 
   def needs_values?

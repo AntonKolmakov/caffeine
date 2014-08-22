@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140820153301) do
+ActiveRecord::Schema.define(version: 20140822112521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,8 +78,10 @@ ActiveRecord::Schema.define(version: 20140820153301) do
     t.integer  "user_form_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "show_in_admin_table", default: false
   end
 
+  add_index "user_form_fields", ["show_in_admin_table"], name: "index_user_form_fields_on_show_in_admin_table", using: :btree
   add_index "user_form_fields", ["user_form_id"], name: "index_user_form_fields_on_user_form_id", using: :btree
 
   create_table "user_form_submission_field_values", force: true do |t|
@@ -87,6 +89,7 @@ ActiveRecord::Schema.define(version: 20140820153301) do
     t.integer  "user_form_field_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "value"
   end
 
   add_index "user_form_submission_field_values", ["user_form_field_id"], name: "index_submission_field_values_on_user_form_field_id", using: :btree

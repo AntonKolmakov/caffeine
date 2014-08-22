@@ -1,6 +1,4 @@
-= simple_form_for [user_form, user_form_submission] do |f|
+= simple_nested_form_for [user_form, user_form_submission] do |f|
   fieldset
-    = simple_fields_for :field_values
-      - user_form_submission.user_form_fields.find_each do |field|
-        = render %(user_forms/user_form_submissions/fields/#{field.field_type}), field: field, f: f
+    = f.fields_for :field_values
     = f.button :submit

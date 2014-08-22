@@ -3,8 +3,10 @@ module Casein
     responders :flash, :collection
     respond_to :html
 
-    expose(:user_form_submissions) { UserFormSubmission.order(sort_order(:created_at)).paginate(page: params[:page]) }
     expose(:user_form)
+    expose(:user_form_submissions) do
+      user_form.user_form_submissions.order(sort_order(:created_at)).paginate(page: params[:page])
+    end
 
     def index
       @casein_page_title = 'User form submissions'
