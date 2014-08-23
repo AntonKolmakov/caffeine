@@ -21,15 +21,16 @@
   }
 }
 
-ul.imageItems {
+ul.image {
   padding: 0;
   margin: 0;
 
-  li.imageItem {
+  li.image {
     list-style-type: none;
     margin: 0 0 10px 0;
     padding: 0;
     display: inline-block;
+    cursor: move
   }
 }
 

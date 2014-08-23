@@ -1,5 +1,6 @@
-<% if image.new_record? %>
-alert("Failed to upload painting: <%= j image.errors.full_messages.join(', ').html_safe %>");
+<% if image.errors.any? %>
+  alert("Failed to upload painting: <%= j image.errors.full_messages.join(', ').html_safe %>");
 <% else %>
-$("#album_uploder").html("<%= j render 'casein/images/images' %>");
+$('#images').append("<%= j render 'casein/albums/image', object: image %>");
+  new Uploader;
 <% end %>

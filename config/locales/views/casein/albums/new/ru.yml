@@ -1,0 +1,8 @@
+ru:
+  views:
+    casein:
+      albums:
+        new:
+          header: добавить новый альбом
+          link:
+            back_to_list: Альбомы

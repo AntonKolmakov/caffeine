@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   namespace :casein do
     resources :user_forms
 		resources :albums do
-      resources :images
+      resources :images do
+        collection { post :sort }
+      end
     end
     resources :posts
     resources :categories

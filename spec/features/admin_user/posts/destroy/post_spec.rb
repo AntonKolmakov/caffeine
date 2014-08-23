@@ -6,7 +6,7 @@ feature 'admin destroys post' do
   scenario do
     admin_session_sign_in
 
-    click_link 'Post'
+    click_link I18n.t('views.casein.layouts.tab.posts')
     click_link new_post.name
     click_link 'Delete'
 

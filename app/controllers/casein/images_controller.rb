@@ -1,6 +1,9 @@
 module Casein
   class ImagesController < Casein::CaseinController
+    protect_from_forgery except: :sort
+
     responders :location, :collection, :flash
+    respond_to :js, only: :create
 
     expose(:album)
     expose(:images) { album.images.order(sort_order(:name)).paginate(page: params[:page]) }
@@ -23,7 +26,12 @@ module Casein
 
     def destroy
       image.destroy
-      respond_with(album, location: -> {casein_album_path(album)})
+      respond_with(album, location: -> { casein_album_path(album) })
+    end
+
+    def sort
+      params[:image].each_with_index { |image_id, position| Image.find(image_id).update!(position: position) }
+      render nothing: true
     end
 
     private

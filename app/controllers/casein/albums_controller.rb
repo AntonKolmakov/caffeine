@@ -4,13 +4,11 @@ module Casein
 
     expose(:albums) { Album.order(sort_order(:name)).paginate page: params[:page] }
     expose(:album, attributes: :album_params)
-    expose(:image)
 
     def index
     end
 
     def show
-      self.image = album.images.build
     end
 
     def edit
