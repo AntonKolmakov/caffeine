@@ -1,0 +1,7 @@
+ru:
+  views:
+    casein:
+      albums:
+        form:
+          cancel: Отменить
+          delete: Удалить?
