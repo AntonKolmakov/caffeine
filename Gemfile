@@ -39,6 +39,7 @@ gem 'casein' #CMS toolkit
 gem 'responders'
 gem 'carrierwave' #flexible way to upload files
 gem "mini_magick"
+gem 'friendly_id'
 
 group :development do
   gem 'styleguides'

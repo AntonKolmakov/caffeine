@@ -1,3 +1,8 @@
+- if %w(partial1 partial2).include?(post.name)
+  = render "casein/shared/#{post.name}"
+- else
+  = render "casein/shared/base"
+
 h2 View post
 p
   strong Name:
