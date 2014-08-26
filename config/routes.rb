@@ -19,4 +19,8 @@ Rails.application.routes.draw do
   resources :user_forms do
     resources :user_form_submissions, module: 'user_forms', only: %i(create new)
   end
+
+  resources :categories do
+    resources :posts, shallow: true, only: %i(index show)
+  end
 end

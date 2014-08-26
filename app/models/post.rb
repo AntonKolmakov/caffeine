@@ -5,9 +5,9 @@ class Post < ActiveRecord::Base
 
   validates :name, presence: true
 
-  friendly_id :name, use: :slugged
+  friendly_id :name, use: %i(slugged history)
 
   def should_generate_new_friendly_id?
-    slug.blank? || changed_attributes['name'].present?
+    name_changed? || slug_changed?
   end
 end
