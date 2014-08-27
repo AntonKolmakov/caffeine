@@ -40,6 +40,7 @@ gem 'responders'
 gem 'carrierwave' #flexible way to upload files
 gem "mini_magick"
 gem 'friendly_id'
+gem 'draper'
 
 group :development do
   gem 'styleguides'

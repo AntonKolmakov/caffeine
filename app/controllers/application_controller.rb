@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   decent_configuration do
-    strategy DecentExposure::StrongParametersStrategy
+    strategy DecoratorStrategy
   end
 end
