@@ -38,7 +38,7 @@ module Casein
     private
 
     def post_params
-      params.require(:post).permit(:name, :category_id)
+      params.require(:post).permit(:name, :category_id, :slug, :fix_slug)
     end
   end
 end
