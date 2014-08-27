@@ -1,7 +1,8 @@
-class DecoratorStrategy < DecentExposure::ActiveRecordWithEagerAttributesStrategy
-
+class DecoratorStrategy < DecentExposure::StrongParametersStrategy
   def resource
-    r = super.tap { |r| r.class.send(:include, Draper::Decoratable) unless r.respond_to?(:decorate) }
-    r.decorate
+    res = super.tap { |r| r.class.send(:include, Draper::Decoratable) unless r.respond_to?(:decorate) }
+    res.decorate
+  rescue Draper::UninferrableDecoratorError
+    res
   end
 end

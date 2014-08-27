@@ -11,3 +11,4 @@ doc/**/*
 .pryrc
 .idea
 public/uploads/*
+.DS_Store
