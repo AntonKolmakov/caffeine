@@ -1,11 +1,4 @@
-- if %w(partial1 partial2).include?(post.name)
-  = render "casein/shared/#{post.name}"
-- else
-  = render "casein/shared/base"
-
 h2 View post
 p
   strong Name:
   = post.name
-
-/p= link_to 'Cancel', category_posts_path, class: 'btn btn-mini btn-danger'
