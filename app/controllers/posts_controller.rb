@@ -3,6 +3,6 @@ class PostsController < ApplicationController
   expose(:post, finder: :find_by_slug)
 
   def show
-    self.post = Post.friendly.find(params[:id])
+    self.post = Post.friendly.find(params[:id]).decorate
   end
 end

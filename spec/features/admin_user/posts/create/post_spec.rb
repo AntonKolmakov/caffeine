@@ -12,3 +12,5 @@ feature 'admin creates post' do
     expect(page).to have_content('new post1')
   end
 end
+
+
