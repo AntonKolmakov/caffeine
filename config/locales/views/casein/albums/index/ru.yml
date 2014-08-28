@@ -1,0 +1,7 @@
+ru:
+  views:
+    casein:
+      albums:
+        index:
+          header: Крутые альбомы
+          add_new_album: Новый альбом

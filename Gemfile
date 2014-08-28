@@ -18,6 +18,8 @@ gem 'foundation-icons-sass-rails'
 gem 'jquery-rails'
 gem 'coffee-rails'
 gem 'uglifier'
+gem "jquery-fileupload-rails"
+gem 'jquery-ui-rails'
 
 # Validation gems
 gem 'validates_email_format_of' # validate email format for field
@@ -35,6 +37,10 @@ gem 'simple-navigation'
 gem 'closure_tree' #tree data structure
 gem 'casein' #CMS toolkit
 gem 'responders'
+gem 'carrierwave' #flexible way to upload files
+gem "mini_magick"
+gem 'friendly_id'
+gem 'draper'
 
 group :development do
   gem 'styleguides'
@@ -47,14 +53,13 @@ group :development do
   gem 'rails-erd', github: 'paulwittmann/rails-erd', branch: 'mavericks'
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'spring' # preload instances
-  gem "better_errors"
-  gem "binding_of_caller"
 end
 
 group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'pry-debugger'
 end
 
 group :test do
@@ -66,13 +71,13 @@ group :test do
   gem 'simplecov', require: false
   gem 'webmock', require: false
   gem 'capybara'
-  gem 'poltergeist'
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
   gem 'minitest'
   gem 'shoulda-matchers'
   gem 'turnip'
+  gem 'selenium-webdriver'
 end
 
 group :staging, :production do

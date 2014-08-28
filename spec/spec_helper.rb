@@ -11,7 +11,7 @@ paths = Dir[Rails.root.join('spec/**/{support,step_definitions}/**/*.rb')]
 paths.each { |file| require file }
 
 RSpec.configure do |config|
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   config.include Rails.application.routes.url_helpers
   config.include EmailSpec::Helpers

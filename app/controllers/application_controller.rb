@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  self.responder = ApplicationResponder
   respond_to :html
 
   protect_from_forgery
@@ -15,6 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   decent_configuration do
-    strategy DecentExposure::StrongParametersStrategy
+    strategy DecoratorStrategy
   end
 end

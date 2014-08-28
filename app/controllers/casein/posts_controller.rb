@@ -2,7 +2,7 @@ module Casein
   class PostsController < Casein::CaseinController
     responders :collection, :flash
     expose(:posts) { Post.order(sort_order(:name)).paginate page: params[:page] }
-    expose(:post, attributes: :post_params)
+    expose(:post, attributes: :post_params, finder: :find_by_slug)
 
     def index
       @casein_page_title = 'Posts'
@@ -26,7 +26,7 @@ module Casein
     end
 
     def update
-      post.save post_params
+      post.save
       respond_with(:casein, post)
     end
 

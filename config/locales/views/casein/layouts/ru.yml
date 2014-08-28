@@ -1,0 +1,9 @@
+ru:
+  views:
+    casein:
+      layouts:
+        tab:
+          albums: Альбомы
+          user_forms: Формы пользователя
+          posts: Посты
+          categories: Категории

@@ -1,7 +1,6 @@
 module Casein
   class UserFormsController < Casein::CaseinController
     responders :flash, :collection
-    respond_to :html
 
     expose(:user_forms) { UserForm.order(sort_order(:name)).paginate(page: params[:page]) }
     expose(:user_form, attributes: :user_form_params)

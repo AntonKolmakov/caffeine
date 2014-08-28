@@ -20,3 +20,34 @@
     }
   }
 }
+
+ul.image {
+  padding: 0;
+  margin: 0;
+
+  li.image {
+    list-style-type: none;
+    margin: 0 0 10px 0;
+    padding: 0;
+    display: inline-block;
+    cursor: move
+  }
+}
+
+.upload {
+  border-top: solid 1px #CCC;
+  width: 400px;
+  padding-top: 10px;
+  margin-top: 10px;
+
+  .progress {
+    margin-top: 8px;
+    border: solid 1px #555;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    .bar {
+      height: 10px;
+      background: #3EC144;
+    }
+  }
+}
