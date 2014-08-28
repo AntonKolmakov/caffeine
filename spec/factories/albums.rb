@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :album do
-    name 'MyString'
+    name { Faker::Name.name }
   end
 end
