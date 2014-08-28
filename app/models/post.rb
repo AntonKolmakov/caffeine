@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   extend FriendlyId
 
   belongs_to :category
+  has_many :documents
 
   validates :name, presence: true
 

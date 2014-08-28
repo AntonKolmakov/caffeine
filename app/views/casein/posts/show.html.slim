@@ -9,5 +9,19 @@ p
 = link_to 'Edit', edit_casein_post_path(post), class: 'btn btn-mini btn-primary'
 '  or
 = link_to 'Delete', casein_post_path(post), method: :delete, class: 'btn btn-mini btn-danger'
+
+- post.documents.each do |document|
+ ul
+   li
+     = document.name
+     = link_to 'download document', document.attachment_url
+     = button_to 'delete', casein_post_document_path(post, document), method: :delete, class: "btn btn-danger btn-default btn-mini"
+
+= simple_form_for [:casein, post, Document.new],
+    html: { multipart: true } do |f|
+  = f.input :name
+  = f.input :attachment, as: :file
+  = f.submit
+
 = content_for :sidebar do
   li= link_to "#{casein_show_icon "th-list"} Back to list".html_safe, casein_posts_path
