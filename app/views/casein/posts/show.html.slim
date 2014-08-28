@@ -13,14 +13,12 @@ p
 - post.documents.each do |document|
  ul
    li
-     = document.name
-     = link_to 'download document', document.attachment_url
+     = link_to document.attachment.file.filename, document.attachment_url
      = button_to 'delete', casein_post_document_path(post, document), method: :delete, class: "btn btn-danger btn-default btn-mini"
 
 = simple_form_for [:casein, post, Document.new],
     html: { multipart: true } do |f|
-  = f.input :name
-  = f.input :attachment, as: :file
+  = f.input :attachment, as: :file, input_html:  { multiple: true, name: 'document[attachment]' }
   = f.submit
 
 = content_for :sidebar do

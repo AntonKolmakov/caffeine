@@ -22,7 +22,7 @@ module Casein
     private
 
     def document_params
-      params.require(:document).permit(:name, :post_id, :attachment)
+      params.require(:document).permit(:post_id, :attachment)
     end
   end
 end

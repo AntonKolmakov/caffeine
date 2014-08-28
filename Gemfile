@@ -41,6 +41,7 @@ gem 'carrierwave' #flexible way to upload files
 gem "mini_magick"
 gem 'friendly_id'
 gem 'draper'
+gem 'babosa'
 
 group :development do
   gem 'styleguides'
