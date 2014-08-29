@@ -8,10 +8,10 @@ class Post < ActiveRecord::Base
   friendly_id :name, use: %i(slugged history)
 
   def should_generate_new_friendly_id?
-     if fix_slug? && slug.present?
-       false
-     else
-       name_changed? || slug_changed?
-     end
+    if fix_slug? && slug.present?
+      false
+    else
+      name_changed? || slug_changed?
+    end
   end
 end
