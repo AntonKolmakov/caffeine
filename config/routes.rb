@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       end
     end
     resources :posts do
-      resources :documents, only: %i(new create destroy)
+      resources :post_attachments, only: %i(create destroy)
     end
     resources :categories
   end

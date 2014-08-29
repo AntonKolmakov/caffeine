@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140828111628) do
+ActiveRecord::Schema.define(version: 20140828103720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,14 +71,6 @@ ActiveRecord::Schema.define(version: 20140828111628) do
   add_index "category_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "tag_anc_desc_udx", unique: true, using: :btree
   add_index "category_hierarchies", ["descendant_id"], name: "tag_desc_idx", using: :btree
 
-  create_table "documents", force: true do |t|
-    t.string   "name"
-    t.string   "attachment"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "post_id"
-  end
-
   create_table "friendly_id_slugs", force: true do |t|
     t.string   "slug",                      null: false
     t.integer  "sluggable_id",              null: false
@@ -100,6 +92,15 @@ ActiveRecord::Schema.define(version: 20140828111628) do
     t.integer  "album_id"
     t.integer  "position"
   end
+
+  create_table "post_attachments", force: true do |t|
+    t.string   "attachment"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "post_attachments", ["post_id"], name: "index_post_attachments_on_post_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.text     "name"

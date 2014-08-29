@@ -1,7 +1,6 @@
 module Casein
   class PostsController < Casein::CaseinController
     responders :collection, :flash
-
     expose(:posts) { Post.order(sort_order(:name)).paginate page: params[:page] }
     expose(:post, attributes: :post_params, finder: :find_by_slug)
 
@@ -39,7 +38,7 @@ module Casein
     private
 
     def post_params
-      params.require(:post).permit(:name, :category_id)
+      params.require(:post).permit(:name, :category_id, :slug, :fix_slug)
     end
   end
 end

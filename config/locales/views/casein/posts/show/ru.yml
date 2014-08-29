@@ -1,0 +1,9 @@
+ru:
+  views:
+    casein:
+      posts:
+        show:
+          link:
+            remove_post: Удалить страницу
+            remove_attachment: Удалить
+            add_new_post: Добавить страницу
