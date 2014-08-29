@@ -3,7 +3,6 @@ class Post < ActiveRecord::Base
 
   belongs_to :category
   has_many :post_attachments
-  accepts_nested_attributes_for :post_attachments, allow_destroy: true
 
   validates :name, presence: true
 

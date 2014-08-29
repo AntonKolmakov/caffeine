@@ -9,7 +9,6 @@ module Casein
 
     def create
       post_attachment.save
-      respond_with(post, location: -> { casein_post_path(post) })
     end
 
     def destroy
