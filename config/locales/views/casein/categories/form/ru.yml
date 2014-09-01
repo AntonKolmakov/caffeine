@@ -1,0 +1,9 @@
+ru:
+  views:
+    casein:
+      categories:
+        form:
+          name: Имя
+          content: Контент
+          parent_id: Выберите родителя
+          cancel: Отмена

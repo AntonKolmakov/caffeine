@@ -1,6 +1,5 @@
 module Casein
-  class PostAttachmentsController < Casein::CaseinController
-    responders :location, :collection, :flash
+  class PostAttachmentsController < AdminApplicationController
     respond_to :js, only: :create
 
     expose(:post, finder: :find_by_slug)

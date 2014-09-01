@@ -2,7 +2,12 @@ ru:
   views:
     casein:
       layouts:
-        tab:
+        top_navigation:
+          visit_site: на сайт
+          sign_out: выйти
+          users: Пользователи
+          profile: Профиль
+        tab_navigation:
           albums: Альбомы
           user_forms: Формы пользователя
           posts: Страницы

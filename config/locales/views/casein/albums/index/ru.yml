@@ -5,3 +5,5 @@ ru:
         index:
           header: Крутые альбомы
           add_new_album: Новый альбом
+          sort_link:
+            name: Имя альбома

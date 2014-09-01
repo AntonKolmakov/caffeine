@@ -1,0 +1,10 @@
+ru:
+  views:
+    casein:
+      user_forms:
+        index:
+          header: Формы пользователя
+          add_new_user_form: Новая форма
+          sort_link:
+            name: Имя формы
+            email: е-маил

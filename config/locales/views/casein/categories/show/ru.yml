@@ -1,0 +1,10 @@
+ru:
+  views:
+    casein:
+      categories:
+        show:
+          add_category: Добавить категорию
+          add_post: Добавить страницу
+          back: Назад
+          edit: Править Категорию
+          delete: Удалить Категорию

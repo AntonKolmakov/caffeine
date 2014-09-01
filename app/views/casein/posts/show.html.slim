@@ -1,14 +1,15 @@
-h2 View post
+h2= t('views.casein.posts.show.header')
 p
-  strong Name:
+  strong= t('views.casein.posts.show.name_post')
   = post.name
 p
-  strong Category name:
+  strong= t('views.casein.posts.show.category_name')
   = post.category.name if post.category.present?
-= link_to 'Cancel', casein_posts_path, class: 'btn btn-mini btn-danger'
-= link_to 'Edit', edit_casein_post_path(post), class: 'btn btn-mini btn-primary'
+
+= link_to t('views.casein.posts.show.link.cancel'), casein_posts_path, class: 'btn btn-mini btn-danger'
+= link_to t('views.casein.posts.show.link.edit'), edit_casein_post_path(post), class: 'btn btn-mini btn-primary'
 '  or
-= link_to 'Delete', casein_post_path(post), method: :delete, class: 'btn btn-mini btn-danger'
+= link_to t('views.casein.posts.show.link.remove_post'), casein_post_path(post), method: :delete, class: 'btn btn-mini btn-danger'
 
 #list_of_attachments
   = render partial: 'casein/posts/post_attachment', collection: post.post_attachments
@@ -16,10 +17,10 @@ p
 #uploader
   = simple_form_for [:casein, post, PostAttachment.new],
       html: { multipart: true } do |f|
-    = f.input :attachment, as: :file, input_html:  { multiple: true, name: 'post_attachment[attachment]' }
+    = f.input :attachment, as: :file, input_html:  { multiple: true, name: 'post_attachment[attachment]' }, label: t('views.casein.posts.show.form_for_attachment.attachment')
 
 = content_for :sidebar do
-  li= link_to "#{casein_show_icon "th-list"} Back to list".html_safe, casein_posts_path
+  li= link_to "#{casein_show_icon "th-list"} #{t('views.casein.posts.show.link.back_to_list')}".html_safe, casein_posts_path
 
 script#template-upload type="text/x-tmpl"
   .upload

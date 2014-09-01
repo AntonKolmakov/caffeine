@@ -1,8 +1,7 @@
 module Casein
-  class ImagesController < Casein::CaseinController
+  class ImagesController < AdminApplicationController
     protect_from_forgery except: :sort
 
-    responders :location, :collection, :flash
     respond_to :js, only: :create
 
     expose(:album)

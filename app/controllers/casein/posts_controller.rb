@@ -1,6 +1,5 @@
 module Casein
-  class PostsController < Casein::CaseinController
-    responders :collection, :flash
+  class PostsController < AdminApplicationController
     expose(:posts) { Post.order(sort_order(:name)).paginate page: params[:page] }
     expose(:post, attributes: :post_params, finder: :find_by_slug)
 

@@ -1,0 +1,10 @@
+ru:
+  views:
+    casein:
+      admin_user_sessions:
+        new:
+          form:
+            remember_me: Запомнить меня
+            submit: Войти
+            forgotten_password: Забыли пароль?
+            reset_password: Cбросить пароль

@@ -3,5 +3,7 @@ ru:
     casein:
       albums:
         form:
-          cancel: Отменить
+          name: Имя Альбома
+          parent: Выберите родителя
+          cancel: Отмена
           delete: Удалить?

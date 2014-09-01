@@ -6,7 +6,7 @@ feature 'admin destroys album' do
   scenario do
     admin_session_sign_in
 
-    click_on I18n.t('views.casein.layouts.tab.albums')
+    click_on I18n.t('views.casein.layouts.tab_navigation.albums')
     click_on new_album.name
     click_on I18n.t('views.casein.albums.show.link.remove_album')
 

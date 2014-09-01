@@ -1,0 +1,31 @@
+= form_for @admin_user_session, url: casein_admin_user_session_path do |f|
+  - if @admin_user_session.errors.any?
+    #error_messages.alert.alert-danger
+      - @admin_user_session.errors.keys.each do |key|
+        = (key.to_s.humanize + " ") unless key == :base
+        = @admin_user_session.errors[key].first
+  - if flash[:warning]
+    #error.alert.alert-danger
+      = flash[:warning]
+  - if flash[:notice]
+    #notice.alert.alert-success
+      = flash[:notice]
+  .form-group
+    = f.text_field :login, placeholder: "Username", class: "form-control input-large"
+  .form-group
+    = f.password_field :password, placeholder: "Password", class: "form-control input-large"
+  .form-group
+    .checkbox-inline
+      label
+        = f.check_box :remember_me
+        | #{t('views.casein.admin_user_sessions.new.form.remember_me')}
+  .form-group
+    = f.submit t('views.casein.admin_user_sessions.new.form.submit'), class: "btn btn-success btn-large btn-block"
+  .form-group
+    input.btn.btn-link onclick="toggleDiv('recover');" type="button" value=(t('views.casein.admin_user_sessions.new.form.forgotten_password')) /
+  = form_tag casein_password_reset_url do
+    #recover style="display:none;"
+      .form-group
+        = text_field_tag :recover_email, params[:recover_email], placeholder: "Your email address", class: "form-control input-large"
+      .form-group
+        = submit_tag t('views.casein.admin_user_sessions.new.form.reset_password'), class: "btn btn-primary btn-large btn-block"

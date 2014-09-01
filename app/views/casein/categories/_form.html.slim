@@ -1,7 +1,7 @@
 = simple_form_for [:casein, category] do |f|
-  = f.input :name
-  = f.input :content
-  = f.input :parent_id, collection: Category.order(:name), as: :select, include_blank: true, selected: params[:parent_id] || category.parent_id
+  = f.input :name, label: t('views.casein.categories.form.name')
+  = f.input :content, label: t('views.casein.categories.form.content')
+  = f.input :parent_id, collection: Category.order(:name), as: :select, include_blank: true, selected: params[:parent_id] || category.parent_id, label: t('views.casein.categories.form.parent_id')
   p.submits
-    = link_to 'Cancel', casein_categories_path, class: 'btn btn-mini btn-danger'
-    = f.submit "Submit", class: "btn btn-mini btn-primary"
+    = link_to t('views.casein.categories.form.cancel'), casein_categories_path, class: 'btn btn-mini btn-danger'
+    = f.submit class: "btn btn-mini btn-primary"
