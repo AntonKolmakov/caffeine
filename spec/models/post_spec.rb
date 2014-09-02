@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Post do
   it { should belong_to :category }
   it { should validate_presence_of :name }
+  it { should validate_presence_of :slug }
 
   describe '#should_generate_new_friendly_id?' do
     let(:post) { build_stubbed(:post, name: 'post') }
@@ -20,7 +21,7 @@ describe Post do
 
     it 'returns true when slug fixed by admin and not named' do
       post.stub(fix_slug?: true, slug: '')
-      expect(subject).to be_true
+      expect(subject).to be_false
     end
   end
 end
