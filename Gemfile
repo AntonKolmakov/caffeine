@@ -78,6 +78,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'turnip'
   gem 'selenium-webdriver'
+  gem "temping" # to create arbitrary ActiveRecord models
 end
 
 group :staging, :production do
