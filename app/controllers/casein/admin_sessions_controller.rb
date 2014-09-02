@@ -1,5 +1,5 @@
 module Casein
-  class AdminSessionContrroler  < AdminUserSessionsController
+  class AdminSessionsContrroler  < AdminUserSessionsController
     layout 'casein_auth'
   end
 end

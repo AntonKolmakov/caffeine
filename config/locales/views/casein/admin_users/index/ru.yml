@@ -1,0 +1,11 @@
+ru:
+  views:
+    casein:
+      admin_users:
+        index:
+          header: Пользователи
+          add_new_user: Новый пользователь
+          sort_link:
+            name: Имя
+            user_name: имя пользователя
+            role: права

@@ -11,9 +11,9 @@
     #notice.alert.alert-success
       = flash[:notice]
   .form-group
-    = f.text_field :login, placeholder: "Username", class: "form-control input-large"
+    = f.text_field :login, placeholder: t('views.casein.admin_user_sessions.new.form.label.user_name'), class: "form-control input-large"
   .form-group
-    = f.password_field :password, placeholder: "Password", class: "form-control input-large"
+    = f.password_field :password, placeholder: t('views.casein.admin_user_sessions.new.form.label.password'), class: "form-control input-large"
   .form-group
     .checkbox-inline
       label
@@ -22,10 +22,10 @@
   .form-group
     = f.submit t('views.casein.admin_user_sessions.new.form.submit'), class: "btn btn-success btn-large btn-block"
   .form-group
-    input.btn.btn-link onclick="toggleDiv('recover');" type="button" value=(t('views.casein.admin_user_sessions.new.form.forgotten_password')) /
-  = form_tag casein_password_reset_url do
-    #recover style="display:none;"
-      .form-group
-        = text_field_tag :recover_email, params[:recover_email], placeholder: "Your email address", class: "form-control input-large"
-      .form-group
-        = submit_tag t('views.casein.admin_user_sessions.new.form.reset_password'), class: "btn btn-primary btn-large btn-block"
+    input.btn.btn-link onclick="toggleDiv('recover');" type="button" value=(t('views.casein.admin_user_sessions.new.form.forgotten_password'))
+= form_tag casein_password_reset_url do
+  #recover style="display:none;"
+    .form-group
+      = text_field_tag :recover_email, params[:recover_email], placeholder: t('views.casein.admin_user_sessions.new.form.label.reset_email'), class: "form-control input-large"
+    .form-group
+      = submit_tag t('views.casein.admin_user_sessions.new.form.reset_password'), class: "btn btn-primary btn-large btn-block"

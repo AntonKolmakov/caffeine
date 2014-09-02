@@ -295,6 +295,7 @@ ru:
         reason: "Удалить"
       session_links: "Что-то еще?"
     form:
+      cancel: Отмена
       save: "Сохранить"
       send: "Послать"
       update: "Обновить"

@@ -7,4 +7,8 @@ ru:
             remember_me: Запомнить меня
             submit: Войти
             forgotten_password: Забыли пароль?
-            reset_password: Cбросить пароль
+            reset_password: Прислать пароль
+            label:
+              user_name: Имя пользователя
+              password: Пароль
+              reset_email: Ваш е-мейл
