@@ -1,0 +1,1 @@
+Responders::FlashResponder.flash_keys = [:notice, :warning]

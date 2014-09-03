@@ -1,0 +1,31 @@
+h2 Add a new user
+= form_for casein_admin_user do |form|
+  .row
+    .col-lg-6
+      = casein_text_field form, casein_admin_user, :login, {:size => 30, :casein_label => "Username"}
+    .col-lg-6
+      = casein_text_field form, casein_admin_user, :name
+  .row
+    .col-lg-6
+      = casein_text_field form, casein_admin_user, :email
+    .col-lg-6
+      = casein_time_zone_select form, casein_admin_user, :time_zone, ActiveSupport::TimeZone.us_zones
+  .row
+    .col-lg-6
+      = casein_select form, casein_admin_user, :access_level, casein_get_access_level_array, {:casein_label => "Role"}
+    .col-lg-6
+  .row
+    .col-lg-6
+      = casein_password_field form, casein_admin_user, :password, {:casein_label => "Password"}
+    .col-lg-6
+      = casein_password_field form, casein_admin_user, :password_confirmation, {:casein_label => "Repeat password"}
+    .col-lg-12.password-checkbox
+      .checkbox
+        label
+          = check_box_tag :generate_random_password, "1", false, {:id => 'generate-random-password-checkbox'}
+          | Generate random password
+  p.submits
+    = link_to 'Cancel', casein_admin_users_path, :class => 'btn btn-mini btn-danger'
+    = form.submit "Add new user", :class => "btn btn-mini btn-primary"
+  = content_for :sidebar do
+    li= link_to "#{casein_show_icon('th-list')} Back to list".html_safe, casein_admin_users_path

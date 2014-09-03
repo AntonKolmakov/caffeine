@@ -1,0 +1,8 @@
+ru:
+  views:
+    casein:
+      admin_users:
+        reset_password:
+          errors:
+            messages:
+              blank: Пароль не может быть пустым
