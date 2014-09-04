@@ -16,7 +16,7 @@ module Casein
     end
 
     def show
-      @casein_page_title = casein_admin_user.name + ' > View user'
+      @casein_page_title = t('views.casein.admin_users.show.page_title')
     end
 
     def create
@@ -27,47 +27,41 @@ module Casein
     end
 
     def update
-      @casein_page_title = casein_admin_user.name + ' > Update user'
-
       casein_admin_user.save
       respond_with(casein_admin_user, action: :show, location: -> { casein_config_dashboard_url })
     end
 
     def update_password
-      @casein_page_title = casein_admin_user.name + ' > Update password'
-
       if casein_admin_user.valid_password? params[:form_current_password]
         if params[:casein_admin_user][:password].blank? && params[:casein_admin_user][:password_confirmation].blank?
-          flash[:warning] = t('views.casein.admin_users.reset_password.errors.messages.blank')
+          flash[:warning] = t('views.casein.admin_users.update_password.messages.error.blank')
         elsif casein_admin_user.update_attributes casein_admin_user_params
-          flash[:notice] = 'Your password has been changed'
+          flash[:notice] = t('views.casein.admin_users.update_password.messages.success.upadete_password')
         else
-          flash[:warning] = 'There were problems when trying to change your password'
+          flash[:warning] = t('views.casein.admin_users.update_password.messages.error.warning')
         end
       else
-        flash[:warning] = 'The current password is incorrect'
+        flash[:warning] = t('views.casein.admin_users.update_password.messages.error.incorect_password')
       end
 
       redirect_to action: :show
     end
 
     def reset_password
-      @casein_page_title = casein_admin_user.name + ' > Reset password'
-
       if params[:generate_random_password].blank? && params[:casein_admin_user][:password].blank? && params[:casein_admin_user][:password_confirmation].blank?
-        flash[:warning] = t('views.casein.admin_users.reset_password.errors.messages.blank')
+        flash[:warning] = t('views.casein.admin_users.reset_password.messages.error.blank')
       else
         generate_random_password if params[:generate_random_password]
         casein_admin_user.notify_of_new_password = true unless casein_admin_user.id == @session_user.id && params[:generate_random_password].blank?
 
         if casein_admin_user.update_attributes casein_admin_user_params
           unless casein_admin_user.notify_of_new_password
-            flash[:notice] = t('views.casein.admin_users.reset_password.success.messages')
+            flash[:notice] = t('views.casein.admin_users.reset_password.messages.success.reset_password')
           else
-            flash[:notice] = 'Password has been reset and ' + casein_admin_user.name + ' has been notified by email'
+            flash[:notice] = t('views.casein.admin_users.reset_password.messages.success.email_notification', email: casein_admin_user.email)
           end
         else
-          flash[:warning] = "There were problems when trying to reset this user's password"
+          flash[:warning] = t('views.casein.admin_users.reset_password.messages.error.warning')
         end
       end
 

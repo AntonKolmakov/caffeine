@@ -3,6 +3,7 @@ ru:
     casein:
       admin_users:
         show:
+          page_title: Профиль
           header_profile: Профиль
           header_reset_password: Сбросить пароль
           back_to_list: Пользователи
