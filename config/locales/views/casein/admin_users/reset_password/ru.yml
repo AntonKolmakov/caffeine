@@ -3,6 +3,8 @@ ru:
     casein:
       admin_users:
         reset_password:
+          success:
+            messages: Пароль успешно обновлен
           errors:
             messages:
               blank: Пароль не может быть пустым

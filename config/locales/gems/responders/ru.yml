@@ -13,7 +13,7 @@ ru:
     casein:
       admin_users:
         create:
-          notice: Емейл был послан %{casein_admin_user.name}
+          notice: Емейл был послан %{resource_name}
           warning: Не получилось создать %{resource_name}
         update:
           notice: Профайл успешно обновленен

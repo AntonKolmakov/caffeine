@@ -38,7 +38,7 @@ module Casein
 
       if casein_admin_user.valid_password? params[:form_current_password]
         if params[:casein_admin_user][:password].blank? && params[:casein_admin_user][:password_confirmation].blank?
-          flash[:warning] = 'New password cannot be blank'
+          flash[:warning] = t('views.casein.admin_users.reset_password.errors.messages.blank')
         elsif casein_admin_user.update_attributes casein_admin_user_params
           flash[:notice] = 'Your password has been changed'
         else
@@ -62,7 +62,7 @@ module Casein
 
         if casein_admin_user.update_attributes casein_admin_user_params
           unless casein_admin_user.notify_of_new_password
-            flash[:notice] = 'Your password has been reset'
+            flash[:notice] = t('views.casein.admin_users.reset_password.success.messages')
           else
             flash[:notice] = 'Password has been reset and ' + casein_admin_user.name + ' has been notified by email'
           end
@@ -93,6 +93,10 @@ module Casein
 
     def casein_admin_user_params
       params.require(:casein_admin_user).permit(:login, :name, :email, :time_zone, :access_level, :password, :password_confirmation)
+    end
+
+    def interpolation_options
+      { resource_name: casein_admin_user.email }
     end
   end
 end

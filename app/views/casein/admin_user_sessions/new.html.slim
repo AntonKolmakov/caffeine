@@ -2,7 +2,6 @@
   - if @admin_user_session.errors.any?
     #error_messages.alert.alert-danger
       - @admin_user_session.errors.keys.each do |key|
-        = (key.to_s.humanize + " ") unless key == :base
         = @admin_user_session.errors[key].first
   - if flash[:warning]
     #error.alert.alert-danger
