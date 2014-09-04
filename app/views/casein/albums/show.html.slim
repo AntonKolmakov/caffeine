@@ -26,6 +26,8 @@ p
   = link_to t('views.casein.albums.show.link.remove_album'), casein_album_path(album), confirm: t('views.casein.albums.form.delete'), method: :delete
   |  |
   = link_to t('views.casein.albums.show.link.add_new_album'), new_casein_album_path(parent_id: album.id)
+  |  |
+  = link_to t('views.casein.albums.edit.link.edit_album'), edit_casein_album_path(album)
 
 script#template-upload type="text/x-tmpl"
   .upload

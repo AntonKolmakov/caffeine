@@ -18,6 +18,8 @@ ru:
         update:
           notice: Профайл успешно обновленен
           warning: Не получилось обновить профайл %{resource_name}
+        destroy:
+          notice: Профайл успешно удален
       user_forms:
         create:
           notice: 'Новая форма успешно добавлена'

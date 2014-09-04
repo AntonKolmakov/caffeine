@@ -15,9 +15,9 @@ h2
         td= casein_table_cell_link casein_get_access_level_text(user.access_level), casein_admin_user_path(user)
         td.delete
           - if user.is_admin? == false || Casein::AdminUser.has_more_than_one_admin
-            - confirm_message = "Are you sure you want to delete #{user.name}?"
+            - confirm_message = t('views.casein.admin_users.index.delete_confirm_message', user_name: user.name)
             - if user.id == @session_user.id
-              - confirm_message += "\n\nWARNING: This is your user account. You will be signed out if you proceed."
+              - confirm_message += t('views.casein.admin_users.index.delete_yourself')
             = link_to(casein_show_row_icon("trash"), casein_admin_user_path(user), method: :delete, data: { confirm: confirm_message })
   .text-center
     = will_paginate users

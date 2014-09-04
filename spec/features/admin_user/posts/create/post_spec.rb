@@ -7,7 +7,7 @@ feature 'admin creates post' do
     click_link I18n.t('views.casein.layouts.tab_navigation.posts')
     click_on I18n.t('views.casein.posts.index.add_new_post')
     fill_in I18n.t('views.casein.posts.form.name'), with: 'new post1'
-    click_on I18n.t('helpers.submit.create', model: 'Post')
+    click_on I18n.t('helpers.submit.post.create')
 
     expect(page).to have_content('new post1')
   end

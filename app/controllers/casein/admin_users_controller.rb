@@ -2,8 +2,8 @@ require 'securerandom'
 
 module Casein
   class AdminUsersController < AdminApplicationController
-    before_action :needs_admin, except: [:show, :destroy, :update, :update_password]
-    before_action :needs_admin_or_current_user, only: [:show, :destroy, :update, :update_password]
+    before_action :needs_admin, except: %i(show destroy update update_password)
+    before_action :needs_admin_or_current_user, only: %i(show destroy update update_password)
 
     expose(:users) { Casein::AdminUser.order(sort_order(:login)).paginate page: params[:page] }
     expose(:casein_admin_user, attributes: :casein_admin_user_params, model: 'Casein::AdminUser')
@@ -33,13 +33,7 @@ module Casein
 
     def update_password
       if casein_admin_user.valid_password? params[:form_current_password]
-        if params[:casein_admin_user][:password].blank? && params[:casein_admin_user][:password_confirmation].blank?
-          flash[:warning] = t('views.casein.admin_users.update_password.messages.error.blank')
-        elsif casein_admin_user.update_attributes casein_admin_user_params
-          flash[:notice] = t('views.casein.admin_users.update_password.messages.success.upadete_password')
-        else
-          flash[:warning] = t('views.casein.admin_users.update_password.messages.error.warning')
-        end
+        save_admin(casein_admin_user_params)
       else
         flash[:warning] = t('views.casein.admin_users.update_password.messages.error.incorect_password')
       end
@@ -48,21 +42,15 @@ module Casein
     end
 
     def reset_password
-      if params[:generate_random_password].blank? && params[:casein_admin_user][:password].blank? && params[:casein_admin_user][:password_confirmation].blank?
+      if passwords_blank?
         flash[:warning] = t('views.casein.admin_users.reset_password.messages.error.blank')
       else
         generate_random_password if params[:generate_random_password]
-        casein_admin_user.notify_of_new_password = true unless casein_admin_user.id == @session_user.id && params[:generate_random_password].blank?
-
-        if casein_admin_user.update_attributes casein_admin_user_params
-          unless casein_admin_user.notify_of_new_password
-            flash[:notice] = t('views.casein.admin_users.reset_password.messages.success.reset_password')
-          else
-            flash[:notice] = t('views.casein.admin_users.reset_password.messages.success.email_notification', email: casein_admin_user.email)
-          end
-        else
-          flash[:warning] = t('views.casein.admin_users.reset_password.messages.error.warning')
+        unless casein_admin_user.id == @session_user.id && params[:generate_random_password].blank?
+          casein_admin_user.notify_of_new_password = true
         end
+
+        save_user(casein_admin_user_params)
       end
 
       redirect_to action: :show
@@ -70,27 +58,58 @@ module Casein
 
     def destroy
       user = Casein::AdminUser.find params[:id]
-      if user.is_admin? == false || Casein::AdminUser.has_more_than_one_admin
-        user.destroy
-        flash[:notice] = user.name + ' has been deleted'
-      end
-      redirect_to casein_admin_users_path
+      return unless user.is_admin?
+      respond_with(user, location: -> { casein_admin_users_path })
+      user.destroy
     end
 
     private
 
     def generate_random_password
-      random_password = random_string = SecureRandom.hex
+      random_password = SecureRandom.hex
       params[:casein_admin_user] = {} if params[:casein_admin_user].blank?
-      params[:casein_admin_user].merge! ({ password: random_password, password_confirmation: random_password })
-    end
-
-    def casein_admin_user_params
-      params.require(:casein_admin_user).permit(:login, :name, :email, :time_zone, :access_level, :password, :password_confirmation)
+      params[:casein_admin_user].merge!(password: random_password, password_confirmation: random_password)
     end
 
     def interpolation_options
       { resource_name: casein_admin_user.email }
+    end
+
+    def save_user(casein_admin_user_params)
+      if casein_admin_user.update_attributes casein_admin_user_params
+        if !(casein_admin_user.notify_of_new_password)
+          flash[:notice] = t('views.casein.admin_users.reset_password.messages.success.reset_password')
+        else
+          flash[:notice] = t('views.casein.admin_users.reset_password.messages.success.email_notification',
+                             email: casein_admin_user.email)
+        end
+      else
+        flash[:warning] = t('views.casein.admin_users.reset_password.messages.error.warning')
+      end
+    end
+
+    def save_admin(casein_admin_user_params)
+      if params[:casein_admin_user][:password].blank? && params[:casein_admin_user][:password_confirmation].blank?
+        flash[:warning] = t('views.casein.admin_users.update_password.messages.error.blank')
+      elsif casein_admin_user.update_attributes casein_admin_user_params
+        flash[:notice] = t('views.casein.admin_users.update_password.messages.success.upadete_password')
+      else
+        flash[:warning] = t('views.casein.admin_users.update_password.messages.error.warning')
+      end
+    end
+
+    private
+
+    def casein_admin_user_params
+      params.require(:casein_admin_user).permit(
+          :login, :name, :email, :time_zone, :access_level, :password, :password_confirmation
+      )
+    end
+
+    def passwords_blank?
+      params[:generate_random_password].blank? &&
+      casein_admin_user_params[:password].blank? &&
+      casein_admin_user_params[:password_confirmation].blank?
     end
   end
 end

@@ -175,14 +175,21 @@ ru:
     select:
       prompt: ! 'Выберите: '
     submit:
-      create: Создать %{model}
-      submit: Сохранить %{model}
-      update: Сохранить %{model}
+      casein_admin_user:
+        create: 'Создать пользователя'
+      album:
+        create: 'Создать альбом'
+        update: 'Сохранить альбом'
+      post:
+        create: 'Создать страницу'
+        update: 'Сохранить страницу'
+      category:
+        create: 'Создать категорию'
+        update: 'Сохранить категорию'
       user_form:
         create: 'Сохранить форму'
         update: 'Сохранить форму'
         submit: 'Сохранить форму'
-
   number:
     currency:
       format:

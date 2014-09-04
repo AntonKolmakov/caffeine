@@ -16,5 +16,5 @@ ru:
             role: Права
             user_name: Имя пользователя
             name: Имя
-            email: е-меил
-            time_zone: часовой пояс
+            email: Электронная почта
+            time_zone: Часовой пояс
