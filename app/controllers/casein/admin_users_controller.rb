@@ -98,8 +98,6 @@ module Casein
       end
     end
 
-    private
-
     def casein_admin_user_params
       params.require(:casein_admin_user).permit(
           :login, :name, :email, :time_zone, :access_level, :password, :password_confirmation
