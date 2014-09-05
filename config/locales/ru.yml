@@ -5,6 +5,7 @@ ru:
       login_not_found: Логин не найден
       password_blank: Пароль не может быть пустым
       password_invalid: Пароль не найден
+      no_authentication_details: Вы не предоставили никакой информации
   date:
     abbr_day_names:
     - Вс

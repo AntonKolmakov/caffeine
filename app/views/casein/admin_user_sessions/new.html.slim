@@ -1,8 +1,8 @@
-= form_for @admin_user_session, url: casein_admin_user_session_path do |f|
-  - if @admin_user_session.errors.any?
+= form_for admin_user_session, url: casein_admin_user_session_path do |f|
+  - if admin_user_session.errors.any?
     #error_messages.alert.alert-danger
-      - @admin_user_session.errors.keys.each do |key|
-        = @admin_user_session.errors[key].first
+      - admin_user_session.errors.keys.each do |key|
+        = admin_user_session.errors[key].first
   - if flash[:warning]
     #error.alert.alert-danger
       = flash[:warning]

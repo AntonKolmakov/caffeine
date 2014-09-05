@@ -35,7 +35,7 @@ module Casein
       if casein_admin_user.valid_password? params[:form_current_password]
         save_admin(casein_admin_user_params)
       else
-        flash[:warning] = t('views.casein.admin_users.update_password.messages.error.incorect_password')
+        flash[:warning] = t('controller.casein.admin_users.update_password.error.incorect_password')
       end
 
       redirect_to action: :show
@@ -43,7 +43,7 @@ module Casein
 
     def reset_password
       if passwords_blank?
-        flash[:warning] = t('views.casein.admin_users.reset_password.messages.error.blank')
+        flash[:warning] = t('controller.casein.admin_users.reset_password.error.blank')
       else
         generate_random_password if params[:generate_random_password]
         unless casein_admin_user.id == @session_user.id && params[:generate_random_password].blank?
@@ -78,23 +78,23 @@ module Casein
     def save_user(casein_admin_user_params)
       if casein_admin_user.update_attributes casein_admin_user_params
         if !(casein_admin_user.notify_of_new_password)
-          flash[:notice] = t('views.casein.admin_users.reset_password.messages.success.reset_password')
+          flash[:notice] = t('controller.casein.admin_users.reset_password.success.reset_password')
         else
-          flash[:notice] = t('views.casein.admin_users.reset_password.messages.success.email_notification',
+          flash[:notice] = t('controller.casein.admin_users.reset_password.success.email_notification',
                              email: casein_admin_user.email)
         end
       else
-        flash[:warning] = t('views.casein.admin_users.reset_password.messages.error.warning')
+        flash[:warning] = t('controller.casein.admin_users.reset_password.error.warning')
       end
     end
 
     def save_admin(casein_admin_user_params)
       if params[:casein_admin_user][:password].blank? && params[:casein_admin_user][:password_confirmation].blank?
-        flash[:warning] = t('views.casein.admin_users.update_password.messages.error.blank')
+        flash[:warning] = t('controller.casein.admin_users.update_password.error.blank')
       elsif casein_admin_user.update_attributes casein_admin_user_params
-        flash[:notice] = t('views.casein.admin_users.update_password.messages.success.upadete_password')
+        flash[:notice] = t('controller.casein.admin_users.update_password.messages.upadete_password')
       else
-        flash[:warning] = t('views.casein.admin_users.update_password.messages.error.warning')
+        flash[:warning] = t('controller.casein.admin_users.update_password.error.warning')
       end
     end
 

@@ -1,9 +1,8 @@
 ru:
-  views:
+  controller:
     casein:
       admin_users:
         update_password:
-          messages:
             success:
               upadete_password: Пароль успешно обновлен
             error:

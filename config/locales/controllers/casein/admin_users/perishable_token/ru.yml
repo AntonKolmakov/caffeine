@@ -1,0 +1,6 @@
+ru:
+  controller:
+    casein:
+      admin_users:
+        perishable_token:
+          warning: Ссылка невалидна
