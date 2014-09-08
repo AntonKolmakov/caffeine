@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'admin destroys attachment', js: true do
-  let!(:post) { create :post }
+  let!(:post) { create :post, description: 'description goes here...' }
 
   scenario do
     admin_session_sign_in

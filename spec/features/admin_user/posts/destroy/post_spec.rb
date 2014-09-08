@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 feature 'admin destroys post' do
-  let!(:new_post) { create(:post, name: 'newpost') }
+  let!(:new_post) { create(:post, name: 'newpost', description: 'description goes here...') }
 
   scenario do
     admin_session_sign_in
