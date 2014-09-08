@@ -1,0 +1,95 @@
+header {
+  $header-height: 380px;
+  $contacts-height: 130px;
+  $menu-height: $header-height - $contacts-height;
+
+  font-family: 'Exo 2';
+  font-weight: 300;
+
+  .bgWrapper {
+    min-height: $header-height;
+    background: transparent image-url('header_bg.png') 0 50% no-repeat;
+  }
+
+  .leftside {
+    position: relative;
+    height: $header-height;
+    
+    a.logo {
+      position: absolute;
+      left: 10px;
+      top: 20px;
+
+      display: block;
+      width: 210px;
+      height: 210px;
+      background: #fff image-url('logo_header.png') 50% 50% no-repeat;
+    }
+
+    .title {
+      position: absolute;
+      font-size: 28px;
+      line-height: 30px;
+      color: $gray-darker;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+      font-weight: bold;
+
+      bottom: 20px;
+      left: 30px;
+    }
+  }
+
+  section.contacts {
+    background: #000000 image-url('contacts_bg.png') 40px 50% no-repeat;
+    height: $contacts-height;
+
+    color: #ffffff;
+
+    .icon.contacts {
+      position: absolute;
+      top: 25px;
+      left: 35px;
+      @include sprite($icon-contacts_02);
+    }
+
+    .content {
+      padding: 20px 0 20px 100px;
+      font-size: 16px;
+
+      .phone {
+        font-size: 24px;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  section.mainMenu {
+    height: $menu-height;
+
+    background-image: image-url('bg_01.png');
+
+    .content {
+      padding: 20px 0;
+      color: #ffffff;
+
+      nav.iconMenu {
+        ul {
+          li {
+            width: 33%;
+          }
+        }
+      }
+
+      & > .callback {
+        clear:both;
+        padding-top: 10px;
+      }
+    }
+  }
+}
+
+i.iconCallback {
+  display: inline-block;
+  @include sprite($icon-callback);
+  margin-right: 10px;
+}

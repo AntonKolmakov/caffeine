@@ -1,0 +1,10 @@
+$shadow-margin: 5px;
+$shadow-alpha: 0.2;
+
+.shadow-left {
+  @include box-shadow(-$shadow-margin 0 0 rgba(0,0,0,$shadow-alpha))
+}
+
+.shadow-right {
+  @include box-shadow($shadow-margin 0 0 rgba(0,0,0,$shadow-alpha))
+}

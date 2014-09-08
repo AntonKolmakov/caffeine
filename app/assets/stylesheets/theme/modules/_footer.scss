@@ -1,0 +1,40 @@
+footer {
+  color: #ffffff;
+  font-family: 'Exo 2';
+  font-weight: 300;
+
+  .bgWrapper {
+    background-image: image-url('bg_01.png');
+    border-top: 3px solid #000;
+    padding-top: 10px;
+  }
+
+  .content {
+    padding-left: 20px;
+  }
+
+  .copyright {
+    font-size: 12px;
+  }
+
+  nav.iconMenu {
+    margin-left: -25px;
+
+    ul {
+      li {
+        width: 16.5%;
+      }
+    }
+  }
+
+  a.logo {
+    position: absolute;
+    right: 10px;
+    top: 2px;
+
+    display: block;
+    width: 190px;
+    height: 145px;
+    background: #fff image-url('logo_footer.png') 50% 50% no-repeat;
+  }
+}

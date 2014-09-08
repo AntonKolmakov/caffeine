@@ -1,0 +1,15 @@
+nav {
+  ul {
+    li {
+      a {
+        font-weight: 300;
+        font-family: 'Exo 2';
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
