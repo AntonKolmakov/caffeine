@@ -34,5 +34,8 @@ module RailsBase
 
     # Default host for action mailer, initializers/mailer.rb
     config.host = 'localhost:5000'
+
+    # Autoload ckeditor models folder
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
   end
 end
