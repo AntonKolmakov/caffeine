@@ -4,5 +4,6 @@ ru:
       posts:
         form:
           name: Имя
+          description: Описание
           category_id: Выберете категорию
           cancel: Отмена

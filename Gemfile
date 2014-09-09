@@ -38,10 +38,11 @@ gem 'closure_tree' #tree data structure
 gem 'casein' #CMS toolkit
 gem 'responders'
 gem 'carrierwave' #flexible way to upload files
-gem "mini_magick"
+gem 'mini_magick'
 gem 'friendly_id'
 gem 'draper'
 gem 'babosa'
+gem 'ckeditor' #HTML text editor
 
 group :development do
   gem 'styleguides'

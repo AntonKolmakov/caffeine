@@ -5,6 +5,9 @@ p
 p
   strong= t('views.casein.posts.show.category_name')
   = post.category.name if post.category.present?
+p
+  strong Description
+  = post.description.html_safe
 
 = link_to t('views.casein.posts.show.link.cancel'), casein_posts_path, class: 'btn btn-mini btn-danger'
 = link_to t('views.casein.posts.show.link.edit'), edit_casein_post_path(post), class: 'btn btn-mini btn-primary'

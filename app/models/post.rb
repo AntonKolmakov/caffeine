@@ -4,5 +4,7 @@ class Post < ActiveRecord::Base
   belongs_to :category
   has_many :post_attachments
 
+  enum status: %i(draft published blocked)
+
   validates :name, presence: true
 end
