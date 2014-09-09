@@ -26,8 +26,6 @@ module RailsBase
 
     config.responders.flash_keys = [ :notice, :warning ]
 
-    config.app_name = 'Rails Base example site'
-
     # Slim engine default option, initializers/slim.rb
     config.slim_options = {}
 

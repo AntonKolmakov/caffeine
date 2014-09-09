@@ -1,0 +1,255 @@
+article {
+  $sectionHeight: 360px;
+  $mediaWidth: 380px;
+  $outset: 20px;
+
+  width: 940px;
+  margin: 0 auto 0 auto;
+  padding-bottom: 20px;
+
+  background-color: #ffffff;
+
+  & > .container {
+    margin-left: -10px;
+  }
+
+
+  .contentBlock {
+    height: $sectionHeight;
+    position: relative;
+    margin-top: -1px;
+
+    .content {
+      border-bottom: 1px dotted $gray-lighter;
+      height: $sectionHeight;
+      background-color: #ffffff;
+      background-repeat: no-repeat;
+
+      .text {
+        padding: 30px 10px;
+        font-size: 14px;
+        line-height: 18px;
+
+        .title {
+          font-size: 24px;
+          line-height: 24px;
+          margin-bottom: 20px;
+
+          color: $gray-dark;
+        }
+
+        .subtitle {
+          width: 300px;
+          color: $gray;
+        }
+      }
+
+      .paralax {
+        &.layer_1 {
+          position: absolute;
+          bottom: 0;
+          background-repeat: no-repeat;
+          background-position: 50% 100%;
+          width: 280px;
+          height: $sectionHeight;
+        }
+      }
+
+      a.next {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        height: 40px;
+        line-height: 40px;
+        vertical-align: middle;
+        font-size: 16px;
+
+        background-color: #000000;
+        color: #ffffff;
+        padding: 0 20px 0 60px;
+      }
+    }
+
+    .mediaBlock {
+      position: absolute;
+      top: 0;
+      width: 380px;
+      height: $sectionHeight;
+      background-color: #999999;
+      color: #ffffff;
+
+      .mediaBlockContent {
+        position: relative;
+        height: $sectionHeight;
+
+        &:before {
+          content: ' ';
+          position: absolute;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          top: -$outset;
+        }
+
+        &:after {
+          content: ' ';
+          position: absolute;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          bottom: -$outset;
+        }
+
+        .icon-large {
+          position: absolute;
+          width: 280px;
+          height: 180px;
+          top: 50%;
+          left: 50%;
+          margin-left: -140px;
+          margin-top: -90px;
+          text-align: center;
+          padding-top: 165px;
+          font-size: 16px;
+
+          background-repeat: no-repeat;
+          background-position: 50% 0;
+        }
+      }
+    }
+
+    &.left {
+      .content {
+        padding-left: 380px;
+        background-position: 100% 1px;
+        @include box-shadow($shadow-margin 0 0 rgba(0,0,0,$shadow-alpha/4));
+
+        .paralax {
+          &.layer_1 {
+            right: 0;
+          }
+        }
+
+        a.next {
+          right: 0;
+        }
+      }
+
+      .mediaBlock {
+        left: -$outset;
+        @include box-shadow($shadow-margin 0 0 rgba(0,0,0,$shadow-alpha));
+
+        .mediaBlockContent {
+          &:before {
+            left: 0;
+            border-width: 0 0 $outset $outset;
+            border-color: transparent transparent #000 transparent;
+          }
+          &:after {
+            left: 0;
+            border-width: 0 $outset $outset 0;
+            border-color: transparent #000 transparent transparent;
+          }
+        }
+      }
+    }
+
+    &.right {
+      .content {
+        padding-right: 380px;
+        background-position: 257px 1px;
+        @include box-shadow(-$shadow-margin 0 0 rgba(0,0,0,$shadow-alpha/4));
+
+        .text {
+          padding: 30px 10px 30px 20px;
+        }
+
+        .paralax {
+          &.layer_1 {
+            right: $mediaWidth - $outset;
+          }
+        }
+
+        a.next {
+          right: $mediaWidth - $outset;
+        }
+      }
+
+      .mediaBlock {
+        right: -$outset;
+        @include box-shadow(-$shadow-margin 0 0 rgba(0,0,0,$shadow-alpha));
+
+        .mediaBlockContent {
+          &:before {
+            right: 0;
+            border-width: $outset 0 0 $outset;
+            border-color: transparent transparent transparent #000;
+          }
+          &:after {
+            right: 0;
+            border-width: $outset $outset 0 0;
+            border-color: #000 transparent transparent transparent
+          }
+        }
+      }
+    }
+
+    &.section_01 {
+      .content {
+        background-image: url(../images/sectors/sector_01_layer_02.png);
+
+        .paralax {
+          &.layer_1 {
+            background-image: url(../images/sectors/sector_01_layer_01.png);
+          }
+        }
+      }
+      .mediaBlock {
+        background-image: url(../images/bg_02.png);
+        
+        .icon-large {
+          padding-top: 145px;
+          background-image: url(../images/icon_01.png);
+        }
+      }
+    }
+
+    &.section_02 {
+      .content {
+        background-image: url(../images/sectors/sector_02_layer_02.png);
+
+        .paralax {
+          &.layer_1 {
+            background-image: url(../images/sectors/sector_02_layer_01.png);
+          }
+        }
+      }
+      .mediaBlock {
+        background-image: url(../images/bg_03.png);
+
+        .icon-large {
+          background-image: url(../images/icon_02.png);
+        }
+      }
+    }
+
+    &.section_03 {
+      .content {
+        background-image: url(../images/sectors/sector_03_layer_02.png);
+
+        .paralax {
+          &.layer_1 {
+            background-image: url(../images/sectors/sector_03_layer_01.png);
+          }
+        }
+      }
+      .mediaBlock {
+        background-image: url(../images/bg_04.png);
+
+        .icon-large {
+          background-image: url(../images/icon_03.png);
+        }
+      }
+    }
+  }
+}

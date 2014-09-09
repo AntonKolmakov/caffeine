@@ -1,0 +1,106 @@
+.container {
+  $width: 960px;
+  max-width: $width!important;
+  width: $width!important;
+}
+
+body {
+  font-family: 'Exo 2', Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 300;
+  background: #fff image-url('body_bg.png') 0 0;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: transparent image-url('hr.png') 0 0 repeat-x;
+}
+
+nav.iconMenu {
+  ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: block;
+      float: left;
+      text-align: center;
+      margin-bottom: 15px;
+
+      a {
+        display: block;
+        color: #ffffff;
+        padding-top: 45px;
+        position: relative;
+        text-transform: uppercase;
+        text-decoration: none;
+
+        &:before {
+          content: ' ';
+          display: block;
+          position: absolute;
+          top: 22px;
+          left: 50%;
+
+          @include transition(all 0.3s ease);
+        }
+
+        &:hover {
+          color: #00b3ee;
+          &:before {
+            top: 18px;
+          }
+        }
+
+        &.home {
+          &:before {
+            @include sprite($icon-home);
+            margin-top: -$icon-home-height/2;
+            margin-left: -$icon-home-width/2;
+          }
+        }
+
+        &.about {
+          &:before {
+            @include sprite($icon-about);
+            margin-top: -$icon-about-height/2;
+            margin-left: -$icon-about-width/2;
+          }
+        }
+
+        &.services {
+          &:before {
+            @include sprite($icon-services);
+            margin-top: -$icon-services-height/2;
+            margin-left: -$icon-services-width/2;
+          }
+        }
+
+        &.partners {
+          &:before {
+            @include sprite($icon-partners);
+            margin-top: -$icon-partners-height/2;
+            margin-left: -$icon-partners-width/2;
+          }
+        }
+
+        &.certificates {
+          &:before {
+            @include sprite($icon-certificates);
+            margin-top: -$icon-certificates-height/2;
+            margin-left: -$icon-certificates-width/2;
+          }
+        }
+
+        &.contacts {
+          &:before {
+            @include sprite($icon-contacts);
+            margin-top: -$icon-contacts-height/2;
+            margin-left: -$icon-contacts-width/2;
+          }
+        }
+      }
+    }
+  }
+}

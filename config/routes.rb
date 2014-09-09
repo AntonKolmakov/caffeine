@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'dashboard#index'
+  root 'posts#index'
 
   devise_for :users
 
