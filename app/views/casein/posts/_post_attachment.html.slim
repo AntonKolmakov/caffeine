@@ -1,0 +1,4 @@
+ul
+  li
+    = link_to post_attachment.attachment.file.filename, post_attachment.attachment_url
+    = button_to t('views.casein.posts.show.link.remove_attachment'), casein_post_post_attachment_path(post, post_attachment), method: :delete, class: "btn btn-danger btn-default btn-mini"

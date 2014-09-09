@@ -63,6 +63,7 @@ GEM
       activesupport (>= 3.2)
       request_store (~> 1.0)
     awesome_print (1.2.0)
+    babosa (0.3.11)
     bcrypt-ruby (3.1.2)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -429,6 +430,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  babosa
   bootstrap-sass
   brakeman
   bullet

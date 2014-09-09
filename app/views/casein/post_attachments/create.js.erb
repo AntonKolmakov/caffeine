@@ -1,0 +1,6 @@
+<% if post_attachment.errors.any? %>
+  alert("Failed to upload painting: <%= j post_attachment.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+  $('#list_of_attachments').append("<%= j render 'casein/posts/post_attachment', object: post_attachment %>");
+  new Uploader;
+<% end %>

@@ -11,7 +11,9 @@ Rails.application.routes.draw do
         collection { post :sort }
       end
     end
-    resources :posts
+    resources :posts do
+      resources :post_attachments, only: %i(create destroy)
+    end
     resources :categories
   end
 

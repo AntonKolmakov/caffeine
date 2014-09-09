@@ -9,5 +9,21 @@ p
 = link_to 'Edit', edit_casein_post_path(post), class: 'btn btn-mini btn-primary'
 '  or
 = link_to 'Delete', casein_post_path(post), method: :delete, class: 'btn btn-mini btn-danger'
+
+#list_of_attachments
+  = render partial: 'casein/posts/post_attachment', collection: post.post_attachments
+
+#uploader
+  = simple_form_for [:casein, post, PostAttachment.new],
+      html: { multipart: true } do |f|
+    = f.input :attachment, as: :file, input_html:  { multiple: true, name: 'post_attachment[attachment]' }
+
 = content_for :sidebar do
   li= link_to "#{casein_show_icon "th-list"} Back to list".html_safe, casein_posts_path
+
+script#template-upload type="text/x-tmpl"
+  .upload
+    | {%=o.name%}
+    .progress
+      .bar style=("width: 0%")
+

@@ -1,0 +1,7 @@
+ru:
+  views:
+    casein:
+      posts:
+        index:
+          header: Страницы
+          add_new_post: Новая страница
