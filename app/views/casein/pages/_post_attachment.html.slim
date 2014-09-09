@@ -1,0 +1,4 @@
+ul
+  li
+    = link_to post_attachment.attachment.file.filename, post_attachment.attachment_url
+    = button_to "delete", casein_page_post_attachment_path(page, post_attachment), method: :delete, class: "btn btn-danger btn-default btn-mini"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140906203715) do
+ActiveRecord::Schema.define(version: 20140909120754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,14 +109,33 @@ ActiveRecord::Schema.define(version: 20140906203715) do
     t.integer  "position"
   end
 
+  create_table "page_hierarchies", id: false, force: true do |t|
+    t.integer "ancestor_id",   null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations",   null: false
+  end
+
+  add_index "page_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "page_anc_desc_udx", unique: true, using: :btree
+  add_index "page_hierarchies", ["descendant_id"], name: "page_desc_idx", using: :btree
+
+  create_table "pages", force: true do |t|
+    t.string  "name"
+    t.string  "slug"
+    t.boolean "fix_slug",          default: false
+    t.integer "status",            default: 0
+    t.text    "description"
+    t.text    "short_description"
+    t.integer "parent_id"
+  end
+
   create_table "post_attachments", force: true do |t|
     t.string   "attachment"
-    t.integer  "post_id"
+    t.integer  "page_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "post_attachments", ["post_id"], name: "index_post_attachments_on_post_id", using: :btree
+  add_index "post_attachments", ["page_id"], name: "index_post_attachments_on_page_id", using: :btree
 
   create_table "posts", force: true do |t|
     t.string   "name"

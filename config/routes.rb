@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
-  root 'dashboard#index'
+
+  root 'pages#show', id: 1
 
   devise_for :users
 
@@ -15,6 +16,9 @@ Rails.application.routes.draw do
     resources :posts do
       resources :post_attachments, only: %i(create destroy)
     end
+    resources :pages do
+      resources :post_attachments, only: %i(create destroy)
+    end
     resources :categories
   end
 
@@ -26,4 +30,6 @@ Rails.application.routes.draw do
   resources :categories, shallow: true do
     resources :posts, only: %i(index show)
   end
+
+  resources :pages, only: %i(index show)
 end

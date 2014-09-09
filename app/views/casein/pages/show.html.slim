@@ -1,0 +1,31 @@
+#category
+  ul
+    - Page.roots.find_each do |page|
+      li
+        = link_to page.name, casein_page_path(page)
+        ul
+          = render page.children.includes(:children)
+
+#breadcrumbs
+  - page.ancestors.reverse.each do |page|
+    = link_to page.name, casein_page_path(page)
+    | &gt
+
+h1= page.name
+
+p= page.description.html_safe
+
+#list_of_attachments
+  = render partial: 'casein/pages/post_attachment', collection: page.post_attachments
+
+#uploader
+  = simple_form_for [:casein, page, PostAttachment.new], html: { multipart: true } do |f|
+    = f.input :attachment, as: :file, input_html:  { multiple: true, name: 'post_attachment[attachment]' }, label: "Form attachment"
+
+= link_to "add page", new_casein_page_path(parent_id: page.id)
+
+script#template-upload type="text/x-tmpl"
+  .upload
+    | {%=o.name%}
+    .progress
+      .bar style=("width: 0%")
