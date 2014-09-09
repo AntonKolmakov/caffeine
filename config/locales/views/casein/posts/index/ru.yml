@@ -5,3 +5,6 @@ ru:
         index:
           header: Страницы
           add_new_post: Новая страница
+          sort_link:
+            name: Имя страницы
+            category: Родитель

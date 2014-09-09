@@ -1,8 +1,8 @@
 table.table.table-striped.table-hover.table-condensed
   thead
     tr
-      th= casein_sort_link "Name", :name
-      th= casein_sort_link "Category", :category_id
+      th= casein_sort_link t('views.casein.posts.index.sort_link.name'), :name
+      th= casein_sort_link t('views.casein.posts.index.sort_link.category'), :category_id
       th &nbsp;
   - posts.each do |post|
     tr

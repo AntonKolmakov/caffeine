@@ -6,5 +6,5 @@ def admin_session_sign_in
   fill_in 'casein_admin_user_session_login', with: user.login
   fill_in 'casein_admin_user_session_password', with: user.password
 
-  click_button 'Sign in'
+  click_button I18n.t('views.casein.admin_user_sessions.new.form.submit')
 end

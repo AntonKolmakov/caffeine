@@ -20,12 +20,14 @@ h1 = album.name
 
 = simple_form_for [:casein, album, Image.new],
   html: { multipart: true } do |f|
-  = f.input :picture, as: :file, input_html:  { multiple: true, name: 'image[picture]' }
+  = f.input :picture, as: :file, input_html:  { multiple: true, name: 'image[picture]' }, label: t('views.casein.albums.show.form_for_image.attach_picture')
 
 p
   = link_to t('views.casein.albums.show.link.remove_album'), casein_album_path(album), confirm: t('views.casein.albums.form.delete'), method: :delete
   |  |
   = link_to t('views.casein.albums.show.link.add_new_album'), new_casein_album_path(parent_id: album.id)
+  |  |
+  = link_to t('views.casein.albums.edit.link.edit_album'), edit_casein_album_path(album)
 
 script#template-upload type="text/x-tmpl"
   .upload

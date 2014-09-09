@@ -1,7 +1,5 @@
 module Casein
-  class AlbumsController < Casein::CaseinController
-    responders :collection, :flash
-
+  class AlbumsController < AdminApplicationController
     expose(:albums) { Album.order(sort_order(:name)).paginate page: params[:page] }
     expose(:album, attributes: :album_params)
 

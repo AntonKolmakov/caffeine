@@ -1,0 +1,11 @@
+ru:
+  views:
+    casein:
+      categories:
+        index:
+          header: Категории
+          add_new_category: Новая категория
+          sort_link:
+            name: Имя
+            content: Контент
+            parent: Родитель

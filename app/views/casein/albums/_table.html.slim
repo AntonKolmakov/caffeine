@@ -1,7 +1,7 @@
 table.table.table-striped.table-hover.table-condensed
   thead
     tr
-      th= casein_sort_link "Name", :name
+      th= casein_sort_link t('views.casein.albums.index.sort_link.name'), :name
       th &nbsp;
   - albums.each do |album|
     tr

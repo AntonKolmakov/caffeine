@@ -2,4 +2,4 @@ h2= t('views.casein.user_forms.new.header')
 = render 'form'
 
 = content_for :sidebar do
-  li= link_to "#{casein_show_icon "th-list"} Back to list".html_safe, casein_user_forms_path
+  li= link_to "#{casein_show_icon "th-list"} #{t('views.casein.user_forms.new.back_to_list')}".html_safe, casein_user_forms_path

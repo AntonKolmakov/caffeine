@@ -1,0 +1,11 @@
+ru:
+  views:
+    casein:
+      password_resets:
+        edit:
+          form:
+            placeholder:
+              password: Пароль
+              password_confirmation: Подтвердите пароль
+            action:
+              submit: Изменить пароль

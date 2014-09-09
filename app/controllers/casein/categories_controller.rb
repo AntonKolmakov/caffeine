@@ -1,6 +1,5 @@
 module Casein
-  class CategoriesController < Casein::CaseinController
-    responders :collection, :flash
+  class CategoriesController < AdminApplicationController
     expose(:categories) { Category.order(sort_order(:name)).paginate page: params[:page] }
     expose(:category, attributes: :category_params)
 

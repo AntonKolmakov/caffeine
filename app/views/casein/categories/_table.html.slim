@@ -1,9 +1,9 @@
 table.table.table-striped.table-hover.table-condensed
   thead
     tr
-      th= casein_sort_link "Name", :name
-      th= casein_sort_link "Content", :content
-      th= casein_sort_link "Parent", :parent_id
+      th= casein_sort_link t('views.casein.categories.index.sort_link.name'), :name
+      th= casein_sort_link t('views.casein.categories.index.sort_link.content'), :content
+      th= casein_sort_link t('views.casein.categories.index.sort_link.parent'), :parent_id
       th &nbsp;
   - categories.each do |category|
     tr

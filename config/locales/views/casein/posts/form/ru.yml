@@ -1,0 +1,8 @@
+ru:
+  views:
+    casein:
+      posts:
+        form:
+          name: Имя
+          category_id: Выберете категорию
+          cancel: Отмена

@@ -1,4 +1,11 @@
 ru:
+  authlogic:
+    error_messages:
+      login_blank: Логин не может быть пустым
+      login_not_found: Логин не найден
+      password_blank: Пароль не может быть пустым
+      password_invalid: Пароль не найден
+      no_authentication_details: Вы не предоставили никакой информации
   date:
     abbr_day_names:
     - Вс
@@ -169,14 +176,21 @@ ru:
     select:
       prompt: ! 'Выберите: '
     submit:
-      create: Создать %{model}
-      submit: Сохранить %{model}
-      update: Сохранить %{model}
+      casein_admin_user:
+        create: 'Создать пользователя'
+      album:
+        create: 'Создать альбом'
+        update: 'Сохранить альбом'
+      post:
+        create: 'Создать страницу'
+        update: 'Сохранить страницу'
+      category:
+        create: 'Создать категорию'
+        update: 'Сохранить категорию'
       user_form:
         create: 'Сохранить форму'
         update: 'Сохранить форму'
         submit: 'Сохранить форму'
-
   number:
     currency:
       format:
@@ -296,6 +310,7 @@ ru:
         reason: "Удалить"
       session_links: "Что-то еще?"
     form:
+      cancel: Отмена
       save: "Сохранить"
       send: "Послать"
       update: "Обновить"

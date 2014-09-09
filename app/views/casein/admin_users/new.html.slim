@@ -1,0 +1,31 @@
+h2= t('views.casein.admin_users.new_user.header')
+= form_for casein_admin_user do |form|
+  .row
+    .col-lg-6
+      = casein_text_field form, casein_admin_user, :login, {size: 30, casein_label: t('views.casein.admin_users.new_user.form_label.user_name')}
+    .col-lg-6
+      = casein_text_field form, casein_admin_user, :name, {casein_label: t('views.casein.admin_users.new_user.form_label.name')}
+  .row
+    .col-lg-6
+      = casein_text_field form, casein_admin_user, :email, {casein_label: t('views.casein.admin_users.new_user.form_label.email')}
+    .col-lg-6
+      = casein_time_zone_select form, casein_admin_user, :time_zone, ActiveSupport::TimeZone.us_zones, {casein_label: t('views.casein.admin_users.new_user.form_label.time_zone')}
+  .row
+    .col-lg-6
+      = casein_select form, casein_admin_user, :access_level, casein_get_access_level_array, {casein_label: t('views.casein.admin_users.new_user.form_label.role')}
+    .col-lg-6
+  .row
+    .col-lg-6
+      = casein_password_field form, casein_admin_user, :password, {casein_label: t('views.casein.admin_users.new_user.form_label.password')}
+    .col-lg-6
+      = casein_password_field form, casein_admin_user, :password_confirmation, {casein_label: t('views.casein.admin_users.new_user.form_label.repeat_password')}
+    .col-lg-12.password-checkbox
+      .checkbox
+        label
+          = check_box_tag :generate_random_password, "1", false, {id: 'generate-random-password-checkbox'}
+          = t('views.casein.admin_users.new_user.form_label.generate_password')
+  p.submits
+    = link_to t('app.form.cancel'), casein_admin_users_path, class: 'btn btn-mini btn-danger'
+    = form.submit class: "btn btn-mini btn-primary"
+  = content_for :sidebar do
+    li= link_to "#{casein_show_icon('th-list')} #{t('views.casein.admin_users.new_user.link.back_to_list')}".html_safe, casein_admin_users_path

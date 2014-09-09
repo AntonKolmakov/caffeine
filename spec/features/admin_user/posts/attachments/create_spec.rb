@@ -6,7 +6,7 @@ feature 'admin creates attachment', js: true do
   scenario do
     admin_session_sign_in
 
-    click_on I18n.t('views.casein.layouts.tab.posts')
+    click_on I18n.t('views.casein.layouts.tab_navigation.posts')
     click_on post.name
     attach_file('post_attachment[attachment]', File.expand_path('spec/fixtures/posts/attachments/документ.pdf'))
 
