@@ -12,7 +12,7 @@ gem 'json'
 
 # Asset gems
 gem 'sass-rails'
-gem 'foundation-rails'
+gem 'bootstrap-sass'
 gem 'compass-rails'
 gem 'foundation-icons-sass-rails'
 gem 'jquery-rails'
@@ -78,6 +78,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'turnip'
   gem 'selenium-webdriver'
+  gem "temping" # to create arbitrary ActiveRecord models
 end
 
 group :staging, :production do

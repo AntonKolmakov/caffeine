@@ -7,8 +7,9 @@ html class="no-js" lang="en"
   head
     meta charset="utf-8"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
+    link href="http://fonts.googleapis.com/css?family=Exo+2:400,300,500,500italic,700&subset=latin,cyrillic" type="text/css" rel="stylesheet"
 
-    title= "#{app_config.app_name} - #{yield(:title) || 'Home'}"
+    title= t('app.base_title')
 
     = csrf_meta_tags
 
@@ -16,24 +17,24 @@ html class="no-js" lang="en"
     = stylesheet_link_tag :application
 
     /! Le modernizr
-    = javascript_include_tag "vendor/modernizr"
+    = javascript_include_tag "modernizr"
 
     / remove this if no need to support ie8
     /[if lt IE 9]
       = javascript_include_tag "ie8/nwmatcher-1.2.5-min.js", "ie8/selectivizr-1.0.3b.js", "ie8/respond.min.js"
 
   body
-    #root
-      = render "partials/navigation"
-      = render "partials/messages"
 
-      .row
-        - if show_title?
-          h1= yield(:title)
+    = render "partials/header"
 
-      = yield
+    article
+      .container
+        .row
+          .col-xs-16
 
-      #push-footer
+            = yield
+            = render "partials/callback"
+
 
     = render "partials/footer"
 

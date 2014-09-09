@@ -1,6 +1,8 @@
 = simple_form_for [:casein, post] do |f|
   = f.input :name, label: t('views.casein.posts.form.name')
   = f.association :category, include_blank: true, prompt: 'Choose category', selected: params['category_id'], label: t('views.casein.posts.form.category_id')
+  = f.input :slug
+  = f.input :fix_slug, as: :boolean
   p.submits
     = link_to t('views.casein.posts.form.cancel'), casein_posts_path, class: 'btn btn-mini btn-danger'
     = f.submit class: "btn btn-mini btn-primary"

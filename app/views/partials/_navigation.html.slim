@@ -1,12 +1,14 @@
-nav.top-bar( data-topbar )
-
-  ul.title-area
-    li.name
-      h1= link_to app_config.app_name, root_path
-    li.toggle-topbar
-      = link_to '#' do
-        i.fi-list
-
-  section.top-bar-section
-    = render_navigation(context: :main)
-    = render_navigation(context: :user, expand_all: true)
+nav.iconMenu
+  ul
+    li
+      a.home href="#" Главная
+    li
+      a.about href="#" О компании
+    li
+      a.services href="#" Наши услуги
+    li
+      a.partners href="#" Партнёры
+    li
+      a.certificates href="#" Сертификаты
+    li
+      a.contacts href="#" Контакты
