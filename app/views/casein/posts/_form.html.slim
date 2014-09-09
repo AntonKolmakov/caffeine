@@ -1,4 +1,4 @@
-= simple_form_for [:casein, post] do |f|
+= simple_form_for [:casein, post] do |f|  = f.input :name, label: t('views.casein.posts.form.name')
   = f.input :name, label: t('views.casein.posts.form.name')
   = f.association :category, include_blank: true, prompt: 'Choose category', selected: params['category_id'], label: t('views.casein.posts.form.category_id')
   = f.input :description, as: :ckeditor, input_html: { ckeditor: {toolbar: 'mini'}}, label: t('views.casein.posts.form.description')
