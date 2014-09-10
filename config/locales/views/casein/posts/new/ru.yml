@@ -1,7 +1,0 @@
-ru:
-  views:
-    casein:
-      posts:
-        new:
-          header: Добавьте новую страницу
-          back_to_list: Назад к листу

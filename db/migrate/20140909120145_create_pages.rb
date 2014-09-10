@@ -8,6 +8,9 @@ class CreatePages < ActiveRecord::Migration
       t.text    :description
       t.text    :short_description
       t.integer :parent_id
+
+      t.timestamps
     end
+    add_index :pages, :slug
   end
 end

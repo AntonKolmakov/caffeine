@@ -1,5 +1,5 @@
-h2 Pages
+h2= t('views.casein.pages.index.header')
 = render partial: 'casein/pages/table', locals: { pages: pages }
 .text-center
 = content_for :sidebar do
-  li= link_to "#{casein_show_icon "plus-sign"} add page".html_safe, new_casein_page_path
+  li= link_to "#{casein_show_icon "plus-sign"} #{t('views.casein.pages.index.add_new_page')}".html_safe, new_casein_page_path

@@ -8,7 +8,7 @@ class RenamePostAttachments < ActiveRecord::Migration
 
       dir.down do
         rename_table :page_attachments, :post_attachments
-        change_column :post_attachments, :page_id, :post_id
+        rename_column :post_attachments, :page_id, :post_id
       end
     end
   end

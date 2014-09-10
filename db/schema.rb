@@ -111,14 +111,18 @@ ActiveRecord::Schema.define(version: 20140909145606) do
   add_index "page_hierarchies", ["descendant_id"], name: "page_desc_idx", using: :btree
 
   create_table "pages", force: true do |t|
-    t.string  "name"
-    t.string  "slug"
-    t.boolean "fix_slug",          default: false
-    t.integer "status",            default: 0
-    t.text    "description"
-    t.text    "short_description"
-    t.integer "parent_id"
+    t.string   "name"
+    t.string   "slug"
+    t.boolean  "fix_slug",          default: false
+    t.integer  "status",            default: 0
+    t.text     "description"
+    t.text     "short_description"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
+
+  add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
 
   create_table "user_form_fields", force: true do |t|
     t.string   "name"

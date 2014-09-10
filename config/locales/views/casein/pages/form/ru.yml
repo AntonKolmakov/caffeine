@@ -1,0 +1,11 @@
+ru:
+  views:
+    casein:
+      pages:
+        form:
+          name: Имя
+          parent: Выберите родителя
+          description: Описание
+          short_description: Краткое описание
+          slug: Url
+          fix_slug: Зафиксировать

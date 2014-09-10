@@ -11,6 +11,8 @@ class DropPosts < ActiveRecord::Migration
       t.integer  :status, default: 0
       t.text     :description
       t.text     :short_description
+
+      t.timestamps
     end
   end
 end

@@ -16,13 +16,16 @@ h1= page.name
 p= page.description.html_safe
 
 #list_of_attachments
-  = render partial: 'casein/pages/post_attachment', collection: page.post_attachments
+  = render partial: 'casein/pages/page_attachment', collection: page.page_attachments
 
 #uploader
-  = simple_form_for [:casein, page, PostAttachment.new], html: { multipart: true } do |f|
-    = f.input :attachment, as: :file, input_html:  { multiple: true, name: 'post_attachment[attachment]' }, label: "Form attachment"
+  = simple_form_for [:casein, page, PageAttachment.new], html: { multipart: true } do |f|
+    = f.input :attachment, as: :file, input_html:  { multiple: true, name: 'page_attachment[attachment]' }, label: t('views.casein.pages.show.form_attachment')
 
-= link_to "add page", new_casein_page_path(parent_id: page.id)
+= link_to t('views.casein.pages.show.add_page'), new_casein_page_path(parent_id: page.id)
+= link_to t('views.casein.pages.show.edit'), edit_casein_page_path(page), class: 'btn btn-mini btn-primary'
+= link_to t('views.casein.pages.show.delete'), casein_page_path(page), method: :delete, data: { confirm: t('views.casein.pages.show.alert') }, class: 'btn btn-mini btn-danger'
+
 
 script#template-upload type="text/x-tmpl"
   .upload

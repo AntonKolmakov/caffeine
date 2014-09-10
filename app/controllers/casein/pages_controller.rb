@@ -33,7 +33,7 @@ module Casein
     private
 
     def page_params
-      params.require(:page).permit(:name, :description, :slug, :fix_slug, :short_description, :parent_id)
+      params.require(:page).permit(:name, :description, :short_description, :slug, :fix_slug, :parent_id)
     end
   end
 end
