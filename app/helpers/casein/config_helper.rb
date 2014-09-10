@@ -26,7 +26,7 @@ module Casein
     # Do not point this at casein/index!
     def casein_config_dashboard_url
       # url_for :controller => :casein, :action => :blank
-      url_for casein_categories_path
+      url_for casein_pages_path
     end
 
     def casein_config_stylesheet_includes
