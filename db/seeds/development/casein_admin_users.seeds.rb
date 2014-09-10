@@ -1,0 +1,1 @@
+Casein::AdminUser.create(login: 'admin', name: 'Admin', email: 'admin@example.com', access_level: 0, password: 'secret', password_confirmation: 'secret')
