@@ -1,17 +1,5 @@
-require 'spec_helper'
-
-Temping.create :klass do
-  include Sluggable
-
-  with_columns do |t|
-    t.string :name
-    t.string :slug
-    t.boolean :fix_slug
-  end
-end
-
-describe Sluggable do
-  let(:klass) { Klass.new }
+shared_examples 'sluggable' do
+  let(:klass) { described_class.new }
 
   describe 'validations' do
     it 'validates slug presence' do
