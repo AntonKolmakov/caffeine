@@ -1,7 +1,0 @@
-ru:
-  views:
-    casein:
-      categories:
-        edit:
-          header: Правка категории
-          back_to_list: назад к листу

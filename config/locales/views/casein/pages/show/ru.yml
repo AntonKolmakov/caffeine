@@ -1,0 +1,12 @@
+ru:
+  views:
+    casein:
+      pages:
+        show:
+          add_page: Добавить страницу
+          edit: Править страницу
+          delete: Удалить страницу
+          form_attachment: Добавьте файлы
+          remove_attachment: Удалить
+          back_to_list: страницы
+          alert: Вы уверены что хотите удалить страницу?

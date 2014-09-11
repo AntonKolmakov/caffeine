@@ -1,8 +1,0 @@
-h2
-  = t('views.casein.categories.index.header')
-  = casein_pagination_details categories
-= render partial: 'casein/categories/table', locals: { categories: categories }
-.text-center
-  = will_paginate categories
-= content_for :sidebar do
-  li= link_to "#{casein_show_icon "plus-sign"} #{t('views.casein.categories.index.add_new_category')}".html_safe, new_casein_category_path

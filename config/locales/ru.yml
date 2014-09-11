@@ -178,6 +178,9 @@ ru:
     submit:
       casein_admin_user:
         create: 'Создать пользователя'
+      page:
+        create: 'Создать страницу'
+        update: 'Сохранить страницу'
       album:
         create: 'Создать альбом'
         update: 'Сохранить альбом'

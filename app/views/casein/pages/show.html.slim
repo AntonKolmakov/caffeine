@@ -1,0 +1,34 @@
+#category
+  ul
+    - Page.roots.find_each do |page|
+      li
+        = link_to page.name, casein_page_path(page)
+        ul
+          = render page.children.includes(:children)
+
+#breadcrumbs
+  - page.ancestors.reverse.each do |page|
+    = link_to page.name, casein_page_path(page)
+    | &gt
+
+h1= page.name
+
+p= page.description.html_safe
+
+#list_of_attachments
+  = render partial: 'casein/pages/page_attachment', collection: page.page_attachments
+
+#uploader
+  = simple_form_for [:casein, page, PageAttachment.new], html: { multipart: true } do |f|
+    = f.input :attachment, as: :file, input_html:  { multiple: true, name: 'page_attachment[attachment]' }, label: t('views.casein.pages.show.form_attachment')
+
+= link_to t('views.casein.pages.show.add_page'), new_casein_page_path(parent_id: page.id)
+= link_to t('views.casein.pages.show.edit'), edit_casein_page_path(page), class: 'btn btn-mini btn-primary'
+= link_to t('views.casein.pages.show.delete'), casein_page_path(page), method: :delete, data: { confirm: t('views.casein.pages.show.alert') }, class: 'btn btn-mini btn-danger'
+
+
+script#template-upload type="text/x-tmpl"
+  .upload
+    | {%=o.name%}
+    .progress
+      .bar style=("width: 0%")

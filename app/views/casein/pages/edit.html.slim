@@ -1,0 +1,6 @@
+h2= t('views.casein.pages.edit.header')
+
+= render 'form'
+
+= content_for :sidebar do
+  li= link_to "#{casein_show_icon "th-list"} #{t('views.casein.pages.edit.back_to_list')}".html_safe, casein_pages_path
