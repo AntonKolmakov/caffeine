@@ -1,0 +1,15 @@
+section[class="contentBlock #{cycle("left", "right")} section_0#{child_counter + 1}"]
+  .content
+    .text
+      .title
+        = child.name
+      .subtitle
+        = child.short_description.html_safe
+    .paralax.layer_1
+    a.next href="#"
+      i.icon-next
+      ' Узнать подробнее
+  .mediaBlock
+    .mediaBlockContent
+      .icon-large
+        = child.name
