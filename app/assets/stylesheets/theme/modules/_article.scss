@@ -196,58 +196,58 @@ article {
 
     &.section_01 {
       .content {
-        background-image: url(../images/sectors/sector_01_layer_02.png);
+        background-image: image-url('sectors/sector_01_layer_02.png');
 
         .paralax {
           &.layer_1 {
-            background-image: url(../images/sectors/sector_01_layer_01.png);
+            background-image: image-url('sectors/sector_01_layer_01.png');
           }
         }
       }
       .mediaBlock {
-        background-image: url(../images/bg_02.png);
+        background-image: image-url('bg_02.png');
         
         .icon-large {
           padding-top: 145px;
-          background-image: url(../images/icon_01.png);
+          background-image: image-url('icon_01.png');
         }
       }
     }
 
     &.section_02 {
       .content {
-        background-image: url(../images/sectors/sector_02_layer_02.png);
+        background-image: image-url('sectors/sector_02_layer_02.png');
 
         .paralax {
           &.layer_1 {
-            background-image: url(../images/sectors/sector_02_layer_01.png);
+            background-image: image-url('sectors/sector_02_layer_01.png');
           }
         }
       }
       .mediaBlock {
-        background-image: url(../images/bg_03.png);
+        background-image: image-url('bg_03.png');
 
         .icon-large {
-          background-image: url(../images/icon_02.png);
+          background-image: image-url('icon_02.png');
         }
       }
     }
 
     &.section_03 {
       .content {
-        background-image: url(../images/sectors/sector_03_layer_02.png);
+        background-image: image-url('sectors/sector_03_layer_02.png');
 
         .paralax {
           &.layer_1 {
-            background-image: url(../images/sectors/sector_03_layer_01.png);
+            background-image: image-url('sectors/sector_03_layer_01.png');
           }
         }
       }
       .mediaBlock {
-        background-image: url(../images/bg_04.png);
+        background-image: image-url('bg_04.png');
 
         .icon-large {
-          background-image: url(../images/icon_03.png);
+          background-image: image-url('icon_03.png');
         }
       }
     }
