@@ -6,9 +6,9 @@ section[class="contentBlock #{cycle("left", "right")} section_0#{child_counter +
       .subtitle
         = child.short_description.html_safe
     .paralax.layer_1
-    a.next href="#"
+    = link_to page_path(child), class: 'next' do
       i.icon-next
-      ' Узнать подробнее
+      = t('views.pages.show.link.learn_more')
   .mediaBlock
     .mediaBlockContent
       .icon-large
