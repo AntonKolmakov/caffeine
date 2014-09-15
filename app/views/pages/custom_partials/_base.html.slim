@@ -1,1 +1,6 @@
 = render partial: "pages/custom_partials/child", collection: page.children
+
+- page.page_attachments.each do |doc|
+  ul
+    li
+      = link_to doc.attachment.file.filename, doc.attachment_url
