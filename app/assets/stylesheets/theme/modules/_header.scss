@@ -49,7 +49,7 @@ header {
       position: absolute;
       top: 25px;
       left: 35px;
-      @include sprite($icon-contacts_02);
+      @include icon(contacts_02);
     }
 
     .content {
@@ -90,6 +90,6 @@ header {
 
 i.iconCallback {
   display: inline-block;
-  @include sprite($icon-callback);
+  @include icon(callback);
   margin-right: 10px;
 }

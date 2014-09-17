@@ -24,3 +24,15 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+@mixin icon($alias, $margin: false) {
+  $width: icons-sprite-width($alias);
+  $height: icons-sprite-height($alias);
+  @include icons-sprite($alias);
+  width: $width;
+  height: $height;
+  @if $margin {
+    margin-top: -1 * $height / 2;
+    margin-left: -1 * $width / 2;
+  }
+}

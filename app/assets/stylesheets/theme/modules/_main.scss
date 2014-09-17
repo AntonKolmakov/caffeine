@@ -55,49 +55,37 @@ nav.iconMenu {
 
         &.home {
           &:before {
-            @include sprite($icon-home);
-            margin-top: -$icon-home-height/2;
-            margin-left: -$icon-home-width/2;
+            @include icon(home, true);
           }
         }
 
         &.about {
           &:before {
-            @include sprite($icon-about);
-            margin-top: -$icon-about-height/2;
-            margin-left: -$icon-about-width/2;
+            @include icon(about, true);
           }
         }
 
         &.services {
           &:before {
-            @include sprite($icon-services);
-            margin-top: -$icon-services-height/2;
-            margin-left: -$icon-services-width/2;
+            @include icon(services, true);
           }
         }
 
         &.partners {
           &:before {
-            @include sprite($icon-partners);
-            margin-top: -$icon-partners-height/2;
-            margin-left: -$icon-partners-width/2;
+            @include icon(partners, true);
           }
         }
 
         &.certificates {
           &:before {
-            @include sprite($icon-certificates);
-            margin-top: -$icon-certificates-height/2;
-            margin-left: -$icon-certificates-width/2;
+            @include icon(certificates, true);
           }
         }
 
         &.contacts {
           &:before {
-            @include sprite($icon-contacts);
-            margin-top: -$icon-contacts-height/2;
-            margin-left: -$icon-contacts-width/2;
+            @include icon(contacts, true);
           }
         }
       }
