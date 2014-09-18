@@ -1,11 +1,12 @@
 section[class="contentBlock #{cycle("left", "right")} section_0#{child_counter + 1}"]
   .content
-    .text
-      .title
-        = child.name
-      .subtitle
-        = child.short_description.html_safe
-    .paralax.layer_1
+    .parallax-container
+      .text
+        .title
+          = child.name
+        .subtitle
+          = child.short_description.html_safe
+      .parallax.layer_1
     = link_to page_path(child), class: 'next' do
       i.icon-next
       = t('views.pages.show.link.learn_more')

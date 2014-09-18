@@ -1,1 +1,17 @@
-= render partial: "pages/custom_partials/child", collection: page.children
+ol.breadcrumb
+  - page.ancestors.reverse.each do |page|
+    li
+      = link_to page.name, page_path(page)
+  li.active
+    = page.name
+
+
+h1
+  = page.name
+
+article.page-content
+  - if page.short_description?
+    .intro-text
+      = page.short_description.html_safe
+      hr
+  = page.description.html_safe

@@ -29,6 +29,7 @@ article {
         padding: 30px 10px;
         font-size: 14px;
         line-height: 18px;
+        margin-left: -$mediaWidth/2;
 
         .title {
           font-size: 24px;
@@ -44,7 +45,14 @@ article {
         }
       }
 
-      .paralax {
+      .parallax-container {
+        position: relative;
+        width: $mediaWidth;
+        float: right;
+        height: $sectionHeight;
+      }
+
+      .parallax {
         &.layer_1 {
           position: absolute;
           bottom: 0;
@@ -124,9 +132,9 @@ article {
         background-position: 100% 1px;
         @include box-shadow($shadow-margin 0 0 rgba(0,0,0,$shadow-alpha/4));
 
-        .paralax {
+        .parallax {
           &.layer_1 {
-            right: 0;
+            left: 50%;
           }
         }
 
@@ -164,9 +172,9 @@ article {
           padding: 30px 10px 30px 20px;
         }
 
-        .paralax {
+        .parallax {
           &.layer_1 {
-            right: $mediaWidth - $outset;
+            left: 50%;
           }
         }
 
@@ -198,7 +206,7 @@ article {
       .content {
         background-image: image-url('sectors/sector_01_layer_02.png');
 
-        .paralax {
+        .parallax {
           &.layer_1 {
             background-image: image-url('sectors/sector_01_layer_01.png');
           }
@@ -218,7 +226,7 @@ article {
       .content {
         background-image: image-url('sectors/sector_02_layer_02.png');
 
-        .paralax {
+        .parallax {
           &.layer_1 {
             background-image: image-url('sectors/sector_02_layer_01.png');
           }
@@ -237,7 +245,7 @@ article {
       .content {
         background-image: image-url('sectors/sector_03_layer_02.png');
 
-        .paralax {
+        .parallax {
           &.layer_1 {
             background-image: image-url('sectors/sector_03_layer_01.png');
           }

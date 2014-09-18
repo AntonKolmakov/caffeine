@@ -7,5 +7,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery_nested_form
-//= require bootstrap-sprockets
+//= require jquery.event.frame
+//= require jquery.parallax.min
 //= require_tree .
