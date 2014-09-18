@@ -83,4 +83,5 @@ end
 
 group :staging, :production do
   gem 'rails_12factor'
+  gem 'fog'
 end

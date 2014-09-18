@@ -12,9 +12,6 @@ module UserForms
       respond_with user_form_submission, location: root_path
     end
 
-    def new
-    end
-
     private
 
     def submission_params
