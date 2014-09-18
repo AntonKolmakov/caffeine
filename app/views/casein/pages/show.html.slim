@@ -15,7 +15,7 @@ h1= page.name
 
 p= page.description.html_safe
 
-= render page.albums
+= render page.album if page.album
 
 #list_of_attachments
   = render partial: 'casein/pages/page_attachment', collection: page.page_attachments

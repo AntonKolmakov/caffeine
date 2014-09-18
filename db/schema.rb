@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(version: 20140918091735) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
-    t.integer  "page_id"
   end
 
   create_table "casein_admin_users", force: true do |t|
@@ -121,6 +120,7 @@ ActiveRecord::Schema.define(version: 20140918091735) do
     t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "album_id"
   end
 
   add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
