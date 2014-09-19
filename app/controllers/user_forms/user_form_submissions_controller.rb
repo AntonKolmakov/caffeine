@@ -16,7 +16,7 @@ module UserForms
     private
 
     def submission_params
-      params.require('user_form_submission').permit(:field_values)
+      params.require(:user_form_submission).permit!
     end
   end
 end

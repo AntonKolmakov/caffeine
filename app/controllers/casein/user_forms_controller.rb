@@ -36,7 +36,7 @@ module Casein
     def user_form_params
       params.require(:user_form).permit(:name,
         :email,
-        user_form_fields_attributes: %i(id _destroy name field_type))
+        user_form_fields_attributes: %i(id _destroy name field_type required))
     end
   end
 end

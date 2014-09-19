@@ -1,4 +1,5 @@
 = f.input %Q(field_values[#{field.id}]),
   label: field.name,
   as: field.field_type,
-  input_html: { value: nil }
+  input_html: { value: nil },
+  required: field.required?
