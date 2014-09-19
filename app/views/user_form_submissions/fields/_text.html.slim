@@ -1,5 +1,4 @@
-= f.input %Q(field_values[#{field.id}]),
-  label: field.name,
-  as: field.field_type,
-  input_html: { value: nil },
-  required: field.required?
+= f.input :value,
+    label: field.name,
+    as: field.field_type,
+    input_html: { value: nil }

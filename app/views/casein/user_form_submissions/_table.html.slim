@@ -1,0 +1,16 @@
+table.table.table-striped.table-hover.table-condensed
+  thead
+    tr
+      - user_form.user_form_fields.admin_table_showable.find_each do |field|
+        th= field.name
+      th Заполнена
+      th &nbsp;
+  - forms.each do |form|
+    tr
+      - form.field_values.admin_table_showable.find_each do |field_value|
+        td
+          = field_value.value
+      td= form.created_at
+      td.delete
+        = link_to(casein_show_row_icon('trash'), casein_user_form_submission_path(form), method: :delete,
+            data: { confirm: 'Are you sure you want to delete this user form submission?' })
