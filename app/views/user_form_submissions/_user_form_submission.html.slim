@@ -1,4 +1,4 @@
-= simple_form_for [user_form_submission.user_form, user_form_submission] do |f|
+= simple_form_for [user_form_submission.user_form, user_form_submission], remote: true do |f|
   fieldset
     = simple_fields_for :field_values
       - user_form_submission.user_form_fields.find_each do |field|

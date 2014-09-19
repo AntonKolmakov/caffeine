@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   # User routes
-  resources :user_forms, only: [] do
+  resources :user_forms, only: [:show] do
     resources :user_form_submissions, module: 'user_forms', only: :create
   end
 
