@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20140918091735) do
     t.integer  "album_id"
   end
 
+  add_index "pages", ["album_id"], name: "index_pages_on_album_id", using: :btree
   add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
 
   create_table "user_form_fields", force: true do |t|
