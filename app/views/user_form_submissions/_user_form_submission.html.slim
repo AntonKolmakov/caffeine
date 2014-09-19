@@ -1,6 +1,7 @@
-= simple_form_for [user_form_submission.user_form, user_form_submission], remote: true do |f|
+= simple_nested_form_for [user_form_submission.user_form, user_form_submission], remote: true do |f|
   fieldset
-    = simple_fields_for :field_values
-      - user_form_submission.user_form_fields.each do |field|
-        = render %(user_form_submissions/fields/#{field.field_type}), field: field, f: f
+    = f.fields_for :field_values do |fv|
+      = render partial: %(user_form_submissions/fields/#{fv.object.field_type}),
+               locals: {f: f, field: fv.object.user_form_field}
+      = fv.input :user_form_field_id, as: :hidden
     = f.button :submit
