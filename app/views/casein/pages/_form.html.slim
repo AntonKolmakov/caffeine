@@ -5,7 +5,7 @@
   = f.input :short_description, as: :ckeditor, input_html: { ckeditor: {toolbar: 'mini'}}, label: t('views.casein.pages.form.short_description')
   = f.input :slug, label: t('views.casein.pages.form.slug')
   = f.input :fix_slug, as: :boolean, label: t('views.casein.pages.form.fix_slug')
-  = f.association :album, collection: Album.order(:name), prompt: t('views.casein.pages.form.select_album')
+  = f.association :album, collection: Album.order(:name), label: t('views.casein.pages.form.select_album')
   p.submits
     = link_to t('app.form.cancel'), casein_pages_path, class: 'btn btn-mini btn-danger'
     = f.submit class: "btn btn-mini btn-primary"
