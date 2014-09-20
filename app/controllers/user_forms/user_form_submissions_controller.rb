@@ -9,14 +9,7 @@ module UserForms
 
     def create
       user_form_submission.save
-
       respond_with user_form_submission
-    end
-
-    def new
-      user_form_submission.user_form_fields.each do |field|
-        user_form_submission.field_values.build(user_form_field: field)
-      end
     end
 
     private

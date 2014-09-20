@@ -16,7 +16,7 @@ class UserFormSubmission < ActiveRecord::Base
 
   def populate_with_field_values
     user_form_fields.each do |field|
-      self.field_values.build(user_form_field: field)
+      field_values.build(user_form_field: field)
     end
   end
 end
