@@ -24,7 +24,7 @@ class UserFormSubmission < ActiveRecord::Base
 
   def field_required?
     user_form_fields.each_with_index do |field, index|
-      errors.add(:base, "Can't be blank" ) if field.required? && field_values[index+1].value.empty?
-      end
+      errors.add(:base, "Can't be blank") if field.required? && field_values[index + 1].value.empty?
+    end
   end
 end
