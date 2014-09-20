@@ -8,6 +8,8 @@ class UserFormSubmission < ActiveRecord::Base
 
   after_initialize :populate_with_field_values
 
+  validate :field_required?
+
   def field_value(field)
     field_values.where(field: field)
   end
@@ -18,5 +20,11 @@ class UserFormSubmission < ActiveRecord::Base
     user_form_fields.each do |field|
       field_values.build(user_form_field: field)
     end
+  end
+
+  def field_required?
+    user_form_fields.each_with_index do |field, index|
+      errors.add(:base, "Can't be blank" ) if field.required? && field_values[index+1].value.empty?
+      end
   end
 end
