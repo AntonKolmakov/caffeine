@@ -1,4 +1,4 @@
-RailsBase::Application.configure do
+Rails.application.configure do
    config.app_generators do |g|
      g.stylesheets false
      g.helper false
