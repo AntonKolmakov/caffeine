@@ -30,12 +30,16 @@ module PromTehnoSert
     config.slim_options = {}
 
     # Default e-mail address which will be shown in the "from" devise emails, initializers/devise.rb,
-    config.noreply = 'noreply@fs-rails-base.heroku.com'
+    config.noreply = 'noreply@promtehnosert.ru'
 
     # Default host for action mailer, initializers/mailer.rb
     config.host = 'localhost:5000'
 
     # Autoload ckeditor models folder
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+
+    config.before_initialize do
+      config.font_assets.origin = config.host
+    end
   end
 end

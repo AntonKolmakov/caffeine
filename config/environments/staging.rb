@@ -80,5 +80,5 @@ Rails.application.configure do
 
   # Application specific options
   #
-  config.host = 'promtehnosert-staging.herokuapp.com/'
+  config.host = 'promtehnosert-staging.herokuapp.com'
 end
