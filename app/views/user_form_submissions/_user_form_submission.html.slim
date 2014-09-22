@@ -1,4 +1,4 @@
 = simple_nested_form_for [user_form_submission.user_form, user_form_submission], remote: true do |f|
   fieldset
     = f.fields_for :field_values
-    = f.button :submit
+    = f.submit class: 'btn btn-mini btn-primary'

@@ -1,4 +1,4 @@
 - content_for(:header) { render 'partials/header/main' }
 = render partial: "pages/custom_partials/child", collection: page.children
 
-= render UserForm.last.user_form_submissions.build
+= render UserForm.last.user_form_submissions.build unless UserForm.last.nil?
