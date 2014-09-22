@@ -9,3 +9,4 @@ ru:
           short_description: Краткое описание
           slug: Url
           fix_slug: Зафиксировать
+          select_album: Выберите альбом
