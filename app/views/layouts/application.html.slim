@@ -16,7 +16,7 @@ html class="no-js" lang="en"
     = stylesheet_link_tag :application
 
   body
-    = render "partials/header"
+    = render 'partials/header'
 
     article
       .container
@@ -24,8 +24,8 @@ html class="no-js" lang="en"
           .col-xs-16
 
             = yield
-            = render "partials/callback"
+            = render 'partials/callback'
 
-    = render "partials/footer"
+    = render 'partials/footer'
 
     = javascript_include_tag :application
