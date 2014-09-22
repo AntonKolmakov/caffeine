@@ -39,7 +39,7 @@ module PromTehnoSert
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 
     config.before_initialize do
-      config.font_assets.origin = config.host
+      config.font_assets.origin = ['http://', config.host].join
     end
   end
 end
