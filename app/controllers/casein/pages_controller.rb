@@ -1,6 +1,6 @@
 module Casein
   class PagesController < AdminApplicationController
-    expose(:pages)
+    expose(:pages) { Page.order("position ASC") }
     expose(:page, attributes: :page_params, finder: :find_by_slug)
 
     def index
