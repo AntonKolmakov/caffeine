@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
-  root 'pages#show', id: 'home'
+  root 'pages#show', id: 'mainpage'
 
   devise_for :users
 
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :user_forms do
       resources :user_form_submissions, only: %i(index show destroy), shallow: true
     end
-	resources :albums do
+  resources :albums do
       resources :images do
         collection { post :sort }
       end
@@ -25,5 +25,5 @@ Rails.application.routes.draw do
     resources :user_form_submissions, module: 'user_forms', only: :create
   end
 
-  resources :pages, only: :show
+  resources :pages, only: :show, path: ''
 end
