@@ -35,12 +35,13 @@ article {
         font-size: 14px;
         line-height: 18px;
         margin-left: -$mediaWidth/2;
+        @include transition(all 0.5s);
 
         .title {
           font-size: 24px;
           line-height: 24px;
           margin-bottom: 20px;
-
+          width: 400px;
           color: $gray-dark;
         }
 
@@ -193,6 +194,10 @@ article {
 
       &:hover {
         .content {
+          .text {
+            margin-left: -210px;
+          }
+
           a.next {
             right: 461px;
           }
