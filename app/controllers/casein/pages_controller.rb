@@ -1,6 +1,6 @@
 module Casein
   class PagesController < AdminApplicationController
-    expose(:pages)
+    expose(:pages) { Page.order('position ASC') }
     expose(:page, attributes: :page_params, finder: :find_by_slug)
 
     def index
@@ -33,7 +33,14 @@ module Casein
     private
 
     def page_params
-      params.require(:page).permit(:name, :description, :short_description, :slug, :fix_slug, :parent_id, :album_id)
+      params.require(:page).permit(:name,
+                                   :description,
+                                   :short_description,
+                                   :slug,
+                                   :fix_slug,
+                                   :parent_id,
+                                   :album_id,
+                                   :position)
     end
   end
 end

@@ -3,11 +3,13 @@ table.table.table-striped.table-hover.table-condensed
     tr
       th= casein_sort_link t('views.casein.user_forms.index.sort_link.name'), :name
       th= casein_sort_link t('views.casein.user_forms.index.sort_link.email'), :email
+      th= t('views.casein.user_forms.table.submissions_link')
       th &nbsp;
   - user_forms.each do |user_form|
     tr
       td= casein_table_cell_link user_form.name, edit_casein_user_form_path(user_form)
       td= casein_table_cell_link user_form.email, edit_casein_user_form_path(user_form)
+      td= casein_table_cell_link user_form.user_form_submissions.size, casein_user_form_user_form_submissions_path(user_form)
       td.delete
         = link_to(casein_show_row_icon('trash'), casein_user_form_path(user_form), method: :delete,
           data: { confirm: 'Are you sure you want to delete this user form?' })

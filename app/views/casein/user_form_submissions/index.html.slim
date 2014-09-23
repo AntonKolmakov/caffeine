@@ -1,0 +1,5 @@
+h2
+  | User form submissions #{casein_pagination_details user_form_submissions}
+  = render partial: 'casein/user_form_submissions/table', locals: { forms: user_form_submissions }
+  .text-center
+    = will_paginate user_form_submissions

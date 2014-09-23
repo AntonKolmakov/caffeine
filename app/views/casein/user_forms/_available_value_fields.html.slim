@@ -1,0 +1,5 @@
+.row
+  .col-lg-10
+    = casein_text_field f, f.object, :value, casein_label: UserFormFieldValue.human_attribute_name(:value)
+  .col-lg-2
+    = f.link_to_remove t('views.casein.user_forms.form.remove_available_value_link')

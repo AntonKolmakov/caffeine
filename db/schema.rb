@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140918091735) do
+ActiveRecord::Schema.define(version: 20140923084652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -121,10 +121,20 @@ ActiveRecord::Schema.define(version: 20140918091735) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "album_id"
+    t.integer  "position"
   end
 
   add_index "pages", ["album_id"], name: "index_pages_on_album_id", using: :btree
   add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
+
+  create_table "user_form_field_values", force: true do |t|
+    t.string   "value"
+    t.integer  "user_form_field_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_form_field_values", ["user_form_field_id"], name: "index_user_form_field_values_on_user_form_field_id", using: :btree
 
   create_table "user_form_fields", force: true do |t|
     t.string   "name"
@@ -133,13 +143,25 @@ ActiveRecord::Schema.define(version: 20140918091735) do
     t.integer  "user_form_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "show_in_admin_table", default: false
   end
 
+  add_index "user_form_fields", ["show_in_admin_table"], name: "index_user_form_fields_on_show_in_admin_table", using: :btree
   add_index "user_form_fields", ["user_form_id"], name: "index_user_form_fields_on_user_form_id", using: :btree
+
+  create_table "user_form_submission_field_values", force: true do |t|
+    t.integer  "user_form_submission_id"
+    t.integer  "user_form_field_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "data"
+  end
+
+  add_index "user_form_submission_field_values", ["user_form_field_id"], name: "index_submission_field_values_on_user_form_field_id", using: :btree
+  add_index "user_form_submission_field_values", ["user_form_submission_id"], name: "index_submission_field_values_on_user_form_submission_id", using: :btree
 
   create_table "user_form_submissions", force: true do |t|
     t.integer  "user_form_id"
-    t.text     "field_values"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

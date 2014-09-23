@@ -21,7 +21,9 @@ html class="no-js" lang="en"
 
             = yield
             = render 'partials/after_content'
-            = render 'partials/callback'
+            #flash_messages
+              = render 'partials/messages'
+            = render "partials/callback"
 
     = render 'partials/footer'
 

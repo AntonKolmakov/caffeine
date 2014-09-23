@@ -30,6 +30,8 @@ ru:
         destroy:
           notice: 'Форма удалена'
           warning: 'Не получилось удалить форму'
-    user_forms/submission:
-      create:
-        notice: 'Спасибо! Мы ответим Вам в ближайшее время!'
+    user_forms:
+      user_form_submissions:
+        create:
+          notice: 'Спасибо! Мы ответим Вам в ближайшее время!'
+          warning: 'Заполните поля пожалуйста'
