@@ -9,3 +9,9 @@
   p.submits
     = link_to t('app.form.cancel'), casein_pages_path, class: 'btn btn-mini btn-danger'
     = f.submit class: "btn btn-mini btn-primary"
+#list_of_attachments
+  = render partial: 'casein/pages/page_attachment', collection: page.page_attachments
+
+#uploader
+  = simple_form_for [:casein, page, PageAttachment.new], html: { multipart: true } do |f|
+    = f.input :attachment, as: :file, input_html:  { multiple: true, name: 'page_attachment[attachment]' }, label: t('views.casein.pages.show.form_attachment')
