@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
+  redirect '/mainpage', to: '/'
   root 'pages#show', id: 'services'
 
   devise_for :users
@@ -25,5 +26,6 @@ Rails.application.routes.draw do
     resources :user_form_submissions, module: 'user_forms', only: :create
   end
 
+  get '/admin', to: 'casein/pages#index'
   resources :pages, only: :show, path: ''
 end
