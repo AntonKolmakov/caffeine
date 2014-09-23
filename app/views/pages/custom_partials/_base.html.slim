@@ -14,7 +14,7 @@
     - if page.short_description?
       .intro-text
         = page.short_description.html_safe
-        hr
+        hr.light
     = page.description.html_safe
     - if page.album || page.page_attachments.any?
       - column_size = (page.album && page.album.images.any? && page.page_attachments.any?) ? 8 : 16
