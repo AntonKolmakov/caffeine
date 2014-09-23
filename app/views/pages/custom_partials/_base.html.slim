@@ -1,7 +1,7 @@
 - content_for(:title) { page.name }
 .pageContent
   - breadcrumb :page, page
-  = breadcrumbs style: :bootstrap
+  = raw(breadcrumbs style: :bootstrap)
 
   h1
     = page.name
