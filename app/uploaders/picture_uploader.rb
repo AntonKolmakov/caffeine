@@ -28,7 +28,6 @@ class PictureUploader < BaseUploader
   # def scale(width, height)
   #   # do something
   # end
-  process resize_to_fit: [1024, 768]
 
   # Create different versions of your uploaded files:
   version :standard do
