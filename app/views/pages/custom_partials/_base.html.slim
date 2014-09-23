@@ -1,11 +1,6 @@
 .pageContent
-  ol.breadcrumb
-    - page.ancestors.reverse.each do |page|
-      li
-        = link_to page.name, page_path(page)
-    li.active
-      = page.name
-
+  - breadcrumb :page, page
+  = breadcrumbs style: :bootstrap
 
   h1
     = page.name
