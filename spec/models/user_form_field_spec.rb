@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe UserFormField do
   it { should belong_to :user_form }
+  it { should have_many(:available_values).class_name('UserFormFieldValue') }
 
   it { should validate_presence_of :name }
   it { should validate_presence_of :field_type }

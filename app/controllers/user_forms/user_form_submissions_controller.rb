@@ -1,6 +1,7 @@
 module UserForms
   class UserFormSubmissionsController < ApplicationController
-    responders :flash, :location
+    responders :flash
+    respond_to :js, only: :create
 
     expose(:user_form)
     expose(:user_form_submissions, ancestor: :user_form)
@@ -8,14 +9,15 @@ module UserForms
 
     def create
       user_form_submission.save
-
-      respond_with user_form_submission, location: root_path
+      respond_with user_form_submission
     end
 
     private
 
     def submission_params
-      params.require('user_form_submission').permit(:field_values)
+      params.require(:user_form_submission).permit(
+        field_values_attributes:
+          %i(field_value user_form_field_id))
     end
   end
 end

@@ -24,7 +24,9 @@ html class="no-js" lang="en"
           .col-xs-16
 
             = yield
-            = render 'partials/callback'
+            #flash_messages
+              = render 'partials/messages'
+            = render "partials/callback"
 
     = render 'partials/footer'
 

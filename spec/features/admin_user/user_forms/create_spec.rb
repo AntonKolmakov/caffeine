@@ -9,6 +9,10 @@ feature 'admin creates new user form' do
 
     fill_in UserForm.human_attribute_name(:name), with: 'My first dynamic form'
     fill_in UserForm.human_attribute_name(:email), with: Faker::Internet.email
+    fill_in UserFormField.human_attribute_name(:name), with: 'Text field'
+    select(UserFormField::KINDS[:text], from: UserFormField.human_attribute_name(:field_type))
+    check(UserFormField.human_attribute_name(:required))
+
     click_on I18n.t('helpers.submit.user_form.create')
 
     expect(page).to have_content('My first dynamic form')

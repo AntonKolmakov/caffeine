@@ -194,6 +194,8 @@ ru:
         create: 'Сохранить форму'
         update: 'Сохранить форму'
         submit: 'Сохранить форму'
+      user_form_submission:
+        create: 'Отправить форму'
   number:
     currency:
       format:

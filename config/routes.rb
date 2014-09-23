@@ -7,8 +7,10 @@ Rails.application.routes.draw do
 
   # Admin routes
   namespace :casein do
-    resources :user_forms
-		resources :albums do
+    resources :user_forms do
+      resources :user_form_submissions, only: %i(index show destroy), shallow: true
+    end
+	resources :albums do
       resources :images do
         collection { post :sort }
       end
@@ -19,7 +21,7 @@ Rails.application.routes.draw do
   end
 
   # User routes
-  resources :user_forms, only: [] do
+  resources :user_forms, only: [:show] do
     resources :user_form_submissions, module: 'user_forms', only: :create
   end
 
