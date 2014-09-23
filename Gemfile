@@ -43,6 +43,7 @@ gem 'friendly_id'
 gem 'draper'
 gem 'babosa'
 gem 'ckeditor' #HTML text editor
+gem 'font_assets' # Properly serve fonts - MIME-types and CORS config
 
 group :development do
   gem 'styleguides'
