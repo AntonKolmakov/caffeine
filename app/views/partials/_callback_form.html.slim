@@ -1,0 +1,10 @@
+#callback-form class="modal fade callback-form-wrapper" tabindex="-1" role="dialog"
+  .modal-dialog.modal-sm
+    .modal-content
+      .modal-header
+        button.close data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+          span.sr-only Закрыть
+        h4#myModalLabel.modal-title Оставьте заявку
+      .modal-body
+        = render UserForm.last.user_form_submissions.build unless UserForm.last.nil?
