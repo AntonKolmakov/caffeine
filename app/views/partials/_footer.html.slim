@@ -1,0 +1,4 @@
+- if content_for?(:footer)
+  = content_for :footer
+- else
+  = render 'partials/footer/main'

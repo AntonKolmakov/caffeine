@@ -1,3 +1,4 @@
+- content_for(:title) { page.name }
 .pageContent
   ol.breadcrumb
     - page.ancestors.reverse.each do |page|
