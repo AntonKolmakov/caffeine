@@ -1,8 +1,7 @@
 # encoding: utf-8
 class UserFormField < ActiveRecord::Base
-  KINDS = { check_boxes: 'Флажки', file: 'Файл',
-            text: 'Текстовое поле', hidden: 'Скрытое поле',
-            image: 'Изображение', password: 'Пароль', radio_buttons: 'Радиокнопки' }
+  KINDS = { text: 'Текстовое поле', check_boxes: 'Флажки',
+            hidden: 'Скрытое поле', radio_buttons: 'Радиокнопки' }
   KINDS_WHICH_NEEDS_VALUES = %i(check_boxes hidden radio_buttons)
 
   belongs_to :user_form
