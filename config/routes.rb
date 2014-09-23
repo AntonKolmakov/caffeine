@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
-  redirect '/mainpage', to: '/'
+  get '/mainpage', to: redirect('/')
   root 'pages#show', id: 'services'
 
   devise_for :users
