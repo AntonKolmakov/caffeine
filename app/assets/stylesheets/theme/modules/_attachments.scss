@@ -1,0 +1,43 @@
+@import "attachments/*.png";
+@include all-attachments-sprites;
+
+ul.attachments-list {
+  margin-bottom: 0;
+  padding: 0;
+
+  li.attachments-list-item {
+    list-style-type: none;
+    margin-left: 10px;
+    text-align: left;
+    line-height: 16px;
+    vertical-align: middle;
+    position: relative;
+    display: block;
+    padding-left: 22px;
+
+    a {
+      border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+      padding-bottom: 6px;
+      margin-bottom: 6px;
+      display: block;
+
+      i {
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    &:last-child {
+
+      a {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: none;
+      }
+    }
+  }
+}

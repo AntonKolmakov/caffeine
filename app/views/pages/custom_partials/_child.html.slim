@@ -8,8 +8,12 @@ section[class="contentBlock #{cycle("left", "right")} section_0#{child_counter +
           = child.short_description.html_safe
       .parallax.layer_1
     = link_to page_path(child), class: 'next' do
-      i.icon-next
-      = t('views.pages.show.link.learn_more')
+      - if child_counter.odd?
+        i.glyphicon-circle-arrow-right.glyphicon.left
+        ' Подробнее
+      - else
+        ' Подробнее
+        i.glyphicon-circle-arrow-right.glyphicon.right
   .mediaBlock
     .mediaBlockContent
       .icon-large

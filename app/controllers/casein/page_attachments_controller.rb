@@ -12,7 +12,7 @@ module Casein
 
     def destroy
       page_attachment.destroy
-      respond_with(page, location: -> { casein_page_path(page) })
+      respond_with(page, location: -> { edit_casein_page_path(page) })
     end
 
     private

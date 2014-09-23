@@ -121,6 +121,7 @@ ActiveRecord::Schema.define(version: 20140923074656) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "album_id"
+    t.integer  "position"
   end
 
   add_index "pages", ["album_id"], name: "index_pages_on_album_id", using: :btree

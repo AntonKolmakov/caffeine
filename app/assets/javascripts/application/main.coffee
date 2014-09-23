@@ -1,14 +1,21 @@
 class Main
   constructor: () ->
-    @parallax()
+    @lightbox()
 
   parallax: () ->
     jQuery('.parallax').parallax {
-      xparallax: '20%'
+      xparallax: '50%'
       yparallax: false
-      xorigin: 'right'
+      xorigin: '110%'
     }
     .trigger('unfreeze');
+
+  lightbox: () ->
+    $(document).delegate "*[data-toggle=\"lightbox\"]", "click", (event) ->
+      event.preventDefault()
+      $(this).ekkoLightbox()
+      return
+
 
 $ ->
   window.application = new Main()

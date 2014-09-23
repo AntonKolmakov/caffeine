@@ -93,6 +93,7 @@ header {
     .bgWrapper {
       height: $header-height-second;
       min-height: $header-height-second;
+      @include boxShadow(0 5px 0 rgba(0,0,0,0.05));
     }
     a.logo {
       width: 190px;
@@ -105,6 +106,9 @@ header {
       color: #ffffff;
       font-size: 18px;
       text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+      width: 100%;
+      left: 0;
+      text-align: center;
     }
 
     .mainMenu {
@@ -112,10 +116,10 @@ header {
       margin-right: -20px;
 
       nav.iconMenu {
-        padding-top: 10px;
+        padding-top: 20px;
         ul {
           li {
-            margin-left: 17px;
+            margin-left: 18px;
 
             a {
               font-size: 12px;

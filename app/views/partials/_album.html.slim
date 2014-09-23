@@ -1,0 +1,12 @@
+- if album && album.images.any?
+  section[class="col-xs-#{column_size}"]
+    h2 Фотографии
+    ul.images-list.row
+      - image_column_size = (column_size == 8) ? 4 : 2
+      - album.images.each do |image|
+        li[class="images-list-item col-xs-#{image_column_size}"]
+          // TODO: How to separate each attribute by lines, because it is a very long line?
+          = link_to '', image.picture.url,
+            {:class=> 'images-image img-thumbnail',
+              :style => "background-image:url(#{image.picture.url})",
+              :data => { :toggle => 'lightbox', :gallery => 'multiimages', :title => album.name, :parent => '' }}
