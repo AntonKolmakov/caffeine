@@ -18,6 +18,8 @@ article {
     height: $sectionHeight;
     position: relative;
     margin-top: -1px;
+    @include perspective(1000px);
+    z-index: 50;
 
     .content {
       border-bottom: 1px dotted $gray-lighter;
@@ -65,7 +67,7 @@ article {
 
       a.next {
         position: absolute;
-        bottom: 0;
+        bottom: 10px;
         display: block;
         height: 40px;
         line-height: 40px;
@@ -74,8 +76,24 @@ article {
 
         background-color: #000000;
         color: #ffffff;
-        padding: 0 20px 0 60px;
+        padding: 0 10px 0 10px;
+        text-transform: uppercase;
+
+        @include transition(all 0.5s);
+
+        i.glyphicon {
+          &.left {
+            margin-right: 15px;
+          }
+          &.right {
+            margin-left: 15px;
+          }
+        }
       }
+    }
+
+    &:hover {
+      z-index: 100;
     }
 
     .mediaBlock {
@@ -85,6 +103,10 @@ article {
       height: $sectionHeight;
       background-color: #999999;
       color: #ffffff;
+      @include origin(100%, 50%);
+      @include transform-style(preserve-3d);
+      @include transition(all 0.5s);
+      z-index: 1000;
 
       .mediaBlockContent {
         position: relative;
@@ -135,17 +157,22 @@ article {
         .parallax {
           &.layer_1 {
             left: 50%;
+            margin-left: -$mediaWidth/4;
           }
         }
 
         a.next {
-          right: 0;
+          right: 547px;
+          -webkit-border-radius: 0 5px 5px 0;
+          -moz-border-radius: 0 5px 5px 0;
+          border-radius: 0 5px 5px 0;
         }
       }
 
       .mediaBlock {
         left: -$outset;
         @include box-shadow($shadow-margin 0 0 rgba(0,0,0,$shadow-alpha));
+        @include origin(0%, 50%);
 
         .mediaBlockContent {
           &:before {
@@ -160,12 +187,24 @@ article {
           }
         }
       }
+
+      &:hover {
+        .content {
+          a.next {
+            right: 461px;
+          }
+        }
+
+        .mediaBlock {
+          @include transform(rotateY(-15deg));
+        }
+      }
     }
 
     &.right {
       .content {
         padding-right: 380px;
-        background-position: 257px 1px;
+        background-position: 284px 1px;
         @include box-shadow(-$shadow-margin 0 0 rgba(0,0,0,$shadow-alpha/4));
 
         .text {
@@ -175,11 +214,15 @@ article {
         .parallax {
           &.layer_1 {
             left: 50%;
+            margin-left: -$mediaWidth/4;
           }
         }
 
         a.next {
-          right: $mediaWidth - $outset;
+          right: 252px;
+          -webkit-border-radius: 5px 0 0 5px;
+          -moz-border-radius: 5px 0 0 5px;
+          border-radius: 5px 0 0 5px;
         }
       }
 
@@ -198,6 +241,18 @@ article {
             border-width: $outset $outset 0 0;
             border-color: #000 transparent transparent transparent
           }
+        }
+      }
+      
+      &:hover {
+        .content {
+          a.next {
+            right: 332px;
+          }
+        }
+
+        .mediaBlock {
+          @include transform(rotateY(15deg));
         }
       }
     }

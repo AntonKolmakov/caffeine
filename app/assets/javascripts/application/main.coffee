@@ -1,12 +1,11 @@
 class Main
   constructor: () ->
-    @parallax()
 
   parallax: () ->
     jQuery('.parallax').parallax {
-      xparallax: '20%'
+      xparallax: '50%'
       yparallax: false
-      xorigin: 'right'
+      xorigin: '110%'
     }
     .trigger('unfreeze');
 
