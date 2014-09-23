@@ -42,6 +42,7 @@ module Casein
           :name,
           :field_type,
           :required,
+          :show_in_admin_table,
           available_values_attributes: %i(id value _destroy)
         ])
     end
