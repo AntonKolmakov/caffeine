@@ -3,12 +3,15 @@ nav.iconMenu
     li
       a.home href="/" Главная
     li
-      a.about href="/pages/about" О компании
+      = link_to page_path('about'), class: 'about'
+        ' О компании
     li
       a.services href="#" Наши услуги
     li
       a.partners href="#" Партнёры
     li
-      a.certificates href="/pages/certificates" Лицензии
+      = link_to page_path('certificates'), class: 'certificates'
+        ' Лицензии
     li
-      a.contacts href="/pages/contacts" Контакты
+      = link_to page_path('contacts'), class: 'contacts'
+        ' Контакты
