@@ -1,17 +1,23 @@
-ol.breadcrumb
-  - page.ancestors.reverse.each do |page|
-    li
-      = link_to page.name, page_path(page)
-  li.active
+.pageContent
+  ol.breadcrumb
+    - page.ancestors.reverse.each do |page|
+      li
+        = link_to page.name, page_path(page)
+    li.active
+      = page.name
+
+
+  h1
     = page.name
 
-
-h1
-  = page.name
-
-article.page-content
-  - if page.short_description?
-    .intro-text
-      = page.short_description.html_safe
-      hr
-  = page.description.html_safe
+  article.page-content
+    - if page.short_description?
+      .intro-text
+        = page.short_description.html_safe
+        hr
+    = page.description.html_safe
+    - if page.album || page.page_attachments.any?
+      - column_size = (page.album && page.album.images.any? && page.page_attachments.any?) ? 8 : 16
+      .row
+        = render "partials/album", :album => page.album, :column_size => column_size
+        = render "partials/attachments", :attachments => page.page_attachments, :column_size => column_size

@@ -1,0 +1,10 @@
+- if attachments && attachments.any?
+  section.col-xs-8
+    h2 Документы
+    ul.attachments-list.row
+      - attachments.each do |attachment|
+        li.attachments-list-item
+          /TODO: refactor decorator call methodic. Remove 'decorate' node
+          = link_to attachment.attachment.url
+            i[class=attachment.decorate.icon_class]
+            = attachment.attachment.file.filename
