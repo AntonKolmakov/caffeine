@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
 
-  root 'pages#show', id: 'mainpage'
+  root 'pages#show', id: 'services'
 
   devise_for :users
 
