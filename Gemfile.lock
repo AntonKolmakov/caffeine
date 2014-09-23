@@ -194,6 +194,8 @@ GEM
     fog-softlayer (0.3.17)
       fog-core
       fog-json
+    font_assets (0.1.11)
+      rack
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
@@ -468,6 +470,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   fog
+  font_assets
   foreman
   foundation-icons-sass-rails
   friendly_id
