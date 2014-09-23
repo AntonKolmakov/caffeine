@@ -7,8 +7,8 @@ table.table.table-striped.table-hover.table-condensed
       th &nbsp;
   - pages.each do |page|
     tr
-      td= casein_table_cell_link page.name, casein_page_path(page)
-      td= casein_table_cell_link page.parent_id, casein_page_path(page)
-      td= casein_table_cell_link page.short_description, casein_page_path(page)
+      td= casein_table_cell_link page.name, edit_casein_page_path(page)
+      td= casein_table_cell_link page.parent_id, edit_casein_page_path(page)
+      td= casein_table_cell_link page.short_description, edit_casein_page_path(page)
       td.delete
         = link_to(casein_show_row_icon("trash"), casein_page_path(page), method: :delete, data: { confirm: t('views.casein.pages.index.alert') })
