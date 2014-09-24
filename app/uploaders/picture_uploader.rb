@@ -37,7 +37,7 @@ class PictureUploader < BaseUploader
 
   # Add watermark to big image
   def watermark
-    watermark = MiniMagick::Image.open(model.album.watermark.file.path)
+    watermark = MiniMagick::Image.open(model.album.watermark.file.path) if model.album.watermark
 
     manipulate! do |img|
       img = img.composite(watermark) do |c|
