@@ -6,7 +6,7 @@
       - album.images.each do |image|
         li[class="images-list-item col-xs-#{image_column_size}"]
           // TODO: How to separate each attribute by lines, because it is a very long line?
-          = link_to '', image.picture.url,
+          = link_to '', image.picture.standard.url,
             {:class=> 'images-image img-thumbnail',
               :style => "background-image:url(#{image.picture.url})",
               :data => { :toggle => 'lightbox', :gallery => 'multiimages', :title => album.name, :parent => '' }}
