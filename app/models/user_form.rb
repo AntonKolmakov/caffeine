@@ -1,4 +1,5 @@
 class UserForm < ActiveRecord::Base
+  belongs_to :page
   has_many :user_form_fields, dependent: :destroy
   has_many :user_form_submissions
 

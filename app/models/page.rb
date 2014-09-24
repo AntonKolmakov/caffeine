@@ -1,8 +1,9 @@
 class Page < ActiveRecord::Base
   include Sluggable
 
-  has_many :page_attachments
   belongs_to :album
+  has_many :user_forms
+  has_many :page_attachments
 
   enum status: %i(draft published blocked)
 
