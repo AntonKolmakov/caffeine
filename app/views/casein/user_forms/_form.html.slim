@@ -11,4 +11,5 @@
       casein_user_forms_path, class: 'btn btn-mini btn-danger'
     = f.submit class: 'btn btn-mini btn-primary'
   = f.collection_select :page_id, Page.all, :id, :name, include_blank: true
+  = f.label :alias
   = f.text_field :alias
