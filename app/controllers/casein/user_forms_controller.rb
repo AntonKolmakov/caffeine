@@ -36,8 +36,9 @@ module Casein
     def user_form_params
       params.require(:user_form).permit(:name,
         :email,
-        :page_id
-      ).merge(user_form_fields_attributes)
+        :page_id,
+        :alias
+      ).merge(user_form_fields_attributes.to_hash)
     end
 
     def user_form_fields_attributes
