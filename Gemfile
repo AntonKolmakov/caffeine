@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Specify ruby version for Heroku
-ruby '2.1.0'
+ruby '2.0.0'
 
 # Core gems
 gem 'rails'
