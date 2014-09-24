@@ -7,4 +7,4 @@
           span.sr-only Закрыть
         h4#myModalLabel.modal-title Оставьте заявку
       .modal-body
-        = render UserForm.last.user_form_submissions.build unless UserForm.last.nil?
+        = render_form :callback
