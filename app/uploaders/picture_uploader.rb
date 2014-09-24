@@ -39,7 +39,7 @@ class PictureUploader < BaseUploader
   def watermark
     return unless model.album.watermark.present?
 
-    watermark = MiniMagick::Image.open(model.album.watermark.file.path)
+    watermark = MiniMagick::Image.open(model.album.watermark.file.url)
 
     manipulate! do |img|
       img = img.composite(watermark) do |c|
