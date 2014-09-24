@@ -33,7 +33,7 @@ module Casein
     private
 
     def album_params
-      params.require(:album).permit(:name, :parent_id)
+      params.require(:album).permit(:name, :parent_id, :watermark)
     end
   end
 end

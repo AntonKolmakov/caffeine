@@ -1,6 +1,8 @@
 = simple_form_for [:casein, album] do |f|
   = f.input :name, label: t('views.casein.albums.form.name')
   = f.input :parent_id, collection: Album.order(:name), as: :select, selected: params[:parent_id] || album.parent_id, include_blank: true, label: t('views.casein.albums.form.parent')
+  = f.input :watermark
+
   p.submits
     = link_to t('views.casein.albums.form.cancel'), casein_albums_path, class: 'btn btn-mini btn-danger'
     = f.submit class: "btn btn-mini btn-primary"
