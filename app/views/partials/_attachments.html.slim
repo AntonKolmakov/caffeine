@@ -1,6 +1,6 @@
 - if attachments && attachments.any?
   section.col-xs-8
-    h2 Документы
+    h2 Вложенные файлы
     ul.attachments-list.row
       - attachments.each do |attachment|
         li.attachments-list-item
@@ -8,3 +8,5 @@
           = link_to attachment.attachment.url
             i[class=attachment.decorate.icon_class]
             = attachment.attachment.file.filename
+            ' &nbsp;
+            span.label.label-default= number_to_human_size(attachment.attachment.file.size)
