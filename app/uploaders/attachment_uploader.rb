@@ -2,7 +2,7 @@
 
 class AttachmentUploader < BaseUploader
   def extension_white_list
-    %w(pdf doc htm html docx txt)
+    %w(pdf doc htm html docx txt zip)
   end
 
   def filename
