@@ -10,11 +10,11 @@ section[class="contentBlock #{cycle("left", "right")} section_0#{child_counter +
     = link_to page_path(child), class: 'next' do
       - if child_counter.odd?
         i.glyphicon-circle-arrow-right.glyphicon.left
-        ' Подробнее
+        ' Пroutesодробнее
       - else
         ' Подробнее
         i.glyphicon-circle-arrow-right.glyphicon.right
-  .mediaBlock
+  = link_to page_path(child), class: 'mediaBlock' do
     .mediaBlockContent
       .icon-large
         = child.name
