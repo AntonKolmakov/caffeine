@@ -1,5 +1,5 @@
 - if attachments && attachments.any?
-  section.col-xs-8
+  section[class="col-xs-#{column_size}"]
     h2 Вложенные файлы
     ul.attachments-list.row
       - attachments.each do |attachment|
