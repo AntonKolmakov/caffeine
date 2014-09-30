@@ -1,11 +1,7 @@
 h2= t('views.casein.pages.index.header')
 #category
   ul
-    - Page.roots.each do |page|
-      li
-        = link_to page.name, edit_casein_page_path(page)
-        ul
-          = render page.children.includes(:children)
+    = render Page.roots
 
 .text-center
 = content_for :sidebar do
