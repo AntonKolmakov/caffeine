@@ -9,10 +9,16 @@
   padding: $thumbnail-padding;
   margin-bottom: $line-height-computed;
   line-height: $line-height-base;
-  background-color: $thumbnail-bg;
+  background: $thumbnail-bg;
   border: 1px solid $thumbnail-border;
   border-radius: $thumbnail-border-radius;
   @include transition(all .2s ease-in-out);
+
+  &:hover {
+    .caption {
+      opacity: 0.1;
+    }
+  }
 
   > img,
   a > img {
@@ -25,8 +31,23 @@
 
   // Image captions
   .caption {
+    @include transition(all 0.5s);
     padding: $thumbnail-caption-padding;
     color: $thumbnail-caption-color;
+    position: absolute;
+    bottom: 37px;
+    right: 14px;
+    width: 70%;
+    text-align: right;
+    background: $thumbnail-bg;
+    -webkit-border-radius: $thumbnail-border-radius 0 0 $thumbnail-border-radius;
+    -moz-border-radius: $thumbnail-border-radius 0 0 $thumbnail-border-radius;
+    border-radius: $thumbnail-border-radius 0 0 $thumbnail-border-radius;
+
+    h4 {
+      font-size: 18px;
+      text-transform: uppercase;
+    }
   }
 }
 
