@@ -5,15 +5,26 @@
 
   h1
     = page.name
-
+  - rightside_size = (page.children.any?) ? 5 : 0
   article.page-content
-    - if page.short_description?
-      .intro-text
-        = page.short_description.html_safe
-        hr.light
-    = page.description.html_safe
-    - if page.album || page.page_attachments.any?
-      - column_size = (page.album && page.album.images.any? && page.page_attachments.any?) ? 8 : 16
-      .row
-        = render "partials/album", :album => page.album, :column_size => column_size
-        = render "partials/attachments", :attachments => page.page_attachments, :column_size => column_size
+    .row
+      div[class="col-xs-#{(16-rightside_size)}"]
+        - if page.short_description?
+          .intro-text
+            = page.short_description.html_safe
+            hr.light
+        = page.description.html_safe
+      - if page.children.any?
+        aside.col-xs-5
+          h4 Дополнительно
+          ul
+            - page.children.each do |child|
+              li
+                = link_to child.name, page_path(child)
+    .row
+      .col-xs-16
+        - if page.album || page.page_attachments.any?
+          - column_size = (page.album && page.album.images.any? && page.page_attachments.any?) ? 8 : 16
+          .row
+            = render "partials/album", :album => page.album, :column_size => column_size
+            = render "partials/attachments", :attachments => page.page_attachments, :column_size => column_size
