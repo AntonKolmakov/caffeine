@@ -1,0 +1,8 @@
+ru:
+  views:
+    admin:
+      layouts:
+        top_navigation:
+          pages: Страницы
+          albums: Альбомы
+          user_forms: Формы пользователя

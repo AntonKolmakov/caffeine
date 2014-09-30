@@ -1,0 +1,6 @@
+li
+  = link_to_unless_current page.name, edit_admin_page_path(page)
+  - if page.children
+    ul
+      - page.children.each do |page|
+        li= link_to_unless_current page.name, edit_admin_page_path(page)

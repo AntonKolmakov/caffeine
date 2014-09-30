@@ -1,0 +1,7 @@
+ru:
+  views:
+    admin:
+      albums:
+        form:
+          cancel: Отмена
+          delete: Удалить альбом?

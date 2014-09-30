@@ -1,0 +1,6 @@
+<% if page_attachment.errors.any? %>
+  alert("Failed to upload painting: <%= j page_attachment.errors.full_messages.join(', ').html_safe %>");
+<% else %>
+  $('#list_of_attachments').append("<%= j render 'admin/pages/page_attachment', object: page_attachment %>");
+  new Uploader;
+<% end %>

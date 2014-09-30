@@ -1,0 +1,40 @@
+h2 Edit album
+
+= render 'form'
+
+#category
+  ul
+    li
+      = album.name
+      ul
+        - album.children.find_each do |child|
+          li
+            p= link_to child.name, admin_album_path(child)
+
+#breadcrumbs
+  - album.ancestors.each do |album|
+    = link_to album.name, admin_album_path(album)
+    | &gt
+
+h1 = album.name
+
+#album_uploder
+  ul.image#images data-update-url=sort_admin_album_images_url(album)
+    = render partial: 'admin/albums/image', collection: album.images
+
+= simple_form_for [:admin, album, Image.new],
+                  html: { multipart: true } do |f|
+  = f.input :picture, as: :file, input_html:  { multiple: true, name: 'image[picture]' }
+
+p
+  = link_to t('views.admin.albums.edit.link.remove_album'), admin_album_path(album), confirm: t('views.admin.albums.form.delete'), method: :delete
+  |  |
+  = link_to t('views.admin.albums.edit.link.add_new_album'), new_admin_album_path(parent_id: album.id)
+  |  |
+  = link_to t('views.admin.albums.edit.link.edit_album'), edit_admin_album_path(album)
+
+script#template-upload type="text/x-tmpl"
+  .upload
+    | {%=o.name%}
+    .progress
+      .bar style=("width: 0%")

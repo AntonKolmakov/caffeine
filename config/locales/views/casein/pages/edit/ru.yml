@@ -1,7 +1,0 @@
-ru:
-  views:
-    casein:
-      pages:
-        edit:
-          header: Правка страницы
-          back_to_list: страницы
