@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   # Admin routes
   namespace :admin do
+    resources :users, exept: :show
     resources :user_forms do
       resources :user_form_submissions, only: %i(index show destroy), shallow: true
     end

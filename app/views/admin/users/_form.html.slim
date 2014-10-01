@@ -1,0 +1,8 @@
+= simple_form_for [:admin, user] do |f|
+  = f.input :full_name
+  = f.input :email
+  = f.input :password
+  br
+  p.submits
+    = link_to t('app.form.cancel'), admin_users_path, class: 'btn btn-mini btn-danger'
+    = f.submit class: "btn btn-mini btn-primary"

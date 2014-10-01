@@ -1,12 +1,9 @@
 module Admin
   class PagesController < AdminsController
-    expose(:pages) { Page.order('position ASC') }
+    expose(:pages) { Page.order(:position).roots }
     expose(:page, attributes: :page_params, finder: :find_by_slug)
 
     def index
-    end
-
-    def show
     end
 
     def edit

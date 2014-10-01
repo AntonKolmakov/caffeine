@@ -15,17 +15,23 @@
           = link_to t('views.admin.layouts.top_navigation.albums'), admin_albums_path
         li[class="#{class_name(admin_user_forms_path)}"]
           = link_to t('views.admin.layouts.top_navigation.user_forms'), admin_user_forms_path
+        li[class="#{class_name(admin_users_path)}"]
+          = link_to t('views.admin.layouts.top_navigation.users'), admin_users_path
 
       ul.nav.navbar-nav.navbar-right
+        li
+          strong
+            | Logged as
+            = link_to current_user.email, edit_admin_user_path(current_user)
         li.dropdown
           a.dropdown-toggle data-toggle="dropdown" href="#"
             | Dropdown
             span.caret
           ul.dropdown-menu role="menu"
             li
-              a href="#"  Users
+              = link_to 'Sign Out', destroy_user_session_path
             li
-              a href="#"  Another action
+              = link_to 'Add admin', '#'
             li
               a href="#"  Something else here
             li.divider
