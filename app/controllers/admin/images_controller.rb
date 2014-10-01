@@ -1,5 +1,5 @@
 module Admin
-  class ImagesController < AdminsController
+  class ImagesController < Admin::ApplicationController
     protect_from_forgery except: :sort
 
     respond_to :js, only: :create

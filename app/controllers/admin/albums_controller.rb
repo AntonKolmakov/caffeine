@@ -1,5 +1,5 @@
 module Admin
-  class AlbumsController < AdminsController
+  class AlbumsController < Admin::ApplicationController
     expose(:albums)
     expose(:album, attributes: :album_params)
 

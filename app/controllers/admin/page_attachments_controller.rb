@@ -1,5 +1,5 @@
 module Admin
-  class PageAttachmentsController < AdminsController
+  class PageAttachmentsController < Admin::ApplicationController
     respond_to :js, only: :create
 
     expose(:page, finder: :find_by_slug)

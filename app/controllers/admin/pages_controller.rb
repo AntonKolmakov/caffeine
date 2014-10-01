@@ -1,5 +1,5 @@
 module Admin
-  class PagesController < AdminsController
+  class PagesController < Admin::ApplicationController
     expose(:pages) { Page.order(:position).roots }
     expose(:page, attributes: :page_params, finder: :find_by_slug)
 
@@ -15,6 +15,10 @@ module Admin
     def create
       page.save
       respond_with(:admin, page)
+    end
+
+    def edit
+      binding.pry
     end
 
     def update

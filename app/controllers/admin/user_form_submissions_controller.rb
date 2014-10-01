@@ -1,5 +1,5 @@
-module Casein
-  class UserFormSubmissionsController < Casein::CaseinController
+module Admin
+  class UserFormSubmissionsController < Admin::ApplicationController
     responders :flash, :collection
     respond_to :html
 

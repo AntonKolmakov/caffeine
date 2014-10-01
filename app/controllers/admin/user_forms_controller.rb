@@ -1,5 +1,5 @@
 module Admin
-  class UserFormsController < AdminsController
+  class UserFormsController < Admin::ApplicationController
     expose(:user_forms)
     expose(:user_form, attributes: :user_form_params)
 

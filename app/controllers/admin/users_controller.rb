@@ -1,5 +1,5 @@
 module Admin
-  class UsersController < AdminsController
+  class UsersController < Admin::ApplicationController
     expose(:users)
     expose(:user, attributes: :user_params)
 
