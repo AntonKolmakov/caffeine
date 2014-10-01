@@ -15,17 +15,17 @@ module Admin
 
     def create
       user_form.save
-      respond_with(:admin, user_form)
+      respond_with :admin, user_form, location: -> { edit_admin_user_form_path(user_form) }
     end
 
     def update
       user_form.save
-      respond_with(:admin, user_form)
+      respond_with :admin, user_form, location: -> { edit_admin_user_form_path(user_form) }
     end
 
     def destroy
       user_form.destroy
-      respond_with(:admin, user_form)
+      respond_with(:admin, :user_forms)
     end
 
     private

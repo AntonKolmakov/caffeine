@@ -1,6 +1,6 @@
 module Admin
   class ApplicationController < ::ApplicationController
-    responders :location, :collection, :flash
+    responders :location, :flash
 
     before_action :authenticate_user!
 
