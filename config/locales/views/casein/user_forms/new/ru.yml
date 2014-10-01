@@ -1,7 +1,0 @@
-ru:
-  views:
-    casein:
-      user_forms:
-        new:
-          header: Добавление новой формы
-          back_to_list: Формы пользователя

@@ -1,0 +1,17 @@
+.row
+  .col-lg-2
+    = f.input :position
+  .col-lg-6
+    = f.input :name
+  .col-lg-3
+    = f.select :field_type, UserFormField::KINDS.invert
+  .col-lg-1
+    = f.input :required, as: :boolean
+  .col-lg-1
+    = f.input :show_in_admin_table, as: :boolean
+  .col-lg-1
+    = f.link_to_remove t('views.admin.user_forms.form.remove_field_link'), class: 'btn btn-danger'
+
+  - if f.object.needs_values?
+    = f.fields_for :available_values
+    = f.link_to_add t('views.admin.user_forms.form.add_field_value_link'), :available_values

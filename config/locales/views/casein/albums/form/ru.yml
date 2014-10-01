@@ -1,9 +1,0 @@
-ru:
-  views:
-    casein:
-      albums:
-        form:
-          name: Имя Альбома
-          parent: Выберите родителя
-          cancel: Отмена
-          delete: Удалить?

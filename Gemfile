@@ -35,7 +35,6 @@ gem 'kaminari' # Object paginations
 gem 'slim' # View template engine
 gem 'simple-navigation'
 gem 'closure_tree' #tree data structure
-gem 'casein' #CMS toolkit
 gem 'responders'
 gem 'carrierwave' #flexible way to upload files
 gem 'mini_magick'

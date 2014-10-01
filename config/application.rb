@@ -26,6 +26,7 @@ module PromTehnoSert
     # Application specific options
     #
     # Name used in the html titles and mailers
+    config.app_name = 'Prom Tehno Sert'
 
     config.responders.flash_keys = [ :notice, :warning ]
 

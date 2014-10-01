@@ -1,9 +1,0 @@
-ru:
-  views:
-    casein:
-      albums:
-        edit:
-          header: Править альбом
-          link:
-            back_to_list: Альбомы
-            edit_album: Править альбом

@@ -1,9 +1,0 @@
-ru:
-  views:
-    casein:
-      albums:
-        index:
-          header: Альбомы
-          add_new_album: Новый альбом
-          sort_link:
-            name: Имя альбома

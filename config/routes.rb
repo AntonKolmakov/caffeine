@@ -7,11 +7,12 @@ Rails.application.routes.draw do
   devise_for :users
 
   # Admin routes
-  namespace :casein do
+  namespace :admin do
+    resources :users, exept: :show
     resources :user_forms do
       resources :user_form_submissions, only: %i(index show destroy), shallow: true
     end
-  resources :albums do
+    resources :albums do
       resources :images do
         collection { post :sort }
       end
@@ -26,6 +27,6 @@ Rails.application.routes.draw do
     resources :user_form_submissions, module: 'user_forms', only: :create
   end
 
-  get '/admin', to: 'casein/pages#index'
+  get '/admin', to: 'admin/pages#index'
   resources :pages, only: :show, path: ''
 end

@@ -1,0 +1,10 @@
+ru:
+  views:
+    admin:
+      albums:
+        edit:
+          header: Править альбом
+          link:
+            edit_album: Править альбом
+            remove_album: Удалить альбом
+            add_new_album: Добавить альбом
