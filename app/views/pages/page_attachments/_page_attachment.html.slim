@@ -1,0 +1,7 @@
+li.attachments-list-item
+  /TODO: refactor decorator call methodic. Remove 'decorate' node
+  = link_to page_attachment.attachment.url
+    i[class=page_attachment.decorate.icon_class]
+    = page_attachment.attachment.file.filename
+    ' &nbsp;
+    span.label.label-default= number_to_human_size(page_attachment.attachment.file.size)
