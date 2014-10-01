@@ -29,7 +29,7 @@ gem 'phony_rails' # validate and normalize phone numbers
 gem 'seedbank' # For envirnoment-specific seeds
 gem 'nested_form' # for building and updating associations through forms
 gem 'devise' # Authenticate users
-gem 'simple_form' # For easy view forms
+gem 'simple_form', github: 'plataformatec/simple_form', tag: 'v3.1.0.rc2' # For easy view forms
 gem 'decent_exposure' # For DRYing controllers
 gem 'kaminari' # Object paginations
 gem 'slim' # View template engine

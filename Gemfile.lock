@@ -26,6 +26,15 @@ GIT
       choice (~> 0.1.6)
       ruby-graphviz (~> 1.0.4)
 
+GIT
+  remote: git://github.com/plataformatec/simple_form.git
+  revision: eb4e01d386a0d3fffcdeabd705cecfe817acdee3
+  tag: v3.1.0.rc2
+  specs:
+    simple_form (3.1.0.rc2)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -391,9 +400,6 @@ GEM
       activesupport (>= 3.0.0)
     simple-navigation (3.13.0)
       activesupport (>= 2.3.2)
-    simple_form (3.0.2)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
     simplecov (0.9.1)
       docile (~> 1.1.0)
       multi_json (~> 1.0)
@@ -509,7 +515,7 @@ DEPENDENCIES
   selenium-webdriver
   shoulda-matchers
   simple-navigation
-  simple_form
+  simple_form!
   simplecov
   slim
   slim-rails
