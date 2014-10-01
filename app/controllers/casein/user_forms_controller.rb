@@ -46,6 +46,7 @@ module Casein
         .permit(user_form_fields_attributes: [
           :id,
           :_destroy,
+          :position,
           :name,
           :field_type,
           :required,

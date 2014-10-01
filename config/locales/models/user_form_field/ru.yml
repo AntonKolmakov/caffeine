@@ -6,3 +6,4 @@ ru:
         field_type: Тип поля
         required: Обязательное
         show_in_admin_table: Отображать в таблице?
+        position: Позиция

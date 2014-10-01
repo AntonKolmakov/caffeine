@@ -1,5 +1,8 @@
 .row
-  .col-lg-6
+  .col-lg-2
+    = casein_text_field f, f.object, :position,
+      casein_label: UserFormField.human_attribute_name(:position)
+  .col-lg-4
     = casein_text_field f, f.object, :name,
       casein_label: UserFormField.human_attribute_name(:name)
   .col-lg-3

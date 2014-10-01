@@ -1,4 +1,3 @@
-# encoding: utf-8
 class UserFormField < ActiveRecord::Base
   KINDS = { text: 'Текстовое поле', check_boxes: 'Флажки',
             hidden: 'Скрытое поле', radio_buttons: 'Радиокнопки' }
@@ -13,6 +12,8 @@ class UserFormField < ActiveRecord::Base
   scope :admin_table_showable, -> { where show_in_admin_table: true }
 
   accepts_nested_attributes_for :available_values, allow_destroy: true
+
+  acts_as_list scope: :user_form
 
   def needs_values?
     persisted? && KINDS_WHICH_NEEDS_VALUES.include?(field_type.to_sym)
