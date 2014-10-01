@@ -1,7 +1,9 @@
 class UserFormField < ActiveRecord::Base
-  KINDS = { text: 'Текстовое поле', check_boxes: 'Флажки',
-            hidden: 'Скрытое поле', radio_buttons: 'Радиокнопки' }
+  KINDS = { text: 'Текстовое поле',       check_boxes: 'Флажки',
+            description: 'Обычный текст', radio_buttons: 'Радиокнопки' }
   KINDS_WHICH_NEEDS_VALUES = %i(check_boxes hidden radio_buttons)
+
+  store :settings, accessors: [:input_class, :placeholder, :help], coder: JSON
 
   belongs_to :user_form
   has_many :available_values, class_name: 'UserFormFieldValue', dependent: :destroy

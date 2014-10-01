@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001103906) do
+ActiveRecord::Schema.define(version: 20141001150633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 20141001103906) do
     t.datetime "updated_at"
     t.boolean  "show_in_admin_table", default: false
     t.integer  "position"
+    t.text     "settings"
   end
 
   add_index "user_form_fields", ["show_in_admin_table"], name: "index_user_form_fields_on_show_in_admin_table", using: :btree
