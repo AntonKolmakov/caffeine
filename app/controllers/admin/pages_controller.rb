@@ -1,12 +1,10 @@
 module Admin
   class PagesController < Admin::ApplicationController
-    expose(:pages) { Page.order(:position).roots }
+    expose(:pages)
     expose(:page, attributes: :page_params, finder: :find_by_slug)
 
     def index
-    end
-
-    def edit
+      self.pages = Page.order(:position).roots
     end
 
     def new
@@ -18,7 +16,6 @@ module Admin
     end
 
     def edit
-      binding.pry
     end
 
     def update
