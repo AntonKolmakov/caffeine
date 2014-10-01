@@ -1,15 +1,12 @@
-= simple_nested_form_for([:admin, user_form]) do |f|
-  .row
-    .col-lg-6
-      = f.input :name
-    .col-lg-6
-      = f.input :email
+= simple_nested_form_for [:admin, user_form], html: { class: 'form-inline' } do |f|
+  = f.input :name
+  = f.input :email
+  = f.association :page, include_blank: true
+  = f.input :alias
   = f.fields_for :user_form_fields
   = f.link_to_add t('views.admin.user_forms.form.add_field_link'), :user_form_fields
+
   p.submits
     = link_to t('views.admin.user_forms.form.cancel'),
       admin_user_forms_path, class: 'btn btn-mini btn-danger'
     = f.submit class: 'btn btn-mini btn-primary'
-  = f.collection_select :page_id, Page.all, :id, :name, include_blank: true
-  = f.label :alias
-  = f.text_field :alias
