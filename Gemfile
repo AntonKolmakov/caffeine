@@ -18,7 +18,7 @@ gem 'foundation-icons-sass-rails'
 gem 'jquery-rails'
 gem 'coffee-rails'
 gem 'uglifier'
-gem "jquery-fileupload-rails"
+gem 'jquery-fileupload-rails'
 gem 'jquery-ui-rails'
 
 # Validation gems
@@ -34,14 +34,14 @@ gem 'decent_exposure' # For DRYing controllers
 gem 'kaminari' # Object paginations
 gem 'slim' # View template engine
 gem 'simple-navigation'
-gem 'closure_tree' #tree data structure
+gem 'closure_tree' # tree data structure
 gem 'responders'
-gem 'carrierwave' #flexible way to upload files
+gem 'carrierwave' # flexible way to upload files
 gem 'mini_magick'
 gem 'friendly_id'
 gem 'draper'
 gem 'babosa'
-gem 'ckeditor' #HTML text editor
+gem 'ckeditor' # HTML text editor
 gem 'font_assets' # Properly serve fonts - MIME-types and CORS config
 gem 'acts_as_list' # For sorting pages' children
 gem 'gretel' # breadcrumbs generator
