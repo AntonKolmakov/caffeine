@@ -1,13 +1,14 @@
 class UserFormField < ActiveRecord::Base
-  KINDS = { text: 'Текстовое поле', check_boxes: 'Флажки',
-            hidden: 'Скрытое поле', radio_buttons: 'Радиокнопки' }
-  KINDS_WHICH_NEEDS_VALUES = %i(check_boxes hidden radio_buttons)
+  TYPES = { TextField: 'Текстовое поле', CheckBox: 'Флажки',
+            StaticText: 'Обычный текст', RadioButton: 'Радиокнопки' }
+  TYPES_WHICH_NEEDS_VALUES = %i(CheckBox RadioButton)
 
-  belongs_to :user_form
+  store :settings, accessors: %i(label input_class placeholder help), coder: JSON
+
+  belongs_to :user_form, inverse_of: :user_form_fields
   has_many :available_values, class_name: 'UserFormFieldValue', dependent: :destroy
 
-  validates :name, :field_type, presence: true
-  validates :field_type, inclusion: { in: KINDS.keys.map(&:to_s) }
+  validates :type, presence: true, inclusion: { in: TYPES.keys.map(&:to_s) }
 
   scope :admin_table_showable, -> { where show_in_admin_table: true }
 
@@ -16,6 +17,6 @@ class UserFormField < ActiveRecord::Base
   acts_as_list scope: :user_form
 
   def needs_values?
-    persisted? && KINDS_WHICH_NEEDS_VALUES.include?(field_type.to_sym)
+    persisted? && TYPES_WHICH_NEEDS_VALUES.include?(type.to_sym)
   end
 end

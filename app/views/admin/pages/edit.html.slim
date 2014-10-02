@@ -1,0 +1,18 @@
+h2= t('views.admin.pages.edit.header')
+
+= render 'form'
+
+#list_of_attachments
+  = render partial: 'admin/pages/page_attachment', collection: page.page_attachments
+
+#uploader
+  = simple_form_for [:admin, page, PageAttachment.new], html: {multipart: true} do |f|
+    = f.input :attachment, as: :file, input_html: {multiple: true, name: 'page_attachment[attachment]'}
+
+= link_to t('views.admin.pages.edit.delete'), admin_page_path(page), method: :delete, data: { confirm: t('views.admin.pages.edit.confirm') }, class: 'btn btn-mini btn-danger'
+
+script#template-upload type="text/x-tmpl"
+  .upload
+    | {%=o.name%}
+    .progress
+      .bar style=("width: 0%")

@@ -6,7 +6,7 @@ feature 'admin creates attachment', js: true do
   scenario do
     admin_session_sign_in
 
-    click_on I18n.t('views.casein.layouts.tab_navigation.pages')
+    click_on I18n.t('views.admin.layouts.top_navigation.pages')
     click_on user_page.name
     attach_file('page_attachment[attachment]', File.expand_path('spec/fixtures/pages/attachments/документ.pdf'))
 

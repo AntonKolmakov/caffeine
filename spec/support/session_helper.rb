@@ -1,10 +1,10 @@
 def admin_session_sign_in
-  user = create(:admin_user)
+  user = FactoryGirl.create(:admin)
 
   visit '/admin'
 
-  fill_in 'casein_admin_user_session_login', with: user.login
-  fill_in 'casein_admin_user_session_password', with: user.password
+  fill_in 'user_email', with: user.email
+  fill_in 'user_password', with: user.password
 
-  click_button I18n.t('views.casein.admin_user_sessions.new.form.submit')
+  click_button I18n.t('app.user.sign_in.title')
 end

@@ -1,0 +1,10 @@
+ru:
+  views:
+    admin:
+      pages:
+        edit:
+          header: Правка страницы
+          back_to_list: страницы
+          delete: Удалить страницу
+          confirm: Вы уверены что хотите удалить изображение?
+          remove_attachment: удалить

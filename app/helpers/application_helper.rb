@@ -12,4 +12,8 @@ module ApplicationHelper
 
     render form.user_form_submissions.build if form
   end
+
+  def class_name(link_path, force_active = false)
+    force_active || current_page?(link_path) ? 'active' : ''
+  end
 end

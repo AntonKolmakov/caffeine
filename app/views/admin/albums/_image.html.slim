@@ -1,0 +1,6 @@
+= content_tag_for :li, image do
+  div
+    = image_tag image.picture.url(:thumb) if image.present?
+
+  .btn-group
+    = link_to t('views.admin.albums.edit.link.remove_image'), admin_album_image_path(album, image), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-default btn-mini"

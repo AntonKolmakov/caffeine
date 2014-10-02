@@ -1,7 +1,0 @@
-= content_tag_for :li, image do
-  div
-    = image_tag image.picture.url(:thumb) if image.present?
-
-  .btn-group
-    = link_to "edit", '#', class: "btn btn-default btn-mini"
-    = link_to "X", casein_album_image_path(album, image), confirm: 'Are you sure?', method: :delete, class: "btn btn-danger btn-default btn-mini"

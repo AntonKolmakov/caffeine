@@ -18,7 +18,7 @@ gem 'foundation-icons-sass-rails'
 gem 'jquery-rails'
 gem 'coffee-rails'
 gem 'uglifier'
-gem "jquery-fileupload-rails"
+gem 'jquery-fileupload-rails'
 gem 'jquery-ui-rails'
 
 # Validation gems
@@ -29,20 +29,19 @@ gem 'phony_rails' # validate and normalize phone numbers
 gem 'seedbank' # For envirnoment-specific seeds
 gem 'nested_form' # for building and updating associations through forms
 gem 'devise' # Authenticate users
-gem 'simple_form' # For easy view forms
+gem 'simple_form', github: 'plataformatec/simple_form', tag: 'v3.1.0.rc2' # For easy view forms
 gem 'decent_exposure' # For DRYing controllers
 gem 'kaminari' # Object paginations
 gem 'slim' # View template engine
 gem 'simple-navigation'
-gem 'closure_tree' #tree data structure
-gem 'casein' #CMS toolkit
+gem 'closure_tree' # tree data structure
 gem 'responders'
-gem 'carrierwave' #flexible way to upload files
+gem 'carrierwave' # flexible way to upload files
 gem 'mini_magick'
 gem 'friendly_id'
 gem 'draper'
 gem 'babosa'
-gem 'ckeditor' #HTML text editor
+gem 'ckeditor' # HTML text editor
 gem 'font_assets' # Properly serve fonts - MIME-types and CORS config
 gem 'acts_as_list' # For sorting pages' children
 gem 'gretel' # breadcrumbs generator
@@ -72,6 +71,7 @@ end
 group :test do
   gem 'fuubar'
   gem 'rspec-rails'
+  gem 'rspec-mocks'
   gem 'rails_best_practices'
   gem 'brakeman', require: false
   gem 'rubocop'
@@ -85,6 +85,8 @@ group :test do
   gem 'shoulda-matchers'
   gem 'turnip'
   gem 'selenium-webdriver'
+  gem 'codeclimate-test-reporter', require: false
+  gem 'rspec-activemodel-mocks'
 end
 
 group :staging, :production do
