@@ -2,7 +2,7 @@
 
 set -e
 
-bin/rubocop -a
+bin/rubocop
 bin/brakeman --quiet --skip-libs --exit-on-warn
 bin/rails_best_practices --silent --spec --features -x lib/templates, config
 
