@@ -1,0 +1,2 @@
+class CheckBox < UserFormField
+end

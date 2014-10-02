@@ -1,6 +1,6 @@
 = f.input :position
 = f.input :name
-= f.select :field_type, UserFormField::KINDS.invert
+= f.select :type, UserFormField::TYPES.invert
 = f.input :required, as: :boolean
 = f.input :show_in_admin_table, as: :boolean
 = f.link_to_remove t('views.admin.user_forms.form.remove_field_link'), class: 'btn btn-xs btn-danger'
