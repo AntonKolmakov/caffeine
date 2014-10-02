@@ -1,4 +1,4 @@
-shared_examples 'sluggable' do
+shared_examples_for 'sluggable' do
   let(:klass) { described_class.new }
 
   describe 'validations' do
@@ -11,13 +11,13 @@ shared_examples 'sluggable' do
     subject { klass.should_generate_new_friendly_id? }
 
     it 'returns false when slug is fixed by admin' do
-      klass.stub(fix_slug?: true)
-      expect(subject).to be_false
+      allow(klass).to receive(:fix_slug?).and_return(true)
+      expect(subject).to eql(false)
     end
 
     it 'returns false when slug is not fixed by admin' do
-      klass.stub(fix_slug?: false)
-      expect(subject).to be_true
+      allow(klass).to receive(:fix_slug?).and_return(false)
+      expect(subject).to eql(true)
     end
   end
 end

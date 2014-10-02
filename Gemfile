@@ -71,6 +71,7 @@ end
 group :test do
   gem 'fuubar'
   gem 'rspec-rails'
+  gem 'rspec-mocks'
   gem 'rails_best_practices'
   gem 'brakeman', require: false
   gem 'rubocop'

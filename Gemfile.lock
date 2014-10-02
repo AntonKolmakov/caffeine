@@ -508,6 +508,7 @@ DEPENDENCIES
   rails_12factor
   rails_best_practices
   responders
+  rspec-mocks
   rspec-rails
   rubocop
   sass-rails
