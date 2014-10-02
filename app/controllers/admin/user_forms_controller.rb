@@ -34,18 +34,15 @@ module Admin
       params.require(:user_form).permit(:name,
         :email,
         :page_id,
-        :alias,
-        user_form_fields_attributes: [
-          :id,
-          :_destroy,
-          :position,
-          :label,
-          :static_text,
-          :name,
-          :type,
-          :required,
-          :show_in_admin_table,
-          available_values_attributes: %i(id value _destroy)])
+        :alias).merge(user_form_fields_attributes)
+    end
+
+    def user_form_fields_attributes
+      params.require(:user_form).permit(user_form_fields_attributes: [
+        :id,    :_destroy,    :position,
+        :label, :static_text, :name,
+        :type,  :required,    :show_in_admin_table,
+        available_values_attributes: %i(id value _destroy)])
     end
   end
 end
