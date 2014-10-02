@@ -85,6 +85,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'turnip'
   gem 'selenium-webdriver'
+  gem 'codeclimate-test-reporter', require: false
 end
 
 group :staging, :production do
