@@ -12,12 +12,12 @@ shared_examples_for 'sluggable' do
 
     it 'returns false when slug is fixed by admin' do
       allow(klass).to receive(:fix_slug?).and_return(true)
-      expect(subject).to eql(false)
+      expect(subject).to eq(nil)
     end
 
     it 'returns false when slug is not fixed by admin' do
       allow(klass).to receive(:fix_slug?).and_return(false)
-      expect(subject).to eql(true)
+      expect(subject).to eq(true)
     end
   end
 end

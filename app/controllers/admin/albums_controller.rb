@@ -6,9 +6,6 @@ module Admin
     def index
     end
 
-    def show
-    end
-
     def edit
     end
 
@@ -17,7 +14,7 @@ module Admin
 
     def create
       album.save
-      respond_with(:admin, album)
+      respond_with :admin, album, location: -> { edit_admin_album_path(album) }
     end
 
     def update

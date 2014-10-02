@@ -25,7 +25,7 @@ module Admin
 
     def destroy
       image.destroy
-      respond_with(album, location: -> { edit_admin_album_path(album) })
+      respond_with album, location: -> { edit_admin_album_path(album) }
     end
 
     def sort

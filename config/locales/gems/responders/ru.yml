@@ -10,26 +10,6 @@ ru:
       destroy:
         notice: 'Успешно удалено'
         warning: 'Не получилось удалить %{resource_name}'
-    casein:
-      admin_users:
-        create:
-          notice: Емейл был послан %{resource_name}
-          warning: Не получилось создать %{resource_name}
-        update:
-          notice: Профайл успешно обновленен
-          warning: Не получилось обновить профайл %{resource_name}
-        destroy:
-          notice: Профайл успешно удален
-      user_forms:
-        create:
-          notice: 'Новая форма успешно добавлена'
-          warning: 'Не удалось создать форму'
-        update:
-          notice: 'Форма успешно обновлена'
-          warning: 'Не получилось обновить форму'
-        destroy:
-          notice: 'Форма удалена'
-          warning: 'Не получилось удалить форму'
     user_forms:
       user_form_submissions:
         create:
