@@ -8,7 +8,7 @@ class UserFormField < ActiveRecord::Base
   belongs_to :user_form, inverse_of: :user_form_fields
   has_many :available_values, class_name: 'UserFormFieldValue', dependent: :destroy
 
-  validates :type, presence: true
+  validates :type, presence: true, inclusion: { in: TYPES.keys.map(&:to_s) }
 
   scope :admin_table_showable, -> { where show_in_admin_table: true }
 
