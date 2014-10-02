@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001152949) do
+ActiveRecord::Schema.define(version: 20141002084524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -116,7 +116,6 @@ ActiveRecord::Schema.define(version: 20141001152949) do
   add_index "user_form_field_values", ["user_form_field_id"], name: "index_user_form_field_values_on_user_form_field_id", using: :btree
 
   create_table "user_form_fields", force: true do |t|
-    t.string   "name"
     t.string   "type"
     t.boolean  "required"
     t.integer  "user_form_id"
