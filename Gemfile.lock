@@ -355,6 +355,10 @@ GEM
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
       rspec-mocks (~> 3.1.0)
+    rspec-activemodel-mocks (1.0.1)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      rspec-mocks (>= 2.99, < 4.0)
     rspec-core (3.1.4)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -511,6 +515,7 @@ DEPENDENCIES
   rails_12factor
   rails_best_practices
   responders
+  rspec-activemodel-mocks
   rspec-mocks
   rspec-rails
   rubocop

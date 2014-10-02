@@ -8,7 +8,7 @@ describe UserFormField do
   it { should validate_inclusion_of(:type).in_array(UserFormField::TYPES.keys.map(&:to_s)) }
 
   it 'has valid factory' do
-    field = FactoryGirl.build(:user_form_field, user_form: double('UserForm'))
+    field = FactoryGirl.build(:user_form_field, user_form: mock_model(UserForm))
     expect(field).to be_valid
   end
 end

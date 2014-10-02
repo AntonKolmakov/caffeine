@@ -86,6 +86,7 @@ group :test do
   gem 'turnip'
   gem 'selenium-webdriver'
   gem 'codeclimate-test-reporter', require: false
+  gem 'rspec-activemodel-mocks'
 end
 
 group :staging, :production do
