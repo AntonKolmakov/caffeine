@@ -1,5 +1,5 @@
 - if page.page_attachments.any?
   section[class="col-xs-#{page.column_size}"]
     h2 Вложенные файлы
-    ul.attachments-list.row
+    ul.attachments-list
       = render partial: 'pages/page_attachments/page_attachment', collection: page.page_attachments
