@@ -34,16 +34,13 @@ module Admin
       params.require(:user_form).permit(:name,
         :email,
         :page_id,
-        :alias
-      ).merge(user_form_fields_attributes.to_hash)
-    end
-
-    def user_form_fields_attributes
-      params.require(:user_form)
-        .permit(user_form_fields_attributes: [
+        :alias,
+        user_form_fields_attributes: [
           :id,
           :_destroy,
           :position,
+          :label,
+          :static_text,
           :name,
           :type,
           :required,

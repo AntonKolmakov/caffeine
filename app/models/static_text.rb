@@ -1,3 +1,3 @@
-class Description < UserFormField
+class StaticText < UserFormField
   store_accessor :settings, :static_text
 end

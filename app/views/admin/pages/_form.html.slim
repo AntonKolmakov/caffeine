@@ -1,8 +1,8 @@
 = simple_form_for [:admin, page] do |f|
   = f.input :name
   = f.input :parent_id, collection: Page.order(:name), as: :select, include_blank: true, selected: params[:parent_id] || page.parent_id
-  = f.input :short_description, as: :ckeditor, input_html: {ckeditor: {toolbar: 'mini'}}
-  = f.input :description, as: :ckeditor, input_html: { ckeditor: {toolbar: 'mini'}}
+  = f.input :short_description, as: :ckeditor, input_html: {ckeditor: {toolbar: 'mini'} }
+  = f.input :description, as: :ckeditor, input_html: { ckeditor: {toolbar: 'mini'} }
   = f.input :slug
   = f.input :fix_slug, as: :boolean
   = f.association :album, collection: Album.order(:name)

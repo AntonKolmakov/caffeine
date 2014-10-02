@@ -1,10 +1,11 @@
 = f.input :position
-= f.input :name
-= f.select :type, UserFormField::TYPES.invert
-= f.input :required, as: :boolean
-= f.input :show_in_admin_table, as: :boolean
-= f.link_to_remove t('views.admin.user_forms.form.remove_field_link'), class: 'btn btn-xs btn-danger'
+= f.input :type, collection: UserFormField::TYPES.invert, input_html: { disabled: f.object.persisted? }
 
-- if f.object.needs_values?
-  = f.fields_for :available_values
-  = f.link_to_add t('views.admin.user_forms.form.add_field_value_link'), :available_values
+- if f.object.persisted?
+  = render "admin/user_forms/fields/#{f.object.type.underscore}", f: f
+
+  - if f.object.needs_values?
+    = f.fields_for :available_values
+    = f.link_to_add t('views.admin.user_forms.form.add_field_value_link'), :available_values
+
+= f.link_to_remove t('views.admin.user_forms.form.remove_field_link'), class: 'btn btn-xs btn-danger'
