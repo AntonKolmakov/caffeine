@@ -16,6 +16,10 @@ article {
   .pageContent {
     padding: 10px;
     text-align: justify;
+
+    h1, h2, h3 {
+      text-align: left;
+    }
   }
 
   .contentBlock {
