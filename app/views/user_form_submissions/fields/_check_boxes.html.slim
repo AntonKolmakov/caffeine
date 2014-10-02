@@ -1,4 +1,0 @@
-- field.available_values.each_with_index do |available_value, index|
-  = label_tag %(field_values_#{index}), available_value.value
-  = check_box_tag %(user_form_submission[field_values[#{field.id}]][]), available_value.value, false,
-    id: %(field_values_#{index})
