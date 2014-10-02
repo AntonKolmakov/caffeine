@@ -1,5 +1,5 @@
 class MainPageController < ApplicationController
-  expose(:page) { Page.root.decorate }
+  expose(:page) { Page.friendly.find('services').decorate }
 
   def index
     render template: 'pages/show'
