@@ -1,8 +1,8 @@
 - content_for(:title) { page.name }
+- content_for(:body_class) { "body-#{page.slug}" }
 .pageContent
   - breadcrumb :page, page
   = raw(breadcrumbs style: :bootstrap)
-
   h1
     = page.name
   - rightside_size = (page.children.any?) ? 5 : 0
