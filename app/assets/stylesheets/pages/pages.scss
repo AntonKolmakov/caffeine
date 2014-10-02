@@ -10,6 +10,12 @@
       img {
         margin-right: 20px;
       }
+
+      &:last-child {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border-bottom: none;
+      }
     }
   }
 }
