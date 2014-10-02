@@ -1,8 +1,10 @@
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
+
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
 require 'turnip/capybara'
 
 ActiveRecord::Migration.maintain_test_schema!

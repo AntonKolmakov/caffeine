@@ -1,0 +1,2 @@
+class RadioButton < UserFormField
+end

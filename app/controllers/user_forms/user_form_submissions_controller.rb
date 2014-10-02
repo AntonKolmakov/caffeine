@@ -16,8 +16,8 @@ module UserForms
 
     def submission_params
       params.require(:user_form_submission).permit(
-        field_values_attributes:
-          %i(field_value user_form_field_id))
+        field_values_attributes: [
+          :id, :field_value, :user_form_field_id, field_value: []])
     end
   end
 end

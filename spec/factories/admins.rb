@@ -1,9 +1,7 @@
 FactoryGirl.define do
-  factory :admin_user, class: 'Casein::AdminUser' do
-    login { 'admin' }
-    name { 'Admin' }
+  factory :admin, class: 'User' do
+    full_name { 'Admin' }
     email { 'admin@example.com' }
-    access_level { 0 }
     password { '123456' }
     password_confirmation { '123456' }
   end

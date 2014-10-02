@@ -1,0 +1,18 @@
+table.table.table-striped
+  thead
+    tr
+      th full name
+      th Email
+      th Sign in count
+      th last sign in at
+      th &nbsp;
+  tbody
+    - users.each do |user|
+      tr
+        td= link_to user.full_name_with_email, edit_admin_user_path(user)
+        td= link_to user.email, edit_admin_user_path(user)
+        td= link_to user.sign_in_count, edit_admin_user_path(user)
+        td= link_to user.last_sign_in_at, edit_admin_user_path(user)
+        td
+          = link_to admin_user_path(user), method: :delete do
+            span.glyphicon.glyphicon-trash

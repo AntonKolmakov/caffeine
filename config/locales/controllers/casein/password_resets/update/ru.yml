@@ -1,8 +1,0 @@
-ru:
-  controller:
-    casein:
-      password_resets:
-        update:
-          messages:
-            notice: Пароль обновлен
-            warning: Заполните поле

@@ -1,0 +1,10 @@
+ru:
+  views:
+    admin:
+      user_forms:
+        form:
+          cancel: Отменить
+          add_field_link: Добавить еще одно поле
+          remove_field_link: "Удалить это поле"
+          remove_available_value_link: "Удалить значение"
+          add_field_value_link: "Добавить новое значение"

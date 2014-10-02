@@ -1,0 +1,4 @@
+li
+  = link_to_unless_current page.name, edit_admin_page_path(page)
+  ul
+    = render page.children

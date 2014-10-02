@@ -1,0 +1,5 @@
+- if page.album && page.album.images.any?
+  section[class="col-xs-#{page.column_size}"]
+    h2 Фотографии
+    ul.images-list.row
+      = render partial: 'pages/albums/image', collection: album.images

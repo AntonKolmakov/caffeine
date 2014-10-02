@@ -23,8 +23,6 @@
                 = link_to child.name, page_path(child)
     .row
       .col-xs-16
-        - if page.album || page.page_attachments.any?
-          - column_size = (page.album && page.album.images.any? && page.page_attachments.any?) ? 8 : 16
-          .row
-            = render "partials/album", :album => page.album, :column_size => column_size
-            = render "partials/attachments", :attachments => page.page_attachments, :column_size => column_size
+        .row
+          = render partial: 'pages/albums/album', object: page.album
+          = render partial: 'pages/page_attachments/page_attachments'

@@ -1,0 +1,12 @@
+table.table.table-striped
+  thead
+    tr
+      th= t('views.admin.layouts.top_navigation.albums')
+      th &nbsp;
+  tbody
+    - albums.each do |album|
+      tr
+        td= link_to album.name, edit_admin_album_path(album)
+        td
+          = link_to admin_album_path(album), method: :delete, data: { confirm: t('views.admin.albums.form.delete') } do
+            span.glyphicon.glyphicon-trash

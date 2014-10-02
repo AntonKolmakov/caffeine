@@ -1,0 +1,6 @@
+ru:
+  views:
+    admin:
+      user_forms:
+        table:
+          submissions_link: Заполненные формы
