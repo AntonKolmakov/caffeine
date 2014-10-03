@@ -1,0 +1,2 @@
+- album.images.find_each do |image|
+  = image_tag image.picture.url(:thumb) if image.present?
