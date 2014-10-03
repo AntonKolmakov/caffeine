@@ -1,7 +1,7 @@
-- content_for(:title) { user_form.name }
-- content_for(:body_class) { "form-#{user_form.alias}" }
+- content_for(:title) { user_form_submission.user_form.name }
+- content_for(:body_class) { "form-#{user_form_submission.user_form.alias}" }
 .pageContent
-  - breadcrumb :form, user_form
+  - breadcrumb :form, user_form_submission.user_form
   = raw(breadcrumbs style: :bootstrap)
   h1
     = user_form.name
