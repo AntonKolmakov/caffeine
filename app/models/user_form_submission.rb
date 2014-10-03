@@ -11,9 +11,7 @@ class UserFormSubmission < ActiveRecord::Base
 
   # But we should reject all those instantiated empty fields when we save submission
   # to prevent duplicated records
-  before_create do |s|
-    field_values.delete(field_values.select { |f| f.field_value.nil? })
-  end
+  before_create { field_values.delete(field_values.select { |f| f.field_value.nil? }) }
 
   def field_value(field)
     field_values.where(field: field)
