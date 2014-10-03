@@ -11,4 +11,4 @@
 //= require jquery.parallax.min
 //= require bootstrap.min
 //= require ekko-lightbox.min
-//= require_tree .
+//= require application/main
