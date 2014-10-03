@@ -20,7 +20,7 @@ module Admin
 
     def update
       page.save
-      respond_with(:admin, page)
+      respond_with :admin, page, location: -> { edit_admin_page_path(page) }
     end
 
     def destroy
