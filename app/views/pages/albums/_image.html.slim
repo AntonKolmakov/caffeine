@@ -1,5 +1,5 @@
 li[class="images-list-item col-xs-#{page.image_column_size}"]
   = link_to '', image.picture.standard.url,
       class: 'images-image img-thumbnail',
-      style: "background-image:url(#{image.picture.url})",
+      style: "background-image:url(#{image.picture.thumb.url})",
       data: { toggle: 'lightbox', gallery: 'multiimages', title: image.album.name, parent:'' }
