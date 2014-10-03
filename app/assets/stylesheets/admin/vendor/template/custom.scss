@@ -1,6 +1,39 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+.login-page {
+  .btn {
+    width: 100%;
+  }
+  .checkbox + label {
+    color: #9a9a9a;
+  }
+  ul.links {
+    display: inline-block;
+    margin-top: 5px;
+    padding-top: 3px;
+    font-family: "open_sansregular";
+    font-size: 12px;
+    vertical-align: middle;
+    a {
+      color: #9a9a9a;
+      text-decoration: none;
+      &:hover {
+        color: #fff;
+        border-bottom: 1px dotted #fff;
+      }
+    }
+  }
+}
 
+.checkbox + label, .radio + label {
+  cursor: pointer;
+}
+
+.checkbox + label {
+  &:before {
+    line-height: 11px;
+  }
+}
+
+/*--------------------------*/
 #category > ul {
   float: left;
   list-style: none;

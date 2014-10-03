@@ -7,14 +7,15 @@ html class="no-js" lang="en"
   head
     = csrf_meta_tags
 
-    = stylesheet_link_tag 'admin/custom'
-    = javascript_include_tag 'admin/custom'
+    = render "partials/head/favicons"
+
+    = stylesheet_link_tag 'admin/admin'
 
   body
-    .container
+    .wrapper.login-page
+      .row.mtop-100
+        = render 'partials/messages'
 
-      = render 'partials/messages'
+        = yield
 
-      .jumbotron
-        .row
-          = yield
+    = javascript_include_tag 'admin/admin'
