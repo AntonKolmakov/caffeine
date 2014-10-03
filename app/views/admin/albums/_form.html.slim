@@ -1,6 +1,5 @@
 = simple_form_for [:admin, album] do |f|
   = f.input :name
-  = f.input :parent_id, collection: Album.order(:name), as: :select, selected: params[:parent_id] || album.parent_id, include_blank: true
   = f.input :watermark
 
   p.submits

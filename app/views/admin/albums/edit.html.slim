@@ -2,20 +2,6 @@ h2 Edit album
 
 = render 'form'
 
-#category
-  ul
-    li
-      = album.name
-      ul
-        - album.children.find_each do |child|
-          li
-            p= link_to child.name, admin_album_path(child)
-
-#breadcrumbs
-  - album.ancestors.each do |album|
-    = link_to album.name, admin_album_path(album)
-    | &gt
-
 h1 = album.name
 
 #album_uploder
