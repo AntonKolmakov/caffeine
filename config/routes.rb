@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/mainpage', to: redirect('/')
   root 'main_page#index'
 
-  devise_for :users
+  devise_for :users, path: "", path_names: { sign_in: 'login' }
 
   # Admin routes
   namespace :admin do
