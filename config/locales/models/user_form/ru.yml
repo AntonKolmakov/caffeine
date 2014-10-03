@@ -1,0 +1,7 @@
+ru:
+  activerecord:
+    attributes:
+      user_form:
+        name: Название
+        email: Электронная почта
+        alias: Псевдоним
