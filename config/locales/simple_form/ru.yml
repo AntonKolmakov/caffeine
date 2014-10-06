@@ -1,0 +1,9 @@
+ru:
+  simple_form:
+    labels:
+      user:
+        remember_me: 'запомнить меня'
+    placeholders:
+      user:
+        email: 'E-mail'
+        password: 'Пароль'
