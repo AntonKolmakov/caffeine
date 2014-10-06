@@ -1,4 +1,10 @@
 - flash.each do |type, content|
-  div( data-alert class="alert-box #{type}" )
-    = content
-    a.close &times;
+  div( data-alert class="alert alert-dismissable flash-#{type}" )
+    button type="button" class="close" data-dismiss="alert" aria-hidden="true" &times;
+    .media
+      figure.pull-left.alert--icon
+        i.pe-7s-close-circle
+      .media-body
+        h3.alert--title There was a loading error
+        p.alert--text
+          = content
