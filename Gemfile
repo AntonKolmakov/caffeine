@@ -45,6 +45,7 @@ gem 'ckeditor' # HTML text editor
 gem 'font_assets' # Properly serve fonts - MIME-types and CORS config
 gem 'acts_as_list' # For sorting pages' children
 gem 'gretel' # breadcrumbs generator
+gem 'newrelic_rpm'
 
 group :development do
   gem 'styleguides'
