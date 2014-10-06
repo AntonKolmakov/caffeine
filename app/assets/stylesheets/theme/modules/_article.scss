@@ -9,6 +9,10 @@ article {
 
   background-color: #ffffff;
 
+  .modal & {
+    width: auto !important;
+  }
+
   & > .container {
     margin-left: -10px;
   }
