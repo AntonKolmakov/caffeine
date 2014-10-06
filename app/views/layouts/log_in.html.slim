@@ -14,7 +14,8 @@ html class="no-js" lang="en"
   body
     .wrapper.login-page
       .row.mtop-100
-        = render 'partials/messages'
+        .col-md-4.col-md-offset-4.clearfix.bg--dark
+          = render 'partials/messages'
 
         = yield
 
