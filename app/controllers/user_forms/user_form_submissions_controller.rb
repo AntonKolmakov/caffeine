@@ -8,7 +8,7 @@ module UserForms
     expose(:user_form_submission, attributes: :submission_params)
 
     def create
-      user_form_submission.save
+      UserFormSubmissionMailer.form_submitted(user_form_submission).deliver if user_form_submission.save
       respond_with user_form_submission
     end
 
