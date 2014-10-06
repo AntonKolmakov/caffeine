@@ -2,7 +2,7 @@ class UserFormSubmission < ActiveRecord::Base
   belongs_to :user_form
   has_many :field_values, class_name: 'UserFormSubmissionFieldValue', dependent: :destroy
 
-  delegate :user_form_fields, to: :user_form
+  delegate :user_form_fields, :email, to: :user_form
   delegate :name, :alias, to: :user_form, prefix: true, allow_nil: true
 
   accepts_nested_attributes_for :field_values
