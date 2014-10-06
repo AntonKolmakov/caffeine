@@ -21,11 +21,4 @@
             - page.children.each do |child|
               li
                 = link_to child.name, page_path(child)
-    .row
-      .col-xs-16
-        .row
-          = render partial: 'pages/albums/album', object: page.album
-          = render partial: 'pages/page_attachments/page_attachments'
-    .row
-      .col-xs-16
-        = render 'pages/siblings/siblings'
+    = render 'pages/custom_partials/additional'
