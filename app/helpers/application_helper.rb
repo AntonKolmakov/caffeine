@@ -10,7 +10,7 @@ module ApplicationHelper
   def render_form(form_alias)
     form = UserForm.find_by(alias: form_alias.to_s)
 
-    render form.user_form_submissions.build if form
+    render form if form
   end
 
   def class_name(link_path, force_active = false)

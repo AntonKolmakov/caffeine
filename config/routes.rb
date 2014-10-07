@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :user_forms, only: [:show] do
     resources :user_form_submissions, module: 'user_forms', only: :create
   end
+  resources :albums, only: :show
 
   get '/admin', to: 'admin/pages#index'
   resources :pages, only: :show, path: ''
