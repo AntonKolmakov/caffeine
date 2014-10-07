@@ -39,9 +39,17 @@
 
 }
 
+.alert--title {
+  margin-top: 12px;
+}
+
 .flash-alert {
   @extend .alert-warning;
+  i {
+    color: #f35958;
+  }
 }
+
 
 /*--------------------------*/
 #category > ul {
