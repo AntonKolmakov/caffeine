@@ -8,11 +8,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def layout_by_resource
-    if devise_controller?
-      'log_in'
-    else
-      'application'
-    end
+    devise_controller? ? 'admin_login' : 'application'
   end
 
   protected
