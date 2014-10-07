@@ -12,12 +12,12 @@ Rails.application.routes.draw do
     resources :user_forms, except: :show do
       resources :user_form_submissions, only: %i(index show destroy), shallow: true
     end
-    resources :albums do
+    resources :albums, exept: :show do
       resources :images do
         collection { post :sort }
       end
     end
-    resources :pages do
+    resources :pages, exept: :show do
       resources :page_attachments, only: %i(create destroy)
     end
   end
