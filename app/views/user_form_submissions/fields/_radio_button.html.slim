@@ -1,4 +1,5 @@
-= f.label :field_value, field.label
-= f.collection_radio_buttons :field_value,
-  field.available_values, :value, :value
-
+= f.input :field_value,
+    label: "#{field.label}:",
+    collection: field.available_values,
+    as: :radio_buttons,
+    label_method: :value

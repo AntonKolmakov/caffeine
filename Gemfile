@@ -45,9 +45,9 @@ gem 'ckeditor' # HTML text editor
 gem 'font_assets' # Properly serve fonts - MIME-types and CORS config
 gem 'acts_as_list' # For sorting pages' children
 gem 'gretel' # breadcrumbs generator
+gem 'newrelic_rpm'
 
 group :development do
-  gem 'styleguides'
   gem 'quiet_assets'
   gem 'slim-rails'
   gem 'foreman'
@@ -55,15 +55,14 @@ group :development do
   gem 'rails-erd', github: 'paulwittmann/rails-erd', branch: 'mavericks'
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'spring' # preload instances
+  gem 'traceroute' # seek for unused routes
+  gem 'rack-mini-profiler', require: false # profiler for rack applications
 end
 
 group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'faker'
-end
-
-group :development, :staging do
   gem 'letter_opener'
   gem 'mail_safe'
 end

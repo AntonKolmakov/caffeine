@@ -6,15 +6,12 @@ html class="no-js" lang="en"
 
   head
     = csrf_meta_tags
-
-    = render "partials/head/favicons"
-
-    = stylesheet_link_tag 'admin/admin'
+    = render'partials/head/favicons'
+    = stylesheet_link_tag 'admin/login/login'
 
   body
     .wrapper.login-page
       .row.mtop-100
-
         = yield
 
-    = javascript_include_tag 'login/login'
+    = javascript_include_tag 'admin/login/login'

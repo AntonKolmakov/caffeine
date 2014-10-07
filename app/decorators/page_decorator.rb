@@ -14,4 +14,12 @@ class PageDecorator < Draper::Decorator
   def image_column_size
     (column_size == 8) ? 4 : 2
   end
+
+  def children_content_size
+    (page.children.any?) ? 5 : 0
+  end
+
+  def main_content_size
+    16 - children_content_size
+  end
 end

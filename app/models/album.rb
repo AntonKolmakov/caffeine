@@ -4,8 +4,6 @@ class Album < ActiveRecord::Base
 
   validates :name, presence: true
 
-  acts_as_tree
-
   mount_uploader :watermark, PictureUploader
 
   # Recreate all attached images versions to apply new watermark
