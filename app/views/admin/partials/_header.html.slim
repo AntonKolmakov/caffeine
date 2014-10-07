@@ -1,0 +1,53 @@
+header.top-bar
+  a.mobile-nav href="#"
+    i.pe-7s-menu
+  .main-logo
+    | Coffeine
+    //span  admin
+  input#s-logo.sw type="checkbox"
+  label.switch.switch--dark.switch--header for="s-logo"
+
+  .main-search
+    input#msearch type="text" placeholder="Поиск страниц"
+    label for="msearch"
+      i.pe-7s-search
+
+  .profile
+    li
+      a.dropdown-toggle data-toggle="dropdown" href="#" onclick="return false;"
+        figure.pull-left.rounded-image.profile__img
+          img.media-object src="images/thumb0.jpg" alt="user"
+        span.profile__name
+          | Nabih
+          span
+            |  Maloof
+            i.pe-7s-angle-down
+      ul.dropdown-menu.pull-right
+        li
+          a href="#"
+           i.icon.pe-7s-info Edit Profile
+        li
+          a href="#"
+            i.icon.pe-7s-date My Calendar
+        li
+          a href="login.html"
+            i.icon.pe-7s-close-circle Log Out
+      li.profile--higlighted
+        span.badge.profile__badge.badge--red 8
+        a.dropdown-toggle data-toggle="dropdown" onclick="return false;" href="#"
+         i.pe-7f-mail
+        ul.dropdown-menu.pull-right
+          li
+            a href="#"
+              i.icon.pe-7s-mail You have 8 unread messages
+      li.profile--higlighted
+        span.badge.profile__badge.badge--red 5
+        a.dropdown-toggle data-toggle="dropdown" onclick="return false;" href="#"
+          i.pe-7f-drawer
+        ul.dropdown-menu.pull-right
+          li
+            a href="#"
+              i.icon.pe-7s-drawer You have 5 new notifications
+      li
+        a href="#"
+          i.pe-7f-config

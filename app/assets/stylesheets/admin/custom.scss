@@ -50,6 +50,13 @@
   }
 }
 
+.flash-notice {
+  @extend .alert-info;
+  i {
+    color: #ff9c4b;
+  }
+}
+
 
 /*--------------------------*/
 #category > ul {

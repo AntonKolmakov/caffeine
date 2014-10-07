@@ -7,15 +7,18 @@ html class="no-js" lang="en"
   head
     = csrf_meta_tags
 
+    = render "partials/head/favicons"
+
     = stylesheet_link_tag 'admin/admin'
-    = javascript_include_tag 'admin/admin'
+
 
   body
-    .container
-      = render 'admin/layouts/top_navigation'
+    = render 'admin/partials/header'
+    .wrapper
+      = render 'admin/partials/sidebar'
+      section.content
+        = render 'admin/partials/messages'
+        = yield
+        = render 'admin/partials/footer'
 
-      = render 'partials/messages'
-
-      .jumbotron
-        .row
-          = yield
+    = javascript_include_tag 'admin/admin'
