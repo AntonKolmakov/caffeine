@@ -4,7 +4,7 @@ module Admin
     expose(:page, attributes: :page_params, finder: :find_by_slug)
 
     def index
-      self.pages = Page.order(:position).roots
+      self.pages = Page.order(:position).roots.decorate
     end
 
     def new
