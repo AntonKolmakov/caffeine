@@ -1,7 +1,8 @@
-h2= t('views.admin.albums.index.header')
-
-.col-md-8
-  = render partial: 'admin/albums/table', locals: { albums: albums }
-
-.col-md-4
-  = link_to t('views.admin.albums.index.add_new_album'), new_admin_album_path, class: 'btn btn-primary'
+.row
+  .col-md-10
+    section.widget
+      .widget__header
+        = t('views.admin.albums.index.header')
+      .widget__content
+        = render partial: 'admin/albums/table', locals: { albums: albums }
+        = link_to t('views.admin.albums.index.add_new_album'), new_admin_album_path, class: 'btn btn-green btn-block no-margin'

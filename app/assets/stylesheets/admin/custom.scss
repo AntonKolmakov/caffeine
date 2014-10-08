@@ -60,8 +60,22 @@
 .widget.no-margin--t {
   margin-top: 0;
 }
+
 .widget.no-border--t {
   border-top: none;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.table {
+  [class*=" pe-7s-"] {
+    font-size: 20px;
+    &:hover {
+      
+    }
+  }
 }
 
 /*--------------------------*/
