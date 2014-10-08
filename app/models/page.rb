@@ -9,6 +9,6 @@ class Page < ActiveRecord::Base
 
   validates :name, presence: true
 
-  acts_as_tree
+  acts_as_tree order: 'position'
   acts_as_list scope: :parent
 end
