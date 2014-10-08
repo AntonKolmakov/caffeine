@@ -14,6 +14,6 @@ module ApplicationHelper
   end
 
   def class_name(link_path, force_active = false)
-    force_active || current_page?(link_path) ? 'active' : ''
+    force_active || current_page?(link_path) ? 'main-nav--active' : ''
   end
 end

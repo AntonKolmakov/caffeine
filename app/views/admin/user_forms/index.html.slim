@@ -1,7 +1,11 @@
-- content_for(:heading_page) { t('views.admin.user_forms.index.header') }
+- content_for :heading_page do
+  i.icon.pe-7s-photo-gallery
+  = t('views.admin.user_forms.index.header')
+end
 
-.col-md-8
-  = render partial: 'admin/user_forms/table', locals: { user_forms: user_forms }
-
-.col-md-4
-  = link_to t('views.admin.user_forms.index.add_new_user_form'), new_admin_user_form_path, class: 'btn btn-primary'
+.row
+  .col-md-12
+    section.widget
+      .widget__content
+        = render partial: 'admin/user_forms/table', locals: { user_forms: user_forms }
+        = link_to t('views.admin.user_forms.index.add_new_user_form'), new_admin_user_form_path, class: 'btn btn-green btn-block no-margin'

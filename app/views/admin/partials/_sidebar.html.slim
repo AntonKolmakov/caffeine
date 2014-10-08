@@ -1,7 +1,7 @@
 nav
   aside.sidebar
     ul.main-nav
-      li.main-nav--active
+      li[class="#{class_name(admin_root_path)}"]
         a.main-nav__link href="/admin/"
           span.main-nav__icon
             i class="icon pe-7s-home"
@@ -9,7 +9,7 @@ nav
       li[class="#{class_name(admin_pages_path)}"]
         = link_to admin_pages_path, class: 'main-nav__link'
           span.main-nav__icon
-            i.icon.pe-7s-edit
+            i.icon.pe-7s-news-paper
           = t('views.admin.layouts.top_navigation.pages')
       li[class="#{class_name(admin_albums_path)}"]
         a.main-nav__link href="#"
@@ -20,10 +20,10 @@ nav
       li[class="#{class_name(admin_user_forms_path)}"]
         = link_to admin_user_forms_path, class: 'main-nav__link'
           span.main-nav__icon
-            i.icon.pe-7s-crop
+            i.icon.pe-7s-menu
           = t('views.admin.layouts.top_navigation.user_forms')
       li[class="#{class_name(admin_users_path)}"]
         = link_to admin_users_path, class: 'main-nav__link'
           span.main-nav__icon
-            i.icon.pe-7s-menu
+            i.icon.pe-7s-users
           = t('views.admin.layouts.top_navigation.users')

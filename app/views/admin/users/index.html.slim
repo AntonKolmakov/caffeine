@@ -1,7 +1,11 @@
-- content_for(:heading_page) { t('views.admin.user.index.header') }
+- content_for :heading_page do
+  i.icon.pe-7s-users
+  = t('views.admin.user.index.header')
+end
 
-.col-md-8
-  = render partial: 'admin/users/table', locals: { users: users }
-
-.col-md-4
-  = link_to 'new user', new_admin_user_path, class: 'btn btn-primary'
+.row
+  .col-md-12
+    section.widget
+      .widget__content
+        = render partial: 'admin/users/table', locals: { users: users }
+        = link_to 'new user', new_admin_user_path, class: 'btn btn-green btn-block no-margin'
