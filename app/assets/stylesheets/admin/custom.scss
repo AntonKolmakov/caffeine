@@ -57,6 +57,12 @@
   }
 }
 
+.widget.no-margin--t {
+  margin-top: 0;
+}
+.widget.no-border--t {
+  border-top: none;
+}
 
 /*--------------------------*/
 #category > ul {

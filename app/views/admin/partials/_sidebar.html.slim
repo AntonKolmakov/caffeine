@@ -6,86 +6,24 @@ nav
           span.main-nav__icon
             i class="icon pe-7s-home"
           | Dashboard
-          span.badge.main-nav__badge.badge--red 8
       li[class="#{class_name(admin_pages_path)}"]
         = link_to admin_pages_path, class: 'main-nav__link'
           span.main-nav__icon
             i.icon.pe-7s-edit
           = t('views.admin.layouts.top_navigation.pages')
-      li.main-nav--collapsible
+      li[class="#{class_name(admin_albums_path)}"]
         a.main-nav__link href="#"
+        = link_to admin_albums_path, class: 'main-nav__link'
           span.main-nav__icon
             i.icon.pe-7s-photo-gallery
-          | Sample pages
-        ul.main-nav__submenu
-          li
-            a href="404.html"
-              i.pe-7s-help1
-              span Error 404
-          li
-            a href="login.html"
-              i.pe-7s-note
-              span Login
-      li
-        a.main-nav__link href="grid.html"
+          = t('views.admin.layouts.top_navigation.albums')
+      li[class="#{class_name(admin_user_forms_path)}"]
+        = link_to admin_user_forms_path, class: 'main-nav__link'
           span.main-nav__icon
             i.icon.pe-7s-crop
-          | Grid Layout
-      li
-        a.main-nav__link href="tables.html"
+          = t('views.admin.layouts.top_navigation.user_forms')
+      li[class="#{class_name(admin_users_path)}"]
+        = link_to admin_users_path, class: 'main-nav__link'
           span.main-nav__icon
             i.icon.pe-7s-menu
-          | Tables &amp; forms
-      li
-        a.main-nav__link href="stats.html"
-          span.main-nav__icon
-            i.icon.pe-7s-graph
-          | Statistics
-          span.badge.main-nav__badge 16
-
-
-
-
-
-      .navbar.navbar-default role="navigation"
-        .container-fluid
-          .navbar-header
-            button.navbar-toggle.collapsed data-target=".navbar-collapse" data-toggle="collapse" type="button"
-              span.sr-only Toggle navigation
-              span.icon-bar
-              span.icon-bar
-              span.icon-bar
-            a.navbar-brand href="#"  Brand
-          .navbar-collapse.collapse
-            ul.nav.navbar-nav
-              li[class="#{class_name(admin_pages_path)}"]
-                = link_to t('views.admin.layouts.top_navigation.pages'), admin_pages_path, class: 'dddd'
-              li[class="#{class_name(admin_albums_path)}"]
-                = link_to t('views.admin.layouts.top_navigation.albums'), admin_albums_path
-              li[class="#{class_name(admin_user_forms_path)}"]
-                = link_to t('views.admin.layouts.top_navigation.user_forms'), admin_user_forms_path
-              li[class="#{class_name(admin_users_path)}"]
-                = link_to t('views.admin.layouts.top_navigation.users'), admin_users_path
-
-            ul.nav.navbar-nav.navbar-right
-              li
-                strong
-                  | Logged as
-                  = link_to current_user.email, edit_admin_user_path(current_user)
-              li.dropdown
-                a.dropdown-toggle data-toggle="dropdown" href="#"
-                  | Dropdown
-                  span.caret
-                ul.dropdown-menu role="menu"
-                  li
-                    = link_to 'Sign Out', destroy_user_session_path
-                  li
-                    = link_to 'Add admin', '#'
-                  li
-                    a href="#"  Something else here
-                  li.divider
-                  li.dropdown-header Nav header
-                  li
-                    a href="#"  Separated link
-                  li
-                    a href="#"  One more separated link
+          = t('views.admin.layouts.top_navigation.users')
