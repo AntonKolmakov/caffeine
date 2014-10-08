@@ -13,7 +13,9 @@ module ApplicationHelper
     render form if form
   end
 
-  def class_name(link_path, force_active = false)
-    force_active || current_page?(link_path) ? 'main-nav--active' : ''
+  def active_class?(path, strict = false)
+    active = strict ? current_page?(path) : request.url.include?(path)
+
+    active ? 'main-nav--active' : ''
   end
 end
