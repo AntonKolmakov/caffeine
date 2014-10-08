@@ -1,0 +1,6 @@
+ru:
+  views:
+    admin:
+      user:
+        index:
+          header: Пользователи

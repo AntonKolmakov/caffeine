@@ -1,4 +1,4 @@
-h2 Users
+- content_for(:heading_page) { t('views.admin.user.index.header') }
 
 .col-md-8
   = render partial: 'admin/users/table', locals: { users: users }
