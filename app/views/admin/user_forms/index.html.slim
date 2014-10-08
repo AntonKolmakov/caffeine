@@ -1,5 +1,4 @@
-h2
-  = t('views.admin.user_forms.index.header')
+- content_for(:heading_page) { t('views.admin.user_forms.index.header') }
 
 .col-md-8
   = render partial: 'admin/user_forms/table', locals: { user_forms: user_forms }

@@ -1,7 +1,6 @@
 ru:
   views:
-    casein:
-      categories:
+    admin:
+      pages:
         new:
-          header: Добавьте новую категорию
-          back_to_list: Назад к списку
+          header: Новая страница

@@ -1,4 +1,4 @@
-h2= t('views.admin.albums.index.header')
+- content_for(:heading_page) { t('views.admin.albums.index.header')}
 
 .col-md-8
   = render partial: 'admin/albums/table', locals: { albums: albums }
