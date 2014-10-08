@@ -1,5 +1,6 @@
 class PageDecorator < Draper::Decorator
   delegate_all
+  decorates_association :children
 
   BASE_PARTIAL_NAME = 'base'
 
@@ -21,5 +22,13 @@ class PageDecorator < Draper::Decorator
 
   def main_content_size
     16 - children_content_size
+  end
+
+  def admin_list_classes
+    "col-md-#{12 - object.depth} col-md-offset-#{page.depth} col-xs-#{12 - object.depth} col-xs-offset-#{page.depth}"
+  end
+
+  def admin_row_classes
+    page.root? ? 'widget' : 'widget no-margin--t no-border--t'
   end
 end

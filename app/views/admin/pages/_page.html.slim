@@ -1,12 +1,10 @@
-article.widget
-  header.widget__header
-    = link_to_unless_current page.name, edit_admin_page_path(page)
-  .widget__content
-
-- page.children.each do |page|
-  .row
-    .col-md-11.col-md-offset-1.col-xs-11.col-xs-offset-1
-      article.widget.no-margin--t.no-border--t
-        header.widget__header
-          = link_to_unless_current page.name, edit_admin_page_path(page)
-        .widget__content
+.row
+  div[class=page.admin_list_classes]
+    article[class=page.admin_row_classes]
+      header.widget__header
+        = link_to_unless_current page.name, edit_admin_page_path(page)
+        |
+        = link_to t('views.admin.pages.index.edit_page'), edit_admin_page_path(page)
+        |  |
+        = link_to t('views.admin.pages.edit.delete'), admin_page_path(page), method: :delete, data: {confirm: t('views.admin.pages.edit.confirm')}
+      .widget__content
