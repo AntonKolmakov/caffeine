@@ -16,7 +16,7 @@ header.top-bar
         li
           = link_to edit_admin_user_path(current_admin_user)
            i.icon.pe-7s-info
-           | Редактировать профиль
+           = t('views.admin.layouts.header.dropdown.edit_profile')
         li
           = link_to destroy_admin_user_session_path
             i.icon.pe-7s-close-circle

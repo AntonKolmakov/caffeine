@@ -1,8 +1,8 @@
-- content_for :heading_page do
+- content_for :heading_page
   i.icon.pe-7s-users
-  = t('views.admin.user.edit.header')
-  end
+  = t('views.admin.users.edit.header')
 
 = render 'form'
-
-= link_to 'Delete', admin_user_path(user), method: :delete, class: 'btn btn-danger' unless current_admin_user == user
+- if current_admin_user.admin?
+  = link_to admin_user_path(user), method: :delete, data: { confirm: t('views.admin.users.edit.link.confirmed_box') }, class: 'btn btn-danger'
+    = t('views.admin.users.edit.link.delete_user')

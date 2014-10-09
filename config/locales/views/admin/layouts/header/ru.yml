@@ -1,0 +1,7 @@
+ru:
+  views:
+    admin:
+      layouts:
+        header:
+          dropdown:
+            edit_profile: Редактировать профиль

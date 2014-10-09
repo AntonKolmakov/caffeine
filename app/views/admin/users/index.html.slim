@@ -1,6 +1,6 @@
 - content_for :heading_page do
   i.icon.pe-7s-users
-  = t('views.admin.user.index.header')
+  = t('views.admin.users.index.header')
 end
 
 .row
@@ -8,4 +8,5 @@ end
     section.widget
       .widget__content
         = render partial: 'admin/users/table', locals: { users: users }
-        = link_to 'new user', new_admin_user_path, class: 'btn btn-green btn-block no-margin'
+        - if current_admin_user.admin?
+          = link_to t('views.admin.users.index.link.new_user'), new_admin_user_path, class: 'btn btn-green btn-block no-margin'
