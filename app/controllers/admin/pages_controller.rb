@@ -25,7 +25,7 @@ module Admin
 
     def destroy
       page.destroy
-      respond_with(:admin, page)
+      respond_with :admin, page
     end
 
     private

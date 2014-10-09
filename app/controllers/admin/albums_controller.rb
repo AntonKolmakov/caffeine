@@ -19,12 +19,12 @@ module Admin
 
     def update
       album.save
-      respond_with(:admin, album)
+      respond_with :admin, album, location: -> { edit_admin_album_path(album) }
     end
 
     def destroy
       album.destroy
-      respond_with(:admin, album)
+      respond_with :admin, album
     end
 
     private
