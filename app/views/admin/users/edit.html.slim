@@ -1,4 +1,7 @@
-- content_for(:heading_page) { t('views.admin.user.edit.header') }
+- content_for :heading_page do
+  i.icon.pe-7s-users
+  = t('views.admin.user.edit.header')
+  end
 
 = render 'form'
 

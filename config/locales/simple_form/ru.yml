@@ -2,8 +2,16 @@ ru:
   simple_form:
     labels:
       user:
-        remember_me: 'запомнить меня'
+        remember_me: 'Запомнить меня'
     placeholders:
       user:
-        email: 'E-mail'
-        password: 'Пароль'
+        full_name: 'Введите полное имя'
+        email: 'Ваш E-mail'
+        password: 'Ваш пароль'
+        password_confirmation: 'Повторите пароль'
+    hint:
+      user:
+        full_name: 'Введите полное имя'
+        email: 'Ваш E-mail'
+        password: 'Ваш пароль'
+        password_confirmation: 'Повторите пароль'
