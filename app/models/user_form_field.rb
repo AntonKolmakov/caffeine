@@ -6,7 +6,7 @@ class UserFormField < ActiveRecord::Base
   store :settings, accessors: %i(label input_class placeholder help), coder: JSON
 
   belongs_to :user_form, inverse_of: :user_form_fields
-  has_many :available_values, class_name: 'UserFormFieldValue', dependent: :destroy
+  has_many :available_values, class_name: 'UserFormFieldValue', dependent: :destroy, -> { order :position }
 
   validates :type, presence: true, inclusion: { in: TYPES.keys.map(&:to_s) }
 

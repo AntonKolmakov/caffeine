@@ -42,7 +42,7 @@ module Admin
         :id,    :_destroy,    :position,
         :label, :static_text, :name,
         :type,  :required,    :show_in_admin_table,
-        available_values_attributes: %i(id value _destroy)])
+        available_values_attributes: %i(id value _destroy position)])
     end
   end
 end
