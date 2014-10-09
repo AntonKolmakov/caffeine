@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # Admin routes
   namespace :admin do
-    root 'pages#index'
+    root 'dashboard#index'
 
     devise_for :user, path: ''
 

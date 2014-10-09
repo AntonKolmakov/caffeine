@@ -1,28 +1,28 @@
 nav
   aside.sidebar
     ul.main-nav
-      li[class="#{class_name(admin_root_path)}"]
-        a.main-nav__link href="/admin/"
+      li[class="#{active_class?(admin_root_path, true)}"]
+        = link_to admin_root_path, class: 'main-nav__link'
           span.main-nav__icon
             i class="icon pe-7s-home"
           | Dashboard
-      li[class="#{class_name(admin_pages_path)}"]
+      li[class="#{active_class?(admin_pages_path)}"]
         = link_to admin_pages_path, class: 'main-nav__link'
           span.main-nav__icon
             i.icon.pe-7s-news-paper
           = t('views.admin.layouts.top_navigation.pages')
-      li[class="#{class_name(admin_albums_path)}"]
+      li[class="#{active_class?(admin_albums_path)}"]
         a.main-nav__link href="#"
         = link_to admin_albums_path, class: 'main-nav__link'
           span.main-nav__icon
             i.icon.pe-7s-photo-gallery
           = t('views.admin.layouts.top_navigation.albums')
-      li[class="#{class_name(admin_user_forms_path)}"]
+      li[class="#{active_class?(admin_user_forms_path)}"]
         = link_to admin_user_forms_path, class: 'main-nav__link'
           span.main-nav__icon
             i.icon.pe-7s-menu
           = t('views.admin.layouts.top_navigation.user_forms')
-      li[class="#{class_name(admin_users_path)}"]
+      li[class="#{active_class?(admin_users_path)}"]
         = link_to admin_users_path, class: 'main-nav__link'
           span.main-nav__icon
             i.icon.pe-7s-users
