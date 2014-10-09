@@ -23,8 +23,8 @@ module Admin
     end
 
     def destroy
-      user.destroy
-      respond_with(:admin, user)
+      user.destroy unless current_admin_user == user
+      respond_with :admin, user, location: -> { admin_users_path }
     end
 
     private
