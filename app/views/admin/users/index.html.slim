@@ -1,11 +1,12 @@
 - content_for :heading_page do
-  i.icon.pe-7s-users
+  i.icon.pe-7s-user
   = t('views.admin.user.index.header')
 end
 
 .row
   .col-md-12
     section.widget
-      .widget__content
+      .widget__content.clearfix
         = render partial: 'admin/users/table', locals: { users: users }
-        = link_to 'new user', new_admin_user_path, class: 'btn btn-green btn-block no-margin'
+        p.submits
+          = link_to 'new user', new_admin_user_path, class: 'btn btn-skyblue no-margin'
