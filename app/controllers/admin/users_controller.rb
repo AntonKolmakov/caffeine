@@ -14,12 +14,12 @@ module Admin
 
     def create
       user.save
-      respond_with(:admin, user)
+      respond_with :admin, user, location: -> { edit_admin_user_path(user) }
     end
 
     def update
       user.save
-      respond_with(:admin, user)
+      respond_with :admin, user, location: -> { edit_admin_user_path(user) }
     end
 
     def destroy
@@ -30,7 +30,7 @@ module Admin
     private
 
     def user_params
-      params.require(:user).permit(:full_name, :email, :password)
+      params.require(:user).permit(:full_name, :email, :password, :password_confirmation)
     end
   end
 end
