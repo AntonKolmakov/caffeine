@@ -1,0 +1,6 @@
+li.media
+  = image_tag client_child.page_image.picture.thumb.url, class: 'pull-left'
+  .media-body
+    h4.media-heading
+      = client_child.name
+    = client_child.short_description.html_safe
