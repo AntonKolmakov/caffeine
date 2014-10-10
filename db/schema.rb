@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141007131811) do
+ActiveRecord::Schema.define(version: 20141010110532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,13 @@ ActiveRecord::Schema.define(version: 20141007131811) do
 
   add_index "page_hierarchies", ["ancestor_id", "descendant_id", "generations"], name: "page_anc_desc_udx", unique: true, using: :btree
   add_index "page_hierarchies", ["descendant_id"], name: "page_desc_idx", using: :btree
+
+  create_table "page_images", force: true do |t|
+    t.string   "picture"
+    t.integer  "page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "pages", force: true do |t|
     t.string   "name"
@@ -153,8 +160,8 @@ ActiveRecord::Schema.define(version: 20141007131811) do
   add_index "user_forms", ["page_id"], name: "index_user_forms_on_page_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -166,6 +173,7 @@ ActiveRecord::Schema.define(version: 20141007131811) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "full_name"
+    t.boolean  "admin",                  default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

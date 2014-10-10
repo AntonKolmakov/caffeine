@@ -1,11 +1,12 @@
-- content_for :heading_page do
-  i.icon.pe-7s-user
-  = t('views.admin.user.edit.header')
-  end
+- content_for :heading_page
+  i.icon.pe-7s-users
+  = t('views.admin.users.edit.header')
 
 .row
   .col-md-12
     section.widget.clearfix
       .widget__content
         = render 'form'
-        = link_to 'Удалить профиль', admin_user_path(user), method: :delete, class: 'btn btn-dark pull-right'
+        - if current_admin_user.admin? && !user.admin?
+          = link_to admin_user_path(user), method: :delete, data: { confirm: t('views.admin.users.edit.link.confirmed_box') }, class: 'btn btn-danger'
+            = t('views.admin.users.edit.link.delete_user')

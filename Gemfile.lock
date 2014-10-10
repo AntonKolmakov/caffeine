@@ -93,6 +93,10 @@ GEM
     bullet (4.13.2)
       activesupport (>= 3.0.0)
       uniform_notifier (>= 1.6.0)
+    byebug (3.5.1)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
+      slop (~> 3.6)
     capybara (2.4.3)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -127,6 +131,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     colored (1.2)
+    columnize (0.8.9)
     compass (1.0.1)
       chunky_png (~> 1.2)
       compass-core (~> 1.0.1)
@@ -150,6 +155,7 @@ GEM
     currencies (0.4.2)
     database_cleaner (1.3.0)
     debug_inspector (0.0.2)
+    debugger-linecache (1.2.0)
     decent_exposure (2.3.2)
     devise (3.3.0)
       bcrypt (~> 3.0)
@@ -475,6 +481,7 @@ DEPENDENCIES
   bootstrap-sass
   brakeman
   bullet
+  byebug
   capybara
   carrierwave
   ckeditor

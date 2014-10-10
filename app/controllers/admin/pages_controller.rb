@@ -8,6 +8,7 @@ module Admin
     end
 
     def new
+      page.build_page_image
     end
 
     def create
@@ -16,6 +17,7 @@ module Admin
     end
 
     def edit
+      page.build_page_image unless page.page_image.present?
     end
 
     def update

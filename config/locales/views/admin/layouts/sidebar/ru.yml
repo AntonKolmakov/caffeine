@@ -2,7 +2,7 @@ ru:
   views:
     admin:
       layouts:
-        top_navigation:
+        sidebar:
           pages: Страницы
           albums: Альбомы
           user_forms: Формы пользователя

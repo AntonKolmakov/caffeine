@@ -21,12 +21,16 @@ class PictureUploader < BaseUploader
     process :watermark, if: :album_image?
   end
 
-  version :thumb, if: :album_image? do
+  version :thumb, if: :needs_thumb? do
     process resize_to_limit: [160, 120]
   end
 
-  def album_image?(_)
-    model.is_a? Image
+  def needs_thumb?(_)
+    album_image? || model.is_a?(PageImage)
+  end
+
+  def album_image?(_ = nil)
+    model.is_a?(Image)
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

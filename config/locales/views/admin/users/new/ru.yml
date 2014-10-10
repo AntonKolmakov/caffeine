@@ -1,6 +1,6 @@
 ru:
   views:
     admin:
-      user:
+      users:
         new:
           header: Новый пользователь
