@@ -3,6 +3,6 @@
   = t('views.admin.users.edit.header')
 
 = render 'form'
-- if current_admin_user.admin?
+- if current_admin_user.admin? && !user.admin?
   = link_to admin_user_path(user), method: :delete, data: { confirm: t('views.admin.users.edit.link.confirmed_box') }, class: 'btn btn-danger'
     = t('views.admin.users.edit.link.delete_user')
