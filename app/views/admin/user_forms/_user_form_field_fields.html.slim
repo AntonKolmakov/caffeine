@@ -1,11 +1,18 @@
-= f.input :position
-= f.input :type, collection: UserFormField::TYPES.invert, input_html: { disabled: f.object.persisted? }
+.row
+  .col-md-12
+    section.widget
+      .widget__content.clearfix
+        .row
+          .col-md-1
+            = f.input :position, input_html: { class: 'input-text' }
+          .col-md-2
+            = f.input :type, collection: UserFormField::TYPES.invert, input_html: { disabled: f.object.persisted? }, wrapper: :vertical_select
 
-- if f.object.persisted?
-  = render "admin/user_forms/fields/#{f.object.type.underscore}", f: f
+          - if f.object.persisted?
+            = render "admin/user_forms/fields/#{f.object.type.underscore}", f: f
 
-  - if f.object.needs_values?
-    = f.fields_for :available_values
-    = f.link_to_add t('views.admin.user_forms.form.add_field_value_link'), :available_values
-
-= f.link_to_remove t('views.admin.user_forms.form.remove_field_link'), class: 'btn btn-xs btn-danger'
+            - if f.object.needs_values?
+              = f.fields_for :available_values
+              = f.link_to_add t('views.admin.user_forms.form.add_field_value_link'), :available_values
+          .submits-right
+            = f.link_to_remove t('views.admin.user_forms.form.remove_field_link'), class: 'btn btn-dark'

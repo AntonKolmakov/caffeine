@@ -1,12 +1,23 @@
-= simple_nested_form_for [:admin, user_form], html: { class: 'form-inline' } do |f|
-  = f.input :name
-  = f.input :email
-  = f.association :page, include_blank: true
-  = f.input :alias
-  = f.fields_for :user_form_fields
-  = f.link_to_add t('views.admin.user_forms.form.add_field_link'), :user_form_fields
+= simple_nested_form_for [:admin, user_form], html: { role: 'form'} do |f|
+  .row
+    .col-md-12
+      section.widget
+        header.widget__header
+          h3.widget__title Основные настройки
+          .widget__config
+            a href='#'
+              i.pe-7f-refresh
+        .widget__content.clearfix
+          .row
+            .col-md-6
+              = f.input :name, input_html: { class: 'input-text' }
+              = f.input :email, input_html: { class: 'input-text' }
+            .col-md-6
+              = f.input :alias, input_html: { class: 'input-text' }
+              = f.input :page_id, collection: Page.all, value_method: :id, include_blank: true, wrapper: :vertical_select
+          .submits-right
+            = f.submit class: 'btn btn-skyblue'
+            = link_to t('views.admin.user_forms.form.cancel'), admin_user_forms_path, class: 'btn btn-grey'
 
-  .submits
-    = link_to t('views.admin.user_forms.form.cancel'),
-      admin_user_forms_path, class: 'btn btn-mini btn-danger'
-    = f.submit class: 'btn btn-mini btn-primary'
+  = f.fields_for :user_form_fields
+  = f.link_to_add t('views.admin.user_forms.form.add_field_link'), :user_form_fields, class: 'btn btn-skyblue'

@@ -107,8 +107,30 @@
   box-shadow: none;
 }
 
+.dropdown {
+  height: 34px;
+  &:after {
+    top: 3px;
+    right: 3px;
+    font-size: 28px;
+    color: #696969;
+  }
+}
+
+.dropdown-select {
+  height: 34px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+
 .submits {
   float: left;
+  margin-left: -5px;
+}
+.submits-right {
+  float: right;
+  margin-right: -5px;
 }
 
 /* Pe-icon-7-stroke' */
