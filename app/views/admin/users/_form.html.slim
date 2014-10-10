@@ -1,18 +1,8 @@
-.row
-
-  .col-md-12
-    article.widget
-      header.widget__header
-        h3.widget__title Simple form
-
-      .widget__content
-
-        = simple_form_for [:admin, user] do |f|
-          = f.input :full_name, input_html: { class: 'input-text' }, label: false
-          = f.input :email, input_html: { class: 'input-text' }, label: false
-          = f.input :password, input_html: { class: 'input-text' }, label: false
-          = f.input :password_confirmation, input_html: { class: 'input-text' }, label: false
-          br
-          p.submits
-            = link_to t('app.form.cancel'), admin_users_path, class: 'btn btn-mini btn-danger'
-            = f.submit class: "btn btn-green pull-right"
+= simple_form_for [:admin, user] do |f|
+  = f.input :full_name, input_html: { class: 'input-text' }, hint: false, required: true
+  = f.input :email, input_html: { class: 'input-text' }, hint: false, required: true
+  = f.input :password, input_html: { class: 'input-text' }, hint: false, required: true
+  = f.input :password_confirmation, input_html: { class: 'input-text' }, hint: false, required: true
+  p.submits
+    = f.submit class: 'btn btn-skyblue'
+    = link_to t('app.form.cancel'), admin_users_path, class: 'btn btn-grey'

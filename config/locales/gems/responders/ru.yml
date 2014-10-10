@@ -3,13 +3,13 @@ ru:
     actions:
       create:
         notice: 'Успешно создано'
-        warning: 'Не получилось создать %{resource_name}'
+        warning: 'При создании возникли ошибки'
       update:
         notice: 'Успешно обновлено'
-        warning: 'Не получилось обновить %{resource_name}'
+        warning: 'При обновлении возникли ошибки'
       destroy:
         notice: 'Успешно удалено'
-        warning: 'Не получилось удалить %{resource_name}'
+        warning: 'Не получилось удалить'
     user_forms:
       user_form_submissions:
         create:

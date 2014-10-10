@@ -169,8 +169,9 @@ ru:
     select:
       prompt: ! 'Выберите: '
     submit:
-      casein_admin_user:
+      user:
         create: 'Создать пользователя'
+        update: 'Обновить профайл'
       page:
         create: 'Создать страницу'
         update: 'Сохранить страницу'

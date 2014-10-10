@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         end
       end
       resources :pages do
+        resources :page_images
         resources :page_attachments, only: %i(create destroy)
       end
     end

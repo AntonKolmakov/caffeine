@@ -1,5 +1,5 @@
-def admin_session_sign_in
-  user = FactoryGirl.create(:admin)
+def admin_session_sign_in(user = nil)
+  user ||= FactoryGirl.create(:admin)
 
   visit '/admin/pages'
 

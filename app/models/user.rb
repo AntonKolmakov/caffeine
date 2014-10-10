@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   devise :database_authenticatable, :recoverable, :rememberable, :trackable, :validatable
 
-  validates :full_name, presence: true
+  validates :full_name, :password, :password_confirmation, presence: true
 
   def to_s
     full_name

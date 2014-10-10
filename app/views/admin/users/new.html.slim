@@ -1,3 +1,10 @@
-- content_for(:heading_page) { t('views.admin.user.new.header') }
+- content_for :heading_page do
+  i.icon.pe-7s-user
+  = t('views.admin.users.new.header')
+end
 
-= render 'form'
+.row
+  .col-md-12
+    section.widget
+      .widget__content.clearfix
+        = render 'form'

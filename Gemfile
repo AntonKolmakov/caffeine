@@ -65,6 +65,7 @@ group :development, :test do
   gem 'faker'
   gem 'letter_opener'
   gem 'mail_safe'
+  gem 'byebug'
 end
 
 group :test do

@@ -1,0 +1,9 @@
+ru:
+  views:
+    admin:
+      users:
+        edit:
+          header: Править профайл
+          link:
+            delete_user: удалить пользователя
+            confirmed_box: вы уверены, что хотите удалить ползователя?
