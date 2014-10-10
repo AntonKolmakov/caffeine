@@ -1,7 +1,7 @@
 .row
   div[class=page.admin_list_classes]
     article[class=page.admin_row_classes]
-      header.widget__header
+      header.widget__header.a
         = link_to_unless_current page.name, edit_admin_page_path(page)
         |
         = link_to t('views.admin.pages.index.edit_page'), edit_admin_page_path(page)
