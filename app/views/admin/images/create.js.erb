@@ -1,6 +1,6 @@
 <% if image.errors.any? %>
   alert("Failed to upload painting: <%= j image.errors.full_messages.join(', ').html_safe %>");
 <% else %>
-$('#images').append("<%= j render 'admin/albums/image', object: image %>");
+$('#images .row').append("<%= j render 'admin/albums/image', object: image %>");
   new Uploader;
 <% end %>

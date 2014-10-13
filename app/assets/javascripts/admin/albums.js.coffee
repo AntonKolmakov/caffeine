@@ -25,5 +25,6 @@ class Uploader
           progress = parseInt(data.loaded / data.total * 100, 10)
           data.context.find('.bar').css('width', progress + '%')
     $('#images').sortable
+      items: '> .row > .image'
       update: ->
         $.post($(this).data('update-url'), $(this).sortable('serialize'))

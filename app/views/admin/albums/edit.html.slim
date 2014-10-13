@@ -2,22 +2,27 @@
 
 = render 'form'
 
-h1 = album.name
-
 #album_uploder
-  ul.image#images data-update-url=sort_admin_album_images_url(album)
-    = render partial: 'admin/albums/image', collection: album.images
+  = render partial: 'admin/albums/images'
+.widget
+  header.widget__header
+    h3 Загрузить изображение
+  .widget__content
+    = simple_form_for [:admin, album, Image.new],
+                      html: { multipart: true } do |f|
+      = f.input :picture, as: :file, input_html:  { multiple: true, name: 'image[picture]' }
 
-= simple_form_for [:admin, album, Image.new],
-                  html: { multipart: true } do |f|
-  = f.input :picture, as: :file, input_html:  { multiple: true, name: 'image[picture]' }
+hr
+p.text-right
+  = link_to admin_album_path(album), data: {confirm: t('views.admin.albums.form.delete')}, method: :delete, class: 'btn btn-red'
+    i.pe-7f-close
+    ' &nbsp;
+    = t('views.admin.albums.edit.link.remove_album')
 
-p
-  = link_to t('views.admin.albums.edit.link.remove_album'), admin_album_path(album), confirm: t('views.admin.albums.form.delete'), method: :delete
-  |  |
-  = link_to t('views.admin.albums.edit.link.add_new_album'), new_admin_album_path(parent_id: album.id)
-  |  |
-  = link_to t('views.admin.albums.edit.link.edit_album'), edit_admin_album_path(album)
+  = link_to edit_admin_album_path(album), class: 'btn btn-green'
+    i.pe-7f-edit
+    ' &nbsp;
+    = t('views.admin.albums.edit.link.edit_album')
 
 script#template-upload type="text/x-tmpl"
   .upload
