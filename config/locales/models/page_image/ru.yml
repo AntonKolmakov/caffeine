@@ -1,0 +1,6 @@
+ru:
+  activerecord:
+    attributes:
+      page_image:
+        picture: Прикрепить миниатюру страницы
+        _destroy: Удалить миниатюру
