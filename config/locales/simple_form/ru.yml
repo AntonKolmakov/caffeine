@@ -19,3 +19,5 @@ ru:
         email: 'Ваш E-mail'
         password: 'Ваш пароль'
         password_confirmation: 'Повторите пароль'
+    data:
+      disable_with: Пожалуйста подождите

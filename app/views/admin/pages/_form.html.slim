@@ -9,4 +9,4 @@
   = f.input :position
   p.submits
     = link_to t('app.form.cancel'), admin_pages_path, class: 'btn btn-mini btn-danger'
-    = f.submit class: "btn btn-mini btn-primary"
+    = f.submit class: "btn btn-mini btn-primary", data: { disable_with: t('simple_form.data.disable_with') }
