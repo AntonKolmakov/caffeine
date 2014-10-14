@@ -12,13 +12,6 @@
 
 = link_to t('views.admin.pages.edit.delete'), admin_page_path(page), method: :delete, data: { confirm: t('views.admin.pages.edit.confirm') }, class: 'btn btn-mini btn-danger'
 
-= simple_form_for [:admin, page, page.page_image] do |f|
-  = f.input :picture, as: :file
-  = f.submit
-
-= image_tag page.page_image.picture.url(:thumb)
-
-
 script#template-upload type="text/x-tmpl"
   .upload
     | {%=o.name%}

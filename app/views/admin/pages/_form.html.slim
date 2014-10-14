@@ -7,6 +7,10 @@
   = f.input :fix_slug, as: :boolean
   = f.association :album, collection: Album.order(:name)
   = f.input :position
-  p.submits
-    = link_to t('app.form.cancel'), admin_pages_path, class: 'btn btn-mini btn-danger'
-    = f.submit class: "btn btn-mini btn-primary"
+  = f.simple_fields_for :page_image do |image_field|
+    = image_field.input :picture, as: :file
+    - if page.page_image.persisted?
+      = image_tag page.page_image.picture.url(:thumb)
+      = image_field.input :_destroy, as: :boolean, input_html: { value: false }
+  = link_to t('app.form.cancel'), admin_pages_path, class: 'btn btn-mini btn-danger'
+  = f.submit class: "btn btn-mini btn-primary"
