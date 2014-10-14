@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 20141014123941) do
 
   create_table "seo_data", force: true do |t|
     t.string   "meta_title"
-    t.string   "meta_keys"
+    t.string   "meta_keywords"
     t.text     "meta_description"
     t.text     "seo_text"
     t.integer  "datable_id"

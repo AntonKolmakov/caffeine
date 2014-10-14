@@ -7,7 +7,7 @@ class Page < ActiveRecord::Base
   has_one :page_image
   has_one :seo_datum, as: :datable, dependent: :destroy
 
-  delegate :meta_title, :meta_keys, :meta_description, :seo_text, to: :seo_datum
+  delegate :meta_title, :meta_keywords, :meta_description, :seo_text, to: :seo_datum
 
   accepts_nested_attributes_for :page_image, update_only: true, allow_destroy: true
   accepts_nested_attributes_for :seo_datum, update_only: true
