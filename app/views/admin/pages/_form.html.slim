@@ -1,4 +1,4 @@
-= simple_nested_form_for [:admin, page] do |f|
+= simple_form_for [:admin, page] do |f|
   = f.input :name
   = f.input :parent_id, collection: Page.order(:name), as: :select, include_blank: true, selected: params[:parent_id] || page.parent_id
   = f.input :short_description, as: :ckeditor, input_html: {ckeditor: {toolbar: 'mini'} }
@@ -7,7 +7,11 @@
   = f.input :fix_slug, as: :boolean
   = f.association :album, collection: Album.order(:name)
   = f.input :position
-  = f.fields_for :seo_datum
+  = f.simple_fields_for :seo_datum do |seo_field|
+    = seo_field.input :meta_title
+    = seo_field.input :meta_keys
+    = seo_field.input :meta_description
+    = seo_field.input :seo_text
   = f.simple_fields_for :page_image do |image_field|
     = image_field.input :picture, as: :file
     - if page.page_image.persisted?

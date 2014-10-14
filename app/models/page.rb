@@ -10,12 +10,11 @@ class Page < ActiveRecord::Base
   delegate :meta_title, :meta_keys, :meta_description, :seo_text, to: :seo_datum
 
   accepts_nested_attributes_for :page_image, update_only: true, allow_destroy: true
+  accepts_nested_attributes_for :seo_datum, update_only: true
 
   enum status: %i(draft published blocked)
 
   validates :name, presence: true
-
-  accepts_nested_attributes_for :seo_datum, update_only: true
 
   acts_as_tree order: 'position'
   acts_as_list scope: :parent
