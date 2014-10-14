@@ -40,7 +40,8 @@ module Admin
                                    :fix_slug,
                                    :parent_id,
                                    :album_id,
-                                   :position)
+                                   :position,
+                                   page_image_attributes: %i(id picture _destroy))
     end
   end
 end
