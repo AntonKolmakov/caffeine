@@ -2,4 +2,5 @@
   section[class="col-xs-#{page.column_size}"]
     h2 Фотографии
     ul.images-list.row
-      = render partial: 'pages/albums/image', collection: album.images
+      = render partial: 'pages/albums/image', collection: album.images.limit(8)
+    = link_to t('views.pages.show.link.show_album'), album_path(album)
