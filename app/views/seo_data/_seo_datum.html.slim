@@ -1,5 +1,4 @@
 - content_for(:meta_title) { seo_datum.meta_title }
-- content_for(:name) { page.self_and_ancestors.collect(&:name).join(' | ') }
 - content_for(:meta_keywords) { seo_datum.meta_keywords }
 - content_for(:meta_description) { seo_datum.meta_description }
 - content_for(:seo_content) { raw(seo_datum.seo_text) }
