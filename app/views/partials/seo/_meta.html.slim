@@ -1,3 +1,4 @@
+- content_for(:name) { page.self_and_ancestors.collect(&:name).join(' | ') }
 meta charset="utf-8"
 meta name="viewport" content="width=device-width, initial-scale=1.0"
 meta name='keywords' content="#{content_for(:meta_keywords)}"
