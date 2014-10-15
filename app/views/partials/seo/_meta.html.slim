@@ -1,0 +1,12 @@
+meta charset="utf-8"
+meta name="viewport" content="width=device-width, initial-scale=1.0"
+meta name='keywords' content="#{content_for(:meta_keywords)}"
+meta name='description' content="#{content_for(:meta_description)}"
+
+link href="http://fonts.googleapis.com/css?family=Exo+2:400,300,500,500italic,700&subset=latin,cyrillic" type="text/css" rel="stylesheet"
+
+title
+  - if content_for?(:meta_title)
+    = %(#{yield(:meta_title)} | #{t('app.views.partials.meta.title')})
+  - else
+    = %(#{yield(:name)} | #{t('app.views.partials.meta.title')})
