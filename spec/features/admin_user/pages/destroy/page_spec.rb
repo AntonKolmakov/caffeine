@@ -6,6 +6,7 @@ feature 'admin destroys page' do
   scenario do
     admin_session_sign_in
 
+    click_on I18n.t('views.admin.layouts.sidebar.pages')
     click_link user_page.name
     click_link I18n.t('views.admin.pages.edit.delete')
 
