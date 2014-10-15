@@ -11,6 +11,7 @@
     = f.input :attachment, as: :file, input_html: {multiple: true, name: 'page_attachment[attachment]'}
 
 = link_to t('views.admin.pages.edit.delete'), admin_page_path(page), method: :delete, data: { confirm: t('views.admin.pages.edit.confirm') }, class: 'btn btn-mini btn-danger'
+= link_to t('views.admin.pages.edit.link_to_page'), page_path(page), target: "_blank"
 
 script#template-upload type="text/x-tmpl"
   .upload
