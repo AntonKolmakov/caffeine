@@ -1,7 +1,11 @@
 = simple_form_for [:admin, album] do |f|
   = f.input :name
   = f.input :watermark
-
+  = f.simple_fields_for :seo_datum do |seo_field|
+    = seo_field.input :meta_title
+    = seo_field.input :meta_keywords
+    = seo_field.input :meta_description
+    = seo_field.input :seo_text
   p.submits
     = link_to t('views.admin.albums.form.cancel'), admin_albums_path, class: 'btn btn-mini btn-danger'
     = f.submit class: "btn btn-mini btn-primary"

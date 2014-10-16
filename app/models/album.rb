@@ -1,6 +1,9 @@
 class Album < ActiveRecord::Base
   has_many :pages
-  has_many :images, -> { order 'position' }, dependent: :destroy
+  has_many :images, -> { order 'position' }, dependent: :destroy, inverse_of: :album
+  has_one :seo_datum, as: :datable, dependent: :destroy
+
+  accepts_nested_attributes_for :seo_datum, update_only: true
 
   validates :name, presence: true
 
