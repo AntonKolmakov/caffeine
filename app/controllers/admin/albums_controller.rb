@@ -6,10 +6,12 @@ module Admin
     def index
     end
 
-    def edit
+    def new
+      album.build_seo_datum
     end
 
-    def new
+    def edit
+      album.build_seo_datum unless album.seo_datum.present?
     end
 
     def create
@@ -30,7 +32,10 @@ module Admin
     private
 
     def album_params
-      params.require(:album).permit(:name, :parent_id, :watermark)
+      params.require(:album).permit(:name,
+                                    :parent_id,
+                                    :watermark,
+                                    seo_datum_attributes: %i(id meta_title meta_keywords meta_description seo_text))
     end
   end
 end
