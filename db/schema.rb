@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014123941) do
+ActiveRecord::Schema.define(version: 20141016130123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,13 @@ ActiveRecord::Schema.define(version: 20141014123941) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "watermark"
+    t.string   "slug"
+    t.boolean  "fix_slug",          default: false
+    t.text     "description"
+    t.text     "short_description"
   end
+
+  add_index "albums", ["slug"], name: "index_albums_on_slug", using: :btree
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -99,6 +105,7 @@ ActiveRecord::Schema.define(version: 20141014123941) do
     t.datetime "updated_at"
     t.integer  "album_id"
     t.integer  "position"
+    t.boolean  "main",              default: false
   end
 
   add_index "pages", ["album_id"], name: "index_pages_on_album_id", using: :btree
