@@ -4,7 +4,7 @@ module Admin
 
     respond_to :js, only: :create
 
-    expose(:album)
+    expose(:album, finder: :find_by_slug)
     expose(:images, ancestor: :album)
     expose(:image, attributes: :image_params)
 
