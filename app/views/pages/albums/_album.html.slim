@@ -3,4 +3,4 @@
     h2 Фотографии
     ul.images-list.row
       = render partial: 'pages/albums/image', collection: album.images.limit(8)
-    = link_to t('views.pages.show.link.show_album'), album_path(album)
+    = link_to t('views.pages.show.link.view_album'), album_path(album)
