@@ -33,8 +33,11 @@ module Admin
 
     def album_params
       params.require(:album).permit(:name,
-                                    :parent_id,
                                     :watermark,
+                                    :description,
+                                    :short_description,
+                                    :slug,
+                                    :fix_slug,
                                     seo_datum_attributes: %i(id meta_title meta_keywords meta_description seo_text))
     end
   end
