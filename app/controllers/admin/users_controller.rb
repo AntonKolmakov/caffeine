@@ -37,7 +37,7 @@ module Admin
     end
 
     def require_admin
-      redirect_to admin_root_path unless current_admin_user.admin?
+      redirect_to admin_root_path unless current_admin_user.admin? || current_admin_user == user
     end
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141010110532) do
+ActiveRecord::Schema.define(version: 20141014123941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,19 @@ ActiveRecord::Schema.define(version: 20141010110532) do
 
   add_index "pages", ["album_id"], name: "index_pages_on_album_id", using: :btree
   add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
+
+  create_table "seo_data", force: true do |t|
+    t.string   "meta_title"
+    t.string   "meta_keywords"
+    t.text     "meta_description"
+    t.text     "seo_text"
+    t.integer  "datable_id"
+    t.string   "datable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "seo_data", ["datable_id", "datable_type"], name: "index_seo_data_on_datable_id_and_datable_type", using: :btree
 
   create_table "user_form_field_values", force: true do |t|
     t.string   "value"

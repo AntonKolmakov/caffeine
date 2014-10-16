@@ -5,10 +5,12 @@ doctype html
 html class="no-js" lang="en"
 
   head
-    = render "partials/meta"
+    = render "partials/seo/meta"
     = render "partials/head/favicons"
 
     = csrf_meta_tags
+
+    link href="http://fonts.googleapis.com/css?family=Exo+2:400,300,500,500italic,700&subset=latin,cyrillic" type="text/css" rel="stylesheet"
 
     = stylesheet_link_tag :application
 

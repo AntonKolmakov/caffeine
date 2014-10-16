@@ -9,6 +9,7 @@ module Admin
 
     def new
       page.build_page_image
+      page.build_seo_datum
     end
 
     def create
@@ -18,6 +19,7 @@ module Admin
 
     def edit
       page.build_page_image unless page.page_image.present?
+      page.build_seo_datum unless page.seo_datum.present?
     end
 
     def update
@@ -41,6 +43,7 @@ module Admin
                                    :parent_id,
                                    :album_id,
                                    :position,
+                                   seo_datum_attributes: %i(id meta_title meta_keywords meta_description seo_text),
                                    page_image_attributes: %i(id picture _destroy))
     end
   end

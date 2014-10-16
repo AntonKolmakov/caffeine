@@ -7,6 +7,11 @@
   = f.input :fix_slug, as: :boolean
   = f.association :album, collection: Album.order(:name)
   = f.input :position
+  = f.simple_fields_for :seo_datum do |seo_field|
+    = seo_field.input :meta_title
+    = seo_field.input :meta_keywords
+    = seo_field.input :meta_description
+    = seo_field.input :seo_text
   = f.simple_fields_for :page_image do |image_field|
     = image_field.input :picture, as: :file
     - if page.page_image.persisted?

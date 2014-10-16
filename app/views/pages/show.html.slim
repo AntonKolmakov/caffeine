@@ -1,1 +1,4 @@
+- content_for(:name) { page.self_and_ancestors.collect(&:name).join(' | ') }
+
+= render page.seo_datum if page.seo_datum
 = render page
