@@ -1,3 +1,3 @@
 class AlbumsController < ApplicationController
-  expose :album
+  expose(:album, finder: :find_by_slug)
 end
