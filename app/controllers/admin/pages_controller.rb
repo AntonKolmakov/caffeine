@@ -35,7 +35,8 @@ module Admin
     private
 
     def page_params
-      params.require(:page).permit(:name,
+      params.require(:page).permit(:main,
+                                   :name,
                                    :description,
                                    :short_description,
                                    :slug,
