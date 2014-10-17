@@ -1,7 +1,11 @@
 class Album < ActiveRecord::Base
+  include Sluggable
+
   has_many :pages
   has_many :images, -> { order 'position' }, dependent: :destroy, inverse_of: :album
   has_one :seo_datum, as: :datable, dependent: :destroy
+
+  delegate :meta_title, :meta_keywords, :meta_description, :seo_text, to: :seo_datum
 
   accepts_nested_attributes_for :seo_datum, update_only: true
 

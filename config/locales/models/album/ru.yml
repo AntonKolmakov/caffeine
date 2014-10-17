@@ -3,5 +3,8 @@ ru:
     attributes:
       album:
         name: Название
-        parent_id: Выберите родителя
         watermark: Водяной знак
+        short_description: Короткое описание
+        description: Описание
+        slug: slug(url)
+        fix_slug: Зафиксируйте slug
