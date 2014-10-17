@@ -3,5 +3,3 @@ tr
   - album.images.limit(5).each do |image|
     td= link_to image.picture.url do
       = image_tag image.picture.url(:thumb) if image.present?
-  td= link_to admin_album_path(album), method: :delete, data: { confirm: t('views.admin.albums.form.delete') } do
-    span.glyphicon.glyphicon-trash
