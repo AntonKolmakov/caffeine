@@ -43,8 +43,11 @@ module Admin
                                    :fix_slug,
                                    :parent_id,
                                    :album_id,
-                                   :position,
-                                   seo_datum_attributes: %i(id meta_title meta_keywords meta_description seo_text),
+                                   :position).merge(nested_attributes)
+    end
+
+    def nested_attributes
+      params.require(:page).permit(seo_datum_attributes: %i(id meta_title meta_keywords meta_description seo_text),
                                    page_image_attributes: %i(id picture _destroy))
     end
   end
