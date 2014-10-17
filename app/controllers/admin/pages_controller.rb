@@ -1,5 +1,7 @@
 module Admin
   class PagesController < Admin::ApplicationController
+    respond_to :js, only: :update
+
     expose(:pages)
     expose(:page, attributes: :page_params, finder: :find_by_slug)
 

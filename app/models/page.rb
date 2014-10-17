@@ -15,7 +15,7 @@ class Page < ActiveRecord::Base
   enum status: %i(draft published blocked)
 
   validates :name, presence: true
-  before_validation :do_main_page, on: %i(create update destroy)
+  before_validation :set_main_page, on: %i(create update destroy)
 
   acts_as_tree order: 'position'
   acts_as_list scope: :parent
@@ -24,7 +24,7 @@ class Page < ActiveRecord::Base
 
   private
 
-  def do_main_page
+  def set_main_page
     Page.main.update_all(main: false)
   end
 end
