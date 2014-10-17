@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsSettingsUi::Engine, at: 'admin/settings'
   mount Ckeditor::Engine => '/ckeditor'
 
   get '/mainpage', to: redirect('/')

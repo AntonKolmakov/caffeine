@@ -46,6 +46,8 @@ gem 'font_assets' # Properly serve fonts - MIME-types and CORS config
 gem 'acts_as_list' # For sorting pages' children
 gem 'gretel' # breadcrumbs generator
 gem 'newrelic_rpm'
+gem 'rails-settings-cached', '~> 0.4' # Store site settings in DB and memory
+gem 'rails-settings-ui', '~> 0.3' # UI for site settings
 
 group :development do
   gem 'quiet_assets'
