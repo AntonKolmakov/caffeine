@@ -33,6 +33,6 @@ class PageDecorator < Draper::Decorator
   end
 
   def set_main
-    page.main? ? 'btn btn-skyblue' : 'btn btn-grey '
+    page.main? ? 'btn btn-skyblue' : 'btn btn-grey'
   end
 end
