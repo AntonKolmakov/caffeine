@@ -1,5 +1,7 @@
 - content_for(:title) { page.name }
 - content_for(:body_class) { "body-#{page.slug}" }
+- unless content_for(:no_siblings)
+  - content_for :no_siblings, false
 .pageContent
   - breadcrumb :page, page
   = raw(breadcrumbs style: :bootstrap)
