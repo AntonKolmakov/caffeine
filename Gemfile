@@ -89,6 +89,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'codeclimate-test-reporter', require: false
   gem 'rspec-activemodel-mocks'
+  gem 'spring-commands-rspec'
 end
 
 group :staging, :production do
