@@ -19,11 +19,4 @@ feature 'admin check to main page' do
     expect(page).to have_content(I18n.t('flash.actions.update.notice'))
     expect(new_main_page.reload.main?).to eq(true)
   end
-
-  scenario 'admin can set main page jast from pages#index' do
-
-    click_on 'set_main'
-
-    expect().to
-  end
 end
