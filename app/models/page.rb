@@ -15,12 +15,20 @@ class Page < ActiveRecord::Base
   enum status: %i(draft published blocked)
 
   validates :name, presence: true
-  before_validation :set_main_page, on: %i(create update destroy)
+  before_save :set_main_page, on: %i(create update destroy), unless: :main_page?
 
   acts_as_tree order: 'position'
   acts_as_list scope: :parent
 
   scope :main, -> { where(main: true) }
+
+  def main_page?
+    self == Page.main_page
+  end
+
+  def self.main_page
+    main.first
+  end
 
   private
 
