@@ -1,6 +1,6 @@
 module Admin
   class UsersController < Admin::ApplicationController
-    before_action :require_admin
+    before_action :require_super_admin
 
     expose(:users)
     expose(:user, attributes: :user_params)
@@ -36,7 +36,7 @@ module Admin
       params.require(:user).permit(:full_name, :email, :password, :password_confirmation)
     end
 
-    def require_admin
+    def require_super_admin
       redirect_to admin_root_path unless current_admin_user.admin? || current_admin_user == user
     end
   end
