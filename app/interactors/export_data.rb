@@ -15,8 +15,7 @@ class ExportData
   protected
 
   def deflate_data
-    zlib = Zlib::Deflate.new(Zlib::BEST_COMPRESSION)
-    context.deflated_data = zlib.deflate(context.uncompressed_data)
+    context.deflated_data = Zlib::Deflate.deflate(context.uncompressed_data, Zlib::BEST_COMPRESSION)
   end
 
   def write_to_file

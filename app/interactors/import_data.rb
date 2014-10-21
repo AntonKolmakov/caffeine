@@ -14,5 +14,14 @@ class ImportData
 
   def inflate_file
     string = IO.read(context.local_file_path)
-    Zlib::Inflate.new.inflate(string)
+    data = JSON.parse(Zlib::Inflate.new.inflate(string))
+    update_data(data)
   end
+
+  def update_data(data)
+    Page.transaction do
+      Page.destroy_all
+      Page.create!(data)
+    end
+  end
+end
