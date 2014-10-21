@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'dashboard#index'
 
-    get 'export', to: 'backup#export'
-    get 'import', to: 'backup#import'
+    get 'import', to: 'import#import'
 
     devise_for :user, path: ''
 

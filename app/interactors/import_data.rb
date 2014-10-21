@@ -2,7 +2,7 @@ class ImportData
   include Interactor
 
   before do
-    context.file_name = "my-json-data"
+    context.file_name = 'my-json-data'
     context.local_file_path = "#{Rails.root}/tmp/#{context.file_name}"
   end
 

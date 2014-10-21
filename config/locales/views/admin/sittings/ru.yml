@@ -1,0 +1,5 @@
+ru:
+  views:
+    admin:
+      sittings:
+        import: Импортировать данные

@@ -23,5 +23,6 @@ ol.breadcrumb
                     span.help-block= @casted_settings[:errors][name]
 
     = submit_tag t('settings.index.save_all'), class: 'btn btn-primary btn-lg'
-  = link_to 'export', admin_export_path
-  = link_to 'import', admin_import_path
+  br
+  - if Rails.env.development?
+    = link_to t('views.admin.sittings.import'), admin_import_path, class: 'btn btn-primary'
