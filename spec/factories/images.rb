@@ -1,5 +1,6 @@
 FactoryGirl.define do
   factory :image do
-    name { Faker::Name.name }
+    album
+    picture { File.new("#{Rails.root}/spec/fixtures/albums/images/south_park.jpg") }
   end
 end
