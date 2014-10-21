@@ -220,9 +220,6 @@ GEM
       dotenv (~> 0.11.1)
       thor (~> 0.19.1)
     formatador (0.2.5)
-    foundation-icons-sass-rails (3.0.0)
-      railties (>= 3.1.1)
-      sass-rails (>= 3.1.1)
     friendly_id (5.0.4)
       activerecord (>= 4.0.0)
     fuubar (2.0.0)
@@ -500,7 +497,6 @@ DEPENDENCIES
   fog
   font_assets
   foreman
-  foundation-icons-sass-rails
   friendly_id
   fuubar
   gretel
