@@ -48,6 +48,8 @@ gem 'gretel' # breadcrumbs generator
 gem 'newrelic_rpm'
 gem 'rails-settings-cached', '~> 0.4' # Store site settings in DB and memory
 gem 'rails-settings-ui', '~> 0.3' # UI for site settings
+gem 'aws-sdk'
+gem 'interactor'
 
 group :development do
   gem 'quiet_assets'
