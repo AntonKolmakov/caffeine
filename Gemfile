@@ -20,6 +20,7 @@ gem 'coffee-rails'
 gem 'uglifier'
 gem 'jquery-fileupload-rails'
 gem 'jquery-ui-rails'
+gem 'premailer-rails'
 
 # Validation gems
 gem 'validates_email_format_of' # validate email format for field

@@ -44,5 +44,7 @@ module PromTehnoSert
     config.before_initialize do
       config.font_assets.origin = ['http://', config.host].join
     end
+
+    config.action_mailer.asset_host = ['http://', config.host].join
   end
 end
