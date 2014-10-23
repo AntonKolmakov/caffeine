@@ -7,4 +7,5 @@ Rails.application.configure do
   config.assets.precompile += %w(ckeditor/*) # CKEDITOR additional assets like lang files
   config.assets.precompile += %w(admin/admin.js admin/admin.css) # admin backend assets
   config.assets.precompile += %w(admin/login/login.js admin/login/login.css) # admin login assets
+  config.assets.precompile += %w(mailer.css) # mailer css asset
 end

@@ -36,7 +36,7 @@ module PromTehnoSert
     config.noreply = 'noreply@promtehnosert.ru'
 
     # Default host for action mailer, initializers/mailer.rb
-    config.host = 'localhost:5000'
+    config.host = 'localhost:2000'
 
     # Autoload ckeditor models folder
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
