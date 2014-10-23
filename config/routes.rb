@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     root 'dashboard#index'
 
     get 'import', to: 'import#import'
+    get 'rollback', to: 'import#rollback'
 
     devise_for :user, path: ''
 

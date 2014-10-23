@@ -28,3 +28,4 @@ ol.breadcrumb
     = link_to t('views.admin.sittings.import'), admin_import_path, class: 'btn btn-primary'
     - unless Setting.import_at.nil?
       = time_tag(Setting.import_at)
+      = link_to 'Rollback', admin_rollback_path, class: 'btn btn-danger'

@@ -3,13 +3,14 @@ class ExportData
 
   before do
     context.file_name = 'my-json-data'
-    context.local_file_path = "#{Rails.root}/tmp/#{context.file_name}"
+    context.local_file_path = local_file_path
   end
 
   def call
     prepare_data(context.model) &&
     deflate_data &&
     write_to_file
+    upload_to_s3 unless context.model
   end
 
   protected
@@ -33,14 +34,17 @@ class ExportData
   end
 
   def upload_to_s3
-    s3 = AWS::S3.new(
-        access_key_id: 'YOUR_ACCESS_KEY_ID',
-        secret_access_key: 'YOUR_SECRET_ACCESS_KEY')
-
-    bucket = s3.buckets['my-s3-bucket-key']
-
+    s3 = AWS::S3.new
+    bucket = s3.buckets[Rails.application.secrets.s3_bucket]
     object = bucket.objects[context.file_name]
+    object.write(Pathname.new(context.local_file_path))
+  end
 
-    object.write(Pathname.new(local_file_path))
+  def local_file_path
+    if context.model
+      "#{Rails.root}/tmp/backup-json-data"
+    else
+      "/tmp/#{context.file_name}"
+    end
   end
 end
