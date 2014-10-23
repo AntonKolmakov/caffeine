@@ -1,11 +1,11 @@
 h2
   ' Сообщение с формы - #{@form_submission.user_form.name}
 dl
-  - @form_submission.field_values.each do |value|
+  - @form_submission.field_values.each do |field_value|
     dt
-      = value.user_form_field.label
+      = field_value.user_form_field.label
     dd
-      - if value.field_value.present?
-        = value.field_value
+      - if field_value.formatted_field_value.present?
+        = field_value.formatted_field_value
       - else
         span.gray Поле незаполнено.
