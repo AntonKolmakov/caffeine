@@ -10,7 +10,7 @@ describe UserFormSubmissionMailer, type: :mailer do
     end
 
     it 'should be sent from proper address' do
-      expect(email).to deliver_from('noreply@promtehnosert.ru')
+      expect(email).to deliver_from(ActionMailer::Base.default[:from])
     end
 
     it 'should have proper body' do
