@@ -7,11 +7,4 @@
         th Показы
         th &nbsp;
     tbody
-      - user_forms.each do |user_form|
-        tr
-          td= link_to user_form.name, edit_admin_user_form_path(user_form)
-          td=  link_to user_form.email, edit_admin_user_form_path(user_form)
-          td= link_to user_form.user_form_submissions.size, admin_user_form_user_form_submissions_path(user_form)
-          td
-            = link_to admin_user_form_path(user_form), method: :delete do
-              span.glyphicon.glyphicon-trash
+      = render partial: 'table_row', collection: user_forms, as: :user_form

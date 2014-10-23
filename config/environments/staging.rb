@@ -56,6 +56,7 @@ Rails.application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   config.action_controller.asset_host = 'dgkzpq8ta7oep.cloudfront.net'
+  config.action_mailer.asset_host = config.action_controller.asset_host
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
@@ -81,4 +82,5 @@ Rails.application.configure do
   # Application specific options
   #
   config.host = 'promtehnosert-staging.herokuapp.com'
+  config.action_mailer.default_url_options = { :host => config.host }
 end

@@ -2,13 +2,8 @@ require 'spec_helper'
 
 describe UserFormSubmissionMailer, type: :mailer do
   describe 'form_submitted' do
-    let(:user_form_submission) { double('UserFormSubmission') }
+    let(:user_form_submission) { FactoryGirl.build_stubbed :user_form_submission }
     let(:email) { UserFormSubmissionMailer.form_submitted(user_form_submission) }
-
-    before do
-      allow(user_form_submission).to receive_messages(email: 'test@example.com')
-      allow(user_form_submission).to receive_messages(user_form_name: 'Test form')
-    end
 
     it 'should deliver to a given email' do
       expect(email).to deliver_to(user_form_submission.email)
@@ -19,7 +14,7 @@ describe UserFormSubmissionMailer, type: :mailer do
     end
 
     it 'should have proper body' do
-      expect(email).to have_body_text(/Кто-то заполнил форму "Test form"/)
+      expect(email).to have_body_text(/Сообщение с формы - #{user_form_submission.user_form_name}/)
     end
   end
 end
