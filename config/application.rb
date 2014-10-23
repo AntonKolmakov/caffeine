@@ -41,10 +41,10 @@ module PromTehnoSert
     # Autoload ckeditor models folder
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 
+    config.action_mailer.asset_host = ['http://', config.host].join
+
     config.before_initialize do
       config.font_assets.origin = ['http://', config.host].join
     end
-
-    config.action_mailer.asset_host = ['http://', config.host].join
   end
 end
