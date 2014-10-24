@@ -1,0 +1,6 @@
+ru:
+  views:
+    admin:
+      pages:
+        new:
+          header: Новая страница

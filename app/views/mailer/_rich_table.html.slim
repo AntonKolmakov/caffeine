@@ -1,0 +1,31 @@
+table#rich-table border='0' cellpadding='0' cellspacing='0'
+  tr
+    td rowspan='2' height='106'
+      = image_tag 'mailer/template_07.png'
+    td.top-center width='507' height='65'
+      h1
+        = link_to url_for(controller: "pages", action: "index")
+          ' Центр испытаний и сертификации &laquo;Промтехносерт&raquo;
+    td rowspan='2'
+      = image_tag 'mailer/template_09.png'
+  tr
+    td
+      = image_tag 'mailer/template_08.png'
+  tr
+    td.center-left width='17'
+      ' &nbsp;
+    td.center-center
+      .content-wrapper
+        = yield
+    td.center-right width='17'
+      ' &nbsp;
+  tr
+    td rowspan='2'
+      = image_tag 'mailer/template_17.png'
+    td height='30'
+      = image_tag 'mailer/template_18.png'
+    td rowspan='2'
+      = image_tag 'mailer/template_19.png'
+  tr
+    td.bottom-center width='507' height='49'
+      ' 2014 &copy; Центр испытаний и сертификации «Промтехносерт»

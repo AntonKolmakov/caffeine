@@ -1,0 +1,6 @@
+li.col-xs-2.image id="image_#{image.id}"
+  .thumbnail
+    = image_tag image.picture.url(:thumb) if image.present?
+
+  = link_to admin_album_image_path(album, image), method: :delete, data: { confirm: 'Are you sure?', toggle: 'tooltip', placement: 'top' }, class: "btn btn-danger btn-red btn-xs btn-remove", title: t('views.admin.albums.edit.link.remove_image')
+    i.pe-7f-close

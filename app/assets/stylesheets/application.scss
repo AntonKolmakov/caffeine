@@ -1,17 +1,8 @@
-@import "compass";
-@import "foundation_and_overrides";
-@import "foundation-icons";
-@import "compass/layout/sticky-footer";
-
-@import "globals/vars";
-@import "globals/icons";
-
-@import "partials/messages";
-@import "partials/navigation";
-@import "partials/footer";
-
-@import "shared/base";
-@import "shared/header";
-@import "shared/forms";
-
-@import "views/dashboard";
+@import "bootstrap-compass";
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "icons/*.png";
+//@include all-icons-sprites;
+@import "includes/mixins";
+@import "theme/theme";
+@import "pages/pages";

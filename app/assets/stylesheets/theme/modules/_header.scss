@@ -1,0 +1,153 @@
+header {
+  $header-height: 380px;
+  $header-height-second: 145px;
+  $contacts-height: 130px;
+  $menu-height: $header-height - $contacts-height;
+
+  font-family: 'Exo 2';
+  font-weight: 300;
+
+  .bgWrapper {
+    min-height: $header-height;
+    background: transparent image-url('header_bg.png') 0 50% no-repeat;
+  }
+
+  .leftside {
+    position: relative;
+    height: $header-height;
+  }
+
+  a.logo {
+    position: absolute;
+    left: 10px;
+    top: 20px;
+
+    display: block;
+    width: 210px;
+    height: 210px;
+    background: #fff image-url('logo_header.png') 50% 50% no-repeat;
+  }
+
+  .title {
+    position: absolute;
+    font-size: 28px;
+    line-height: 30px;
+    color: $gray-darker;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    font-weight: bold;
+
+    bottom: 20px;
+    left: 30px;
+  }
+
+  section.contacts {
+    background: #000000 image-url('contacts_bg.png') 40px 50% no-repeat;
+    height: $contacts-height;
+
+    color: #ffffff;
+
+    .icon.contacts {
+      position: absolute;
+      top: 25px;
+      left: 35px;
+      @include icon(contacts_02);
+    }
+
+    .content {
+      padding: 20px 0 20px 100px;
+      font-size: 16px;
+
+      .phone {
+        font-size: 24px;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  section.mainMenu {
+    height: $menu-height;
+
+    background-image: image-url('bg_01.png');
+
+    .content {
+      padding: 20px 0;
+      color: #ffffff;
+
+      nav.iconMenu {
+        ul {
+          li {
+            width: 33%;
+          }
+        }
+      }
+
+      & > .callback {
+        clear:both;
+        padding-top: 10px;
+      }
+    }
+  }
+
+  &.second-page {
+    margin-bottom: 20px;
+    .bgWrapper {
+      height: $header-height-second;
+      min-height: $header-height-second;
+      @include boxShadow(0 5px 0 rgba(0,0,0,0.05));
+    }
+    a.logo {
+      width: 190px;
+      height: $header-height-second;
+      background: #fff image-url('logo_footer.png') 50% 50% no-repeat;
+      top: 0;
+    }
+
+    .title {
+      color: #ffffff;
+      font-size: 18px;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+      width: 100%;
+      left: 0;
+      text-align: center;
+    }
+
+    .mainMenu {
+      height: $header-height-second;
+      margin-right: -20px;
+
+      nav.iconMenu {
+        padding-top: 20px;
+        ul {
+          li {
+            margin-left: 18px;
+
+            a {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+    }
+
+    section.contacts {
+      height: $header-height-second;
+
+      .content {
+        padding: 12px 0 12px 20px;
+        font-size: 14px;
+
+        .phone {
+          font-size: 20px;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
+
+i.iconCallback {
+  display: inline-block;
+  @include icon(callback);
+  margin-right: 10px;
+}

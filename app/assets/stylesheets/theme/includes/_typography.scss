@@ -1,0 +1,22 @@
+nav {
+  ul {
+    li {
+      a {
+        font-weight: 300;
+        font-family: 'Exo 2';
+        text-decoration: underline;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+article {
+  h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+}

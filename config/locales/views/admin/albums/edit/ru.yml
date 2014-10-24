@@ -1,0 +1,15 @@
+ru:
+  views:
+    admin:
+      albums:
+        images: Изображения
+        empty:
+          title: Список альбомов пуст
+          subtitle: Вы можете создать новый альбом, воспользовавшись кнопкой "Новый альбом"
+        edit:
+          header: Править альбом
+          link:
+            edit_album: Править альбом
+            remove_album: Удалить альбом
+            remove_image: Удалить изображение
+            add_new_album: Добавить альбом

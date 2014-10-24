@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Specify ruby version for Heroku
-ruby '2.1.0'
+ruby '2.1.3'
 
 # Core gems
 gem 'rails'
@@ -12,12 +12,14 @@ gem 'json'
 
 # Asset gems
 gem 'sass-rails'
-gem 'foundation-rails'
+gem 'bootstrap-sass'
 gem 'compass-rails'
-gem 'foundation-icons-sass-rails'
 gem 'jquery-rails'
 gem 'coffee-rails'
 gem 'uglifier'
+gem 'jquery-fileupload-rails'
+gem 'jquery-ui-rails'
+gem 'premailer-rails'
 
 # Validation gems
 gem 'validates_email_format_of' # validate email format for field
@@ -27,47 +29,67 @@ gem 'phony_rails' # validate and normalize phone numbers
 gem 'seedbank' # For envirnoment-specific seeds
 gem 'nested_form' # for building and updating associations through forms
 gem 'devise' # Authenticate users
-gem 'simple_form' # For easy view forms
+gem 'simple_form', github: 'plataformatec/simple_form', tag: 'v3.1.0.rc2' # For easy view forms
 gem 'decent_exposure' # For DRYing controllers
 gem 'kaminari' # Object paginations
 gem 'slim' # View template engine
+gem 'simple-navigation'
+gem 'closure_tree' # tree data structure
+gem 'responders'
+gem 'carrierwave' # flexible way to upload files
+gem 'mini_magick'
+gem 'friendly_id'
+gem 'draper'
+gem 'babosa'
+gem 'ckeditor' # HTML text editor
+gem 'font_assets' # Properly serve fonts - MIME-types and CORS config
+gem 'acts_as_list' # For sorting pages' children
+gem 'gretel' # breadcrumbs generator
+gem 'newrelic_rpm'
 
 group :development do
-  gem 'styleguides'
   gem 'quiet_assets'
-  gem 'letter_opener'
   gem 'slim-rails'
   gem 'foreman'
   gem 'bullet'
-  gem 'mail_safe'
   gem 'rails-erd', github: 'paulwittmann/rails-erd', branch: 'mavericks'
   gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
   gem 'spring' # preload instances
+  gem 'traceroute' # seek for unused routes
+  gem 'rack-mini-profiler', require: false # profiler for rack applications
 end
 
 group :development, :test do
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'letter_opener'
+  gem 'mail_safe'
+  gem 'pry-byebug'
 end
 
 group :test do
   gem 'fuubar'
   gem 'rspec-rails'
+  gem 'rspec-mocks'
   gem 'rails_best_practices'
   gem 'brakeman', require: false
   gem 'rubocop'
   gem 'simplecov', require: false
   gem 'webmock', require: false
   gem 'capybara'
-  gem 'poltergeist'
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
+  gem 'minitest'
   gem 'shoulda-matchers'
   gem 'turnip'
+  gem 'selenium-webdriver'
+  gem 'codeclimate-test-reporter', require: false
+  gem 'rspec-activemodel-mocks'
 end
 
 group :staging, :production do
   gem 'rails_12factor'
+  gem 'fog'
 end

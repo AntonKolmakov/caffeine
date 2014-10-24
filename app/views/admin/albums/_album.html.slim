@@ -1,0 +1,5 @@
+tr
+  td= link_to album.name, edit_admin_album_path(album)
+  - album.images.limit(5).each do |image|
+    td= link_to image.picture.url do
+      = image_tag image.picture.url(:thumb) if image.present?

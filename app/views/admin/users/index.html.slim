@@ -1,0 +1,12 @@
+- content_for :heading_page
+  i.icon.pe-7s-users
+  = t('views.admin.users.index.header')
+
+.row
+  .col-md-12
+    section.widget
+      .widget__content.clearfix
+        = render partial: 'admin/users/table', locals: { users: users }
+        - if current_admin_user.admin?
+          p.submits
+            = link_to t('views.admin.users.index.link.new_user'), new_admin_user_path, class: 'btn btn-green btn-block no-margin'

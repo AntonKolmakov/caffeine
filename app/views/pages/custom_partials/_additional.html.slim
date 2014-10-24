@@ -1,0 +1,10 @@
+- if page.album && page.album.images.any? || page.page_attachments.any?
+  .row
+    .col-xs-16
+      .row
+        = render partial: 'pages/albums/album', object: page.album
+        = render partial: 'pages/page_attachments/page_attachments'
+- if page.siblings.any?
+  .row
+    .col-xs-16
+      = render 'pages/siblings/siblings'

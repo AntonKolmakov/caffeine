@@ -38,14 +38,13 @@ class Bootstrap
 
   def install_gems
     without = is_ci? ? 'development' : ''
-    path = is_ci? ? 'vendor/bundle' : '.bundle'
+    path = is_ci? ? '~/cache/bundler' : '.bundle'
 
     system_with_note("bundle install --path #{path} --without production staging #{without}")
   end
 
   def migrate_db
     system_with_note('bundle exec rake db:setup')
-    system_with_note('bundle exec rake db:test:prepare')
   end
 
   def install_bundle_cache

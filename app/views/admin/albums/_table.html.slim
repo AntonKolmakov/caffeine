@@ -1,0 +1,18 @@
+- if albums.any?
+  table.table
+    thead
+      tr
+        th= t('views.admin.layouts.sidebar.albums')
+        th= t('views.admin.albums.images')
+        th &nbsp;
+    tbody
+      = render albums
+- else
+  .alert.alert-info.alert-dismissable
+    .media
+      figure.pull-left.alert--icon
+        i.pe-7s-info
+      .media-body
+        h3= t('views.admin.albums.empty.title')
+        p.alert--text
+          = t('views.admin.albums.empty.subtitle')

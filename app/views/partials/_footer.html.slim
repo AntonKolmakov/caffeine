@@ -1,4 +1,4 @@
-footer#footer
-  .row
-    .columns
-      p &copy; FishTag #{Time.now.strftime("%Y")}
+- if content_for?(:footer)
+  = content_for :footer
+- else
+  = render 'partials/footer/main'

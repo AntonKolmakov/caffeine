@@ -1,0 +1,17 @@
+ru:
+  flash:
+    actions:
+      create:
+        notice: 'Успешно создано'
+        warning: 'При создании возникли ошибки'
+      update:
+        notice: 'Успешно обновлено'
+        warning: 'При обновлении возникли ошибки'
+      destroy:
+        notice: 'Успешно удалено'
+        warning: 'Не получилось удалить'
+    user_forms:
+      user_form_submissions:
+        create:
+          notice: 'Спасибо! Мы ответим Вам в ближайшее время!'
+          warning: 'Заполните поля пожалуйста'

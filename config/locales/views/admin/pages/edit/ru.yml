@@ -1,0 +1,11 @@
+ru:
+  views:
+    admin:
+      pages:
+        edit:
+          header: Правка страницы
+          back_to_list: страницы
+          delete: Удалить страницу
+          confirm: Вы уверены что хотите удалить страницу?
+          remove_attachment: удалить
+          link_to_page: Посмотреть страницу

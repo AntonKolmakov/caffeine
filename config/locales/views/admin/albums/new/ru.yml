@@ -1,0 +1,6 @@
+ru:
+  views:
+    admin:
+      albums:
+        new:
+          header: Добавить новый альбом

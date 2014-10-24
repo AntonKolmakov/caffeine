@@ -1,0 +1,9 @@
+.clearfix
+hr
+.widget
+  header.widget__header
+    h3 Изображения
+  .widget__content
+    ul.images#images data-update-url=sort_admin_album_images_url(album)
+      .row
+        = render partial: 'admin/albums/image', collection: album.images

@@ -1,0 +1,12 @@
+- content_for :heading_page do
+  i.icon.pe-7s-menu
+  = t('views.admin.user_forms.index.header')
+end
+
+.row
+  .col-md-12
+    section.widget
+      .widget__content.clearfix
+        = render partial: 'admin/user_forms/table', locals: { user_forms: user_forms }
+        p.submits
+          = link_to t('views.admin.user_forms.index.add_new_user_form'), new_admin_user_form_path, class: 'btn btn-skyblue no-margin'

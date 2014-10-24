@@ -1,0 +1,24 @@
+- content_for(:title) { page.name }
+- content_for(:body_class) { "body-#{page.slug}" }
+- unless content_for(:no_siblings)
+  - content_for :no_siblings, false
+.pageContent
+  - breadcrumb :page, page
+  = raw(breadcrumbs style: :bootstrap)
+  h1
+    = page.name
+  article.page-content
+    .row
+      div[class="col-xs-#{page.main_content_size}"]
+        - if page.short_description?
+          .intro-text
+            = page.short_description.html_safe
+            hr.light
+      - if page.children.any?
+        aside[class="col-xs-#{page.children_content_size}"]
+          h4 Дополнительно
+          ul
+            - page.children.each do |child|
+              li
+                = link_to child.name, page_path(child)
+    = render 'pages/custom_partials/additional'

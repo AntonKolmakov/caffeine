@@ -1,0 +1,9 @@
+ru:
+  views:
+    admin:
+      layouts:
+        sidebar:
+          pages: Страницы
+          albums: Альбомы
+          user_forms: Формы пользователя
+          users: Пользователи

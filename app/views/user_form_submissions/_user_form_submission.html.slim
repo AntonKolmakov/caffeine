@@ -1,0 +1,19 @@
+- content_for(:title) { user_form_submission.user_form_name }
+- content_for(:body_class) { "form-#{user_form_submission.user_form_alias}" }
+.pageContent
+  - breadcrumb :form, user_form_submission.user_form
+  = raw(breadcrumbs style: :bootstrap)
+  h1
+    = user_form_submission.user_form_name
+  article.page-content
+    .row
+      .col-xs-16
+        = simple_form_for [user_form_submission.user_form, user_form_submission], remote: true do |f|
+          = f.fields_for :field_values,
+            wrapper_mappings: { check_boxes: :vertical_radio_and_checkboxes,
+            radio_buttons: :vertical_radio_and_checkboxes } do |field_values_form|
+            = render %(user_form_submissions/fields/#{field_values_form.object.type.underscore}),
+              f: field_values_form, field: field_values_form.object.user_form_field
+            = field_values_form.input :user_form_field_id, as: :hidden
+          hr.light
+          = f.submit class: 'btn btn-mini btn-primary pull-right'

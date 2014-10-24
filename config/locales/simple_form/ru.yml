@@ -1,0 +1,23 @@
+ru:
+  simple_form:
+    labels:
+      user:
+        full_name: 'Введите полное имя'
+        email: 'Ваш e-mail'
+        password: 'Ваш пароль'
+        password_confirmation: 'Повторите пароль'
+        remember_me: 'Запомнить меня'
+    placeholders:
+      user:
+        full_name: 'Например, Константинов Константин Константинович'
+        email: 'Например, admin@domain.com'
+        password: 'Введите трудно запоминаемый пароль'
+        password_confirmation: 'Повторите ввод пароля'
+    hints:
+      user:
+        full_name: 'Введите полное имя'
+        email: 'Ваш E-mail'
+        password: 'Ваш пароль'
+        password_confirmation: 'Повторите пароль'
+    data:
+      disable_with: Пожалуйста подождите

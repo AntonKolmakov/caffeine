@@ -1,0 +1,10 @@
+ru:
+  activerecord:
+    attributes:
+      user_form_field:
+        name: Название поля
+        field_type: Тип поля
+        required: Обязательное
+        show_in_admin_table: Отображать в таблице?
+        position: Позиция
+        type: Тип поля

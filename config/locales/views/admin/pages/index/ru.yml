@@ -1,0 +1,9 @@
+ru:
+  views:
+    admin:
+      pages:
+        index:
+          header: Страницы
+          add_new_page: Новая страница
+          edit_page: правка
+          alert: Вы уверены что хотите удалить страницу?

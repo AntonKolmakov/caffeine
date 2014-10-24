@@ -1,0 +1,12 @@
+ru:
+  activerecord:
+    attributes:
+      page:
+        name: Название
+        parent_id: Выберите родителя
+        short_description: Короткое описание
+        description: Описание
+        slug: slug(url)
+        fix_slug: Зафиксируйте slug
+        album: Выбирите альбом
+        position: Позиция

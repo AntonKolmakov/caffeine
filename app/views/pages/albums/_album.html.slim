@@ -1,0 +1,6 @@
+- if page.album && page.album.images.any?
+  section[class="col-xs-#{page.column_size}"]
+    h2 Фотографии
+    ul.images-list.row
+      = render partial: 'pages/albums/image', collection: album.images.limit(8)
+    = link_to t('views.pages.show.link.view_album'), album_path(album) if album.images.size > 8

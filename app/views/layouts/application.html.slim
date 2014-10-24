@@ -5,40 +5,29 @@ doctype html
 html class="no-js" lang="en"
 
   head
-    meta charset="utf-8"
-    meta name="viewport" content="width=device-width, initial-scale=1.0"
-
-    title= "#{app_config.app_name} - #{yield(:title) || 'Home'}"
+    = render "partials/seo/meta"
+    = render "partials/head/favicons"
 
     = csrf_meta_tags
 
-    /! Le styles
+    link href="http://fonts.googleapis.com/css?family=Exo+2:400,300,500,500italic,700&subset=latin,cyrillic" type="text/css" rel="stylesheet"
+
     = stylesheet_link_tag :application
 
-    /! Le modernizr
-    = javascript_include_tag "vendor/modernizr"
+  body[class="#{content_for :body_class}"]
+    = render 'partials/header'
 
-    / remove this if no need to support ie8
-    /[if lt IE 9]
-      = javascript_include_tag "ie8/nwmatcher-1.2.5-min.js", "ie8/selectivizr-1.0.3b.js", "ie8/respond.min.js"
+    article
+      .container
+        .row
+          .col-xs-16
 
-  body
-    #root
-      = render "partials/navigation"
-      = render "partials/messages"
+            = yield
+            = render 'partials/after_content'
+            #flash_messages
+              = render 'partials/messages'
+            = render "partials/callback"
 
-      .row
-        - if show_title?
-          h1= yield(:title)
-
-      = yield
-
-      #push-footer
-
-    = render "partials/footer"
+    = render 'partials/footer'
 
     = javascript_include_tag :application
-
-    / remove this if no need to support ie8
-    /[if lt IE 9]
-      = javascript_include_tag "ie8/rem"

@@ -1,0 +1,26 @@
+header.top-bar
+  a.mobile-nav href="#"
+    i.pe-7s-menu
+  .main-logo
+    | Coffeine
+
+  .profile
+    li
+      a.dropdown-toggle data-toggle="dropdown" href="#" onclick="return false;"
+        span.profile__name
+          span
+            = current_admin_user.full_name
+            | &nbsp;
+            i.pe-7s-angle-down
+      ul.dropdown-menu.pull-right
+        li
+          = link_to edit_admin_user_path(current_admin_user)
+           i.icon.pe-7s-info
+           = t('views.admin.layouts.header.dropdown.edit_profile')
+        li
+          = link_to destroy_admin_user_session_path
+            i.icon.pe-7s-close-circle
+            | Выход
+      li
+        = link_to edit_admin_user_path(current_admin_user)
+          i.pe-7f-config

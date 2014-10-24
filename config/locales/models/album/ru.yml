@@ -1,0 +1,10 @@
+ru:
+  activerecord:
+    attributes:
+      album:
+        name: Название
+        watermark: Водяной знак
+        short_description: Короткое описание
+        description: Описание
+        slug: slug(url)
+        fix_slug: Зафиксируйте slug

@@ -1,0 +1,6 @@
+ru:
+  activemodel:
+    errors:
+      messages:
+        invalid_email_address: 'имеет неверный формат'
+        email_address_not_routable: 'неправильный домен'

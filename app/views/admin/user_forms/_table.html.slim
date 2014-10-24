@@ -1,0 +1,10 @@
+- if user_forms.any?
+  table.table.table-striped
+    thead
+      tr
+        th Название
+        th E-mail
+        th Показы
+        th &nbsp;
+    tbody
+      = render partial: 'table_row', collection: user_forms, as: :user_form

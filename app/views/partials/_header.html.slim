@@ -1,0 +1,4 @@
+- if content_for?(:header)
+  = content_for :header
+- else
+  = render 'partials/header/second'

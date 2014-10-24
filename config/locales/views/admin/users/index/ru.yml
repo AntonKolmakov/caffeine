@@ -1,0 +1,8 @@
+ru:
+  views:
+    admin:
+      users:
+        index:
+          header: Пользователи
+          link:
+            new_user: Новый пользователь

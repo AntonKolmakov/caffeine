@@ -1,21 +1,19 @@
-# Run codeclimate-test-reporter only in CI
-if ENV['CI']
-  require 'codeclimate-test-reporter'
-  CodeClimate::TestReporter.start
-end
+require 'codeclimate-test-reporter'
+CodeClimate::TestReporter.start
 
 ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
 require 'turnip/capybara'
+
+ActiveRecord::Migration.maintain_test_schema!
 
 paths = Dir[Rails.root.join('spec/**/{support,step_definitions}/**/*.rb')]
 paths.each { |file| require file }
 
 RSpec.configure do |config|
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   config.include Rails.application.routes.url_helpers
   config.include EmailSpec::Helpers
