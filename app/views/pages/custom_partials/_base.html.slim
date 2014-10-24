@@ -14,6 +14,7 @@
           .intro-text
             = page.short_description.html_safe
             hr.light
+        = page.description.html_safe
       - if page.children.any?
         aside[class="col-xs-#{page.children_content_size}"]
           h4 Дополнительно
