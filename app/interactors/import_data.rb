@@ -4,7 +4,7 @@ class ImportData
   before do
     context.file_name = 'my-json-data'
     context.local_file_path = local_file_path
-    download_from_s3 unless context.action
+    download_from_s3 unless context.rollback
   end
 
   def call
@@ -39,10 +39,10 @@ class ImportData
   def download_from_s3
     s3 = AWS::S3.new
     bucket = s3.buckets[Rails.application.secrets.s3_bucket]
-    save_bucket(bucket)
+    write_file(bucket)
   end
 
-  def save_bucket(bucket)
+  def write_file(bucket)
     if bucket.exists?
       object = bucket.objects[context.file_name]
       File.open(context.local_file_path, 'wb') do |file|
@@ -56,7 +56,7 @@ class ImportData
   end
 
   def local_file_path
-    if context.action
+    if context.rollback
       "#{Rails.root}/tmp/backup-json-data"
     else
       "#{Rails.root}/tmp/#{context.file_name}"

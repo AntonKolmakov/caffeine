@@ -13,7 +13,7 @@ module Admin
     end
 
     def rollback
-      ImportData.call(action: 'rollback')
+      ImportData.call(rollback: true)
       flash[:notice] = 'rollback successfully'
       redirect_to rails_settings_ui_url
     end
