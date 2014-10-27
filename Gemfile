@@ -80,7 +80,6 @@ group :test do
   gem 'brakeman', require: false
   gem 'rubocop'
   gem 'simplecov', require: false
-  gem 'webmock'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'email_spec'
@@ -92,7 +91,6 @@ group :test do
   gem 'codeclimate-test-reporter', require: false
   gem 'rspec-activemodel-mocks'
   gem 'spring-commands-rspec'
-  gem 'vcr'
 end
 
 group :staging, :production do

@@ -6,19 +6,11 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'turnip/capybara'
-require 'vcr'
 
 ActiveRecord::Migration.maintain_test_schema!
 
 paths = Dir[Rails.root.join('spec/**/{support,step_definitions}/**/*.rb')]
 paths.each { |file| require file }
-
-VCR.configure do |c|
-  c.cassette_library_dir = 'spec/cassettes'
-  c.hook_into :webmock
-  c.configure_rspec_metadata!
-  c.ignore_localhost = true
-end
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
