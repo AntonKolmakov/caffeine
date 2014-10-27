@@ -19,4 +19,8 @@ class UserFormField < ActiveRecord::Base
   def needs_values?
     persisted? && TYPES_WHICH_NEEDS_VALUES.include?(type.to_sym)
   end
+
+  def formatted_value(field_value)
+    field_value
+  end
 end

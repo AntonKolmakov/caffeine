@@ -14,12 +14,12 @@ gem 'json'
 gem 'sass-rails'
 gem 'bootstrap-sass'
 gem 'compass-rails'
-gem 'foundation-icons-sass-rails'
 gem 'jquery-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'jquery-fileupload-rails'
 gem 'jquery-ui-rails'
+gem 'premailer-rails'
 
 # Validation gems
 gem 'validates_email_format_of' # validate email format for field
@@ -69,7 +69,7 @@ group :development, :test do
   gem 'faker'
   gem 'letter_opener'
   gem 'mail_safe'
-  gem 'byebug'
+  gem 'pry-byebug'
 end
 
 group :test do

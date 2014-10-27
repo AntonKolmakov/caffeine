@@ -1,1 +1,11 @@
-p Кто-то заполнил форму "#{@form_submission.user_form_name}".
+h2
+  ' Сообщение с формы - #{@form_submission.user_form.name}
+dl
+  - @form_submission.field_values.each do |field_value|
+    dt
+      = field_value.user_form_field.label
+    dd
+      - if field_value.formatted_field_value.present?
+        = field_value.formatted_field_value
+      - else
+        span.gray Поле незаполнено.
