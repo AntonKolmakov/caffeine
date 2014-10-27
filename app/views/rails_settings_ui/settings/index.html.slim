@@ -24,7 +24,8 @@ ol.breadcrumb
 
     = submit_tag t('settings.index.save_all'), class: 'btn btn-primary btn-lg'
   br
-  - if Rails.env.development?
+  - if %w(development test).include?(Rails.env)
+    h1 Import data from production server
     = link_to t('views.admin.sittings.import'), admin_import_path, class: 'btn btn-primary'
     - unless Setting.import_at.nil?
       = time_tag(Setting.import_at)

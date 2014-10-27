@@ -1,9 +1,14 @@
 module Admin
   class ImportController < Admin::ApplicationController
     def import
-      ImportData.call
-      Setting.import_at = Time.zone.now
-      flash[:notice] = 'import successfully'
+      result = ImportData.call
+
+      if result.success?
+        Setting.import_at = Time.zone.now
+        flash[:notice] = 'import successfully'
+      else
+        flash[:warning] = 'buket are not finded on s3'
+      end
       redirect_to rails_settings_ui_url
     end
 

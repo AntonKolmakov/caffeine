@@ -14,3 +14,4 @@ public/uploads/*
 app/assets/images/icons-*
 app/assets/images/attachments-*
 .DS_Store
+spec/cassettes/*

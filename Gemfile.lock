@@ -480,6 +480,7 @@ GEM
     uniform_notifier (1.6.2)
     validates_email_format_of (1.6.1)
       i18n
+    vcr (2.9.3)
     warden (1.2.3)
       rack (>= 1.0)
     webmock (1.19.0)
@@ -572,4 +573,5 @@ DEPENDENCIES
   turnip
   uglifier
   validates_email_format_of
+  vcr
   webmock
