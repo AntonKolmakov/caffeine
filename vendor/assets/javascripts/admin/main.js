@@ -1,39 +1,55 @@
-//(function($) { "use strict";
-//function tabby(id){
-//			var t = id.substr(id.length - 1);
-//			var tActiveHeight = $('.tabs__content--' + t).height();
-//			$('.tabs__content').height(tActiveHeight);
-//			console.log(id);
-//		}
-//
-//		$(document).ready(function(){
-//
-//			/*
-//			// Collapsible
-//			$('.main-nav--collapsible > .main-nav__link').click(function(){
-//				$(this).parent().toggleClass('main-nav--open');
-//				if( $(this).parent().siblings().hasClass('main-nav--open') ){
-//					$(this).parent().siblings().removeClass('main-nav--open');
-//				}
-//			return false;
-//			})
-//			*/
-//			$(window).load(function(){
-//				var id = $('.tabs input:checked').attr('id');
-//				tabby(id);
-//			})
-//
-//
-//			$( window ).resize(function(){
-//				var id = $('.tabs input:checked').attr('id');
-//				tabby(id);
-//			})
-//			$('.tabs input').change(function(){
-//				var id = $('.tabs input:checked').attr('id');
-//				tabby(id);
-//			})
-//
-//
+(function($) { "use strict";
+
+    function tabby(id){
+        var t = id.substr(id.length - 1);
+        var tActiveHeight = $('.tabs__content--' + t).height();
+        console.log(tActiveHeight);
+        $('.tabs__content').height(tActiveHeight);
+    }
+
+    $(document).ready(function(){
+
+        /*
+        // Collapsible
+        $('.main-nav--collapsible > .main-nav__link').click(function(){
+            $(this).parent().toggleClass('main-nav--open');
+            if( $(this).parent().siblings().hasClass('main-nav--open') ){
+                $(this).parent().siblings().removeClass('main-nav--open');
+            }
+        return false;
+        })
+        */
+
+        $(window).load(function(){
+            var id = $('.tabs input:checked').attr('id');
+            tabby(id);
+        });
+
+        $( window ).resize(function(){
+            var id = $('.tabs input:checked').attr('id');
+            tabby(id);
+        });
+
+        $('.tabs input').change(function(){
+            var id = $('.tabs input:checked').attr('id');
+            tabby(id);
+        });
+
+        $('.btn-file').each(function (){
+            var self = this;
+            $('input[type=file]', this).change(function (){
+                // remove existing file info
+                $(self).next().remove();
+                // get value
+                var value = $(this).val();
+                // get file name
+                var fileName = value.substring(value.lastIndexOf('/')+1);
+                // append file info
+                $('<span><i class="pe-7f-server"></i> ' + fileName + '</span>').insertAfter(self);
+            });
+        });
+
+
 //			$('.c-btn--check').click(function(){
 //				$(this).parent().parent().toggleClass('user--added');
 //			})
@@ -83,7 +99,8 @@
 //				$('html, body').animate({scrollTop:0}, 500);
 //        return false;
 //			})
-//
-//
-//}) // Ready
-//})(jQuery);
+
+
+    }) // Ready
+
+})(jQuery);
