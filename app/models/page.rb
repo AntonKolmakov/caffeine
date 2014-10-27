@@ -18,12 +18,11 @@ class Page < ActiveRecord::Base
   before_save :set_main_page, on: %i(create update destroy), unless: :main_page?
 
   acts_as_tree order: 'position'
-  acts_as_list scope: :parent
 
   scope :main, -> { where(main: true) }
 
   def main_page?
-    self == Page.main_page
+    self == Page.main_page || main == false
   end
 
   def self.main_page
