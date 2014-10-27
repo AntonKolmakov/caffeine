@@ -39,6 +39,10 @@ class ImportData
   def download_from_s3
     s3 = AWS::S3.new
     bucket = s3.buckets[Rails.application.secrets.s3_bucket]
+    save_bucket(bucket)
+  end
+
+  def save_bucket(bucket)
     if bucket.exists?
       object = bucket.objects[context.file_name]
       File.open(context.local_file_path, 'wb') do |file|
