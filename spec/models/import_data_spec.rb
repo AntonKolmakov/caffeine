@@ -11,8 +11,8 @@ describe ImportData do
 
       described_class.call
 
-      expect(Page.all.count).to eq 1
-      expect(Album.all.count).to eq 1
+      expect(Page.all).not_to be_empty
+      expect(Album.all).not_to be_empty
     end
 
     it 'creates backup on import' do
@@ -27,8 +27,8 @@ describe ImportData do
     it 'roll back changes from s3' do
       described_class.call(rollback: true)
 
-      expect(Page.all.any?).to eq false
-      expect(Album.all.any?).to eq false
+      expect(Page.all).to be_empty
+      expect(Album.all).to be_empty
     end
   end
 end
