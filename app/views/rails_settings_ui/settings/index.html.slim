@@ -25,8 +25,8 @@ ol.breadcrumb
     = submit_tag t('settings.index.save_all'), class: 'btn btn-primary btn-lg'
   br
   - if %w(development test).include?(Rails.env)
-    h1 Import data from production server
-    = link_to t('views.admin.sittings.import'), admin_import_path, class: 'btn btn-primary'
+    h1= t('views.admin.sittings.import_s3.header')
+    = link_to t('views.admin.sittings.import_s3.import'), admin_import_path, class: 'btn btn-primary'
     - unless Setting.import_at.nil?
       = time_tag(Setting.import_at)
-      = link_to 'Rollback', admin_rollback_path, class: 'btn btn-danger'
+      = link_to t('views.admin.sittings.import_s3.rollback'), admin_rollback_path, class: 'btn btn-danger'

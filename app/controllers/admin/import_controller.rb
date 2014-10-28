@@ -5,16 +5,16 @@ module Admin
 
       if result.success?
         Setting.import_at = Time.zone.now
-        flash[:notice] = 'import successfully'
+        flash[:notice] = t('controllers.admin.import.actions.flash.import.notice')
       else
-        flash[:warning] = 'buket are not finded on s3'
+        flash[:warning] = t('controllers.admin.import.actions.flash.import.warning')
       end
       redirect_to rails_settings_ui_url
     end
 
     def rollback
       ImportData.call(rollback: true)
-      flash[:notice] = 'rollback successfully'
+      flash[:notice] = t('controllers.admin.import.actions.flash.rollback.notice')
       redirect_to rails_settings_ui_url
     end
   end

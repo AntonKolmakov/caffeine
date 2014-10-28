@@ -1,0 +1,11 @@
+ru:
+  controllers:
+    admin:
+      import:
+        actions:
+          flash:
+            import:
+              notice: Успешно импортировано
+              warning: Бакет не найден
+            rollback:
+              notice: Изменения откачены
