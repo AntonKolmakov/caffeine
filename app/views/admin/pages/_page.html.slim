@@ -10,6 +10,6 @@
         .pull-right
           = simple_form_for [:admin, page], remote: true do |f|
             = f.hidden_field :main, value: true
-            = f.button :button, class: page.setup_main, title: page.setup_main('main') do
+            = f.button :button, class: page.class_main, title: page.title_main do
               i.pe-7f-home
       .widget__content

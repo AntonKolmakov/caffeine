@@ -32,11 +32,11 @@ class PageDecorator < Draper::Decorator
     page.root? ? 'widget' : 'widget no-margin--t no-border--t'
   end
 
-  def setup_main(title = nil)
-    if title
-      page.main? ? 'main' : ''
-    else
-      page.main? ? 'btn btn-skyblue' : 'btn btn-grey'
-    end
+  def class_main
+    page.main? ? 'btn btn-skyblue' : 'btn btn-grey'
+  end
+
+  def title_main
+    'main' if page.main?
   end
 end
