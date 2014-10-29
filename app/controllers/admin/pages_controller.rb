@@ -2,11 +2,11 @@ module Admin
   class PagesController < Admin::ApplicationController
     respond_to :js, only: :update
 
-    expose(:pages)
+    expose(:decorated_pages) { pages.decorate }
+    expose(:pages) { Page.roots_and_descendants_preordered }
     expose(:page, attributes: :page_params, finder: :find_by_slug)
 
     def index
-      self.pages = Page.roots_and_descendants_preordered.decorate
     end
 
     def new
