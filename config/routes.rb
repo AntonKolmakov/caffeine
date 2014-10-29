@@ -24,6 +24,7 @@ Rails.application.routes.draw do
         resources :page_images
         resources :page_attachments, only: %i(create destroy)
       end
+      get 'changelog', to: 'changelogs#index'
     end
 
   end
