@@ -37,6 +37,6 @@ class PageDecorator < Draper::Decorator
   end
 
   def title_main
-    'main' if page.main?
+    page.main? ? I18n.t('views.admin.pages.index.title_main') : I18n.t('views.admin.pages.index.set_title_main')
   end
 end
