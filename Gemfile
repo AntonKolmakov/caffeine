@@ -46,6 +46,7 @@ gem 'font_assets' # Properly serve fonts - MIME-types and CORS config
 gem 'acts_as_list' # For sorting pages' children
 gem 'gretel' # breadcrumbs generator
 gem 'newrelic_rpm'
+gem 'paper_trail'
 
 group :development do
   gem 'quiet_assets'

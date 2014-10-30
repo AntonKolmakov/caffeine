@@ -18,4 +18,6 @@ class Page < ActiveRecord::Base
 
   acts_as_tree order: 'position'
   acts_as_list scope: :parent
+
+  has_paper_trail on: %i(update destroy)
 end
