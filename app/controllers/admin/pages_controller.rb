@@ -1,6 +1,7 @@
 module Admin
   class PagesController < Admin::ApplicationController
     expose(:pages)
+    expose(:version) { PaperTrail::Version.find(params[:version]) }
     expose(:page, attributes: :page_params, finder: :find_by_slug)
 
     def index
@@ -25,6 +26,11 @@ module Admin
     def update
       page.save
       respond_with :admin, page, location: -> { edit_admin_page_path(page) }
+    end
+
+    def revert_version
+      version.reify.save!
+      redirect_to edit_admin_page_path(version.reify), notice: "Undid #{version.event}"
     end
 
     def destroy

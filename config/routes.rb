@@ -21,11 +21,11 @@ Rails.application.routes.draw do
         end
       end
       resources :pages do
+        member { post :revert_version }
         resources :page_images
         resources :page_attachments, only: %i(create destroy)
       end
     end
-    post 'versions/:id/revert', to: 'versions#revert', as: 'revert_version'
 
   end
 
