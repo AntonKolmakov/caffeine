@@ -15,7 +15,7 @@
 
 ul
 - page.versions.each do |version_page|
-  li= link_to raw("Undo - #{time_tag(version_page.created_at)}"), revert_version_admin_page_path(version: version_page), method: :post
+  li= link_to author_version(version_page), revert_version_admin_page_path(version: version_page), method: :post
 
 
 script#template-upload type="text/x-tmpl"

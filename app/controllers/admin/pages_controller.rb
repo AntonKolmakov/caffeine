@@ -28,6 +28,7 @@ module Admin
       respond_with :admin, page, location: -> { edit_admin_page_path(page) }
     end
 
+    #Allows you save specific version
     def revert_version
       version.reify.save!
       redirect_to edit_admin_page_path(version.reify), notice: "Undid #{version.event}"
@@ -39,6 +40,10 @@ module Admin
     end
 
     private
+
+    def user_for_paper_trail
+      current_admin_user
+    end
 
     def page_params
       params.require(:page).permit(:name,
