@@ -3,6 +3,6 @@ FactoryGirl.define do
     type { 'TextField' }
     required { true }
     show_in_admin_table { true }
-    user_form
+    user_form { nil }
   end
 end

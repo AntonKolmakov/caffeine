@@ -19,6 +19,9 @@ Rails.application.configure do
   # Preview email in the browser instead of sending it.
   config.action_mailer.delivery_method = :letter_opener
 
+  # Set action mailer previews path
+  config.action_mailer.preview_path = 'app/mailers/previews'
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -44,7 +47,6 @@ Rails.application.configure do
 
   # Raises error for missing translations
   config.action_view.raise_on_missing_translations = true
-  config.host = 'promtehnosert.dev'
 
   # Raises error on unpermitted params
   config.action_controller.action_on_unpermitted_parameters = :log

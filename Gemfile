@@ -14,12 +14,12 @@ gem 'json'
 gem 'sass-rails'
 gem 'bootstrap-sass'
 gem 'compass-rails'
-gem 'foundation-icons-sass-rails'
 gem 'jquery-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 gem 'jquery-fileupload-rails'
 gem 'jquery-ui-rails'
+gem 'premailer-rails'
 
 # Validation gems
 gem 'validates_email_format_of' # validate email format for field
@@ -46,6 +46,7 @@ gem 'font_assets' # Properly serve fonts - MIME-types and CORS config
 gem 'acts_as_list' # For sorting pages' children
 gem 'gretel' # breadcrumbs generator
 gem 'newrelic_rpm'
+gem 'kramdown', require: false
 
 group :development do
   gem 'quiet_assets'
@@ -65,7 +66,7 @@ group :development, :test do
   gem 'faker'
   gem 'letter_opener'
   gem 'mail_safe'
-  gem 'byebug'
+  gem 'pry-byebug'
 end
 
 group :test do
