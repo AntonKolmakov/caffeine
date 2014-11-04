@@ -22,6 +22,11 @@ nav
           span.main-nav__icon
             i.icon.pe-7s-menu
           = t('views.admin.layouts.sidebar.user_forms')
+      li[class="#{active_class?(admin_changelog_path)}"]
+        = link_to admin_changelog_path, class: 'main-nav__link'
+          span.main-nav__icon
+            i.icon.pe-7s-menu
+          = t('views.admin.layouts.sidebar.changelog')
       - if current_admin_user.admin?
         li[class="#{active_class?(admin_users_path)}"]
           = link_to admin_users_path, class: 'main-nav__link'

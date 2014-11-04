@@ -50,6 +50,7 @@ gem 'rails-settings-cached', '~> 0.4' # Store site settings in DB and memory
 gem 'rails-settings-ui', '~> 0.3' # UI for site settings
 gem 'aws-sdk'
 gem 'interactor'
+gem 'kramdown', require: false
 
 group :development do
   gem 'quiet_assets'
@@ -80,6 +81,7 @@ group :test do
   gem 'brakeman', require: false
   gem 'rubocop'
   gem 'simplecov', require: false
+  gem 'webmock', require: false
   gem 'capybara'
   gem 'database_cleaner'
   gem 'email_spec'
