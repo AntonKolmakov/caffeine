@@ -15,6 +15,8 @@ class Page < ActiveRecord::Base
   enum status: %i(draft published blocked)
 
   validates :name, presence: true
+
+  # triggered unless page is not itself and is not selected as the main page
   before_save on: %i(create update destroy) do
     Page.main.update_all(main: false) unless main_page?
   end
@@ -24,16 +26,10 @@ class Page < ActiveRecord::Base
   scope :main, -> { where(main: true) }
 
   def main_page?
-    self == Page.main_page || main == false
+    self == Page.main_page || !main?
   end
 
   def self.main_page
     main.first
-  end
-
-  private
-
-  def set_main_page
-    Page.main.update_all(main: false)
   end
 end
