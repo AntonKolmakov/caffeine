@@ -28,9 +28,9 @@ module Admin
       respond_with :admin, page, location: -> { edit_admin_page_path(page) }
     end
 
-    # Allows you save specific version
+    # Allows you switch on specific version
     def revert_version
-      version.reify.save!
+      version.reify(has_one: true).save!
       redirect_to edit_admin_page_path(version.reify), notice: "Undid #{version.event}"
     end
 
@@ -54,8 +54,13 @@ module Admin
                                    :parent_id,
                                    :album_id,
                                    :position,
-                                   seo_datum_attributes: %i(id meta_title meta_keywords meta_description seo_text),
-                                   page_image_attributes: %i(id picture _destroy))
+                                   :random_token).merge(nested_attributes)
+    end
+
+    def nested_attributes
+      params.require(:page).permit(
+        seo_datum_attributes: %i(id meta_title meta_keywords meta_description seo_text),
+        page_image_attributes: %i(id picture _destroy))
     end
   end
 end
