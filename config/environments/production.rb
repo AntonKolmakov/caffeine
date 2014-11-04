@@ -79,5 +79,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Application specific options
-  config.host = 'ded-moroz-caffeine.herokuapp.com'
+  config.host = 'дедмороз-казань.рф'
 end
