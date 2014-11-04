@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module PromTehnoSert
+module DedMoroz
   class Application < Rails::Application
     config.middleware.use Rack::Deflater
 
@@ -25,7 +25,7 @@ module PromTehnoSert
     # Application specific options
     #
     # Name used in the html titles and mailers
-    config.app_name = 'Prom Tehno Sert'
+    config.app_name = 'Дед Мороз'
 
     config.responders.flash_keys = [ :notice, :warning ]
 
@@ -33,7 +33,7 @@ module PromTehnoSert
     config.slim_options = {}
 
     # Default e-mail address which will be shown in the "from" devise emails, initializers/devise.rb,
-    config.noreply = 'noreply@promtehnosert.ru'
+    config.noreply = 'noreply@ded-moroz-caffeine.herokuapp.com'
 
     # Default host for action mailer, initializers/mailer.rb
     config.host = 'localhost:2000'

@@ -55,7 +55,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = 'dgkzpq8ta7oep.cloudfront.net'
+  # config.action_controller.asset_host = ''
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
@@ -80,5 +80,5 @@ Rails.application.configure do
 
   # Application specific options
   #
-  config.host = 'promtehnosert-staging.herokuapp.com'
+  # config.host = ''
 end

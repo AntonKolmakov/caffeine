@@ -15,7 +15,7 @@ common: &default_settings
   # You must specify the license key associated with your New Relic
   # account.  This key binds your Agent's data to your account in the
   # New Relic service.
-  license_key: '6989e04bad93a18a153812de0efc07af95a8c429'
+  license_key: '04e4b1466bea8f657840615bf2e5e68ce60e7b06'
 
   # Agent Enabled (Ruby/Rails Only)
   # Use this setting to force the agent to run or not run.
@@ -49,7 +49,7 @@ common: &default_settings
   # See https://newrelic.com/docs/site/renaming-applications for more details
   # on renaming your New Relic applications.
   #
-  app_name: PromTechnoSert
+  app_name: DedMoroz
 
   # When "true", the agent collects performance data about your
   # application and reports this data to the New Relic service at
@@ -192,7 +192,7 @@ development:
   <<: *default_settings
   # Turn on communication to New Relic service in development mode
   monitor_mode: false
-  app_name: PromTechnoSert (Development)
+  app_name: DedMoroz (Development)
 
   # Rails Only - when running in Developer Mode, the New Relic Agent will
   # present performance information on the last 100 transactions you have
@@ -221,4 +221,4 @@ production:
 staging:
   <<: *default_settings
   monitor_mode: false
-  app_name: PromTechnoSert (Staging)
+  app_name: DedMoroz (Staging)

@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-PromTehnoSert::Application.load_tasks
+DedMoroz::Application.load_tasks

@@ -14,11 +14,11 @@ development_defaults: &development_defaults
 
 development:
   <<: *development_defaults
-  database: promtehnosert_dev
+  database: ded_moroz_dev
 
 test:
   <<: *development_defaults
-  database: promtehnosert_test
+  database: ded_moroz_test
 
 # Production section
 
