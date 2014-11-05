@@ -53,5 +53,7 @@ Application currently based on Rails 4 stable branch and Ruby 2.1.3
 
 ## Quick start
   1. `git clone git@bitbucket.org:fishtag/caffeine-cms.git`
-  2. `bin/bootstrap`
-  3. Run app - `foreman start`
+  2. `cd caffeine-cms`
+  3. `bin/bootstrap`
+  4. `echo 'port: 10000' > .foreman` 
+  5. Run app - `foreman start`
