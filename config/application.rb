@@ -25,7 +25,7 @@ module DedMoroz
     # Application specific options
     #
     # Name used in the html titles and mailers
-    config.app_name = 'Дед Мороз'
+    config.app_name = 'Caffeine'
 
     config.responders.flash_keys = [ :notice, :warning ]
 
@@ -33,10 +33,10 @@ module DedMoroz
     config.slim_options = {}
 
     # Default e-mail address which will be shown in the "from" devise emails, initializers/devise.rb,
-    config.noreply = 'noreply@ded-moroz-caffeine.herokuapp.com'
+    config.noreply = 'noreply@caffeine-cms.com'
 
     # Default host for action mailer, initializers/mailer.rb
-    config.host = 'localhost:2000'
+    config.host = 'localhost:10000'
 
     # Autoload ckeditor models folder
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)

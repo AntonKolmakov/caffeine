@@ -14,11 +14,11 @@ development_defaults: &development_defaults
 
 development:
   <<: *development_defaults
-  database: ded_moroz_dev
+  database: caffeine_dev
 
 test:
   <<: *development_defaults
-  database: ded_moroz_test
+  database: caffeine_test
 
 # Production section
 
