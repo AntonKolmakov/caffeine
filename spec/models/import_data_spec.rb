@@ -25,7 +25,7 @@ describe ImportData do
     end
 
     it 'roll back changes from s3' do
-      described_class.call(rollback: true)
+      RollbackData.call
 
       expect(Page.all).to be_empty
       expect(Album.all).to be_empty
