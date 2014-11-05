@@ -56,6 +56,6 @@ class ImportData
   end
 
   def local_file_path
-      "#{Rails.root}/tmp/#{context.file_name}"
+    "#{Rails.root}/tmp/#{context.file_name}"
   end
 end
