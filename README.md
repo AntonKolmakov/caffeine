@@ -1,16 +1,14 @@
 # THIS IS OLD README
 # WE ARE GOING TO UPDATE THIS ONE
 
-[ ![Codeship Status for fishtag/PromTechnoSert](https://codeship.io/projects/7e8e5080-067c-0132-56d5-42c582b0b74b/status)](https://codeship.io/projects/31099)
+[ ![Codeship Status for fishtag/Caffeine CMS](https://codeship.io/projects/5b34caa0-4718-0132-2b1b-16dc934441f8/status)](https://codeship.io/projects/45475)
 # Skeleton for new Rails 4 based application
 
-Application currently based on Rails 4 stable branch and Ruby 2.1.0
+Application currently based on Rails 4 stable branch and Ruby 2.1.3
 
 ## Application gems:
 
 * [Sass Rails](https://github.com/rails/sass-rails) Ruby on Rails stylesheet engine for Sass
-* [Zurb Foundation for Rails](https://github.com/zurb/foundation-rails) the easiest way to use Foundation in your Rails app. For more information see [how to add Foundation to your Rails app](http://foundation.zurb.com/docs/applications.html)
-* [Foundation Icon Fonts on SASS for Rails](https://github.com/zaiste/foundation-icons-sass-rails) for icons. Browse [icon set](http://zurb.com/playground/foundation-icon-fonts-3) examples
 * [Autoprefixer](https://github.com/ai/autoprefixer-rails) for writing CSS without vendor prefixes
 * [Slim](https://github.com/stonean/slim) for views
 * [Simple Form](https://github.com/plataformatec/simple_form) for forms
@@ -54,76 +52,6 @@ Application currently based on Rails 4 stable branch and Ruby 2.1.0
 * `bin/server` - to run server locally
 
 ## Quick start
-
-Clone application as new project with original repository named "rails-base"
-
-    git clone git@bitbucket.org:fishtag/rails-base-app.git --origin rails-base [MY-NEW-PROJECT]
-
-Create your new repo and push master into it.
-Make sure master branch is tracking origin repo.
-
-    git remote add origin git@bitbucket.org:[MY-ACCOUNT]/[MY-NEW-PROJECT].git
-    git push -u origin master
-
-Run bootstrap script
-
-    bin/bootstrap
-
-Make sure all test are green
-
-    bin/ci
-
-Run app
-
-    bin/server
-
-**Do not forget to update this file!**
-
-    mv doc/README_TEMPLATE.md README.md
-    # update README.md
-    git commit -am "Update README.md"
-
-## How to update existing project with new changes from rails-base repo
-
-You can fetch latest changes from rails-base repo and merge or cherry-pick commits
-
-    git checkout develop
-    git checkout -b rails-base-update
-    git fetch rails-base
-    git merge rails-base/master
-
-    # fix conflicts
-    # commit
-    # test
-
-    git checkout develop
-    git merge rails-base-update
-
-## Note on Patches/Pull Requests
-
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send a pull request. Bonus points for topic branches.
-
-## Note on ie8 support
-
-Rails Base fixes ie8 problems with:
-
-* lack of support for rem units in CSS
-* lack of media query support
-* lack of Html5 and Css3 support
-
-**In order to get rid of ie8 support please remove the following:**
-
-* vendor/assets/javascripts/ie8 folder
-* views/layouts/application lines commented with `/[if lt IE 9]`
-
-        = javascript_include_tag "ie8/nwmatcher-1.2.5-min.js", "ie8/selectivizr-1.0.3b.js", "ie8/respond.min.js"
-        = javascript_include_tag "ie8/rem"
-
-## Note on how to override Zurb Foundation css properties
-
-Do your overrides in the `app/assets/stylesheets/foundation_and_overrides.scss`
+  1. `git clone git@bitbucket.org:fishtag/caffeine-cms.git`
+  2. `bin/bootstrap`
+  3. Run app - `foreman start`
