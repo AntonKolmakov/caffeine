@@ -9,8 +9,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'dashboard#index'
 
-    get 'import', to: 'import#import'
-    get 'rollback', to: 'import#rollback'
+    resource :import
 
     devise_for :user, path: ''
 

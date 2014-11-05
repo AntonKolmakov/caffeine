@@ -3,8 +3,8 @@ class ImportData
 
   before do
     context.file_name = 'my-json-data'
-    context.local_file_path = local_file_path
-    download_from_s3 unless context.rollback
+    context.local_file_path = "#{Rails.root}/tmp/#{context.file_name}"
+    download_from_s3
   end
 
   def call
@@ -52,14 +52,6 @@ class ImportData
       end
     else
       context.fail!
-    end
-  end
-
-  def local_file_path
-    if context.rollback
-      "#{Rails.root}/tmp/backup-json-data"
-    else
-      "#{Rails.root}/tmp/#{context.file_name}"
     end
   end
 end
