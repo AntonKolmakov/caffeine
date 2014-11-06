@@ -4,6 +4,7 @@ class ExportData
   before do
     context.file_name = 'my-json-data'
     context.local_file_path = local_file_path
+    context.uncompressed_data = {}
   end
 
   def call
@@ -15,10 +16,9 @@ class ExportData
 
   protected
 
-  def prepare_data(array)
-    context.uncompressed_data = {}
-    array.each do |model|
-      klass = Object.const_get(model)
+  def prepare_data(classes_to_export)
+    classes_to_export.each do |model|
+      klass = model.constantize
       context.uncompressed_data[model] = klass.all.to_json(except: %i(created_at updated_at))
     end
   end
