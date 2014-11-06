@@ -2,7 +2,10 @@ require 'spec_helper'
 
 feature 'SuperAdmin can update site settings' do
   let(:admin) { FactoryGirl.create(:super_admin) }
-  before { admin_session_sign_in(admin) }
+  before do
+    allow_any_instance_of(Admin::SettingsController).to receive(:cached_time).and_return(Time.now)
+    admin_session_sign_in(admin)
+  end
 
   scenario do
     click_on I18n.t('settings.index.title')
@@ -16,7 +19,11 @@ feature 'SuperAdmin can update site settings' do
 end
 
 feature 'Basic admin can not update site settings' do
-  before { admin_session_sign_in }
+  let(:admin) { FactoryGirl.create(:admin) }
+  before do
+    allow_any_instance_of(Admin::SettingsController).to receive(:cached_time).and_return(Time.now)
+    admin_session_sign_in(admin)
+  end
 
   scenario do
     expect(page).to have_no_content(I18n.t('settings.index.title'))
