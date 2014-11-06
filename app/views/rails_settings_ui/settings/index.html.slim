@@ -28,6 +28,6 @@ ol.breadcrumb
     h1= t('views.admin.sittings.import_s3.header')
     p
       = t('views.admin.sittings.import_s3.last_modified_bucket')
-      = time_tag(ImportData.cached_time)
+      = time_tag(cached_time)
     = link_to t('views.admin.sittings.import_s3.import'), admin_import_path, method: :post, class: 'btn btn-primary'
     = link_to t('views.admin.sittings.import_s3.rollback'), admin_import_path, method: :delete, class: 'btn btn-danger'
