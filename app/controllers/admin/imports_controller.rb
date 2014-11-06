@@ -4,7 +4,6 @@ module Admin
       result = ImportData.call
 
       if result.success?
-        Setting.import_at = Time.zone.now
         flash[:notice] = t('controllers.admin.import.actions.flash.import.notice')
       else
         flash[:warning] = t('controllers.admin.import.actions.flash.import.warning')

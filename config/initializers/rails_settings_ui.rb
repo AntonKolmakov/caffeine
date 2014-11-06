@@ -10,5 +10,4 @@ end
 RailsSettingsUi.setup do |config|
   config.parent_controller = 'Admin::SettingsController'
   config.settings_class = 'Setting'
-  config.ignored_settings = [:import_at]
 end

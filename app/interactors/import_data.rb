@@ -11,6 +11,17 @@ class ImportData
     inflate_file
   end
 
+  def self.cached_time
+    ImportData.new.fetch_bucket
+    Rails.cache.fetch('time', expires_in: 2.hour) { context.object.last_modified }
+  end
+
+  def fetch_bucket
+    s3 = AWS::S3.new
+    context.bucket = s3.buckets[Rails.application.secrets.s3_bucket]
+    context.object = context.bucket.objects[context.file_name]
+  end
+
   protected
 
   def inflate_file
@@ -37,19 +48,20 @@ class ImportData
   end
 
   def download_from_s3
-    s3 = AWS::S3.new
-    bucket = s3.buckets[Rails.application.secrets.s3_bucket]
-    write_file(bucket)
+    fetch_bucket
+    write_file
   end
 
-  def write_file(bucket)
-    if bucket.exists?
-      object = bucket.objects[context.file_name]
+  def write_file
+    if context.bucket.exists?
       File.open(context.local_file_path, 'wb') do |file|
-        object.read do |chunk|
+        context.object.read do |chunk|
           file.write(chunk)
         end
       end
+
+      # Returns the object's last modified time and add it to cache
+      Rails.cache.write('time', context.object.last_modified, expires_in: 1.hour)
     else
       context.fail!
     end
