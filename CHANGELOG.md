@@ -1,7 +1,7 @@
-> Keep track of your app here
+# Caffeine changlog
 
-<br>
+## Main page
 
-And you can add some at the root of you app in CHANGELOG.md, due [rules](http://daringfireball.net/projects/markdown/)
-of markdown format. It is based on the [yet-another-markdown-parser](https://github.com/gettalong/kramdown) but fast,
-pure Ruby
+Enhancements:
+
+* add easiest way to set main page rigth from index pages.
