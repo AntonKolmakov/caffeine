@@ -25,7 +25,7 @@ class Page < ActiveRecord::Base
 
   # we don't need this till we fetch all pages through class method
   # roots_and_descendants_preordered, which returns all nodes in your tree, pre-ordered.
-  # So, you can uncomment this confy way and ordering pages by parent
+  # So, you can uncomment this convenient way and ordering pages by parent
   # acts_as_list scope: :parent
 
   scope :main, -> { where(main: true) }
