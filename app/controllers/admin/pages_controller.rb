@@ -1,6 +1,7 @@
 module Admin
   class PagesController < Admin::ApplicationController
     expose(:pages)
+    expose(:version) { PaperTrail::Version.find(params[:version]) }
     expose(:page, attributes: :page_params, finder: :find_by_slug)
 
     def index
@@ -27,12 +28,22 @@ module Admin
       respond_with :admin, page, location: -> { edit_admin_page_path(page) }
     end
 
+    # Allows you switch on specific version
+    def revert_version
+      version.reify(has_one: true).save!
+      redirect_to edit_admin_page_path(version.reify), notice: "Undid #{version.event}"
+    end
+
     def destroy
       page.destroy
       respond_with :admin, page
     end
 
     private
+
+    def user_for_paper_trail
+      current_admin_user
+    end
 
     def page_params
       params.require(:page).permit(:name,
@@ -43,8 +54,13 @@ module Admin
                                    :parent_id,
                                    :album_id,
                                    :position,
-                                   seo_datum_attributes: %i(id meta_title meta_keywords meta_description seo_text),
-                                   page_image_attributes: %i(id picture _destroy))
+                                   :random_token).merge(nested_attributes)
+    end
+
+    def nested_attributes
+      params.require(:page).permit(
+        seo_datum_attributes: %i(id meta_title meta_keywords meta_description seo_text),
+        page_image_attributes: %i(id picture _destroy))
     end
   end
 end

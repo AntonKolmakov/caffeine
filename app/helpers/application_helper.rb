@@ -18,4 +18,8 @@ module ApplicationHelper
 
     active ? 'main-nav--active' : ''
   end
+
+  def author_version(version_page)
+    raw("#{User.find(version_page.version_author).full_name} - #{time_tag(version_page.created_at)}")
+  end
 end

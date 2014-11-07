@@ -13,6 +13,10 @@
 = link_to t('views.admin.pages.edit.delete'), admin_page_path(page), method: :delete, data: { confirm: t('views.admin.pages.edit.confirm') }, class: 'btn btn-mini btn-danger'
 = link_to t('views.admin.pages.edit.link_to_page'), page_path(page), target: "_blank"
 
+ul#version
+  - page.versions.each do |version_page|
+    li= link_to author_version(version_page), revert_version_admin_page_path(version: version_page), method: :post
+
 script#template-upload type="text/x-tmpl"
   .upload
     | {%=o.name%}
