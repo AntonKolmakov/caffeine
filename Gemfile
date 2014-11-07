@@ -45,6 +45,11 @@ gem 'ckeditor' # HTML text editor
 gem 'font_assets' # Properly serve fonts - MIME-types and CORS config
 gem 'acts_as_list' # For sorting pages' children
 gem 'gretel' # breadcrumbs generator
+gem 'rails-settings-cached', '~> 0.4' # Store site settings in DB and memory
+gem 'rails-settings-ui', '~> 0.3' # UI for site settings
+gem 'aws-sdk'
+gem 'interactor'
+gem 'kramdown', require: false
 
 group :development do
   gem 'quiet_assets'
@@ -86,6 +91,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'codeclimate-test-reporter', require: false
   gem 'rspec-activemodel-mocks'
+  gem 'spring-commands-rspec'
 end
 
 group :staging, :production do

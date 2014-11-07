@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsSettingsUi::Engine, at: 'admin/settings'
   mount Ckeditor::Engine => '/ckeditor'
 
   get '/mainpage', to: redirect('/')
@@ -7,6 +8,8 @@ Rails.application.routes.draw do
   # Admin routes
   namespace :admin do
     root 'dashboard#index'
+
+    resource :import
 
     devise_for :user, path: ''
 
@@ -24,6 +27,7 @@ Rails.application.routes.draw do
         resources :page_images
         resources :page_attachments, only: %i(create destroy)
       end
+      get 'changelog', to: 'changelogs#index'
     end
 
   end
