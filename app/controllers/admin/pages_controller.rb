@@ -1,10 +1,12 @@
 module Admin
   class PagesController < Admin::ApplicationController
-    expose(:pages)
+    respond_to :js, only: :update
+
+    expose(:decorated_pages) { pages.decorate }
+    expose(:pages) { Page.roots_and_descendants_preordered }
     expose(:page, attributes: :page_params, finder: :find_by_slug)
 
     def index
-      self.pages = Page.roots_and_descendants_preordered.decorate
     end
 
     def new
@@ -35,15 +37,19 @@ module Admin
     private
 
     def page_params
-      params.require(:page).permit(:name,
+      params.require(:page).permit(:main,
+                                   :name,
                                    :description,
                                    :short_description,
                                    :slug,
                                    :fix_slug,
                                    :parent_id,
                                    :album_id,
-                                   :position,
-                                   seo_datum_attributes: %i(id meta_title meta_keywords meta_description seo_text),
+                                   :position).merge(nested_attributes)
+    end
+
+    def nested_attributes
+      params.require(:page).permit(seo_datum_attributes: %i(id meta_title meta_keywords meta_description seo_text),
                                    page_image_attributes: %i(id picture _destroy))
     end
   end

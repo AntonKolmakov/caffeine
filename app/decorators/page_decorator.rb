@@ -31,4 +31,12 @@ class PageDecorator < Draper::Decorator
   def admin_row_classes
     page.root? ? 'widget' : 'widget no-margin--t no-border--t'
   end
+
+  def class_main
+    page.main? ? 'btn btn-skyblue' : 'btn btn-grey'
+  end
+
+  def title_main
+    page.main? ? I18n.t('views.admin.pages.index.title_main') : I18n.t('views.admin.pages.index.set_title_main')
+  end
 end
