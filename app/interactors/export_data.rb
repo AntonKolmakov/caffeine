@@ -3,15 +3,15 @@ class ExportData
 
   before do
     context.file_name = 'my-json-data'
-    context.local_file_path = local_file_path
+    context.local_file_path = "/tmp/#{context.file_name}"
     context.uncompressed_data = {}
   end
 
   def call
     prepare_data(context.model) &&
     deflate_data &&
-    write_to_file
-    upload_to_s3 unless context.model
+    write_to_file &&
+    upload_to_s3
   end
 
   protected
@@ -36,13 +36,5 @@ class ExportData
   def upload_to_s3
     file = ImportFile.new.import_file
     file.write(Pathname.new(context.local_file_path))
-  end
-
-  def local_file_path
-    if context.model
-      "#{Rails.root}/tmp/backup-json-data"
-    else
-      "/tmp/#{context.file_name}"
-    end
   end
 end

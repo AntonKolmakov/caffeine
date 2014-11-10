@@ -33,7 +33,7 @@ class ImportData
   end
 
   def create_backup(klass)
-    ExportData.call(model: klass)
+    BackupData.call(model: klass)
   end
 
   def download_from_s3
