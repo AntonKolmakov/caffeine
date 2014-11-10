@@ -1,4 +1,5 @@
 = simple_form_for [:admin, page] do |f|
+  = f.input :main, as: :boolean
   = f.input :name
   = f.input :parent_id, collection: Page.order(:name), as: :select, include_blank: true, selected: params[:parent_id] || page.parent_id
   = f.input :short_description, as: :ckeditor, input_html: {ckeditor: {toolbar: 'mini'} }

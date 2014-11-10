@@ -7,4 +7,9 @@
         = link_to t('views.admin.pages.index.edit_page'), edit_admin_page_path(page)
         |  |
         = link_to t('views.admin.pages.edit.delete'), admin_page_path(page), method: :delete, data: {confirm: t('views.admin.pages.edit.confirm')}
+        .pull-right
+          = simple_form_for [:admin, page], remote: true do |f|
+            = f.hidden_field :main, value: true
+            = f.button :button, class: page.class_main, title: page.title_main do
+              i.pe-7f-home
       .widget__content

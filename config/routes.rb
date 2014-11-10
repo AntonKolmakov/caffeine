@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     root 'dashboard#index'
 
     devise_for :user, path: ''
+    resource :changelog, only: :show
 
     with_options(except: :show) do
       resources :users

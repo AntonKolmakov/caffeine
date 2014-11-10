@@ -16,6 +16,25 @@ class Page < ActiveRecord::Base
 
   validates :name, presence: true
 
+  # triggered unless page is not itself and is not selected as the main page
+  before_save on: %i(create update destroy) do
+    Page.main.update_all(main: false) unless main_page?
+  end
+
   acts_as_tree order: 'position'
-  acts_as_list scope: :parent
+
+  # we don't need this till we fetch all pages through class method
+  # roots_and_descendants_preordered, which returns all nodes in your tree, pre-ordered.
+  # So, you can uncomment this convenient way and ordering pages by parent
+  # acts_as_list scope: :parent
+
+  scope :main, -> { where(main: true) }
+
+  def main_page?
+    self == Page.main_page || !main?
+  end
+
+  def self.main_page
+    main.first
+  end
 end
