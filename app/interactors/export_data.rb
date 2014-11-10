@@ -34,10 +34,8 @@ class ExportData
   end
 
   def upload_to_s3
-    s3 = AWS::S3.new
-    bucket = s3.buckets[Rails.application.secrets.s3_bucket]
-    object = bucket.objects[context.file_name]
-    object.write(Pathname.new(context.local_file_path))
+    file = ImportFile.new.import_file
+    file.write(Pathname.new(context.local_file_path))
   end
 
   def local_file_path

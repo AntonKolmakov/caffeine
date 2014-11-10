@@ -50,6 +50,7 @@ gem 'rails-settings-ui', '~> 0.3' # UI for site settings
 gem 'aws-sdk'
 gem 'interactor'
 gem 'kramdown', require: false
+gem 'active_attr'
 
 group :development do
   gem 'quiet_assets'

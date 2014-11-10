@@ -37,26 +37,20 @@ class ImportData
   end
 
   def download_from_s3
-    fetch_bucket
-    write_file
+    import_file = ImportFile.new.s3_file
+    write_file(import_file)
   end
 
-  def fetch_bucket
-    s3 = AWS::S3.new
-    context.bucket = s3.buckets[Rails.application.secrets.s3_bucket]
-    context.object = context.bucket.objects[context.file_name]
-  end
-
-  def write_file
-    if context.bucket.exists?
+  def write_file(import_file)
+    if import_file.bucket.exists?
       File.open(context.local_file_path, 'wb') do |file|
-        context.object.read do |chunk|
+        import_file.read do |chunk|
           file.write(chunk)
         end
       end
 
       # Returns the object's last modified time and add it to cache
-      Rails.cache.write('time', context.object.last_modified, expires_in: 1.hour)
+      Rails.cache.write('time', import_file.last_modified, expires_in: 1.hour)
     else
       context.fail!
     end
