@@ -3,7 +3,7 @@ class ImportData
 
   before do
     context.file_name = 'my-json-data'
-    context.local_file_path = local_file_path
+    context.local_file_path = "#{Rails.root}/tmp/#{context.file_name}"
     download_from_s3
   end
 
@@ -54,9 +54,5 @@ class ImportData
     else
       context.fail!
     end
-  end
-
-  def local_file_path
-    "#{Rails.root}/tmp/#{context.file_name}"
   end
 end
