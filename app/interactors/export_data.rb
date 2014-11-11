@@ -3,7 +3,7 @@ class ExportData
 
   before do
     context.file_name = 'my-json-data'
-    context.local_file_path = "/tmp/#{context.file_name}"
+    context.local_file_path = local_file_path
     context.uncompressed_data = {}
   end
 
@@ -15,6 +15,10 @@ class ExportData
   end
 
   protected
+
+  def local_file_path
+    "/tmp/#{context.file_name}"
+  end
 
   def prepare_data(classes_to_export)
     classes_to_export.each do |model|

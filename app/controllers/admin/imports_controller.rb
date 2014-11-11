@@ -1,7 +1,7 @@
 module Admin
   class ImportsController < Admin::ApplicationController
     def create
-      result = ImportData.call
+      result = AmazonService.call
 
       if result.success?
         flash[:notice] = t('controllers.admin.import.actions.flash.import.notice')
