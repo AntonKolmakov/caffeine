@@ -12,7 +12,7 @@ module Admin
     end
 
     def destroy
-      Rollback.call
+      RollbackData.call
       flash[:notice] = t('controllers.admin.import.actions.flash.rollback.notice')
       redirect_to rails_settings_ui_url
     end

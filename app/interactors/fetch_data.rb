@@ -4,6 +4,7 @@ class FetchData
   before do
     context.file_name = 'my-json-data'
     context.local_file_path = local_file_path
+    context.uncompressed_data = {}
   end
 
   def call

@@ -1,25 +1,10 @@
 class RollbackData
-  include Interactor
+  include Interactor::Organizer
 
-  def call
-    inflate_file
+  before do
+    context.file_name = 'my-json-data'
+    context.local_file_path = "#{Rails.root}/tmp/backup-json-data"
   end
 
-  protected
-
-  def inflate_file
-    context.data.each do |k, v|
-      klass = Object.const_get(k)
-
-      record = JSON.parse(v)
-      update_data(klass, record)
-    end
-  end
-
-  def update_data(klass, item)
-    klass.transaction do
-      klass.destroy_all
-      klass.create!(item)
-    end
-  end
+  organize DeflateData, RecordData
 end
