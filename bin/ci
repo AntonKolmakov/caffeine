@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
 
-bin/pronto run -c develop --exit-code
+set -e
+
+bin/quality
 bin/rspec spec
