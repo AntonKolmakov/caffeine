@@ -3,7 +3,7 @@ module ImportProductionSiteData
     include Interactor::Organizer
 
     organize ImportProductionSiteData::Fetch,
-      ::DeflateData,
+      ::UnpackData,
       ImportProductionSiteData::BackupCurrent,
       ::RecordData
   end

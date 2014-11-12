@@ -7,7 +7,7 @@ describe ImportProductionSiteData::Import do
     it 'updates data' do
       allow_any_instance_of(ImportProductionSiteData::Fetch).to receive_messages(local_file_path: bucket)
       allow_any_instance_of(ImportProductionSiteData::Fetch).to receive(:download_from_s3)
-      allow(WriteFile).to receive(:call)
+      allow(UnpackData).to receive(:call)
 
       described_class.call
 

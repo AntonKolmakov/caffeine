@@ -1,4 +1,4 @@
-class DeflateData
+class UnpackData
   include Interactor
 
   def call

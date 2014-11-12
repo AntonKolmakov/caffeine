@@ -8,6 +8,6 @@ module ExportProductionSiteData
       context.uncompressed_data = {}
     end
 
-    organize ::WriteFile, ExportProductionSiteData::UploadFile
+    organize CompressData::Pack, ExportProductionSiteData::UploadFile
   end
 end

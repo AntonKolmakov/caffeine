@@ -7,6 +7,6 @@ module RollbackImportedData
       context.local_file_path = "#{Rails.root}/tmp/backup-json-data"
     end
 
-    organize ::DeflateData, ::RecordData
+    organize ::UnpackData, ::RecordData
   end
 end
