@@ -7,6 +7,6 @@ module ImportProductionSiteData
       context.fail! unless context.model
     end
 
-    organize CompressData::Pack
+    organize CompressData::PackBackupData
   end
 end
