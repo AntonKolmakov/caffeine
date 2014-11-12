@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe AmazonService do
+describe ImportProductionSiteData::Import do
   describe '#call' do
     let(:bucket) { Rails.root.join('spec', 'fixtures', 'my-json-data') }
 
     it 'updates data' do
-      allow_any_instance_of(FetchData).to receive_messages(local_file_path: bucket)
-      allow_any_instance_of(FetchData).to receive(:download_from_s3)
+      allow_any_instance_of(ImportProductionSiteData::Fetch).to receive_messages(local_file_path: bucket)
+      allow_any_instance_of(ImportProductionSiteData::Fetch).to receive(:download_from_s3)
       allow(WriteFile).to receive(:call)
 
       described_class.call
@@ -16,8 +16,8 @@ describe AmazonService do
     end
 
     it 'creates backup when import occurs' do
-      allow_any_instance_of(FetchData).to receive_messages(local_file_path: bucket)
-      allow_any_instance_of(FetchData).to receive(:download_from_s3)
+      allow_any_instance_of(ImportProductionSiteData::Fetch).to receive_messages(local_file_path: bucket)
+      allow_any_instance_of(ImportProductionSiteData::Fetch).to receive(:download_from_s3)
 
       described_class.call
 
