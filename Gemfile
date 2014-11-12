@@ -93,7 +93,9 @@ group :test do
   gem 'pronto-coffeelint', require: false
   gem 'pronto-poper', require: false
   gem 'pronto-flay', require: false
+
   gem 'flog', require: false
+  gem 'reek', require: false
 end
 
 group :staging, :production do
