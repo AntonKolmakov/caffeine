@@ -87,6 +87,10 @@ group :test do
   gem 'selenium-webdriver'
   gem 'codeclimate-test-reporter', require: false
   gem 'rspec-activemodel-mocks'
+
+  gem 'pronto'
+  gem 'pronto-rubocop', require: false
+  gem 'pronto-brakeman', require: false
 end
 
 group :staging, :production do
