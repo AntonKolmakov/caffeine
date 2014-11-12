@@ -3,8 +3,12 @@ require 'spec_helper'
 describe Admin::ImportsController, type: :controller do
   before do
 
-    # sign_in test helper by Devise
-    sign_in create :admin
+    # Warn when expectation is set on nil
+    allow_message_expectations_on_nil
+
+    # warden executed before the chief Rails application is invoked
+    allow(request.env['warden']).to receive(:authenticate!)
+    allow(Admin::ApplicationController).to receive(:authenticate_admin_user!)
   end
 
   describe '#create' do
