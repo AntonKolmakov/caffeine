@@ -26,9 +26,7 @@ module ImportProductionSiteData
     def write_file(import_file)
       if import_file.bucket.exists?
         File.open(local_file_path, 'wb') do |file|
-          import_file.read do |chunk|
-            file.write(chunk)
-          end
+          import_file.read { |chunk| file.write(chunk) }
         end
 
         # Returns the object's last modified time and add it to cache

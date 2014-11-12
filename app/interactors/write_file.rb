@@ -2,15 +2,15 @@ class WriteFile
   include Interactor
 
   def call
-    prepare_data(context.model)
+    prepare_data
     deflate_data
     write_to_file
   end
 
   protected
 
-  def prepare_data(classes_to_export)
-    classes_to_export.each do |model|
+  def prepare_data
+    context.model.each do |model|
       klass = model.constantize
       context.uncompressed_data[model] = klass.all.to_json(except: %i(created_at updated_at))
     end
