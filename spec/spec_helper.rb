@@ -16,6 +16,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
 
   config.include Rails.application.routes.url_helpers
+  config.include Devise::TestHelpers, type: :controller
   config.include EmailSpec::Helpers
   config.include EmailSpec::Matchers
   config.include FactoryGirl::Syntax::Methods

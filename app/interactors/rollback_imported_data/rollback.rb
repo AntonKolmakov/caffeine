@@ -1,12 +1,12 @@
-module ImportProductionSiteData
-  class BackupCurrent
+module RollbackImportedData
+  class Rollback
     include Interactor::Organizer
 
     before do
+      context.file_name = 'my-json-data'
       context.local_file_path = "#{Rails.root}/tmp/backup-json-data"
-      context.fail! unless context.model
     end
 
-    organize ::WriteFile
+    organize ::DeflateData, ::RecordData
   end
 end

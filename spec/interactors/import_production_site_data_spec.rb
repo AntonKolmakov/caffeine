@@ -25,7 +25,7 @@ describe ImportProductionSiteData::Import do
     end
 
     it 'rollback changes from s3' do
-      RollbackData.call
+      RollbackImportedData::Rollback.call
 
       expect(Page.all).to be_empty
       expect(Album.all).to be_empty
