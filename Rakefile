@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-DedMoroz::Application.load_tasks
+Caffeine::Application.load_tasks
