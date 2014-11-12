@@ -1,11 +1,14 @@
 require 'spec_helper'
 
 describe Admin::ImportsController, type: :controller do
+  before do
+
+    # sign_in test helper by Devise
+    sign_in create :admin
+  end
+
   describe '#create' do
     before do
-
-      # sign_in test helper by Devise
-      sign_in create :admin
       allow(ImportProductionSiteData::Import).to receive(:call).and_return(context)
     end
 
@@ -31,8 +34,7 @@ describe Admin::ImportsController, type: :controller do
   end
 
   describe '#destroy' do
-    it '' do
-      sign_in create :admin
+    it 'successfuly rollback imported current data' do
       allow(RollbackImportedData::Rollback).to receive(:call)
 
       delete :destroy
@@ -41,4 +43,3 @@ describe Admin::ImportsController, type: :controller do
     end
   end
 end
-
