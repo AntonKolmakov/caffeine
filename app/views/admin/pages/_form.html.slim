@@ -1,23 +1,81 @@
 = simple_form_for [:admin, page] do |f|
-  = f.input :random_token, as: :hidden, input_html: { value: SecureRandom.urlsafe_base64 }
-  = f.input :main, as: :boolean
-  = f.input :name
-  = f.input :parent_id, collection: Page.order(:name), as: :select, include_blank: true, selected: params[:parent_id] || page.parent_id
-  = f.input :short_description, as: :ckeditor, input_html: {ckeditor: {toolbar: 'mini'} }
-  = f.input :description, as: :ckeditor, input_html: { ckeditor: {toolbar: 'mini'} }
-  = f.input :slug
-  = f.input :fix_slug, as: :boolean
-  = f.association :album, collection: Album.order(:name)
-  = f.input :position
-  = f.simple_fields_for :seo_datum do |seo_field|
-    = seo_field.input :meta_title
-    = seo_field.input :meta_keywords
-    = seo_field.input :meta_description
-    = seo_field.input :seo_text
-  = f.simple_fields_for :page_image do |image_field|
-    = image_field.input :picture, as: :file
-    - if page.page_image.persisted?
-      = image_tag page.page_image.picture.url(:thumb)
-      = image_field.input :_destroy, as: :boolean, input_html: { value: false }
-  = link_to t('app.form.cancel'), admin_pages_path, class: 'btn btn-mini btn-danger'
-  = f.submit class: "btn btn-mini btn-primary"
+  = f.input :random_token, as: :hidden, input_html: {value: SecureRandom.urlsafe_base64}
+  .row
+    .col-md-12
+      .widget.widget--tabbed
+        .tabs
+          input type="radio" name="t" id="tab1" checked="checked"
+          label for="tab1" class="tabs__tab" Основное
+
+          input type="radio" name="t" id="tab2"
+          label for="tab2" class="tabs__tab" SEO
+
+          input type="radio" name="t" id="tab3"
+          label for="tab3" class="tabs__tab" Изображение
+
+          .tabs__content
+            .tabs__content--1
+              section.widget
+                .widget__content.clearfix
+                  .row
+                    .col-md-6
+                      = f.input :name, input_html: { class: 'input-text' }
+                    .col-md-6
+                      = f.input :parent_id, collection: Page.order(:name), as: :select, include_blank: true, selected: params[:parent_id] || page.parent_id, wrapper: :vertical_select
+                    .col-md-6
+                      = f.input :position, input_html: { class: 'input-text' }
+                    .col-md-6
+                      = f.association :album, collection: Album.order(:name), wrapper: :vertical_select
+                  .row
+                    .col-md-12
+                      = f.input :short_description, as: :ckeditor, input_html: {ckeditor: {toolbar: 'mini'} }
+                  .row
+                    .col-md-12
+                      = f.input :description, as: :ckeditor, input_html: { ckeditor: {toolbar: 'mini'} }
+
+            .tabs__content--2
+              section.widget
+                .widget__content.clearfix
+                  .row
+                    .col-md-6
+                      = f.input :slug, input_html: { class: 'input-text' }
+                    .col-md-6
+
+                      = f.input :fix_slug, as: :boolean, class: 'sw', wrapper: :decorate_boolean
+                      = f.label :fix_slug, '', class: 'switch'
+                        | &nbsp
+                  .row
+                    = f.simple_fields_for :seo_datum do |seo_field|
+                      .col-md-6
+                        = seo_field.input :meta_title, input_html: { class: 'input-text' }
+                      .col-md-6
+                        = seo_field.input :meta_keywords, input_html: { class: 'input-text' }
+                      .col-md-6
+                        = seo_field.input :meta_description, input_html: { class: 'textarea' }
+                      .col-md-6
+                        = seo_field.input :seo_text, input_html: { class: 'textarea' }
+
+            .tabs__content--3
+              section.widget
+                .widget__content.clearfix
+                  = f.simple_fields_for :page_image do |image_field|
+                    .row
+                      - if page.page_image.persisted?
+                        .col-md-3
+                          = image_tag page.page_image.picture.url(:thumb), class: 'img-responsive'
+                          .form-group
+                            = image_field.input_field :_destroy, as: :boolean, input_html: { value: false }, boolean_style: :inline, class: 'checkbox'
+                            = image_field.label :_destroy
+                      .col-md-9
+                        .form-group.file.optional.page_page_image_picture
+                          = image_field.label :picture, class: 'control-label'
+                          .buttons.float-none
+                            .span.btn.btn-skyblue.btn-file
+                              i.pe-7s-plus
+                              span Выбрать изображение...
+                              = image_field.input_field :picture, as: :file
+                            span
+                              i.pe-7f-server
+        .buttons-right.float-none
+          = link_to t('app.form.cancel'), admin_pages_path, class: 'btn btn-grey'
+          = f.submit class: 'btn btn-skyblue'

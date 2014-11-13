@@ -1,3 +1,6 @@
-- content_for(:heading_page) { t('views.admin.pages.new.header') }
+- content_for :heading_page do
+  i.icon.pe-7s-news-paper
+  = t('views.admin.pages.new.header')
+end
 
 = render 'form'

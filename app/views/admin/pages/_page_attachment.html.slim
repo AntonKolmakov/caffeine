@@ -1,4 +1,4 @@
-ul
-  li
-    = link_to page_attachment.attachment.file.filename, page_attachment.attachment_url
-    = button_to t('views.admin.pages.edit.remove_attachment'), admin_page_page_attachment_path(page, page_attachment), method: :delete, class: "btn btn-danger btn-default btn-mini"
+li.list-group-item.clearfix
+  = button_to admin_page_page_attachment_path(page, page_attachment), method: :delete, class: 'btn btn-light pull-right', title: 'Удалить файл'
+    i.pe-7f-trash
+  = link_to page_attachment.attachment.file.filename, page_attachment.attachment_url
