@@ -22,6 +22,7 @@ class Page < ActiveRecord::Base
   end
 
   acts_as_tree order: 'position'
+  has_paper_trail on: %i(update destroy)
 
   # we don't need this till we fetch all pages through class method
   # roots_and_descendants_preordered, which returns all nodes in your tree, pre-ordered.
@@ -30,6 +31,8 @@ class Page < ActiveRecord::Base
 
   scope :main, -> { where(main: true) }
 
+  private
+
   def main_page?
     self == Page.main_page || !main?
   end
@@ -37,6 +40,4 @@ class Page < ActiveRecord::Base
   def self.main_page
     main.first
   end
-
-  has_paper_trail on: %i(update destroy)
 end

@@ -49,6 +49,7 @@ module Admin
 
     def page_params
       params.require(:page).permit(:main,
+                                   :random_token,
                                    :name,
                                    :description,
                                    :short_description,
