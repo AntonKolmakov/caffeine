@@ -19,6 +19,8 @@
                 .widget__content.clearfix
                   .row
                     .col-md-6
+                      = f.input :main, as: :boolean
+                    .col-md-6
                       = f.input :name, input_html: { class: 'input-text' }
                     .col-md-6
                       = f.input :parent_id, collection: Page.order(:name), as: :select, include_blank: true, selected: params[:parent_id] || page.parent_id, wrapper: :vertical_select

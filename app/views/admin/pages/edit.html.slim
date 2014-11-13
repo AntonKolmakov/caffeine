@@ -21,16 +21,7 @@ end
   .widget__content.clearfix
     ul#list_of_attachments.list-group
       = render partial: 'admin/pages/page_attachment', collection: page.page_attachments
-    /- if page.page_attachments.any?
-    /- else
-    /  .alert.alert-info.alert-dismissable
-    /    .media
-    /      figure.pull-left.alert--icon
-    /        i.pe-7s-info
-    /      .media-body
-    /        h3 Нет вложенных документов
-    /        p.alert--text
-    /          | Вы можете прикрепить к странице вложения, воспользовавшись кнопкой "Выбрать файлы..."
+
     #uploader
       = simple_form_for [:admin, page, PageAttachment.new], html: {multipart: true} do |f|
         .form-group.file.optional.page_attachment_attachment
@@ -39,7 +30,12 @@ end
             .span.btn.btn-skyblue.btn-multiple-file
               i.pe-7s-plus
               span Выбрать файлы...
-              = f.input_field :attachment, as: :file, input_html: {multiple: true, name: 'page_attachment[attachment]'}
+              = f.input_field :attachment, as: :file, multiple: true, name: 'page_attachment[attachment]'
+
+    ul#version
+      - page.versions.each do |version_page|
+        li= link_to author_version(version_page), revert_version_admin_page_path(version: version_page), method: :post
+
     script#template-upload type="text/x-tmpl"
       .upload
         | {%=o.name%}
