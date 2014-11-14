@@ -47,6 +47,7 @@ gem 'acts_as_list' # For sorting pages' children
 gem 'gretel' # breadcrumbs generator
 gem 'paper_trail'
 gem 'kramdown', require: false
+gem 'diffy'
 
 group :development do
   gem 'quiet_assets'

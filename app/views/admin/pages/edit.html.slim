@@ -32,9 +32,18 @@ end
               span Выбрать файлы...
               = f.input_field :attachment, as: :file, multiple: true, name: 'page_attachment[attachment]'
 
-    ul#version
-      - page.versions.each do |version_page|
-        li= link_to author_version(version_page), revert_version_admin_page_path(version: version_page), method: :post
+
+    #accordion.panel-group aria-multiselectable="true" role="tablist"
+      - page.versions.includes(:item).each_with_index do |version_page, index|
+        .panel.panel-default
+          div id="heading#{index+1}" class='panel-heading' role="tab"
+            h4.panel-title
+              a aria-controls="collapse#{index+1}" aria-expanded="false" data-parent="#accordion" data-toggle="collapse" href="#collapse#{index+1}"
+                = author_version(version_page)
+              = link_to 'Rollback version', revert_version_admin_page_path(version: version_page), method: :post
+          div id="collapse#{index+1}" class='panel-collapse collapse' aria-labelledby="heading#{index+1}" role="tabpanel"
+            .panel-body
+              = raw Diffy::Diff.new(version_page.reify.name, page.name).to_s(:html)
 
     script#template-upload type="text/x-tmpl"
       .upload

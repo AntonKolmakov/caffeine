@@ -503,6 +503,7 @@ DEPENDENCIES
   database_cleaner
   decent_exposure
   devise
+  diffy
   dotenv-rails
   draper
   email_spec
