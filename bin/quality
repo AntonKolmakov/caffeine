@@ -2,5 +2,5 @@
 
 set -e
 
-bin/pronto run -c origin/develop --exit-code
+bin/pronto run -c develop --exit-code
 bin/reek app
