@@ -1,11 +1,9 @@
-- title t('app.user.sign_in.title')
-
 .col-md-4.col-md-offset-4.clearfix.bg--dark
   = simple_form_for resource,
       as: resource_name,
       url: session_path(resource_name) do |f|
     .main-logo
-      = yield :title
+      = t('app.user.sign_in.title')
       span
       p= t('app.user.sign_in.legend_html')
     = render 'admin/partials/messages'
