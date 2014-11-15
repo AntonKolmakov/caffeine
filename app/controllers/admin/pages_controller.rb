@@ -4,8 +4,9 @@ module Admin
 
     expose(:decorated_pages) { pages.decorate }
     expose(:pages) { Page.roots_and_descendants_preordered }
-    expose(:version) { PaperTrail::Version.find(params[:version]) }
     expose(:page, attributes: :page_params, finder: :find_by_slug)
+    expose(:version) { PaperTrail::Version.find(params[:version]) }
+    expose(:page_versions) { page.versions }
 
     def index
     end
@@ -28,6 +29,11 @@ module Admin
     def update
       page.save
       respond_with :admin, page, location: -> { edit_admin_page_path(page) }
+    end
+
+    def version_page
+      data = CompareVersion.call(version_page: params[:version_page], current_page: page)
+      render text: data.result
     end
 
     # Allows you switch on specific version
