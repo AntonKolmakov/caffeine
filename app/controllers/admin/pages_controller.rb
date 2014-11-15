@@ -31,6 +31,7 @@ module Admin
       respond_with :admin, page, location: -> { edit_admin_page_path(page) }
     end
 
+    # App responds with string of versions pages
     def version_page
       data = CompareVersion.call(version_page: params[:version_page], current_page: page)
       render text: data.result

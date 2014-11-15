@@ -48,6 +48,7 @@ gem 'gretel' # breadcrumbs generator
 gem 'paper_trail'
 gem 'kramdown', require: false
 gem 'diffy'
+gem 'interactor'
 
 group :development do
   gem 'quiet_assets'
