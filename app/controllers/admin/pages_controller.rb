@@ -40,7 +40,7 @@ module Admin
     # Allows you switch on specific version
     def revert_version
       version.reify(has_one: true).save!
-      redirect_to edit_admin_page_path(version.reify), notice: "Undid #{version.event}"
+      redirect_to edit_admin_page_path(version.reify), notice: 'version rollback'
     end
 
     def destroy
