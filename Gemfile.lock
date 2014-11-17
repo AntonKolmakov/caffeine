@@ -243,6 +243,9 @@ GEM
     i18n (0.6.11)
     inflecto (0.0.2)
     interactor (3.1.0)
+    interactor-rails (2.0.1)
+      interactor (~> 3.0)
+      rails (>= 3, < 5)
     ipaddress (0.8.0)
     jquery-fileupload-rails (0.4.1)
       actionpack (>= 3.1)
@@ -516,7 +519,7 @@ DEPENDENCIES
   friendly_id
   fuubar
   gretel
-  interactor
+  interactor-rails
   jazz_hands!
   jquery-fileupload-rails
   jquery-rails
