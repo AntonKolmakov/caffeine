@@ -231,3 +231,13 @@
 .pe-7s-users:before {
   content: "\e693";
 }
+
+/* override diffy-gem class */
+
+.del {
+  background-color: #ff4444;
+}
+
+.ins {
+  background-color: #5ce638;
+}
