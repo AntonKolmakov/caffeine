@@ -26,7 +26,7 @@ class CompareVersion
   def compare_version
     ATTRIBUTES_FOR_COMPARISON.each do |attribute|
       context.result << Diffy::Diff.new(context.version_page.send(attribute),
-                                        context.current_page.send(attribute)).to_s(:html_simple)
+                                        context.current_page.send(attribute)).to_s(:html)
     end
   end
 end
