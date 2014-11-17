@@ -14,7 +14,7 @@ feature 'when updating page', versioning: true do
 
     click_on I18n.t('helpers.submit.page.update')
 
-    find('#version > li:first-child a').click
+    click_on('Rollback version')
 
     expect(page).to have_content(user_page.name)
   end
