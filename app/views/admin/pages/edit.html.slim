@@ -33,7 +33,7 @@ end
               = f.input_field :attachment, as: :file, multiple: true, name: 'page_attachment[attachment]'
 
     #accordion.panel-group aria-multiselectable="true" role="tablist"
-      - page_versions.each_with_index do |version_page, index|
+      - page.versions.each_with_index do |version_page, index|
         .panel.panel-default
           div id="heading#{index+1}" class='panel-heading' role="tab"
             h4.panel-title

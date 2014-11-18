@@ -5,8 +5,6 @@ module Admin
     expose(:decorated_pages) { pages.decorate }
     expose(:pages) { Page.roots_and_descendants_preordered }
     expose(:page, attributes: :page_params, finder: :find_by_slug)
-    expose(:version) { PaperTrail::Version.find(params[:version]) }
-    expose(:page_versions) { page.versions }
 
     def index
     end
