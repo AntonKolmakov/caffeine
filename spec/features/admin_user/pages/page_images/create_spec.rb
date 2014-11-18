@@ -9,8 +9,6 @@ feature 'admin creates page image', js: true do
 
     fill_in I18n.t('activerecord.attributes.page.name'), with: 'page parent'
 
-    binding.pry
-
     all('.tabs__tab')[2].click
 
     attach_file(
