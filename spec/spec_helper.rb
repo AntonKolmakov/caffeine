@@ -12,6 +12,8 @@ ActiveRecord::Migration.maintain_test_schema!
 paths = Dir[Rails.root.join('spec/**/{support,step_definitions}/**/*.rb')]
 paths.each { |file| require file }
 
+Capybara.javascript_driver = :webkit
+
 RSpec.configure do |config|
   config.use_transactional_fixtures = false
 

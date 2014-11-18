@@ -37,6 +37,7 @@ module Admin
 
     # Allows you switch on specific version
     def revert_version
+      version = PaperTrail::Version.find(params[:version])
       version.reify(has_one: true).save!
       redirect_to edit_admin_page_path(version.reify), notice: 'version rollback'
     end

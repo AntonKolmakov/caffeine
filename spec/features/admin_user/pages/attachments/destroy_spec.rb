@@ -12,8 +12,10 @@ feature 'admin destroys attachment', js: true do
       'page_attachment[attachment]',
       File.expand_path('spec/fixtures/pages/attachments/документ.pdf'),
       visible: false)
-    find('.main-header__date').find('.pe-7f-trash').click
-    accept_alert
+
+    accept_confirm do
+      find('.main-header__date').find('.pe-7f-trash').click
+    end
 
     expect(page).to have_content(I18n.t('flash.actions.destroy.notice'))
   end

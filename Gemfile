@@ -87,7 +87,7 @@ group :test do
   gem 'minitest'
   gem 'shoulda-matchers'
   gem 'turnip'
-  gem 'selenium-webdriver'
+  gem 'capybara-webkit'
   gem 'codeclimate-test-reporter', require: false
   gem 'rspec-activemodel-mocks'
 end
