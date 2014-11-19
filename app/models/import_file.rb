@@ -1,14 +1,28 @@
 class ImportFile
   include ActiveAttr::Attributes
 
+  attr_reader :aws_bucket
+
+  def initialize
+    @aws_bucket = AWS::S3.new.buckets[Rails.application.secrets.s3_bucket]
+  end
+
   attribute :bucket
   attribute :s3_file
 
   def bucket
-    AWS::S3.new.buckets[Rails.application.secrets.s3_bucket]
+    aws_bucket
   end
 
   def s3_file
     bucket.objects['my-json-data']
+  end
+
+  def download_to(local_path)
+    File.open(local_path, 'wb') do |file|
+      file.write(s3_file.read)
+    end
+
+    Rails.cache.write('time', s3_file.last_modified, expires_in: 1.hour)
   end
 end

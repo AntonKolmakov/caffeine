@@ -8,18 +8,11 @@ class RecordData
   protected
 
   def inflate_file
-    context.data.each do |k, v|
-      klass = Object.const_get(k)
+    context.data.each do |key, value|
+      klass = Object.const_get(key)
 
-      record = JSON.parse(v)
-      update_data(klass, record)
-    end
-  end
-
-  def update_data(klass, item)
-    klass.transaction do
-      klass.destroy_all
-      klass.create!(item)
+      record = JSON.parse(value)
+      klass.update_import(record)
     end
   end
 end

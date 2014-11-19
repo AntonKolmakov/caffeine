@@ -1,5 +1,6 @@
 class Album < ActiveRecord::Base
   include Sluggable
+  include Importable
 
   has_many :pages
   has_many :images, -> { order 'position' }, dependent: :destroy, inverse_of: :album

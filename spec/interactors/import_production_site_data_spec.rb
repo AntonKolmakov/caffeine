@@ -6,7 +6,7 @@ describe ImportProductionSiteData::Import do
 
     it 'updates data' do
       allow_any_instance_of(ImportProductionSiteData::Fetch).to receive_messages(local_file_path: bucket)
-      allow_any_instance_of(ImportProductionSiteData::Fetch).to receive(:download_from_s3)
+      allow_any_instance_of(ImportProductionSiteData::Fetch).to receive(:download_from_aws)
       allow(UnpackData).to receive(:call)
 
       described_class.call
@@ -17,7 +17,7 @@ describe ImportProductionSiteData::Import do
 
     it 'creates backup when import occurs' do
       allow_any_instance_of(ImportProductionSiteData::Fetch).to receive_messages(local_file_path: bucket)
-      allow_any_instance_of(ImportProductionSiteData::Fetch).to receive(:download_from_s3)
+      allow_any_instance_of(ImportProductionSiteData::Fetch).to receive(:download_from_aws)
 
       described_class.call
 
