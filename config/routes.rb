@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'dashboard#index'
 
-    resource :import
+    resource :import, only: %i(create destroy)
 
     devise_for :user, path: ''
     resource :changelog, only: :show
