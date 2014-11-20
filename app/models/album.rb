@@ -19,6 +19,6 @@ class Album < ActiveRecord::Base
   protected
 
   def recreate_versions
-    images.find_each.map { |i| i.picture.recreate_versions! }
+    images.find_each.map { |img| img.picture.recreate_versions! }
   end
 end

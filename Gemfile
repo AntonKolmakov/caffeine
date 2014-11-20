@@ -75,9 +75,6 @@ group :test do
   gem 'fuubar'
   gem 'rspec-rails'
   gem 'rspec-mocks'
-  gem 'rails_best_practices'
-  gem 'brakeman', require: false
-  gem 'rubocop'
   gem 'simplecov', require: false
   gem 'webmock', require: false
   gem 'capybara'
@@ -90,6 +87,18 @@ group :test do
   gem 'capybara-webkit'
   gem 'codeclimate-test-reporter', require: false
   gem 'rspec-activemodel-mocks'
+
+  gem 'pronto'
+  gem 'pronto-rubocop', require: false
+  gem 'pronto-brakeman', require: false
+  gem 'pronto-scss', require: false
+  gem 'pronto-rails_best_practices', require: false
+  gem 'pronto-coffeelint', require: false
+  gem 'pronto-poper', require: false
+  gem 'pronto-flay', require: false
+
+  gem 'flog', require: false
+  gem 'reek', require: false
 end
 
 group :staging, :production do

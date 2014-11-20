@@ -2,21 +2,18 @@ module ApplicationHelper
   attr_reader :show_title
   alias_method :show_title?, :show_title
 
-  def title(page_title, show_title = false)
-    @show_title = show_title
-    content_for(:title) { page_title.to_s }
-  end
-
   def render_form(form_alias)
     form = UserForm.find_by(alias: form_alias.to_s)
 
     render form if form
   end
 
-  def active_class?(path, strict = false)
-    active = strict ? current_page?(path) : request.url.include?(path)
+  def active_if_current_page_equals(path)
+    'main-nav--active' if current_page?(path)
+  end
 
-    active ? 'main-nav--active' : ''
+  def active_if_request_url_includes(path)
+    'main-nav--active' if request.url.include?(path)
   end
 
   def author_version(version_page)

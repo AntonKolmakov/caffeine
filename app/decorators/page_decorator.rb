@@ -5,11 +5,15 @@ class PageDecorator < Draper::Decorator
   BASE_PARTIAL_NAME = 'base'
 
   def partial_name
-    File.exist?("app/views/pages/custom_partials/_#{object.slug}.html.slim") ? object.slug : BASE_PARTIAL_NAME
+    custom_partial_exists? ? object.slug : BASE_PARTIAL_NAME
+  end
+
+  def custom_partial_exists?
+    File.exist?("app/views/pages/custom_partials/_#{object.slug}.html.slim")
   end
 
   def column_size
-    (object.album && object.album.images.any? && object.page_attachments.any?) ? 8 : 16
+    (object.album && object.album_images.any? && object.page_attachments.any?) ? 8 : 16
   end
 
   def image_column_size
@@ -25,7 +29,10 @@ class PageDecorator < Draper::Decorator
   end
 
   def admin_list_classes
-    "col-md-#{12 - object.depth} col-md-offset-#{page.depth} col-xs-#{12 - object.depth} col-xs-offset-#{page.depth}"
+    offset = page.depth
+    width = 12 - object.depth
+
+    "col-md-#{width} col-md-offset-#{offset} col-xs-#{width} col-xs-offset-#{offset}"
   end
 
   def admin_row_classes
