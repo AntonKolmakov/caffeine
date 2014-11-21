@@ -6,28 +6,14 @@ html class="no-js" lang="en"
 
   head
     = render "partials/seo/meta"
-    = render "partials/head/favicons"
 
     = csrf_meta_tags
 
-    link href="http://fonts.googleapis.com/css?family=Exo+2:400,300,500,500italic,700&subset=latin,cyrillic" type="text/css" rel="stylesheet"
-
     = stylesheet_link_tag :application
 
-  body[class="#{content_for :body_class}"]
-    = render 'partials/header'
+    #flash_messages
+      = render 'partials/messages'
 
-    article
-      .container
-        .row
-          .col-xs-16
-
-            = yield
-            = render 'partials/after_content'
-            #flash_messages
-              = render 'partials/messages'
-            = render "partials/callback"
-
-    = render 'partials/footer'
+    = yield
 
     = javascript_include_tag :application
