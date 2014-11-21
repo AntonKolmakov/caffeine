@@ -33,5 +33,8 @@ Rails.application.routes.draw do
   with_options(only: :show) do
     resources :pages, path: ''
     resources :albums
+    resources :user_forms do
+      resources :user_form_submissions, module: 'user_forms', only: :create
+    end
   end
 end
