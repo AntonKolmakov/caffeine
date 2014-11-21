@@ -1,0 +1,14 @@
+h3= t('views.sitemaps.show.header')
+
+p= t('views.sitemaps.show.headers.pages')
+ul
+- pages.roots.find_each do |page|
+  li= link_to page.name, page_path(page)
+  ul
+    - page.children.find_each do |child|
+      li= link_to child.name, page_path(child)
+
+p= t('views.sitemaps.show.headers.albums')
+ul
+- albums.find_each do |album|
+  li= link_to album.name, album_path(album)

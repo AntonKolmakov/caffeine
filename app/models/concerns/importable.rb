@@ -3,9 +3,9 @@ module Importable
 
   module ClassMethods
     def update_import(record)
-      self.transaction do
-        self.destroy_all
-        self.create!(record)
+      transaction do
+        destroy_all
+        create!(record)
       end
     end
   end

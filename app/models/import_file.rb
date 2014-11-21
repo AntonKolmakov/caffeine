@@ -23,6 +23,10 @@ class ImportFile
       file.write(s3_file.read)
     end
 
-    Rails.cache.write('time', s3_file.last_modified, expires_in: 1.hour)
+    Rails.cache.write('time', fetch_bucket, expires_in: 1.hour)
+  end
+
+  def fetch_bucket
+    s3_file.last_modified
   end
 end

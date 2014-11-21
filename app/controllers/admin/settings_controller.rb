@@ -4,8 +4,6 @@ module Admin
 
     helper_method :cached_time
 
-    expose(:import_file) { ImportFile.new.s3_file }
-
     private
 
     # We use `main_app.admin_root_path` because `rails_settings_ui`
@@ -16,7 +14,7 @@ module Admin
     end
 
     def cached_time
-      Rails.cache.fetch('time', expires_in: 2.hour) { import_file.last_modified }
+      Rails.cache.fetch('time', expires_in: 2.hour) { ImportFile.new.fetch_bucket }
     end
   end
 end

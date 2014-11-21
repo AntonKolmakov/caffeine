@@ -6,6 +6,6 @@ ru:
           flash:
             import:
               notice: Успешно импортировано
-              warning: Бакет не найден
+              warning: AWS учетные данные не найдены
             rollback:
               notice: Изменения откачены
