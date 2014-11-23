@@ -7,3 +7,4 @@ ru:
           import: Начать
           rollback: Откатить импорт
           last_modified_bucket: Последние изменение бакета с AWS
+          warning: AWS учетные данные не найдены

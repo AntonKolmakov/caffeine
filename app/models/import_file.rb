@@ -28,5 +28,7 @@ class ImportFile
 
   def fetch_bucket
     s3_file.last_modified
+  rescue AWS::Errors::MissingCredentialsError
+    nil
   end
 end
