@@ -1,4 +1,4 @@
-home_page = Page.create(name: "services", description: "Description", short_description: "Short description", main: true)
+home_page = Page.create(name: "main", description: "Description", short_description: "Short description", main: true)
 
 3.times do |i|
   Page.create(name: "Product ##{i}", description: "Description", short_description: "Short description")
