@@ -8,12 +8,18 @@ html class="no-js" lang="en"
     = render "partials/seo/meta"
 
     = csrf_meta_tags
+    link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css"
 
     = stylesheet_link_tag :application
+
+  body.corporate
+    = render 'partials/header/main'
 
     #flash_messages
       = render 'partials/messages'
 
-    = yield
+    .main
+      .container
+        = yield
 
     = javascript_include_tag :application
