@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141016130123) do
+ActiveRecord::Schema.define(version: 20141125125647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,22 @@ ActiveRecord::Schema.define(version: 20141016130123) do
     t.string   "picture"
     t.integer  "album_id"
     t.integer  "position"
+  end
+
+  create_table "menu_element_types", force: true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.integer  "menu_element_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "menu_element_types", ["menu_element_id"], name: "index_menu_element_types_on_menu_element_id", using: :btree
+
+  create_table "menu_elements", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "page_attachments", force: true do |t|
@@ -123,6 +139,17 @@ ActiveRecord::Schema.define(version: 20141016130123) do
   end
 
   add_index "seo_data", ["datable_id", "datable_type"], name: "index_seo_data_on_datable_id_and_datable_type", using: :btree
+
+  create_table "settings", force: true do |t|
+    t.string   "var",                   null: false
+    t.text     "value"
+    t.integer  "thing_id"
+    t.string   "thing_type", limit: 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
 
   create_table "user_form_field_values", force: true do |t|
     t.string   "value"
@@ -198,5 +225,16 @@ ActiveRecord::Schema.define(version: 20141016130123) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "versions", force: true do |t|
+    t.string   "item_type",  null: false
+    t.integer  "item_id",    null: false
+    t.string   "event",      null: false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], name: "index_versions_on_item_type_and_item_id", using: :btree
 
 end
