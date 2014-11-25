@@ -29,6 +29,16 @@ ActiveRecord::Schema.define(version: 20141125125647) do
 
   add_index "albums", ["slug"], name: "index_albums_on_slug", using: :btree
 
+  create_table "bases", force: true do |t|
+    t.string   "name"
+    t.string   "type"
+    t.integer  "menu_element_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bases", ["menu_element_id"], name: "index_bases_on_menu_element_id", using: :btree
+
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
     t.string   "data_content_type"
@@ -67,18 +77,9 @@ ActiveRecord::Schema.define(version: 20141125125647) do
     t.integer  "position"
   end
 
-  create_table "menu_element_types", force: true do |t|
-    t.string   "name"
-    t.string   "type"
-    t.integer  "menu_element_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "menu_element_types", ["menu_element_id"], name: "index_menu_element_types_on_menu_element_id", using: :btree
-
   create_table "menu_elements", force: true do |t|
     t.string   "name"
+    t.string   "menu_element_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
