@@ -1,0 +1,5 @@
+= simple_form_for [:admin, menu_element], url: admin_menu_elements_path, method: :post do |f|
+  = f.input :name
+  = f.input :menu_element_type, collection: DynamicMenu::ElementTypes::Base::MENU_ELEMENT_TYPES
+  = link_to t('app.form.cancel'), admin_menu_elements_path, class: 'btn btn-mini btn-danger'
+  = f.submit class: "btn btn-mini btn-primary"
