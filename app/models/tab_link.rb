@@ -1,2 +1,0 @@
-class TabLink < MenuElementType
-end
