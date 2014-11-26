@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 20141125125647) do
 
   create_table "menu_elements", force: true do |t|
     t.string   "name"
-    t.string   "menu_element_type"
+    t.string   "element_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
