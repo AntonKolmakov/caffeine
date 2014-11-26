@@ -6,6 +6,8 @@ AllCops:
     - config/**/*
     - lib/templates/**/*
     - vendor/**/*
+    - db/schema.rb
+    - db/migrate/**/*
 
 Documentation:
   Description: 'Document classes and non-namespace modules.'
