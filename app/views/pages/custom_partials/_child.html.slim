@@ -5,7 +5,7 @@ section[class="contentBlock #{cycle("left", "right")} section_0#{child_counter +
         .title
           = child.name
         .subtitle
-          = child.short_description.html_safe
+          = raw child.short_description
       .parallax.layer_1
     = link_to page_path(child), class: 'next' do
       - if child_counter.odd?

@@ -22,7 +22,7 @@ class Page < ActiveRecord::Base
     Page.main.update_all(main: false) unless main_page?
   end
 
-  acts_as_tree order: 'position'
+  acts_as_tree order: 'position', name_column: 'slug'
 
   # we don't need this till we fetch all pages through class method
   # roots_and_descendants_preordered, which returns all nodes in your tree, pre-ordered.
