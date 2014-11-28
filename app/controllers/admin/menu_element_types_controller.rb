@@ -15,24 +15,8 @@ module Admin
 
     private
 
-    def set_type
-      type =
-          if params[:dynamic_menu_element_types_base]
-            'base'
-          elsif params[:dynamic_menu_element_types_link]
-            'link'
-          elsif params[:dynamic_menu_element_types_page]
-            'page'
-          elsif params[:dynamic_menu_element_types_album]
-            'album'
-          elsif params[:dynamic_menu_element_types_divider]
-            'divider'
-          end
-      "dynamic_menu_element_types_#{type}"
-    end
-
     def element_types_params
-      params.require(set_type.to_sym).permit(:title, :album_id, :page_id, :css, :url, :type)
+      params.require(:dynamic_menu_element_types).permit(:title, :album_id, :page_id, :css, :url, :type)
     end
   end
 end

@@ -1,4 +1,4 @@
-= simple_form_for element_type, url: admin_menu_element_type_path, method: :patch do |f|
+= simple_form_for element_type, as: :dynamic_menu_element_types, url: admin_menu_element_type_path, method: :patch do |f|
   = f.input :title
   = f.input :css
   = f.input :page_id, collection: Page.order(:name), as: :select
