@@ -1,6 +1,6 @@
 module DynamicMenu
   module ElementTypes
-    class ElementPage < ElementTypes::Base
+    class Page < ElementTypes::Base
     end
   end
 end

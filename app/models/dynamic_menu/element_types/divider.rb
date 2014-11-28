@@ -1,6 +1,6 @@
 module DynamicMenu
   module ElementTypes
-    class Devider < ElementTypes::Base
+    class Divider < ElementTypes::Base
     end
   end
 end
