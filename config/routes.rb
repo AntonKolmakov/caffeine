@@ -29,11 +29,9 @@ Rails.application.routes.draw do
   end
 
   # User routes
-  with_options(only: :show) do
-    resources :albums
-    resources :user_forms do
-      resources :user_form_submissions, module: 'user_forms', only: :create
-    end
+  resources :albums, only: :show
+  resources :user_forms, only: :show do
+    resources :user_form_submissions, module: 'user_forms', only: %i(create show)
   end
 
   get '/*page_path', to: 'pages#show', as: :page
