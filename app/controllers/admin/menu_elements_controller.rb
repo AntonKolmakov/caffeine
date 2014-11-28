@@ -13,6 +13,11 @@ module Admin
       respond_with :admin, menu_element, location: -> { edit_admin_menu_element_path(menu_element) }
     end
 
+    def destroy
+      menu_element.destroy
+      respond_with :admin, menu_element, location: -> { admin_menu_elements_path }
+    end
+
     private
 
     def element_types_params
