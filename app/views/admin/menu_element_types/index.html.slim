@@ -1,0 +1,8 @@
+h1 Menu Elements
+
+- element_types.each do |element|
+  ul
+    li= link_to element.type, edit_admin_menu_element_type_path(element)
+
+
+= link_to 'Create menu element', new_admin_menu_element_type_path
