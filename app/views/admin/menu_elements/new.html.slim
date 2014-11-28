@@ -1,5 +1,5 @@
-= simple_form_for element_type, as: :dynamic_menu_element_types, url: admin_menu_element_types_path, method: :post do |f|
+= simple_form_for menu_element, as: :dynamic_menu_element_types, url: admin_menu_elements_path, method: :post do |f|
   = f.input :title
   = f.input :type, collection: DynamicMenu::ElementTypes::Base::MENU_ELEMENT_TYPES.keys,
             value_method: ->(i) { DynamicMenu::ElementTypes::Base::MENU_ELEMENT_TYPES[i] }
-  = f.submit class: "btn btn-mini btn-pr imary"
+  = f.submit class: "btn btn-mini btn-primary"

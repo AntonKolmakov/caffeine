@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     devise_for :user, path: ''
     resource :changelog, only: :show
-    resources :menu_element_types
+    resources :menu_elements
 
     with_options(except: :show) do
       resources :users

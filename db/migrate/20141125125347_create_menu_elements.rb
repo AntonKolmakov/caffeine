@@ -1,6 +1,6 @@
-class CreateMenuElementTypes < ActiveRecord::Migration
+class CreateMenuElements < ActiveRecord::Migration
   def change
-    create_table :menu_element_types do |t|
+    create_table :menu_elements do |t|
       # basic attributes
       t.string :title
       t.string :css

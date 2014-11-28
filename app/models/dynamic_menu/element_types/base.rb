@@ -8,9 +8,7 @@ module DynamicMenu
         divider: 'DynamicMenu::ElementTypes::Divider'
       }
 
-      self.table_name = 'menu_element_types'
-
-      has_many :menu_elements, class_name: 'DynamicMenu::MenuElement', foreign_key: 'menu_element_type_id'
+      self.table_name = 'menu_elements'
     end
   end
 end
