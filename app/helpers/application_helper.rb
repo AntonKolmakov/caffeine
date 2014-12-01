@@ -15,4 +15,10 @@ module ApplicationHelper
   def active_if_request_url_includes(path)
     'main-nav--active' if request.url.include?(path)
   end
+
+  def page_path(page_or_path)
+    path = page_or_path.is_a?(String) ? page_or_path : page_or_path.ancestry_path.join('/')
+
+    url_for(path)
+  end
 end
