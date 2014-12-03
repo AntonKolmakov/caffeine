@@ -1,5 +1,4 @@
-= simple_form_for menu_element, as: :dynamic_menu_element_types, url: admin_menu_element_path, method: :patch do |f|
-  = f.input :title
-  = f.input :css
-  = f.input :url
-  = f.submit class: "btn btn-mini btn-primary"
+= f.input :title
+= f.input :type, as: :hidden
+= f.input :css
+= f.input :url

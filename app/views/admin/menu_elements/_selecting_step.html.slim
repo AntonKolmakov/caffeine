@@ -1,0 +1,4 @@
+= f.input :title
+= f.input :type, collection: DynamicMenu::ElementTypes::Base::MENU_ELEMENT_TYPES.keys,
+          value_method: ->(i) { DynamicMenu::ElementTypes::Base::MENU_ELEMENT_TYPES[i] }
+= f.submit 'Next', class: 'btn btn-mini btn-primary'

@@ -1,0 +1,2 @@
+= simple_form_for menu_element, as: :dynamic_menu_element_types, url: admin_menu_elements_path, method: :post do |f|
+  = render "#{menu_element.current_step}_step", f: f
