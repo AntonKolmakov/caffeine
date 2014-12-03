@@ -5,7 +5,7 @@ module Admin
 
     def create
       menu_element.current_step = session[:order_step]
-      menu_step
+      multi_step_action
       if menu_element.new_record?
         render 'new'
       else
@@ -30,7 +30,7 @@ module Admin
       params.require(:dynamic_menu_element_types).permit(:title, :album_id, :page_id, :css, :url, :type)
     end
 
-    def menu_step
+    def multi_step_action
       if menu_element.valid?
         if params[:back_button]
           menu_element.previous_step
