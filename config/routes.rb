@@ -10,7 +10,6 @@ Rails.application.routes.draw do
 
     devise_for :user, path: ''
     resource :changelog, only: :show
-    resources :menu_elements
 
     with_options(except: :show) do
       resources :users
@@ -22,6 +21,7 @@ Rails.application.routes.draw do
           collection { post :sort }
         end
       end
+      resources :menu_elements
       resources :pages do
         resources :page_images
         resources :page_attachments, only: %i(create destroy)
