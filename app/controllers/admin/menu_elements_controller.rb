@@ -25,18 +25,5 @@ module Admin
     def element_types_params
       params.require(:dynamic_menu_element_types).permit(:title, :album_id, :page_id, :css, :url, :type)
     end
-
-    def multi_step_action
-      if menu_element.valid?
-        if params[:back_button]
-          menu_element.previous_step
-        elsif menu_element.last_step?
-          menu_element.save
-        else
-          menu_element.next_step
-        end
-        session[:order_step] = menu_element.current_step
-      end
-    end
   end
 end
