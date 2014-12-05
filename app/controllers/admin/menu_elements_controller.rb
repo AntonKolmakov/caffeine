@@ -1,17 +1,13 @@
 module Admin
   class MenuElementsController < Admin::ApplicationController
+    respond_to :js, only: :new
+
     expose(:menu_elements, model: DynamicMenu::ElementTypes::Base)
     expose(:menu_element, attributes: :element_types_params, model: DynamicMenu::ElementTypes::Base)
 
     def create
-      menu_element.current_step = session[:order_step]
-      multi_step_action
-      if menu_element.new_record?
-        render 'new'
-      else
-        session[:order_step] = nil
-        respond_with :admin, menu_element, location: -> { edit_admin_menu_element_path(menu_element) }
-      end
+      menu_element.save
+      respond_with :admin, menu_element, location: -> { edit_admin_menu_element_path(menu_element) }
     end
 
     def update
