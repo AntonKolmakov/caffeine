@@ -10,3 +10,4 @@
 //= require ckeditor/init
 //= require ./ckeditor/config
 //= require ./albums
+//= require ./menu_elements
