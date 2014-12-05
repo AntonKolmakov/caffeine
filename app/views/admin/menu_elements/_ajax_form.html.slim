@@ -1,0 +1,4 @@
+= simple_form_for menu_element, as: :dynamic_menu_element_types, url: admin_menu_elements_path, method: :post do |f|
+  = render "admin/menu_elements/type_element/#{params[:dynamic_menu_element_types][:type].gsub('DynamicMenu::ElementTypes::', '').downcase}", f: f
+  = f.input :type, as: :hidden, input_html: { value: params[:dynamic_menu_element_types][:type] }
+  = f.submit class: "btn btn-mini btn-primary"

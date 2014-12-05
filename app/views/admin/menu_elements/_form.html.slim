@@ -1,2 +1,8 @@
-= simple_form_for menu_element, as: :dynamic_menu_element_types, url: admin_menu_elements_path, method: :post do |f|
-  = render "#{menu_element.current_step}_step", f: f
+= simple_form_for menu_element, as: :dynamic_menu_element_types, url: new_admin_menu_element_path,
+                  method: :get,
+                  remote: true do |f|
+  = f.input :type, collection: DynamicMenu::ElementTypes::Base::MENU_ELEMENT_TYPES.keys,
+            value_method: ->(i) { DynamicMenu::ElementTypes::Base::MENU_ELEMENT_TYPES[i] }
+
+#ajax_form
+  = render "admin/menu_elements/ajax_form" if params[:dynamic_menu_element_types]
