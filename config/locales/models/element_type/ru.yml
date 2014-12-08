@@ -1,0 +1,12 @@
+ru:
+  activerecord:
+    models:
+      dynamic_menu/element_types/base: компонент/елемент
+    attributes:
+      dynamic_menu/element_types/base:
+        type: Тип елемента
+        title: Название
+        css: css класс
+        url: http ссылка
+        page_id: ссылка на страницу
+        album_id: ссылка на альбом

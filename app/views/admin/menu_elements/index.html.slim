@@ -1,7 +1,7 @@
-h1 Menu Elements
+h1= t('views.admin.menu_elements.index.header')
 
 - menu_elements.each do |element|
   ul
     li= link_to element.type, edit_admin_menu_element_path(element)
 
-= link_to 'Create menu element', new_admin_menu_element_path, class: 'btn btn-green'
+= link_to t('views.admin.menu_elements.index.button.new'), new_admin_menu_element_path, class: 'btn btn-green'
