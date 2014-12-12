@@ -1,20 +1,8 @@
-section[class="contentBlock #{cycle("left", "right")} section_0#{child_counter + 1}"]
-  .content
-    .parallax-container
-      .text
-        .title
-          = child.name
-        .subtitle
-          = raw child.short_description
-      .parallax.layer_1
-    = link_to page_path(child), class: 'next' do
-      - if child_counter.odd?
-        i.glyphicon-circle-arrow-right.glyphicon.left
-        ' Подробнее
-      - else
-        ' Подробнее
-        i.glyphicon-circle-arrow-right.glyphicon.right
-  = link_to page_path(child), class: 'mediaBlock' do
-    .mediaBlockContent
-      .icon-large
-        = child.name
+.col-md-4
+  .row.margin-bottom-20
+    = link_to page_path(child) do
+      .service-box-v1
+        div
+          i[class="fa fa-#{cycle("thumbs-up", "cloud-download", "comments")} color-grey"]
+        h2= child.name
+        p= child.short_description.html_safe

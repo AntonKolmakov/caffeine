@@ -20,6 +20,7 @@ gem 'uglifier'
 gem 'jquery-fileupload-rails'
 gem 'jquery-ui-rails'
 gem 'premailer-rails'
+gem 'font-awesome-sass', '~> 4.2.0'
 
 # Validation gems
 gem 'validates_email_format_of' # validate email format for field
