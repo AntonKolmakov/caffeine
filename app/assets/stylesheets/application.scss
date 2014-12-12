@@ -1,8 +1,7 @@
-@import "bootstrap-compass";
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "icons/*.png";
-//@include all-icons-sprites;
-@import "includes/mixins";
-@import "theme/theme";
-@import "pages/pages";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+@import 'metronic/components';
+@import 'metronic/style';
+@import 'metronic/themes/red';

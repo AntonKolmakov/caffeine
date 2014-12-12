@@ -3,6 +3,11 @@ class PagesController < ApplicationController
   expose(:page)
 
   def show
-    self.page = Page.friendly.find(params[:id]).decorate
+    page = Page.find_by_path(params[:page_path].split('/'))
+    if page
+      self.page = page.decorate
+    else
+      raise ActiveRecord::RecordNotFound
+    end
   end
 end

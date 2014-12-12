@@ -224,6 +224,8 @@ GEM
     fog-softlayer (0.3.18)
       fog-core
       fog-json
+    font-awesome-sass (4.2.2)
+      sass (~> 3.2)
     font_assets (0.1.11)
       rack
     foreman (0.75.0)
@@ -544,6 +546,7 @@ DEPENDENCIES
   faker
   flog
   fog
+  font-awesome-sass (~> 4.2.0)
   font_assets
   foreman
   friendly_id

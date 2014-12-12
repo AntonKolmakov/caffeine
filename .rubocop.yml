@@ -3,6 +3,7 @@ AllCops:
 
   Exclude:
     - bin/**/*
+    - app/assets/**/*
     - config/**/*
     - lib/templates/**/*
     - vendor/**/*
