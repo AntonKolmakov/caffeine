@@ -1,0 +1,9 @@
+h1= t('views.admin.menu_elements.edit.header')
+
+= simple_form_for menu_element, as: :dynamic_menu_element_types, url: admin_menu_element_path, method: :patch do |f|
+  = render "admin/menu_elements/type_element/#{menu_element.type.gsub('DynamicMenu::ElementTypes::', '').downcase}", f: f
+  = f.submit class: "btn btn-mini btn-primary"
+
+= link_to t('app.form.cancel'), admin_menu_elements_path, class: 'btn btn-mini btn-danger'
+= link_to t('views.admin.menu_elements.edit.delete'), admin_menu_element_path(menu_element), method: :delete,
+          data: { confirm: t('views.admin.menu_elements.edit.confirm') }, class: 'btn btn-mini btn-danger'

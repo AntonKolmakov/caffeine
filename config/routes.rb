@@ -23,6 +23,7 @@ Rails.application.routes.draw do
           collection { post :sort }
         end
       end
+      resources :menu_elements
       resources :pages do
         member do
           post :revert_version

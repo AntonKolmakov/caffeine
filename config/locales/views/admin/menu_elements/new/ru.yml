@@ -1,0 +1,8 @@
+ru:
+  views:
+    admin:
+      menu_elements:
+        new:
+          header: Создание компонента меню
+          form:
+            prompt: Выберите тип меню

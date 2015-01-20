@@ -11,3 +11,4 @@
 //= require ./ckeditor/config
 //= require ./albums
 //= require ./versions_page
+//= require ./menu_elements
