@@ -1,28 +1,17 @@
-header
+.header
   .container
-    .bgWrapper
-      .row
-        .col-xs-10.leftside
-          a.logo.shadow-right href="/"
-          .title
-            ' Центр испытаний и сертификации
-            br
-            ' &laquo;Промтехносерт&raquo;
-
-        .col-xs-6
-          section.contacts.shadow-left
-            .icon.contacts
-            .content
-              ' Московская обл., г. Мытищи
-              br
-              ' ул. Ядреевская, д. 4
-              p.phone
-                ' 8 (495) 505-59-61
-
-          section.mainMenu.shadow-left
-            .content
-              = render "partials/navigation"
-              .callback.text-center
-                a.btn.btn-primary data-toggle="modal" data-target="#callback-form"
-                  span.glyphicon.glyphicon-send
-                  ' &nbsp;&nbsp;Оставить заявку
+    .header-navigation.pull-right.font-transform-inherit
+      ul
+        li.dropdown.active
+          a.dropdown-toggle data-target="#" data-toggle="dropdown" href="#"
+            | Home
+          ul.dropdown-menu
+            li
+              a href="#"  Home Default
+            li
+              a href="#"  Home with Header Fixed
+            li.active
+              a href="#"  Home without Top Bar
+        li.dropdown.dropdown-megamenu
+          a.dropdown-toggle data-target="#" data-toggle="dropdown" href="#"
+            | Mega Menu

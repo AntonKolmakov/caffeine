@@ -7,8 +7,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery_nested_form
-//= require jquery.event.frame
-//= require jquery.parallax.min
-//= require bootstrap.min
-//= require ekko-lightbox.min
-//= require application/main

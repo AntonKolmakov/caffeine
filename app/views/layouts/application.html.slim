@@ -10,23 +10,19 @@ html class="no-js" lang="en"
 
     = csrf_meta_tags
 
-    link href="http://fonts.googleapis.com/css?family=Exo+2:400,300,500,500italic,700&subset=latin,cyrillic" type="text/css" rel="stylesheet"
+    link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Sans+Narrow|Source+Sans+Pro:200,300,400,600,700,900&amp;subset=all" rel="stylesheet" type="text/css"
 
     = stylesheet_link_tag :application
 
-  body[class="#{content_for :body_class}"]
-    = render 'partials/header'
+  body.corporate
+    = render 'partials/header/main'
 
-    article
+    #flash_messages
+      = render 'partials/messages'
+
+    .main
       .container
-        .row
-          .col-xs-16
-
-            = yield
-            = render 'partials/after_content'
-            #flash_messages
-              = render 'partials/messages'
-            = render "partials/callback"
+        = yield
 
     = render 'partials/footer'
 

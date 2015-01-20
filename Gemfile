@@ -20,6 +20,7 @@ gem 'uglifier'
 gem 'jquery-fileupload-rails'
 gem 'jquery-ui-rails'
 gem 'premailer-rails'
+gem 'font-awesome-sass', '~> 4.2.0'
 
 # Validation gems
 gem 'validates_email_format_of' # validate email format for field
@@ -89,7 +90,6 @@ group :test do
   gem 'pronto-rubocop', require: false
   gem 'pronto-brakeman', require: false
   gem 'pronto-scss', require: false
-  gem 'pronto-rails_best_practices', require: false
   gem 'pronto-coffeelint', require: false
   gem 'pronto-poper', require: false
   gem 'pronto-flay', require: false

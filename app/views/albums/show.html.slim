@@ -1,9 +1,0 @@
-- content_for(:name) { album.name }
-= render album.seo_datum if album.seo_datum
-
-- if album.description?
-  h3= t('views.albums.show.description')
-  = album.description.html_safe
-
-- album.images.find_each do |image|
-  = image_tag image.picture.url(:thumb) if image.present?

@@ -1,0 +1,8 @@
+ru:
+  views:
+    admin:
+      menu_elements:
+        edit:
+          header: Правка елемента
+          delete: Удалить елемент
+          confirm: Вы уверены что хотите удалить елемент?

@@ -3,4 +3,4 @@
 set -e
 
 bin/pronto run -c develop --exit-code
-bin/reek app/models app/decorators app/helpers app/interactors
+bin/reek app/models app/decorators app/interactors

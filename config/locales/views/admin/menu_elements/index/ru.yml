@@ -1,0 +1,8 @@
+ru:
+  views:
+    admin:
+      menu_elements:
+        index:
+          header: Компоненты Меню
+          button:
+            new: Создать новое меню
