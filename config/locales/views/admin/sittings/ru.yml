@@ -1,0 +1,10 @@
+ru:
+  views:
+    admin:
+      sittings:
+        import_s3:
+          header: Импортировать данные с продакшена
+          import: Начать
+          rollback: Откатить импорт
+          last_modified_bucket: Последние изменение бакета с AWS
+          warning: AWS учетные данные не найдены

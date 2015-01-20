@@ -1,0 +1,13 @@
+ru:
+  settings:
+    attributes:
+      site_enabled:
+        name: Сайт включен?
+      site_disabled_text:
+        name: Текст, отображаемый при выключенном сайте
+      site_name:
+        name: Имя сайта
+      yandex_metrika_key:
+        name: Ключ Yandex Metrika
+      google_analytics_key:
+        name: Ключ Google Analytics

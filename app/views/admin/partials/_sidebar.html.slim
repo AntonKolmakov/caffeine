@@ -33,3 +33,8 @@ nav
             span.main-nav__icon
               i.icon.pe-7s-users
             = t('views.admin.layouts.sidebar.users')
+        li[class="#{active_if_request_url_includes(rails_settings_ui_path)}"]
+          = link_to rails_settings_ui_path, class: 'main-nav__link'
+            span.main-nav__icon
+              i.icon.pe-7s-users
+            = t('settings.index.title')

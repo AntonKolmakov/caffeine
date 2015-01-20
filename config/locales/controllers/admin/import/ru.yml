@@ -1,0 +1,11 @@
+ru:
+  controllers:
+    admin:
+      import:
+        actions:
+          flash:
+            import:
+              notice: Успешно импортировано
+              warning: AWS учетные данные не найдены
+            rollback:
+              notice: Изменения откачены

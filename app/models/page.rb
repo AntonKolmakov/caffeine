@@ -1,5 +1,6 @@
 class Page < ActiveRecord::Base
   include Sluggable
+  include Importable
 
   belongs_to :album
   has_many :user_forms

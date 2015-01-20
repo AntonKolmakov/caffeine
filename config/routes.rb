@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsSettingsUi::Engine, at: 'admin/settings'
   mount Ckeditor::Engine => '/ckeditor'
 
   root 'main_page#index'
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
   # Admin routes
   namespace :admin do
     root 'dashboard#index'
+
+    resource :import, only: %i(create destroy)
 
     devise_for :user, path: ''
     resource :changelog, only: :show

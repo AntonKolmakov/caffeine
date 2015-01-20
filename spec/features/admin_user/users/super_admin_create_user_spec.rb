@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 feature 'admin creates new user' do
+  let(:admin) { create :super_admin }
+
   scenario do
-    admin_session_sign_in
+    admin_session_sign_in(admin)
 
     click_link I18n.t('views.admin.layouts.sidebar.users')
     click_link I18n.t('views.admin.users.index.link.new_user')

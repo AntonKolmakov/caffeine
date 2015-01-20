@@ -46,8 +46,12 @@ gem 'ckeditor' # HTML text editor
 gem 'font_assets' # Properly serve fonts - MIME-types and CORS config
 gem 'acts_as_list' # For sorting pages' children
 gem 'gretel' # breadcrumbs generator
+gem 'rails-settings-cached', '~> 0.4' # Store site settings in DB and memory
+gem 'rails-settings-ui', '~> 0.3' # UI for site settings
+gem 'aws-sdk'
 gem 'paper_trail'
 gem 'kramdown', require: false
+gem 'active_attr'
 gem 'diffy'
 gem 'interactor-rails'
 
@@ -93,13 +97,13 @@ group :test do
   gem 'pronto-rubocop', require: false
   gem 'pronto-brakeman', require: false
   gem 'pronto-scss', require: false
-  gem 'pronto-rails_best_practices', require: false
   gem 'pronto-coffeelint', require: false
   gem 'pronto-poper', require: false
   gem 'pronto-flay', require: false
 
   gem 'flog', require: false
   gem 'reek', require: false
+  gem 'spring-commands-rspec'
 end
 
 group :staging, :production do
