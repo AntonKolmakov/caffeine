@@ -1,20 +1,56 @@
-- content_for(:heading_page) { t('views.admin.pages.edit.header') }
+- content_for :heading_page do
+  i.icon.pe-7s-news-paper
+  = t('views.admin.pages.edit.header')
+end
 - breadcrumb :page, page
+- content_for :control_page do
+  span
+    = link_to page_path(page), target: '_blank', title: 'Просмотреть страницу'
+      i.pe-7f-search
+  i.icon.pe-7s-date
+  span
+    = time_tag(page.created_at)
+  span
+    = link_to admin_page_path(page), method: :delete, data: { confirm: t('views.admin.pages.edit.confirm') }, title: 'Удалить страницу'
+      i.pe-7f-trash
+end
 
 = render 'form'
 
-#list_of_attachments
-  = render partial: 'admin/pages/page_attachment', collection: page.page_attachments
+.widget
+  .widget__content.clearfix
+    ul#list_of_attachments.list-group
+      = render partial: 'admin/pages/page_attachment', collection: page.page_attachments
 
-#uploader
-  = simple_form_for [:admin, page, PageAttachment.new], html: {multipart: true} do |f|
-    = f.input :attachment, as: :file, input_html: {multiple: true, name: 'page_attachment[attachment]'}
+    #uploader
+      = simple_form_for [:admin, page, PageAttachment.new], html: {multipart: true} do |f|
+        .form-group.file.optional.page_attachment_attachment
+          = f.label :attachment, class: 'control-label'
+          .buttons.float-none
+            .span.btn.btn-skyblue.btn-multiple-file
+              i.pe-7s-plus
+              span Выбрать файлы...
+              = f.input_field :attachment, as: :file, multiple: true, name: 'page_attachment[attachment]'
 
-= link_to t('views.admin.pages.edit.delete'), admin_page_path(page), method: :delete, data: { confirm: t('views.admin.pages.edit.confirm') }, class: 'btn btn-mini btn-danger'
-= link_to t('views.admin.pages.edit.link_to_page'), page_path(page), target: "_blank"
+    #accordion.panel-group aria-multiselectable="true" role="tablist"
+      - page.versions.each_with_index do |version_page, index|
+        .panel.panel-default
+          div id="heading#{index+1}" class='panel-heading' role="tab"
+            h4.panel-title
+              = content_tag :a, author_version(version_page),
+                            'aria-controls'=>"collapse#{index+1}",
+                            'aria-expanded'=>"false",
+                            'data-version-id'=>"#{version_page.id}",
+                            'data-parent'=>"#accordion",
+                            'data-toggle'=>"collapse",
+                            'href'=>"#collapse#{index+1}",
+                            data: { url: version_page_admin_page_url }
+              = link_to 'Rollback version', revert_version_admin_page_path(version: version_page), method: :post
+          div id="collapse#{index+1}" class='panel-collapse collapse' aria-labelledby="heading#{index+1}" role="tabpanel"
+            div class="panel-body" id="panel-body-#{version_page.id}"
 
-script#template-upload type="text/x-tmpl"
-  .upload
-    | {%=o.name%}
-    .progress
-      .bar style=("width: 0%")
+    script#template-upload type="text/x-tmpl"
+      .upload
+        | {%=o.name%}
+        .progress
+          .bar style=("width: 0%")

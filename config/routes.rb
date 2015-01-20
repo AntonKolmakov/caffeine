@@ -21,6 +21,10 @@ Rails.application.routes.draw do
         end
       end
       resources :pages do
+        member do
+          post :revert_version
+          get  :version_page
+        end
         resources :page_images
         resources :page_attachments, only: %i(create destroy)
       end

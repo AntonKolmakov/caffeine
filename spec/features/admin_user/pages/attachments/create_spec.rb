@@ -8,7 +8,10 @@ feature 'admin creates attachment', js: true do
 
     click_on I18n.t('views.admin.layouts.sidebar.pages')
     click_on user_page.name
-    attach_file('page_attachment[attachment]', File.expand_path('spec/fixtures/pages/attachments/документ.pdf'))
+    attach_file(
+      'page_attachment_attachment',
+      File.expand_path('spec/fixtures/pages/attachments/документ.pdf'),
+      visible: false)
 
     expect(page).to have_content('dokument.pdf')
   end

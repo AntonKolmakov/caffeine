@@ -22,7 +22,8 @@ class Page < ActiveRecord::Base
     Page.main.update_all(main: false) unless main_page?
   end
 
-  acts_as_tree order: 'position', name_column: 'slug'
+  acts_as_tree order: 'position'
+  has_paper_trail on: %i(update destroy)
 
   # we don't need this till we fetch all pages through class method
   # roots_and_descendants_preordered, which returns all nodes in your tree, pre-ordered.
@@ -30,6 +31,8 @@ class Page < ActiveRecord::Base
   # acts_as_list scope: :parent
 
   scope :main, -> { where(main: true) }
+
+  private
 
   def main_page?
     self == Page.main_page || !main?

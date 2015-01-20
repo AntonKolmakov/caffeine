@@ -46,7 +46,10 @@ gem 'ckeditor' # HTML text editor
 gem 'font_assets' # Properly serve fonts - MIME-types and CORS config
 gem 'acts_as_list' # For sorting pages' children
 gem 'gretel' # breadcrumbs generator
+gem 'paper_trail'
 gem 'kramdown', require: false
+gem 'diffy'
+gem 'interactor-rails'
 
 group :development do
   gem 'quiet_assets'
@@ -82,7 +85,7 @@ group :test do
   gem 'minitest'
   gem 'shoulda-matchers'
   gem 'turnip'
-  gem 'selenium-webdriver'
+  gem 'capybara-webkit'
   gem 'codeclimate-test-reporter', require: false
   gem 'rspec-activemodel-mocks'
 

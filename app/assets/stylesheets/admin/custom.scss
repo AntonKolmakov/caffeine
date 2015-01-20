@@ -108,6 +108,37 @@
   box-shadow: none;
 }
 
+.textarea {
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/*.form-group.file {
+  label {
+    @extend label[for=uploader];
+  }
+  input {
+    display: none;
+  }
+}*/
+.widget--tabbed {
+  .tabs__content {
+    > div {
+      width: 100%;
+    }
+  }
+  .widget {
+    margin-top: 0;
+    border: none;
+  }
+  .tabs {
+    + .widget {
+      padding-top: 0;
+    }
+  }
+}
+
 .dropdown {
   height: 34px;
   &:after {
@@ -124,14 +155,70 @@
   box-shadow: none;
 }
 
+/** Styling input[type=file] **/
 
-.submits {
+.btn-file {
+  position: relative;
+  overflow: hidden;
+  i {
+    padding: 0 4px 0 0;
+  }
+}
+
+.btn-file, .btn-multiple-file {
+  input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: translate(-300px, 0) scale(4);
+    font-size: 23px;
+    direction: ltr;
+    cursor: pointer;
+  }
+}
+
+/* Fix for IE 7: */
+
+* + html .btn-file { padding: 2px 15px; margin: 1px 0 0 0; }
+
+.submits,
+.buttons {
   float: left;
   margin-left: -5px;
 }
-.submits-right {
+
+.submits-right,
+.buttons-right {
   float: right;
   margin-right: -5px;
+}
+
+.float-none {
+  float: none;
+}
+
+.widget--tabbed {
+  position: relative;
+  .buttons-right {
+    position: absolute;
+    top: 5px;
+    right: 25px;
+  }
+}
+
+@media ( max-width: 845px ) {
+  .widget--tabbed {
+    .buttons-right {
+      position: relative;
+      top: auto;
+      right: auto;
+      padding: 0 0 20px 20px;
+    }
+  }
 }
 
 /* Pe-icon-7-stroke' */

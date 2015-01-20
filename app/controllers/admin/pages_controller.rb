@@ -29,6 +29,19 @@ module Admin
       respond_with :admin, page, location: -> { edit_admin_page_path(page) }
     end
 
+    # App responds with string of versions pages
+    def version_page
+      data = CompareVersion.call(version_page: params[:version_page], current_page: page)
+      render text: data.result
+    end
+
+    # Allows you switch on specific version
+    def revert_version
+      version = PaperTrail::Version.find(params[:version])
+      version.reify(has_one: true).save!
+      redirect_to edit_admin_page_path(version.reify), notice: 'version rollback'
+    end
+
     def destroy
       page.destroy
       respond_with :admin, page
@@ -36,8 +49,13 @@ module Admin
 
     private
 
+    def user_for_paper_trail
+      current_admin_user
+    end
+
     def page_params
       params.require(:page).permit(:main,
+                                   :random_token,
                                    :name,
                                    :description,
                                    :short_description,

@@ -16,9 +16,7 @@ module ApplicationHelper
     'main-nav--active' if request.url.include?(path)
   end
 
-  def page_path(page_or_path)
-    path = page_or_path.is_a?(String) ? page_or_path : page_or_path.ancestry_path.join('/')
-
-    url_for(path)
+  def author_version(version_page)
+    raw("#{User.find(version_page.version_author).full_name} - #{time_tag(version_page.created_at)}")
   end
 end

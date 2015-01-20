@@ -8,8 +8,10 @@ feature 'admin destroys user', js: true do
 
     click_link I18n.t('views.admin.layouts.sidebar.users')
     click_link new_user.email
-    click_on I18n.t('views.admin.users.edit.link.delete_user')
-    page.accept_alert
+
+    accept_confirm do
+      click_on I18n.t('views.admin.users.edit.link.delete_user')
+    end
 
     expect(page).to have_content(I18n.t('flash.actions.destroy.notice'))
   end
