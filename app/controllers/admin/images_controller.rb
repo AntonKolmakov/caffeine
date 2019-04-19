@@ -4,9 +4,9 @@ module Admin
 
     respond_to :js, only: :create
 
-    expose(:album, finder: :find_by_slug)
-    expose(:images, ancestor: :album)
-    expose(:image, attributes: :image_params)
+    expose(:album, find_by: :slug)
+    expose(:images, from: :album)
+    expose :image, scope: ->{ album.images }
 
     def edit
     end

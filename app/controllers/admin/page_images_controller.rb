@@ -1,10 +1,9 @@
 module Admin
   class PageImagesController < Admin::ApplicationController
-    expose(:page, finder: :find_by_slug)
-    expose(:page_image, attributes: :image_params)
+    expose(:page, find_by: :slug)
+    expose :page_image, scope: ->{ page_image.page }
 
     def create
-      page_image.page = page
       page_image.save
       respond_with :admin, page_image, location: -> { edit_admin_page_path(page) }
     end

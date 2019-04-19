@@ -3,7 +3,4 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery
 
-  decent_configuration do
-    strategy DecoratorStrategy
-  end
 end

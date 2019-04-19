@@ -1,4 +1,4 @@
-class CreateAlbumHierarchies < ActiveRecord::Migration
+class CreateAlbumHierarchies < ActiveRecord::Migration[5.0]
   def change
     create_table :album_hierarchies, :id => false do |t|
       t.integer  :ancestor_id, :null => false   # ID of the parent/grandparent/great-grandparent/... tag

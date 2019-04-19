@@ -1,4 +1,4 @@
-class DropCaseinAdminUsers < ActiveRecord::Migration
+class DropCaseinAdminUsers < ActiveRecord::Migration[5.0]
   def self.up
     drop_table :casein_admin_users
   end

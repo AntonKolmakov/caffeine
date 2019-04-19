@@ -1,4 +1,4 @@
-class RenamePostAttachments < ActiveRecord::Migration
+class RenamePostAttachments < ActiveRecord::Migration[5.0]
   def change
     reversible do |dir|
       dir.up do

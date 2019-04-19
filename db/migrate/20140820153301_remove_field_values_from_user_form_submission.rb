@@ -1,4 +1,4 @@
-class RemoveFieldValuesFromUserFormSubmission < ActiveRecord::Migration
+class RemoveFieldValuesFromUserFormSubmission < ActiveRecord::Migration[5.0]
   def change
     change_table :user_form_submissions do |t|
       reversible do |dir|

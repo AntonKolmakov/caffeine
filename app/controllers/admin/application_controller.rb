@@ -15,9 +15,5 @@ module Admin
         super
       end
     end
-
-    decent_configuration do
-      strategy DecentExposure::StrongParametersStrategy
-    end
   end
 end

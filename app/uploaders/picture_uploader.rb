@@ -18,7 +18,7 @@ class PictureUploader < BaseUploader
   # Create different versions of your uploaded files:
   version :standard do
     process resize_to_limit: [1024, 768]
-    process :watermark, if: :album_image?
+    # process :watermark, if: :album_image?
   end
 
   version :thumb, if: :needs_thumb? do
@@ -40,20 +40,20 @@ class PictureUploader < BaseUploader
   end
 
   # Add watermark to big image
-  def watermark
-    return unless model.album.watermark.present?
-
-    watermark = MiniMagick::Image.open(model.album.watermark.file.url)
-
-    manipulate! do |img|
-      img = img.composite(watermark) do |c|
-        c.compose 'Over'
-        c.gravity 'SouthEast'
-      end
-      img = yield(img) if block_given?
-      img
-    end
-  end
+  # def watermark
+  #   return unless model.album.watermark.present?
+  #
+  #   watermark = MiniMagick::Image.open(model.album.watermark.file.url)
+  #
+  #   manipulate! do |img|
+  #     img = img.composite(watermark) do |c|
+  #       c.compose 'Over'
+  #       c.gravity 'SouthEast'
+  #     end
+  #     img = yield(img) if block_given?
+  #     img
+  #   end
+  # end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.

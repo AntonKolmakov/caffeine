@@ -1,4 +1,4 @@
-class ChangeUsers < ActiveRecord::Migration
+class ChangeUsers < ActiveRecord::Migration[5.0]
   def up
     change_table :users do |t|
       t.remove :confirmation_token

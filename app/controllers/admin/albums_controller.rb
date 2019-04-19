@@ -1,7 +1,7 @@
 module Admin
   class AlbumsController < Admin::ApplicationController
-    expose(:albums)
-    expose(:album, attributes: :album_params, finder: :find_by_slug)
+    expose(:albums) { Album.all }
+    expose(:album, find_by: :slug)
 
     def index
     end

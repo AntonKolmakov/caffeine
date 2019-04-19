@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :album do
     name { Faker::Name.name }
     trait :with_images do

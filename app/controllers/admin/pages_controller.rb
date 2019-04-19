@@ -1,10 +1,11 @@
 module Admin
   class PagesController < Admin::ApplicationController
     respond_to :js, only: :update
+    before_action :set_paper_trail_whodunnit
 
     expose(:decorated_pages) { pages.decorate }
-    expose(:pages) { Page.roots_and_descendants_preordered }
-    expose(:page, attributes: :page_params, finder: :find_by_slug)
+    expose(:pages) { Page.all }
+    expose(:page, find_by: :slug)
 
     def index
     end
@@ -25,7 +26,8 @@ module Admin
     end
 
     def update
-      page.save
+      binding.pry
+      page.update(page_params)
       respond_with :admin, page, location: -> { edit_admin_page_path(page) }
     end
 

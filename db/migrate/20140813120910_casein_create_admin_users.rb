@@ -1,4 +1,4 @@
-class CaseinCreateAdminUsers < ActiveRecord::Migration
+class CaseinCreateAdminUsers < ActiveRecord::Migration[5.0][5.0]
   
   def self.up
     create_table :casein_admin_users do |t|   

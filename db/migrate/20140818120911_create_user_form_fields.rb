@@ -1,4 +1,4 @@
-class CreateUserFormFields < ActiveRecord::Migration
+class CreateUserFormFields < ActiveRecord::Migration[5.0]
   def change
     create_table :user_form_fields do |t|
       t.string :name

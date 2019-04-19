@@ -15,7 +15,7 @@ class Album < ActiveRecord::Base
   mount_uploader :watermark, PictureUploader
 
   # Recreate all attached images versions to apply new watermark
-  after_save :recreate_versions, on: :update, if: -> { changed_attributes[:watermark] }
+  # after_save :recreate_versions, on: :update, if: -> { changed_attributes[:watermark] }
 
   protected
 

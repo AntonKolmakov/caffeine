@@ -15,3 +15,6 @@ app/assets/images/icons-*
 app/assets/images/attachments-*
 .DS_Store
 .foreman
+
+# Ignore application configuration
+/config/application.yml

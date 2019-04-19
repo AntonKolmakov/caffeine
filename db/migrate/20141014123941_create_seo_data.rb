@@ -1,4 +1,4 @@
-class CreateSeoData < ActiveRecord::Migration
+class CreateSeoData < ActiveRecord::Migration[5.0]
   def change
     create_table :seo_data do |t|
       t.string :meta_title

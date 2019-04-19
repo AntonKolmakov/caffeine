@@ -1,4 +1,4 @@
-class DropPosts < ActiveRecord::Migration
+class DropPosts < ActiveRecord::Migration[5.0]
   def up
     drop_table :posts
   end

@@ -2,9 +2,9 @@ module Admin
   class PageAttachmentsController < Admin::ApplicationController
     respond_to :js, only: :create
 
-    expose(:page, finder: :find_by_slug)
-    expose(:page_attachments, ancestor: :page)
-    expose(:page_attachment, attributes: :page_attachment_params)
+    expose(:page, find_by: :slug)
+    expose(:page_attachments, from: :page)
+    expose :page_attachment, scope: ->{ page.page_attachments } #build new page_attachment
 
     def create
       page_attachment.save

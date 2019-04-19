@@ -1,4 +1,4 @@
-class CreatePageHierarchies < ActiveRecord::Migration
+class CreatePageHierarchies < ActiveRecord::Migration[5.0]
   def change
     create_table :page_hierarchies, :id => false do |t|
       t.integer  :ancestor_id, :null => false   # ID of the parent/grandparent/great-grandparent/... tag

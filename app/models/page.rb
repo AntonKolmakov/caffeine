@@ -23,13 +23,13 @@ class Page < ActiveRecord::Base
     Page.main.update_all(main: false) unless main_page?
   end
 
-  acts_as_tree order: 'position'
+  acts_as_tree
   has_paper_trail on: %i(update destroy)
 
   # we don't need this till we fetch all pages through class method
   # roots_and_descendants_preordered, which returns all nodes in your tree, pre-ordered.
   # So, you can uncomment this convenient way and ordering pages by parent
-  # acts_as_list scope: :parent
+  acts_as_list scope: :parent_id
 
   scope :main, -> { where(main: true) }
 

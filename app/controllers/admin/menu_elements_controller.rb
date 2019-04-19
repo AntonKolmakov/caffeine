@@ -3,7 +3,7 @@ module Admin
     respond_to :js, only: :new
 
     expose(:menu_elements, model: DynamicMenu::ElementTypes::Base)
-    expose(:menu_element, attributes: :element_types_params, model: DynamicMenu::ElementTypes::Base)
+    expose(:menu_element, model: DynamicMenu::ElementTypes::Base)
 
     def create
       menu_element.save

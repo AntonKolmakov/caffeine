@@ -1,4 +1,4 @@
-class DropAlbumHierarchies < ActiveRecord::Migration
+class DropAlbumHierarchies < ActiveRecord::Migration[5.0]
   def up
     drop_table :album_hierarchies
   end

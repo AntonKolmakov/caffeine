@@ -13,14 +13,16 @@ Rails.application.routes.draw do
     devise_for :user, path: ''
     resource :changelog, only: :show
 
-    with_options(except: :show) do
+    # with_options(except: :show) do
       resources :users
       resources :user_forms do
         resources :user_form_submissions, only: %i(index show destroy), shallow: true
       end
       resources :albums do
         resources :images do
-          collection { post :sort }
+          collection do
+            post 'sort'
+          end
         end
       end
       resources :menu_elements
@@ -31,10 +33,10 @@ Rails.application.routes.draw do
         end
         resources :page_images
         resources :page_attachments, only: %i(create destroy)
+
       end
     end
 
-  end
 
   # User routes
   resources :albums, only: :show
