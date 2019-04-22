@@ -1,0 +1,31 @@
+defaults: &defaults
+  rocket_name: "Foo"
+  limit: 123
+  launch_mode:
+    - auto
+    - manual
+  spaceports:
+    - plesetsk
+    - baikonur
+  style:
+    border_color: 'e0e0e0'
+    block_color: 'ffffff'
+    title:
+      font: "Tahoma"
+      size: "12"
+      color: '107821'
+
+  development:
+    <<: *defaults
+
+  test:
+    <<: *defaults
+
+  production:
+    <<: *defaults
+
+#    defaults[:site_enabled] = true
+#    defaults[:site_disabled_text] = ''
+#    defaults[:site_name] = ''
+#    defaults[:yandex_metrika_key] = ''
+#    defaults[:google_analytics_key] = ''

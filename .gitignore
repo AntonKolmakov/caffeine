@@ -16,5 +16,5 @@ app/assets/images/attachments-*
 .DS_Store
 .foreman
 
-# Ignore application configuration
-/config/application.yml
+# Ignore master key for decrypting credentials and more.
+config/secrets.yml

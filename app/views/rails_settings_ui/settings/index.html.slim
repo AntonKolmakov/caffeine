@@ -1,7 +1,7 @@
 ol.breadcrumb
   li.active= t('settings.index.title')
 
-  - if @casted_settings && @casted_settings[:errors].any?
+  - if @errors.any?
     .alert.alert-danger= t('settings.index.settings_include_errors')
 
   = form_tag [:update_all], method: :put, class: 'form' do
@@ -16,11 +16,11 @@ ol.breadcrumb
             tr[data={name: name}]
               td= I18n.t("settings.attributes.#{name}.name")
               td.setting-value
-                - setting_with_error = @casted_settings && @casted_settings[:errors].include?(name)
+                - setting_with_error = @errors.include?(name)
                 div[class="form-group #{ setting_with_error ? 'has-error' : ''}"]
-                  = setting_field(name, value, @settings)
+                  = setting_field(name, value)
                   - if setting_with_error
-                    span.help-block= @casted_settings[:errors][name]
+                    span.help-block= @errors[name]
 
     = submit_tag t('settings.index.save_all'), class: 'btn btn-primary btn-lg'
   br

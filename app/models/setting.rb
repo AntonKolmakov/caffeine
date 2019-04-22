@@ -1,7 +1,4 @@
-class Setting < RailsSettings::CachedSettings
-  defaults[:site_enabled] = true
-  defaults[:site_disabled_text] = ''
-  defaults[:site_name] = ''
-  defaults[:yandex_metrika_key] = ''
-  defaults[:google_analytics_key] = ''
+class Setting < RailsSettings::Base
+  source Rails.root.join("config/app.yml")
+  # cache_prefix { "v1" }
 end

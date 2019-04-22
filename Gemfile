@@ -27,7 +27,6 @@ gem 'validates_email_format_of' # validate email format for field
 gem 'phony_rails' # validate and normalize phone numbers
 
 # # Gems for easy developing
-gem "figaro"
 gem 'seedbank' # For envirnoment-specific seeds
 gem 'nested_form' # for building and updating associations through forms
 gem 'devise' # Authenticate users
@@ -67,7 +66,6 @@ group :development do
 end
 #
 group :development, :test do
-  # gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'letter_opener'
@@ -88,9 +86,8 @@ group :test do
   gem 'minitest'
   gem 'shoulda-matchers'
   gem 'turnip'
-  # gem 'capybara-webkit'
-  # gem 'codeclimate-test-reporter', require: false
-  # gem 'rspec-activemodel-mocks'
+  gem 'capybara-webkit'
+  gem 'rspec-activemodel-mocks'
 
   # gem 'pronto'
   # gem 'pronto-rubocop', require: false

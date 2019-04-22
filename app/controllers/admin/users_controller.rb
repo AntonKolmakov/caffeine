@@ -2,8 +2,8 @@ module Admin
   class UsersController < Admin::ApplicationController
     before_action :require_super_admin
 
-    expose(:users)
-    expose(:user, attributes: :user_params)
+    expose(:users) { User.all }
+    expose(:user)
 
     def index
     end
@@ -20,7 +20,7 @@ module Admin
     end
 
     def update
-      user.save
+      user.update(user_params)
       sign_in(user, bypass: true)
       respond_with :admin, user, location: -> { edit_admin_user_path(user) }
     end

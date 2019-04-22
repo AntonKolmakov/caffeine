@@ -2,7 +2,7 @@ module Admin
   class MenuElementsController < Admin::ApplicationController
     respond_to :js, only: :new
 
-    expose(:menu_elements, model: DynamicMenu::ElementTypes::Base)
+    expose(:menu_elements) { DynamicMenu::ElementTypes::Base.all }
     expose(:menu_element, model: DynamicMenu::ElementTypes::Base)
 
     def create

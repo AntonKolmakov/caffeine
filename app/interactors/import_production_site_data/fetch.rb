@@ -21,7 +21,7 @@ module ImportProductionSiteData
 
     def download_from_aws
       context.import_file.download_to(local_file_path)
-    rescue AWS::Errors::MissingCredentialsError
+    rescue Aws::S3::Errors::NotFound
       context.fail!
     end
   end

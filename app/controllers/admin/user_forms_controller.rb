@@ -1,7 +1,7 @@
 module Admin
   class UserFormsController < Admin::ApplicationController
-    expose(:user_forms)
-    expose(:user_form, attributes: :user_form_params)
+    expose(:user_forms) { UserForm.all }
+    expose(:user_form)
 
     def index
     end
@@ -19,7 +19,7 @@ module Admin
     end
 
     def update
-      user_form.save
+      user_form.update(user_form_params)
       respond_with :admin, user_form, location: -> { edit_admin_user_form_path(user_form) }
     end
 

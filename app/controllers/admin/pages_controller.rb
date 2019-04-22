@@ -26,7 +26,6 @@ module Admin
     end
 
     def update
-      binding.pry
       page.update(page_params)
       respond_with :admin, page, location: -> { edit_admin_page_path(page) }
     end

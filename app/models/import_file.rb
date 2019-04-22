@@ -4,7 +4,7 @@ class ImportFile
   attr_reader :aws_bucket
 
   def initialize
-    @aws_bucket = AWS::S3.new.buckets[Rails.application.secrets.s3_bucket]
+    @aws_bucket = Aws::S3::Resource.new.bucket(Rails.application.secrets.s3_bucket)
   end
 
   attribute :bucket
@@ -15,12 +15,12 @@ class ImportFile
   end
 
   def s3_file
-    bucket.objects['my-json-data']
+    bucket.object('my-json-data')
   end
 
   def download_to(local_path)
     File.open(local_path, 'wb') do |file|
-      file.write(s3_file.read)
+      file.write(s3_file.get.body.read)
     end
 
     Rails.cache.write('time', fetch_bucket, expires_in: 1.hour)
@@ -28,7 +28,8 @@ class ImportFile
 
   def fetch_bucket
     s3_file.last_modified
-  rescue AWS::Errors::MissingCredentialsError
+  rescue Aws::S3::Errors::NotFound
     nil
   end
+
 end
