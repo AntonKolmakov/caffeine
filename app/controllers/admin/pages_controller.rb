@@ -33,7 +33,7 @@ module Admin
     # App responds with string of versions pages
     def version_page
       data = CompareVersion.call(version_page: params[:version_page], current_page: page)
-      render text: data.result
+      render plain: data.result
     end
 
     # Allows you switch on specific version
