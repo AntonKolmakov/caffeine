@@ -1,7 +1,9 @@
 # 
 Enhancements:
 
+* pages hierarchies.
 * add easiest way to set main page rigth from index pages.
+* ability add picture, attach files due Ajax.
 
 ## Import data from s3
 
